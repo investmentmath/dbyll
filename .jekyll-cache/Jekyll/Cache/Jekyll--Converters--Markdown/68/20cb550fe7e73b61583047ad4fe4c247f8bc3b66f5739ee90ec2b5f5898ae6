@@ -1,0 +1,8 @@
+I"D<p><em>This post reviews the definition of returns. It looks at discrete time returns and log returns as well as at the operation of compounding. In the log return context, return compounding becomes additive, which proves very convenient. Log returns however depend in a non additive way in the components of returns (dividends and price appreciation)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Continuous compounding arises as the discretization grid get finer. Continuous time often lends itself to closed analytical formulas.</em></p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>A later post will show a loglinear approximation of the discrete<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+:ET

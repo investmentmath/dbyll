@@ -1,0 +1,43 @@
+I"½!<p><em>This is the exam for the 2018 ensae course.</em></p>
+<hr />
+<h2 id="exercise-1">Exercise 1</h2>
+<p>The investment universe is composed of <span class="math inline">\(N\)</span> risky assets (indices <span class="math inline">\(i=1,\ldots,N\)</span>) with expected returns <span class="math inline">\(\mu=(\mu_{1},\ldots,\mu_{N})&#39;\)</span> and covariance matrix <span class="math inline">\(\Sigma\)</span> (dimension <span class="math inline">\((N,N)\)</span>) which is assumed non singular. A portfolio is a vector <span class="math inline">\(\pi\)</span> of size <span class="math inline">\(N\)</span> which records the proportions invested on the assets. The proportions sum to <span class="math inline">\(1\)</span>, i.e.Â <span class="math inline">\(\pi&#39;e=1\)</span> where <span class="math inline">\(e\)</span> is the vector of size <span class="math inline">\(N\)</span> where each component is equal to <span class="math inline">\(1\)</span>.</p>
+<ol type="1">
+<li><p>Given a return objective <span class="math inline">\(\bar{\mu}\)</span>, we are looking for the portfolio with the lowest possible level of risk. Give the corresponding optimization problem. Derive the Lagrangian, noting <span class="math inline">\(\gamma\)</span> the multiplier of the return constraint and <span class="math inline">\(\delta\)</span> the multiplier of the full investment constraint.</p></li>
+<li><p>What is the first order condition corresponding to the optimum ? For which portfolio do we get <span class="math inline">\(\gamma=0\)</span> ?</p></li>
+<li><p>We consider an optimal portfolio <span class="math inline">\(\bar{\pi}\)</span> with <span class="math inline">\(\gamma \neq 0\)</span> and return <span class="math inline">\(\bar{r}\)</span>. Show that the first order condition for this portfolio can be written as: <span class="math display">\[\text{cov}(r_{i},\bar{r})=\gamma \mu_{i}+\delta.\]</span></p></li>
+<li><p>Show that: <span class="math display">\[\text{var}(\bar{r})=\gamma \bar{\mu}+\delta,\]</span> and: <span class="math display">\[\beta_{i}(\bar{\mu}+\frac{\delta}{\gamma})=\mu_{i}+\frac{\delta}{\gamma},\]</span> where <span class="math inline">\(\beta_{i}\)</span> is the beta of asset <span class="math inline">\(i\)</span> against portfolio <span class="math inline">\(\bar{\pi}\)</span>.</p></li>
+<li><p>We now consider portfolio <span class="math inline">\(\tilde{\pi}\)</span> with return <span class="math inline">\(\tilde{r}\)</span> satisfying: <span class="math inline">\(\text{cov}(\tilde{r},\bar{r})=0\)</span>. Let <span class="math inline">\(\tilde{\mu}\)</span> be its expected return. Show that for asset <span class="math inline">\(i\)</span>: <span class="math display">\[\mu_{i}-\tilde{\mu}=\beta_{i}(\bar{\mu}-\tilde{\mu}).\]</span> This is called a one factor representation of expected returns.</p></li>
+<li><p>Only one efficient portfolio does not give rise to a one factor representation of expected returns. Which one ?</p></li>
+<li><p>Inversely, assume that portfolio <span class="math inline">\(\bar{\pi}\)</span> with return <span class="math inline">\(\bar{r}\)</span> gives rise to a one factor representation: <span class="math display">\[\beta_{i}(\bar{\mu}-\rho)=\mu_{i}-\rho,\]</span> for all <span class="math inline">\(i\)</span>, where <span class="math inline">\(\beta_{i}\)</span> is the beta of asset <span class="math inline">\(i\)</span> with respect to portfolio <span class="math inline">\(\bar{\pi}\)</span>. Show that we have the following vectorial relationship: <span class="math display">\[\Sigma \bar{\pi}=\gamma \mu + \delta e,\]</span> where <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\delta\)</span> are constants associated to the one factor representation.</p></li>
+<li><p>Conclude that portfolio <span class="math inline">\(\bar{\pi}\)</span> (the portfolio which generates the given one factor representation) is a solution to the problem defined in the first question. As a reminder, in the context of convex objective function and linear constraints, the first order condition attached to the Lagrangian is both necessary and sufficient to define a solution.</p></li>
+</ol>
+<h2 id="exercice-2">Exercice 2</h2>
+<p>We consider the following continuous time investment problem. The investment universe is composed of two assets, cash with constant rate of return: <span class="math display">\[\frac{dD_{t}}{D_{t}}=r dt,\]</span> and a risky asset that follows a geometric diffusion process: <span class="math display">\[\frac{dP_{t}}{P_{t}}=\mu dt+\sigma dB_{t}=r dt+(\mu-r)dt+\sigma dB_{t},\]</span> where <span class="math inline">\(B_{t}\)</span> is a scalar Brownian motion. The price of risk is defined as <span class="math inline">\(\lambda=(\mu-r)/\sigma\)</span>.</p>
+<p>At each point in time, wealth <span class="math inline">\(W_{t}\)</span> is invested to finance a consumption flow <span class="math inline">\(C_{t}dt\)</span> over the time interval <span class="math inline">\([t,t+dt]\)</span>. The fraction of wealth invested on the risky asset at time <span class="math inline">\(t\)</span> is noted <span class="math inline">\(x_{t}\)</span>.</p>
+<ol type="1">
+<li><p>Give the stochastic differential equation followed by wealth assuming consumption is zero. As a reminder, this is the infinitesimal version of the discrete time equation. Give <span class="math inline">\(E_{t}[dW_{t}]\)</span> (the drift of wealth) and <span class="math inline">\(d[W]_{t}\)</span> (the quadratic variation of wealth).</p></li>
+<li><p>Same question without assuming <span class="math inline">\(C^{t}=0\)</span>.</p></li>
+</ol>
+<p>At each time <span class="math inline">\(t\)</span>, the investor maximizes: <span class="math display">\[E_{t}\left[\int_{t}^{T}e^{-\rho (u-t)}u(C_{u})du\right],\]</span> by making consumption - <span class="math inline">\(C_{t}\)</span> - and investment - <span class="math inline">\(x_{t}\)</span> - choices. The associated value function is noted <span class="math inline">\(J(t,W_{t})\)</span>. It is admitted that the dynamic programming principle implies the following partial differential equation (HJB): <span class="math display">\[0=\max_{(C_{t},x_{t})}\left[
+u(C_{t})-\rho J+\frac{\partial J}{\partial t}+\frac{\partial J}{\partial W}E[dW_{t}]+\frac{1}{2}\frac{\partial^{2} J}{\partial W^{2}}d[W]_{t}
+\right].\]</span></p>
+<p>We will use the following notations: <span class="math display">\[\frac{\partial J}{\partial t}=J_{t},\]</span> <span class="math display">\[\frac{\partial J}{\partial W}=J_{W},\]</span> <span class="math display">\[\frac{\partial^{2} J}{\partial W^{2}}=J_{WW}.\]</span></p>
+<ol start="3" type="1">
+<li><p>Give the optimal consumption rate <span class="math inline">\(C_{t}^{*}\)</span> as a function of <span class="math inline">\(J_{W}\)</span> and the utility function.</p></li>
+<li><p>Give the optimal risky asset weight <span class="math inline">\(x_{t}^{*}\)</span>, outlining the relevant property of the value function underlying your reasoning.</p></li>
+<li><p>Describe the structure of this solution.</p></li>
+</ol>
+<p>We now assume the utility function is: <span class="math display">\[u(C)=\frac{C^{1-\alpha}}{1-\alpha},\]</span> with <span class="math inline">\(\alpha&gt;1\)</span> and admit that the value function has a similar structure: <span class="math display">\[J(t,W_{t})=h(t)^{\alpha}\frac{W_{t}^{1-\alpha}}{1-\alpha}.\]</span></p>
+<ol start="6" type="1">
+<li><p>Show that: <span class="math display">\[\frac{C^{*}_{t}}{W^{*}_{t}}=h(t)^{-1},\]</span> and: <span class="math display">\[x_{t}^{*}=\frac{1}{\alpha}\frac{\lambda}{\sigma}.\]</span></p></li>
+<li><p>Show that at each date <span class="math inline">\(t\)</span>: <span class="math display">\[u(C^{*})-J_{W}C^{*}=\frac{\alpha}{1-\alpha}J_{W}^{(\alpha-1)/\alpha},\]</span> <span class="math display">\[J_{W}Wx^{*}(\mu-r)+\frac{1}{2}J_{WW}W^{2}\sigma^{2}x^{*2}=-\frac{1}{2}\frac{J_{W}^{2}}{J_{WW}}\lambda^{2}.\]</span></p></li>
+<li><p>Injecting the above results into HJB, prove that <span class="math inline">\(h(\cdot)\)</span> solves the following differential equation: <span class="math display">\[h&#39;+\frac{1}{\alpha}\left[-\rho+(1-\alpha)r+\frac{1-\alpha}{2\alpha}\lambda^{2}\right]h+1=0,\]</span> with <span class="math inline">\(h(T)=0\)</span>.</p></li>
+<li><p>Find the solution <span class="math inline">\(h(\cdot)\)</span>.</p></li>
+<li><p>Give the stochastic differential equation followed by log wealth and log consumption.</p></li>
+</ol>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2018-12-03-exam.pdf">Link to pdf</a></li>
+</ul>
+:ET

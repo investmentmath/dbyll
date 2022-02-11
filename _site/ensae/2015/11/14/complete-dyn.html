@@ -1,0 +1,346 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Complete Markets, Discrete Time</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Complete Markets, Discrete Time </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   November 
+	   14th,
+	   
+	   2015
+	 </span>
+	  <div class="article_body">
+	  <p><em>In this post, I present the so-called martingale method in a complete market setup where the time scale is discrete and the probability space is discrete as well. In the absence of arbitrage, there is a strictly positive stochastic discount factor (SDF) and a risk neutral measure can be defined. The market is said to be complete if any consumption stream which is adapted to the underlying filtration can be traded using the available financial instruments. If this is the case, the SDF and the risk neutral measure are both unique. A portfolio optimization problem without labour income is defined. Despite the dynamic context, the maximization problem is essentially static. The gradient of the utility function has to be proportional to the SDF, and the optimal plan is found by varying the coefficient of proportionality to satisfy the intertemporal budget constraint. The optimal consumption plan is thus in principal easily derived. The corresponding portfolio policy has to be identified in a second step however.</em></p>
+<hr />
+<h2 id="single-period-sdf-and-risk-neutral-probabilities">Single period SDF and risk neutral probabilities</h2>
+<ul>
+<li><p>What follows should be read after <a href="/ensae/2014/11/16/complete.html">this post</a>.</p></li>
+<li><p>Here, I drop the tildas on random variables to avoid overloading the notation.</p></li>
+<li><p>The general ideas presented in the static case can be applied to the dynamic case. The easiest extension assumes a discrete time scale and a discrete probability space represented by a tree of events.</p></li>
+<li><p>Let the set of time indices be <span class="math inline">\(\{0,1,\ldots,T\}\)</span>. If there is no arbitrage, one can define strictly positive discount factors <span class="math inline">\(z_{t+1}\)</span> such that all pay-offs <span class="math inline">\(x_{\theta_{t},t+1}\)</span> of an investment policy <span class="math inline">\(\theta_{t}\)</span> are priced according to: <span class="math display">\[p_{\theta_{t},t}=E_{t}[z_{t+1}x_{\theta_{t},t+1}].\]</span></p></li>
+<li><p>In the absence of arbitrage, the discount factor is strictly positive and we can define risk neutral probabilities with derivative: <span class="math display">\[\psi_{t+1}=R^{f}_{t+1}z_{t+1},\]</span> (<span class="math inline">\(E_{t}[\psi_{t+1}]=1\)</span>) so that for any <span class="math inline">\(x\)</span> that is <span class="math inline">\({\cal F}_{t}\)</span> measurable: <span class="math display">\[E_{t}[\psi_{t+1}x]=\tilde{E}_{t}[x].\]</span></p></li>
+<li><p>Under this new measure: <span class="math display">\[p_{\theta_{t},t}=\tilde{E}_{t}\left[\frac{x_{\theta_{t},t+1}}{R^{f}_{t+1}}\right]=\frac{\tilde{E}_{t}\left[x_{\theta_{t},t+1}\right]}{R^{f}_{t+1}}.\]</span></p></li>
+</ul>
+<h2 id="multiperiod-sdf">Multiperiod SDF</h2>
+<ul>
+<li><p>One can telescope the period by period discount factors by defining: <span class="math display">\[m_{t}=z_{1}z_{2}\cdots z_{t}\; (t \geq 1),\]</span> <span class="math display">\[m_{0}=1.\]</span></p></li>
+<li><p>Considering a self-financed trading rule <span class="math inline">\(\theta[t,t+1]=\{\theta_{t},\theta_{t+1}\}\)</span> defined over the time interval <span class="math inline">\([t,t+1]\)</span>, and assuming that it leads to a pay-off in <span class="math inline">\(t+2\)</span> only, one can write using the rules regarding conditional expectations: <span class="math display">\[p_{\theta_{t+1},t+1}=E_{t+1}[z_{t+2}x_{\theta_{t+1},t+2}],\]</span> <span class="math display">\[p_{\theta_{t+1},t}=E_{t}[z_{t+1}p_{\theta_{t+1},t+1}]=E_{t}[E_{t+1}[z_{t+1}z_{t+2}x_{\theta_{t+1},t+2}]],\]</span> <span class="math display">\[p_{\theta_{t+1},t}=E_{t}[z_{t+1}z_{t+2}x_{\theta_{t+1},t+2}],\]</span> <span class="math display">\[m_{t}p_{\theta_{t+1},t}=E_{t}[m_{t+2}x_{\theta_{t+1},t+2}].\]</span></p></li>
+<li><p>When the self-financed trading policy <span class="math inline">\(\theta[t,T]=\{\theta_{t},\ldots,\theta_{T}\}\)</span> leads to pay-offs that accrue at different times, <span class="math inline">\(\{x_{t+1},\ldots,x_{T}\}\)</span>, we just have to sum their discounted values: <span class="math display">\[m_{t}p_{\theta_{t},t}=E_{t}[\sum_{k=t+1}^{T}m_{k}x_{k}].\]</span></p></li>
+</ul>
+<h2 id="multiperiod-risk-neutral-probabilities">Multiperiod risk neutral probabilities</h2>
+<ul>
+<li>If we collapse all Radon-Nikodym derivatives into: <span class="math display">\[\Psi_{t}=\psi_{1} \cdots \psi_{t}\; (t \geq 1),\]</span> <span class="math display">\[\Psi_{0}=1.\]</span></li>
+</ul>
+<p>obviously: <span class="math display">\[E_{0}[\Psi_{t}]=1,\]</span> and: <span class="math display">\[E_{t}[\Psi_{T}]=\Psi_{t}.\]</span></p>
+<ul>
+<li><p>We can define for an <span class="math inline">\({\cal F}_{T}\)</span> random variable <span class="math inline">\(X\)</span>: <span class="math display">\[\tilde{E}_{0}[X]=E_{0}[\Psi_{T}X],\]</span> and for conditional expectations: <span class="math display">\[\tilde{E}_{0}[X|{\cal F}_{t}]=E_{t}[X]=\frac{E_{0}[\Psi_{T}X|{\cal F}_{t}]}{E_{0}[\Psi_{T}|{\cal F}_{t}]}=\frac{E_{t}[\Psi_{T}X]}{E_{t}[\Psi_{T}]}
+=\frac{E_{t}[\Psi_{T}X]}{\Psi_{t}}.\]</span></p></li>
+<li><p>Note that we recover the one step ahead risk neutral derivatives. As above, we have: <span class="math display">\[p_{\theta_{t},t}=E_{t}[\psi_{t+1}\frac{x_{\theta_{t},t+1}}{R^{f}_{t+1}}]=\tilde{E}_{t}[\frac{x_{\theta_{t},t+1}}{R^{f}_{t+1}}],\]</span> and more generally for <span class="math inline">\(\theta[t,t+1]=\{\theta_{t},\theta_{t+1}\}\)</span> delivering a pay-off in <span class="math inline">\(t+2\)</span> as above: <span class="math display">\[p_{\theta_{t+1},t}=E_{t}[\frac{m_{t+2}}{m_{t}}x_{\theta_{t+1},t+2}]=\tilde{E}_{t}[\frac{x_{\theta_{t+1},t+2}}{R^{f}_{t+1}R^{f}_{t+2}}].\]</span></p></li>
+<li><p>Similarly, when the self-financed trading policy <span class="math inline">\(\theta[t,T]=\{\theta_{t},\ldots,\theta_{T}\}\)</span> leads to pay-offs that accrue at different times, <span class="math inline">\(\{x_{t+1},\ldots,x_{T}\}\)</span>, we just have to sum the risk neutral expectations of discounted values with discount rates being risk free discount rates: <span class="math display">\[p_{\theta_{t},t}=\tilde{E}_{t}\left[\sum_{k=t+1}^{T}\frac{x_{k}}{\Pi_{q=t+1}^{k}R^{f}_{q}}\right].\]</span></p></li>
+<li><p>To simplify the notation, we can write: <span class="math display">\[B_{t,k}=\Pi_{q=t+1}^{k}R^{f}_{q}.\]</span> This is the amount generated at date <span class="math inline">\(k\)</span> by investing <span class="math inline">\(1\)</span> dollar at date <span class="math inline">\(t\)</span>. Using this we can rewrite the intertemporal budget constraint above as: <span class="math display">\[p_{\theta_{t},t}=\tilde{E}_{t}\left[\sum_{k=t+1}^{T}B_{t,k}^{-1}x_{k}\right].\]</span></p></li>
+<li><p>One can paraphrase this as saying that the price is the risk neutral expectation of cash flows expressed using the cash account as the numeraire.</p></li>
+<li><p>Suppose we consider an asset that does not distribute dividends. We initiate an investment in the cash account at date <span class="math inline">\(0\)</span> and this delivers a cash amount <span class="math inline">\(B_{0,t}\)</span> at date <span class="math inline">\(t\)</span>. Expressing the price of the asset in terms of the cash account, we thus define the discounted price: <span class="math display">\[\tilde{P}_{t}=\frac{P_{t}}{B_{0,t}}.\]</span> We have, using risk neutral probabilities: <span class="math display">\[P_{0}=\tilde{P}_{0}=\tilde{E}_{0}[\tilde{P}_{t}].\]</span><br />
+Similarly: <span class="math display">\[P_{t}=\tilde{E}_{t}[B_{t,T}^{-1}{P}_{T}],\]</span> and thus (multiplying the equation by <span class="math inline">\(B_{0,t}^{-1}\)</span>): <span class="math display">\[\tilde{P}_{t}=\tilde{E}_{t}[\tilde{P}_{T}].\]</span> We thus see that discounted prices follow a martingale process.</p></li>
+<li><p>As a consequence, wealth also follows a martingale process.</p></li>
+</ul>
+<h2 id="intertemporal-budget-constraints">Intertemporal budget constraints</h2>
+<ul>
+<li><p>The budget constraints records the way wealth evolves over time along a trajectory of returns (assuming no income and no consumption): <span class="math display">\[W_{t+1}=W_{t}\pi_{t}&#39;R_{T+1}.\]</span></p></li>
+<li><p>Multiplying both sides by <span class="math inline">\(m_{t+1}\)</span>, taking expectations and using the relationship between the SDF and returns, we get: <span class="math display">\[E_{t}[m_{t+1}W_{t+1}]=m_{t}W_{t}.\]</span></p></li>
+<li><p>Similarly, in the presence of consumption and income, the budget constraint trajectory by trajectory: <span class="math display">\[W_{t+1}+C_{t}\pi_{t}&#39;R_{T+1}=W_{t}\pi_{t}&#39;R_{T+1}+Y_{t+1},\]</span> leads to: <span class="math display">\[E_{t}[m_{t+1}W_{t+1}]+m_{t}C_{t}=m_{t}W_{t}+E_{t}[m_{t+1}Y_{t+1}].\]</span></p></li>
+<li><p>Over a sequence <span class="math inline">\(\{t,t+1,\cdots,T\}\)</span> of periods : <span class="math display">\[\sum_{k=t}^{T-1}E_{t}[m_{k}C_{k}]+E_{t}[m_{T}W_{T}]=m_{t}W_{t}+\sum_{k=t+1}^{T}E_{t}[m_{k}Y_{k}].\]</span></p></li>
+<li><p>Similarly, one can write the above relationships using risk-neutral probabilities instead of the SDF: <span class="math display">\[\sum_{k=t}^{T-1}\tilde{E}_{t}[B_{t,k}^{-1}C_{k}]+\tilde{E}_{t}[B_{t,T}^{-1}W_{T}]=m_{t}W_{t}+\sum_{k=t+1}^{T}\tilde{E}_{t}[B_{t,k}^{-1}Y_{k}].\]</span></p></li>
+</ul>
+<h2 id="complete-markets">Complete markets</h2>
+<ul>
+<li><p>We restrict the problem to a set of times <span class="math inline">\([0,T]\)</span>. We have a fitration <span class="math inline">\({\cal F}_{T}\)</span> and as usual random processes considered are supposed to be adapted to that filtration.</p></li>
+<li><p>In the static case, completeness meant that the traded assets allowed to synthesize all Arrow-Debreu securities. One can then transfer wealth exclusively to any state of nature. There needs to be as many traded assets as there are states of nature, and the matrix of pay-offs needs to have full rank.</p></li>
+<li><p>In this context, any pay-off function <span class="math inline">\(\tilde{x}(\cdot)\)</span> from the set of states of nature to <span class="math inline">\(\mathbb{R}_{+}\)</span> can be obtained as the pay-off of a portfolio.</p></li>
+<li><p>In our dynamic context, we say that the market is complete if any pay-off <span class="math inline">\(C_{t}\)</span> (a function from the states of nature of time <span class="math inline">\(t\)</span> to <span class="math inline">\(\mathbb{R}_{+}\)</span>) for any <span class="math inline">\(t \in [0,T]\)</span> can be obtained as the pay-off of a given trading policy. In particular, we need to be able to synthesize all Arrow Debreu securities of all dates <span class="math inline">\(t \in [0,T]\)</span>.</p></li>
+<li><p>In a market without arbitrage, there is at least one strictly positive SDF and therefore one risk neutral probability measure. If markets are complete, there is necessarily only one SDF and only one risk neutral measure.</p></li>
+<li><p>Indeed, consider the price of the Arrow Debreu security <span class="math inline">\(e_{t,k}\)</span> that pays <span class="math inline">\(1\)</span> in state <span class="math inline">\(\omega_{t,k}\)</span> of date <span class="math inline">\(t\)</span> is: <span class="math display">\[P_{0}(e_{t,k})=E_{0}[m_{t}(\omega_{t,\cdot})e_{t,k}(\omega_{t,\cdot})]=p_{0}(\omega_{t,k})m_{t}(\omega_{t,k}),\]</span> where <span class="math inline">\(p_{0}(\omega_{t,k})\)</span> is the probability as seen from date <span class="math inline">\(0\)</span> of state <span class="math inline">\(\omega_{t,k}\)</span>. Thus, the value of the SDF is fixed by probabilities as of time <span class="math inline">\(0\)</span> and time <span class="math inline">\(0\)</span> prices.</p></li>
+</ul>
+<h2 id="the-martingale-method">The martingale method</h2>
+<ul>
+<li><p>In a general context, checking that a certain consumption stream over <span class="math inline">\([0,T]\)</span> can be finance by trading involves a complex investigation of the structure that markets impose through the intertemporal budget constraint to the ability to transfer wealth across time and states of nature.</p></li>
+<li><p>In a complete market, there is no limit to the ability to transfer wealth. All consumption streams are tradables. In the end thus, whether a certain consumption stream can be financed is just a matter of having enough wealth at time <span class="math inline">\(0\)</span>. This is true regardless of whether we receive income or not.</p></li>
+<li><p>In what follows, I assume as a simplification that there is no income.</p></li>
+<li><p>In the complete market case, the feasibility of a consumption stream is encapsulated in the budget constraint: <span class="math display">\[\sum_{t=0}^{T}E_{0}[m_{t}C_{t}]+E_{0}[m_{T}W_{T}]=m_{0}W_{0}.\]</span></p></li>
+<li><p>Whereas this equation necessarily holds in incomplete markets, a consumption stream that satisfies this equation is not necessarily actually feasible. One would indeed need to verify that a trading strategy using available assets can finance the consumption stream.. In a complete market, the existence of such a trading strategy is ensured.</p></li>
+<li><p>The structure of a complete markets portfolio optimization problem is as follows: we maximize a utility function under a constraint which is defined by a linear functional on the consumption function. This is entirely analogous to the static multigood consumption problem of traditional microeconomic theory and we can therefore say that the optimization problem is static.</p></li>
+<li><p>We assume that the optimization problem is: <span class="math display">\[\underset{(C_{0},\ldots,C_{T})}{\text{max}}
+\; E_{0}\left[\sum_{t=0}^{T} \delta^{t}u_{t}(C_{t})\right],\]</span> subject to: <span class="math display">\[W_{0}=\sum_{t=0}^{T}E_{0}[m_{t}C_{t}],\]</span> assuming <span class="math inline">\(u_{t}(\cdot)\)</span> has range <span class="math inline">\(\mathbb{R}_{+}^{*}\)</span> and is strictly increasing and concave, with <span class="math inline">\(u_{t}^{\prime}\)</span> ranging from <span class="math inline">\(+\infty\)</span> to <span class="math inline">\(0\)</span> as consumption varies in <span class="math inline">\(\mathbb{R}_{+}^{*}\)</span>.</p></li>
+<li><p>The command is the set of consumption values for all times and states of nature. This is a finite set of numbers since we assume discrete time, a finite horizon and a discrete probability state. The system is solved as usual using the Lagrangian, the first order condition being: <span class="math display">\[\delta^{t}u_{t}&#39;(C_{t}(\omega_{t,k}))=\lambda m_{t}(\omega_{t,k}).\]</span></p></li>
+<li><p>As in the static case, we can thus take: <span class="math display">\[C_{t}(\omega_{t,k})=u_{t}^{\prime -1}(\lambda \delta^{-t} m_{t}(\omega_{t,k})),\]</span> and one picks the value of <span class="math inline">\(\lambda\)</span> which implies that the budget constraint is satisfied.</p></li>
+<li><p>The assumptions on marginal utilities are designed to ensure that there is a unique solution <span class="math inline">\(\lambda^{*}\)</span> for any initial level of wealth.</p></li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<ul>
+<li><p>Completeness (and absence of arbitrage) thus implies that the optimization problem is static. It can be solved under the right technical assumption as in the two period case, and as in the standard microeconomic multi-good consumption problem.</p></li>
+<li><p>The key point is that the gradient of the utility function has to be, at the optimum, proportional to the unique SDF.</p></li>
+<li><p>To apply this in practice, one needs to set up a complete market model such as the binomial model for stock prices.</p></li>
+<li><p>Note that the solution directly gives the consumption function. How the consumption plan is practically financed requires a separate investigation. What we know is that it can be financed for sure.</p></li>
+<li><p>One could describe the optimization process using the risk neutral measure instead of the SDF. Because under this measure, the properly discounted wealth process (i.e. discounted using the cash account) is a martingale, this method is usually called the martingale method.</p></li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2015-11-14-complete-dyn.pdf">Link to pdf</a></li>
+</ul>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Ensae-ref">
+					Ensae <span>(20)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Completeness-ref">
+					Completeness <span>(2)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//ensae/2015/10/17/ipython.html" title="Using Jupyter notebooks">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//ensae/2015/12/12/solexercises.html" title="Solutions to Exercises">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

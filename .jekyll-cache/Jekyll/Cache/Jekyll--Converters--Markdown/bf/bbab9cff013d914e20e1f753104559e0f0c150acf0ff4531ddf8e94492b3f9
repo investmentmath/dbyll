@@ -1,0 +1,9 @@
+I"&<p><em>In this post, I shed some light on the volatility of the price process of a zero coupon equity contract. The aim is to understand how the volatility of prospective expected returns impacts the volatility of the price process. I derive under a specific condition<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> a simple accounting relationship linking price volatility on one hand and cash flow as well as discount factor volatility on the other hand. There is some empirical presumption that markets exhibit excess volatility, i.e. that market prices are more volatile than warranted by cash flow volatility. Under the afore mentionned condition, this requires that discount rate shocks be negatively correlated with cash flow shocks<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</em></p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Deterministic volatilies (<strong>see Assumption H</strong>). A later post will<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Although natural, this condition is not strictly equivalent to<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+:ET

@@ -1,0 +1,305 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Volatility Accounting (1)</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Volatility Accounting (1) </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   January 
+	   19th,
+	   
+	   2014
+	 </span>
+	  <div class="article_body">
+	  <p><em>In this post, I shed some light on the volatility of the price process of a zero coupon equity contract. The aim is to understand how the volatility of prospective expected returns impacts the volatility of the price process. I derive under a specific condition<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> a simple accounting relationship linking price volatility on one hand and cash flow as well as discount factor volatility on the other hand. There is some empirical presumption that markets exhibit excess volatility, i.e. that market prices are more volatile than warranted by cash flow volatility. Under the afore mentionned condition, this requires that discount rate shocks be negatively correlated with cash flow shocks<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</em></p>
+<hr />
+<h1 id="accounting-for-volatility">Accounting for volatility</h1>
+<p>It was shown at the end of <a href="/finance/2013/12/16/zero-coupon-contracts.html" title="ZERO COUPON CONTRACTS">this post</a> that the volatility of the price process <span class="math inline">\((P_{t})_{t \in [0,T]}\)</span> was equal to that of the martingale <span class="math inline">\((Y_{t})_{t \in [0,T]}\)</span> with <span class="math inline">\(Y_{t}=E_{t}[\exp(-\int_{0}^{T}r_{u}du)X_{T}]\)</span>. We want to understand how this relates to the volatility of the fundamental solution, i.e. the volatility of <span class="math inline">\((X_{t})_{t \in [0,T]}\)</span> with <span class="math inline">\(X_{t}=E_{t}[X_{T}]\)</span>. To be clear, volatility is meant here as the integrand of the stochastic integral in the <em>geometric</em> representation of each process. For instance, the volatility of the martingale <span class="math inline">\((X_{t})_{t \in [0,T]}\)</span> is the process <span class="math inline">\((\eta_{t})_{t \in [0,T]}\)</span> such that:<span class="math display">\[\frac{dX_{t}}{X_{t}}=\eta_{t}dB_{t}.\]</span></p>
+<p>We want to relate the volatility <span class="math inline">\(Z\)</span> of <span class="math inline">\(P\)</span>, i.e. the volatility of the martingale <span class="math inline">\(Y\)</span>, with the volatility of the martingale <span class="math inline">\(X\)</span> and that of the martingale <span class="math inline">\(R=(E_{t}[\exp(-\int_{0}^{T}r_{u}du)])_{t \in [0,T]}\)</span>. By definition, these martingales follow drift-less diffusions with the relevant terminal conditions:</p>
+<ul>
+<li><span class="math inline">\(X\)</span>: <span class="math inline">\(dX_{t}=X_{t}\eta_{t}dB_{t}\)</span>, with terminal value <span class="math inline">\(X_{T}\)</span>,</li>
+<li><span class="math inline">\(R\)</span>: <span class="math inline">\(dR_{t}=R_{t}\nu_{t}dB_{t}\)</span>, with terminal value <span class="math inline">\(\exp(-\int_{0}^{T}r_{u}du)\)</span>,</li>
+<li><span class="math inline">\(Y\)</span>: <span class="math inline">\(dY_{t}=Y_{t}Z_{t}dB_{t}\)</span>, with terminal value <span class="math inline">\(\exp(-\int_{0}^{T}r_{u}du)X_{T} \qquad (1)\)</span> ,</li>
+</ul>
+<p>Now the process <span class="math inline">\(XR\)</span> follows (Ito): <span class="math display">\[d(X_{t}R_{t})=X_{t}R_{t}\eta_{t}dB_{t}+X_{t}R_{t}\nu_{t}dB_{t}+X_{t}R_{t}\eta_{t}\nu_{t}dt\]</span> and has the same terminal condition as <span class="math inline">\((1)\)</span>. It does not define a martingale given that the drift term is not equal to zero. It is therefore not a solution to <span class="math inline">\((1)\)</span>. We can however easily modify this process to solve <span class="math inline">\((1)\)</span> when the following assumption holds:</p>
+<p><strong>Assumption H:</strong> <em>Both volatility processes <span class="math inline">\((\eta_{t})_{t \in [0,T]}\)</span> and <span class="math inline">\((\nu_{t})_{t \in [0,T]}\)</span> are deterministic</em></p>
+<p>Indeed, consider the process <span class="math inline">\(W_{t}=X_{t}R_{t}\exp(-\int_{t}^{T}\eta_{u}\nu_{u}du)\)</span> under this assumption. This is a well defined adapted process because although all terms in the exponential relate to the future, they are deterministic and therefore do not involve future shocks. The Ito rule implies:<span class="math display">\[dW_{t}=W_{t}(\eta_{t}+\nu_{t})dt,\]</span> and obviously we have <span class="math inline">\(W_{T}=X_{T}R_{T}=\exp(-\int_{0}^{T}r_{u}du)X_{T}\)</span>. We have thus identified the martingale representation of <span class="math inline">\(Y_{T}\)</span> and therefore the volatility process of P:<span class="math display">\[Z_{t}=\eta_{t}+\nu_{t}.\]</span></p>
+<p><strong>Proposition:</strong> <em>Price volatility <span class="math inline">\(Z_{t}\)</span> is under <strong>Assumption H</strong> the sum of fundamental volatility <span class="math inline">\(\eta_{t}\)</span> and discount factor volatility <span class="math inline">\(\nu_{t}\)</span>.</em></p>
+<p>The meaning of ‘discount factor volatility’ can be clarified further. Discount factor volatility is the volatility <span class="math inline">\((\nu_{t})_{t \in [0,T]}\)</span> of <span class="math inline">\(R\)</span>. It is tied to the integral representation:<span class="math display">\[\exp(-\int_{0}^{T}r_{u}du)=E_{0}[\exp(-\int_{0}^{T}r_{u}du)]+\int_{0}^{T}E_{u}[\exp(-\int_{0}^{T}r_{w}dw)]\nu_{u}du.\]</span> In addition, we have: <span class="math display">\[E_{t}[\exp(-\int_{0}^{T}r_{u}du)]=E_{0}[\exp(-\int_{0}^{T}r_{u}du)]+\int_{0}^{t}E_{u}[\exp(-\int_{0}^{T}r_{w}dw)]\nu_{u}du.\]</span> Injecting this identity in the above equation and dividing the result by <span class="math inline">\(\exp(-\int_{0}^{t}r_{w}dw)\)</span>, we get: <span class="math display">\[\exp(-\int_{t}^{T}r_{u}du)=E_{t}[\exp(-\int_{t}^{T}r_{u}du)]+\int_{t}^{T}E_{u}[\exp(-\int_{t}^{T}r_{w}dw)]\nu_{u}du\]</span> which is the martingale representation of <span class="math inline">\(\exp(-\int_{t}^{T}r_{u}du)\)</span>. It entails the volatility process <span class="math inline">\((\nu_{u})_{u \in [t,T]}\)</span>. The quantity <span class="math inline">\(\nu_{t}\)</span> can thus the be interpreted as the elasticity (the log derivative) of <span class="math inline">\(\exp(-\int_{t}^{T}r_{u}du)\)</span> to the shock <span class="math inline">\(dB_{t}\)</span>.</p>
+<p>We saw in <a href="/finance/2013/12/16/zero-coupon-contracts.html" title="ZERO COUPON CONTRACTS">this post</a> that the market price has the following representation: <span class="math display">\[P_{t}=E_{t}[\exp(-\int_{t}^{T}r_{u}du)X_{T}].\]</span> Intuitively, this suggests that the elasticity of <span class="math inline">\(P_{t}\)</span> to <span class="math inline">\(dB_{t}\)</span> either arises from that of <span class="math inline">\(X_{T}\)</span> or from that of <span class="math inline">\(\exp(-\int_{t}^{T}r_{u}du)\)</span>. This thus turns out to be true under <strong>Assumption H</strong>.</p>
+<h1 id="excess-volatility">Excess volatility</h1>
+<p>I assume now that fundamental volatility <span class="math inline">\(\eta_{t}\)</span> is positive. This is just a normalization<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> which ensures that positive Brownian shocks raise the expectation of the terminal payoff. Given the above proposition, we now have two polar cases:</p>
+<ul>
+<li><p>If <span class="math inline">\(\nu_{t}\)</span> is positive, price volatility is greater than fundamental volatility <span class="math inline">\(Z_{t}=\eta_{t}+\nu_{t} \geq \eta_{t}\)</span>. This requires that a positive cash flow shock raises the prospective discount factor <span class="math inline">\(\exp(-\int_{t}^{T}r_{u}du)\)</span>, i.e. lowers the cumulated prospective return.</p></li>
+<li><p>If <span class="math inline">\(\nu_{t}\)</span> is negative, price volatility is lower than fundamental volatility <span class="math inline">\(Z_{t}=\eta_{t}+\nu_{t} \leq \eta_{t}\)</span>. This requires that a positive cash flow shock lowers the prospective discount factor <span class="math inline">\(\exp(-\int_{t}^{T}r_{u}du)\)</span>, i.e. raises the cumulated prospective return.</p></li>
+</ul>
+<p>The former situation is called excess volatility. A story rationalizing excess volatility is as follows. When negative cash flow news hits the market, the price of the fundamental solution falls to reflect the lower cash flows. Yet this also spooks investors who require a greater expected return on the contract to hold it. The prospective return therefore rises and this amplifies the price move downwards. The reverse effect occurs on the upside.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2014-01-19-volatility-accounting-1.pdf">Link to pdf</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Deterministic volatilies (<strong>see Assumption H</strong>). A later post will extend the volatility identity to a more general context.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Although natural, this condition is not strictly equivalent to excess volatility. This will be detailed in a later post.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>If <span class="math inline">\(\eta_{t}\)</span> was negative, we would just redefine the underlying Brownian to be <span class="math inline">\(W=-B\)</span>. This change of sign preserves the Brownian property.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Finance-ref">
+					Finance <span>(9)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Volatility-ref">
+					Volatility <span>(2)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//finance/2013/12/16/zero-coupon-contracts.html" title="Zero Coupon Contracts">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//finance/2014/02/03/discrete-time-lognormal-dynamics.html" title="Discrete Time Lognormal Dynamics">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

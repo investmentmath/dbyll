@@ -1,0 +1,329 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Math Formulas within Posts</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Math Formulas within Posts </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   April 
+	   24th,
+	   
+	   2013
+	 </span>
+	  <div class="article_body">
+	  <p><em>(Warning: this post was written when Wordpress was used to generate the blog. Quicklatex is no longer used. MathJax remains the tool used for math rendering). This post gives a few recipes to integrate mathematical formulas in html pages. This site uses MathJax, a javascript implementation of Latex.</em></p>
+<hr />
+<h1 id="introduction">Introduction</h1>
+<p>InvestmentMath uses two Wordpress plugins to display formulas: <a href="http://www.mathjax.org/" title="MathJax"><strong>MathJax</strong></a>and <a href="http://www.quicklatex.com/" title="QuickLatex"><strong>QuickLaTex</strong></a>.</p>
+<p>We’ll first introduce MathJax.</p>
+<h1 id="mathjax-adding-latex-formulas-within-posts">MathJax : Adding LaTex formulas within posts</h1>
+<p>MathJax is an open-source (everyone can edit or read the source code) rendering engine for math formulas written in <span class="math inline">\(LaTeX\)</span>. It uses Javascript, so the rendering is done on the client-side. It preserves the server resources; however, slow clients will have significant loading times. According to its website, it uses plain ol’ CSS and web fonts, which means that its rendering is extremely clean and that it’s scalable. In addition, people with vision disabilities can zoom up to 400% using the MathJax menu which is obtained by right-clicking on any formula.</p>
+<p>MathJax is amazingly powerful, and what’s more, the developers claim compatibility with all modern browsers. You can use it as a plugin with Drupal, Joomla!, MediaWiki, Wordpress and much more … It’s also used within the Ipython notebooks, a subject we will address in another post.</p>
+<p>Now, here is an example showcasing the power of MathJax. Behold !</p>
+<p><span class="math display">\[\log(P_{N})-\log(P_{0})=\sum_{k=0}^{K^{\delta}-1}
+\log(P_{t^{\delta}_{k+1}})-\log(P_{t^{\delta}_{k}})=
+\sum_{k=0}^{K^{\delta}-1}
+\log(P_{t^{\delta}_{k+1}}/P_{t^{\delta}_{k}})\]</span></p>
+<p>You can right-click on this formula to discover the flexibility of MathJax and, in particular, to access the following code:</p>
+<pre class="theme:github font:inconsolata lang:default decode:true"><code>$$\log(P_{N})-\log(P_{0})=\sum_{k=0}^{K^{\delta}-1} \log(P_{t^{\delta}_{k+1}})-\log(P_{t^{\delta}_{k}})= \sum_{k=0}^{K^{\delta}-1} \log(P_{t^{\delta}_{k+1}}/P_{t^{\delta}_{k}})$$</code></pre>
+<p> </p>
+<h1 id="quicklatex-inserting-latex-graphics-made-with-tikz">QuickLaTex: inserting LaTex graphics made with TikZ</h1>
+<p>As you might have seen, some posts here use graphics generated in <span class="math inline">\(\LaTeX\)</span> with TikZ. But, sadly, MathJax doesn’t support TikZ. We use QuickLaTex for that purpose. QuickLatex generates an image, which is then inserted in the web page. It also takes plain <span class="math inline">\(\LaTeX\)</span> code like MathJax, but we only use it for its abilty to render TikZ graphics. It is nowhere near as powerful as MathJax. Let’s try an example, the very neat diagram from the Portfolio Returns post :</p>
+<p><img src="/assets/media/portfolioreturn.png" /></p>
+<p>Here is the code :</p>
+<pre class="theme:github font:inconsolata lang:default decode:true"><code>[latex]
+\begin{tikzpicture}[
+    scale=5,
+    axis/.style={very thick, -&gt;, &gt;=stealth&#39;},
+    important line/.style={thick},
+    dashed line/.style={dashed, thin},
+    pile/.style={thick, -&gt;, &gt;=stealth&#39;, shorten &lt;=2pt, shorten
+    &gt;=2pt},
+    every node/.style={color=black}
+    ]
+% Include tikz into local preamble
+[+preamble]
+     \usepackage{tikz}
+     \usetikzlibrary{arrows}
+[/preamble]
+    \node at (-0.6,1.1) [] {\tiny .};
+    \node at (2.2,-0.8) [] {\tiny .};
+    \node at (.5,.9) [below] {\em &#39;Cadlag&#39; prices and &#39;caglad weights&#39; };
+    \draw[axis] (-0.2,-.6)  -- (1.5,-.6) node(xline)[right]
+        {$Time$}
+    \draw[dashed line] (-0.4,0)  -- (2,0);
+    \draw[important line] (0,0.2) -- (.5,.2) coordinate (A);
+    \draw[important line] (.5,.5) coordinate (B) -- (1.0,.5) node[right, text width=1em] {$\omega_{.}$};
+    \draw[dashed line] (.5,.1)  -- (.5,.5);
+    \draw[dashed line] (.5,-.6)  coordinate (C) -- (.5,-.1);
+     \fill[red] (A) circle (.4pt) node[right] {$\omega_{t}(=\omega_{t-})$};
+     \node at (B)  [above] {$\omega_{t+}$};
+     \node at (C) [below] {$t$};
+     \draw[important line] (0,-.4) -- (.5,.-.4) coordinate (D) ;
+     \draw[important line] (.5,-.2) coordinate (E) -- (1.0,-.2) node[right, text width=1em] {$P_{.}$};
+     \fill[red] (E) circle (.4pt) node[left] {$(P_{t+}=)P_{t}$};
+     \node at (D)  [right] {$P_{t-}$};
+\end{tikzpicture}
+[/latex]</code></pre>
+<p>Tikz code might look complicated but actually is not. It takes about an hour for a <span class="math inline">\(\LaTeX\)</span> user to understand the logic. In addition, Tikz code can be directly generated through Geogebra and its friendly GUI!</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2013-04-24-math-formulas-within-post.pdf">Link to pdf</a></li>
+</ul>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Geek-ref">
+					Geek <span>(1)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Formulas-ref">
+					Formulas <span>(1)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//math/2013/04/24/martingales.html" title="Martingales">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//math/2013/05/02/stochastic-integrals-as-martingale-transforms.html" title="Stochastic Integrals as Martingale Transforms">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

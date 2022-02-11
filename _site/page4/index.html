@@ -1,0 +1,492 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>InvestmentMath</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<div class="page-header">
+  <h1>InvestmentMath </h1>
+</div>
+
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                May
+                29th,
+                
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/math/2013/05/29/quadratic-variation-and-stochastic-integration.html">Quadratic Variation and Stochastic Integration</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>Stochastic integration was first developed in the context of the Brownian motion and the theory was then extended to martingales with continuous paths, which we will call continuous martingales in what follows. Continuous martingales have a lot of structure which eases the corresponding stochastic integration theory. The quadratic variation of a continuous martingale is the central concept in this theory. The purpose of this note is to provide an easy introduction to this subject before presenting Ito calculus in a later post.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                May
+                25th,
+                
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/math/2013/05/25/introducing-diffusions.html">Introducing Diffusions</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>The purpose of this note is to introduce diffusions which are made up of a drift and a martingale component. I start from the elementary discrete time setup where the drift of the process is most easily understood. I then explain how the specialized decomposition of a diffusion into a drift and a Brownian integral can arise as the limit of the decompositions obtained on the discretized process.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                May
+                2nd,
+                  
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/math/2013/05/02/stochastic-integrals-as-martingale-transforms.html">Stochastic Integrals as Martingale Transforms</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>Building on the <a href="/finance/2013/04/06/portfolio-returns.html" title="PORTFOLIO RETURNS">portfolio return post</a>, this article describes the stochastic inregral <span class="math inline">\(\int_{0}^{\cdot}H_{u}dM_{u}\)</span> of an integrand <span class="math inline">\(H\)</span> against a martingale <span class="math inline">\(M\)</span> as a martingale transform. The integral re-weights the increments of <span class="math inline">\(M\)</span> using a system of ‘predetermined’ weights in such a way that the resulting process remains a martingale. The preservation of the martingale property is a key requirement of the standard stochastic integration theory. The sensitivity of the resulting martingale <span class="math inline">\(\int_{0}^{\cdot}H_{u}dM_{u}\)</span> with respect to the infinitesimal increments of <span class="math inline">\(M\)</span> is an instanciation of the concept of Malliavin derivative. The post ends by considering the martingale representation property which plays a key role in financial theory.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                April
+                24th,
+                
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/geek/2013/04/24/math-formulas-within-post.html">Math Formulas within Posts</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>(Warning: this post was written when Wordpress was used to generate the blog. Quicklatex is no longer used. MathJax remains the tool used for math rendering). This post gives a few recipes to integrate mathematical formulas in html pages. This site uses MathJax, a javascript implementation of Latex.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                April
+                24th,
+                
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/math/2013/04/24/martingales.html">Martingales</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This post introduces the notion of a martingale. The concept is key to finance, but it is also central in stochastic analysis. A martingale is a process which, at any given date, is expected to remain at its current level in the future. In other words, its future increments (called martingale differences) are expected to be equal to zero. Picking a variable <span class="math inline">\(X_{T}\)</span>, the process <span class="math inline">\((E_{t}[X_{T}])_{t \in [0,T]}\)</span> is a martingale which is ‘closed’ by <span class="math inline">\(X_{T}\)</span>. The concept is illustrated using the discretized version of a martingale, namely a random walk with centered increments.Continuous time martingales with (loosely speaking) independent identically distributed increments are called Levy martingales. The post introduces two Levy martingales, the Brownian motion and the compensated Poisson proces.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                April
+                6th,
+                
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/finance/2013/04/06/portfolio-returns.html">Portfolio Returns</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This post introduces the dynamics of the value of a portfolio. It starts with an unfrequently rebalanced portfolio: portfolio weights are assumed ‘simple’, i.e. piecewise constant. In this case, the portfolio value dynamics is trivial. More complex rebalancing schemes can be approximated using sequences of simple weighting schemes, just as a continuous function can be approximated using peacewise constant functions. The dynamics of portfolio value is then given by a stochastic integral. This example stresses an essential feature of stochastic integrals: portfolio weights (integrands) are forced to lag prices (integrators).</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                March
+                14th,
+                
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/finance/2013/03/14/integrating-returns.html">Integrating Returns</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This post takes another stab at return compounding, when price trajectories potentially are of infinite variation. Starting from first principles, it shows that the differential equation followed by the price can either be a standard differential equation or a stochastic differential equation. The key concept is the quadratic variation of trajectories.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                March
+                9th,
+                
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/finance/2013/03/09/defining-returns.html">Defining Returns</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This post reviews the definition of returns. It looks at discrete time returns and log returns as well as at the operation of compounding. In the log return context, return compounding becomes additive, which proves very convenient. Log returns however depend in a non additive way in the components of returns (dividends and price appreciation)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Continuous compounding arises as the discretization grid get finer. Continuous time often lends itself to closed analytical formulas.</em></p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>A later post will show a loglinear approximation of the discrete<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                February
+                25th,
+                
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/finance/2013/02/25/what-is-a-financial-asset.html">What is a Financial Asset?</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This post stresses that from a portfolio management perspective, price dynamics should be derived from cash flow and expected return assumptions. One cannot hope to identify the price dynamics of a financial security without considering its cash flows.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                January
+                2nd,
+                  
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/tests/2013/01/02/dygraphs.html">dygraphs</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This is just a test of javascript interactive graphs</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+<hr/>
+
+<ul class="pager"> 
+
+  
+    <li class="previous">
+      
+        <a href="http://127.0.0.1:4000/page3">&larr; Newer</a>
+      
+    </li>
+  
+  
+  <li>
+          <span class="page_number">Page: 4 of 5</span>
+  </li>
+
+  
+    <li class="next">
+            <a href="http://127.0.0.1:4000/page5">Older &rarr;</a>
+    </li>
+  
+
+</ul>
+
+
+
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

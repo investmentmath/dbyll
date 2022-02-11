@@ -1,0 +1,323 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>The Martingale Method in Continuous Time</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>The Martingale Method in Continuous Time </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   January 
+	   13th,
+	   
+	   2017
+	 </span>
+	  <div class="article_body">
+	  <p><em>This post describes the martingale method in continuous time. It should be read after <a href="/ensae/2015/11/14/complete-dyn.html">this one</a>. It illustrates the method on a simple example within the Black and Scholes framework where an investor maximizes the utility of terminal wealth. In this context, the martingale method allows to spell out how optimal terminal wealth depends on the unique stochastic discount factor, or alternatively, how it is obtained as a transformation of the stock return. The transformation hinges on the shape of the utility function. The case of a CRRA utility function is fully spelled out. The results obtained through dynamic programming <a href="/ensae/2014/10/27/cont.html">here</a> are recovered although the martingale method does not easily uncover the trading policy that generates the optimal terminal wealth.</em></p>
+<hr />
+<h2 id="no-arbitrage-and-stochastic-discount-factors">No arbitrage and Stochastic Discount Factors</h2>
+<ul>
+<li><p>We take a situation where trading takes place over a time interval <span class="math inline">\([0,T]\)</span>. <span class="math inline">\(T\)</span> is therefore the end of time.</p></li>
+<li><p>In this context, we say that the market is complete if any suitably measurable and integrable pay-off <span class="math inline">\(X_{t}\)</span> of any date <span class="math inline">\(t\)</span> can be obtained through a trading strategy, starting from some initial level of wealth.</p></li>
+<li><p>The logic remains the same as in the case of discrete time:</p>
+<ul>
+<li>if there is a strictly positive stochastic discount factor, there is no arbitrage,</li>
+<li>if there is no arbitrage, there exists a strictly positive discount factor,</li>
+<li>the market is complete if and only if there is a unique strictly positive discount factor.</li>
+</ul></li>
+<li><p>The results are however much more difficult to establish, especially going from no arbitrage to the existence of the strictly positive discount factor.</p></li>
+<li><p>As in discrete time, the existence of a strictly positive discount factor is equivalent to the existence of a probability measure such that after choosing the bank account as the numeraire, asset prices follow martingale dynamics under the new probability measure.</p></li>
+<li><p>The completeness of the market is tightly linked to the ability of representing martingales as stochastic integrals with respect to ‘tradable martingales’. When the martingale representation result holds in the given market context (all suitably measurable and integrable martingales can be obtained as stochastic integrals with respect to ‘tradable martingales’), the given representation can be used to identify the trading policy that generates the pay-off <span class="math inline">\(X_{t}\)</span>. Martingale representation results are existence results and other techniques are needed to effectively compute the trading policy.</p></li>
+</ul>
+<h2 id="the-martingale-approach">The martingale approach</h2>
+<ul>
+<li><p>I assume that the market admits no arbitrage, and is complete.</p></li>
+<li><p>Let’s consider a consumption and investment problem, without labour income. We assume that the optimization problem is: <span class="math display">\[\underset{(C_{[0,T]},\pi_{[0,T]})}{\text{max}}
+\; E_{0}\left[\int_{0}^{T} \delta^{v}u_{v}(C_{v})du+U(W_{T})\right],\]</span> subject to the self-financing condition: <span class="math display">\[\frac{dW_{v}}{W_{v}}=\pi_{0,t}r_{v}du+\sum_{i=1}^{N}\pi_{i,t}\frac{dS_{i,t}}{S_{i,t}}-\frac{dC_{v}}{W_{v}},\]</span> for an initial level of wealth <span class="math inline">\(W_{0}\)</span>. I will assume <span class="math inline">\(u_{t}(\cdot)\)</span> and <span class="math inline">\(U(\cdot)\)</span> have range <span class="math inline">\(\mathbb{R}_{+}^{*}\)</span> and are strictly increasing and concave, with <span class="math inline">\(u_{t}^{\prime}\)</span> and <span class="math inline">\(U^{\prime}\)</span> ranging from <span class="math inline">\(+\infty\)</span> to <span class="math inline">\(0\)</span> as consumption varies in <span class="math inline">\(\mathbb{R}_{+}^{*}\)</span>.</p></li>
+<li><p>Because the market is complete, we actually don’t have to worry about how a consumption stream (including final wealth) is going to be financed. All that matters is that initial wealth is sufficient to finance them given the Arrow-Debreu prices. If that is the case, we know that a financing policy has to exists.</p></li>
+<li><p>We can thus restate the optimization problem as: <span class="math display">\[\underset{C_{[0,T]}}{\text{max}}
+\; E_{0}\left[\int_{0}^{T} \delta^{v}u_{v}(C_{v})du+\delta^{T}U(W_{T})\right],\]</span> subject to the financability condition: <span class="math display">\[W_{0}=E_{0}\left[\int_{0}^{T} M_{v}C_{v}du+M_{T}W_{T}\right].\]</span></p></li>
+<li><p>We can study the corresponding Lagrangian: <span class="math display">\[E_{0}\left[\int_{0}^{T} \delta^{v}u_{v}(C_{v})du+\delta^{T}U(W_{T})-\lambda\left(\int_{0}^{T} M_{v}C_{v}du+M_{T}W_{T}\right)\right].\]</span> We can then pretend to solve it as if all <span class="math inline">\(C_{t}(\omega)\)</span> (all dates and all states of nature) and <span class="math inline">\(W_{T}(\omega)\)</span> (all states of nature) were chosen independently. Of course these values cannot be chosen independently in reality since the functions <span class="math inline">\(C_{t}(\cdot)\)</span> and <span class="math inline">\(W_{T}(\cdot)\)</span> have to be adapted to the filtration for example. We will however proceed as if they could be chosen independently and we will check ex-post that the solutions are indeed adapted.</p></li>
+<li><p>By analogy to the discrete time case, we should expect: <span class="math display">\[\delta^{t}u_{t}&#39;(C_{t}(\omega))=\lambda M_{t}(\omega),\]</span> <span class="math display">\[\delta^{T}U_{t}&#39;(W_{T}(\omega))=\lambda M_{T}(\omega),\]</span> for some <span class="math inline">\(\lambda\)</span>.</p></li>
+<li><p>Given that the state price deflator is adapted to the filtration and that commands are defined by: <span class="math display">\[C_{t}(\omega)=u^{\prime -1}(\lambda\delta^{-t} M_{t}(\omega)),\]</span> <span class="math display">\[W_{T}(\omega)=U^{\prime -1}(\lambda\delta^{-T} M_{T}(\omega)),\]</span> the commands necessarily satisfy the measurability conditions (adaptation to the filtration).</p></li>
+<li><p>The choice of <span class="math inline">\(\lambda\)</span> is dictated by the budget constraint: <span class="math display">\[W_{0}=E_{0}\left[\int_{0}^{T} M_{v}C_{v}du+M_{T}W_{T}\right].\]</span> The assumptions on the derivatives of the utility functions are designed to ensure the existence of a suitable multiplier. Indeed, one can check that the budget required by the above consumption and final wealth levels is a monotonous function of <span class="math inline">\(\lambda\)</span> and that there necessarily exists a value <span class="math inline">\(\lambda^{*}\)</span> that is compatible with the initial level of wealth.</p></li>
+<li><p>This solution technique is very elegant. It should however be clear that it does not deliver the required trading policy. We know that this policy exists, but we have not established a way to pin it down.</p></li>
+</ul>
+<h2 id="a-simple-illustration">A simple illustration</h2>
+<ul>
+<li><p>I now illustrate this method on a Black and Scholes setting. The example is borrowed from John Cochrane (reference): <span class="math display">\[\frac{dD_{t}}{D_{t}}=rdt,\]</span> <span class="math display">\[\frac{dS_{t}}{S_{t}}=\mu dt+\sigma dB_{t}=rdt+(\mu-r)dt+\sigma dB_{t}.\]</span></p></li>
+<li><p>Suppose the SDF follows a diffusion: <span class="math display">\[\frac{dM_{t}}{M_{t}}=\beta dt+\alpha dB_{t}.\]</span> Applying Ito to <span class="math inline">\(M_{t}D_{t}\)</span> and imposing that the drift is null (i.e. we have a martingale), we see that we should have <span class="math inline">\(\beta=-r\)</span>. Similarly, Ito applied to <span class="math inline">\(M_{t}S_{t}\)</span> forces <span class="math inline">\(\alpha=-(\mu-r)/\sigma=-\lambda\)</span> (minus the price of risk), so that in the end: <span class="math display">\[\frac{dM_{t}}{M_{t}}=-r dt-\lambda dB_{t}.\]</span></p></li>
+<li><p>The market is complete and any suitably integrable martingale <span class="math inline">\((X_{t})_{t \in [0,T]}\)</span> can be expressed as a stochastic integral: <span class="math display">\[\int_{0}^{t}h_{v}dB_{v},\]</span> where <span class="math inline">\((h_{v})_{t \in [0,T]}\)</span> is a predictable process.</p></li>
+<li><p>Let’s consider now an optimization problem with terminal utility of wealth: <span class="math display">\[\underset{W_{T}}{\text{max}} \; E_{0}\left[U(W_{T})\right],\]</span> subject to the financeability condition (complete market): <span class="math display">\[W_{0}=E_{0}\left[M_{T}W_{T}\right].\]</span> We take: <span class="math display">\[U(W)=\frac{W^{1-\rho}}{1-\rho}.\]</span></p></li>
+<li><p>We know that there must exist a Lagrange multiplier <span class="math inline">\(\gamma\)</span> such that: <span class="math display">\[U^{\prime}(W_{T})=\gamma M_{T},\]</span> <span class="math display">\[W_{0}=E_{0}\left[M_{T}U^{\prime -1}(\gamma M_{T})\right].\]</span> Using <span class="math inline">\(U^{\prime}(x)=x^{-\rho}\)</span>, we then get: <span class="math display">\[\frac{W_{T}^{*}}{W_{0}}=\frac{M_{T}^{-\frac{1}{\rho}}}{E_{0}\left[M_{T}^{\frac{\rho-1}{\rho}}\right]}.\]</span></p></li>
+<li><p>Integrating the SDE followed by <span class="math inline">\(M_{t}\)</span>, we get: <span class="math display">\[M_{T}=\exp\left(-(r+\frac{1}{2}\lambda^{2})T-\lambda B_{T}\right).\]</span> Injecting this into the expression for optimal wealth delivers: <span class="math display">\[W_{T}^{*}=\exp\left(rT+\frac{1}{\rho}(1-\frac{1}{2\rho})\lambda^{2}T+\frac{1}{\rho}\lambda B_{T}\right).\]</span> It can be checked that this is the same expression as the one obtained <a href="/ensae/2014/10/27/cont.html">here</a>, where we solved this constant opportunities problem with CRRA utility of terminal wealth through dynamic programming.</p></li>
+<li><p>Relatively lengthy calculations also show that, setting: <span class="math display">\[\alpha=\frac{\lambda}{\rho \sigma},\]</span> we have: <span class="math display">\[\frac{W_{T}^{*}}{W_{0}}=\exp\left((1-\alpha)(r+\frac{1}{2}\alpha\sigma^{2})T\right)R_{T}^{\alpha},\]</span> where: <span class="math display">\[R_{T}=\frac{S_{T}}{S_{0}}=\exp\left(rT+\sigma\lambda T+\sigma B_{T}\right).\]</span></p></li>
+<li><p>Optimal wealth is thus a transformation of the stock return. The graph below gives the shape of this transformation for different values of parameters. For low risk aversion, the transformation is convex. It is concave for high risk aversion, and linear for <span class="math inline">\(\alpha=1\)</span>. This is consistent with the idea that investors with low risk aversion will accept the downside to benefit from the downside. In contrast, high risk aversion investors are willing to sacrifice the upside to protect the downside.</p></li>
+</ul>
+<figure>
+<img src="/assets/media/complete.png" alt="Figure 1: The impact of risk aversion on the optimal wealth schedule (blue=leveraged, red=unleveraged)" /><figcaption aria-hidden="true">Figure 1: The impact of risk aversion on the optimal wealth schedule (blue=leveraged, red=unleveraged)</figcaption>
+</figure>
+<p><br />
+</p>
+<ul>
+<li>The martingale method does not deliver a trading policy. We know from dynamic programming however that the optimal policy consists in investing <span class="math inline">\(\alpha\)</span> on the stock at all times. Low risk aversion investors have <span class="math inline">\(\alpha&gt;1\)</span> (leverage) while high risk aversion investors have <span class="math inline">\(\alpha&lt;1\)</span> (the investor holds cash in addition to stocks). The case <span class="math inline">\(\alpha=1\)</span> consists in putting all wealth on stocks and holding it subsequently. It is a buy-and-hold policy. It should be noted that in all cases, wealth is entirely consumed when <span class="math inline">\(R_{T}=0\)</span>. In contrast, an investor who splits its wealth on cash and stocks and never rebalances is guaranteed to keep its cash when the value of the stock goes to zero.</li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2017-01-13-completecont.pdf">Link to pdf</a></li>
+</ul>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Ensae-ref">
+					Ensae <span>(20)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Solutions-ref">
+					Solutions <span>(2)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//ensae/2016/12/16/optimization.html" title="Constrained Optimization">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//ensae/2018/12/01/exam.html" title="Exam (2017)">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

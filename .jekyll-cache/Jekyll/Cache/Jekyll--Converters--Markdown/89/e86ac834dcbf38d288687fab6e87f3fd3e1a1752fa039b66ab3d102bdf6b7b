@@ -1,0 +1,61 @@
+I"�"<p><em>This post introduces the dynamics of the value of a portfolio. It starts with an unfrequently rebalanced portfolio: portfolio weights are assumed ‘simple’, i.e. piecewise constant. In this case, the portfolio value dynamics is trivial. More complex rebalancing schemes can be approximated using sequences of simple weighting schemes, just as a continuous function can be approximated using peacewise constant functions. The dynamics of portfolio value is then given by a stochastic integral. This example stresses an essential feature of stochastic integrals: portfolio weights (integrands) are forced to lag prices (integrators).</em></p>
+<hr />
+<h1 id="portfolio-returns-in-the-absence-of-rebalancing">Portfolio returns in the absence of rebalancing</h1>
+<p>In previous posts, we have looked at the returns of a given security, which we have defined using its price as well as its income stream. Whenever we speak of a price, we imply that it is a value attached to a unit, and that several units can be bought or sold. Value decomposes into prices and quantities.</p>
+<p>If <span class="math inline">\(n^{i}_{t}\)</span> is the quantity of asset <span class="math inline">\(i\)</span> with price <span class="math inline">\(P^{i}_{t}\)</span>, the corresponding value is simply <span class="math inline">\(V^{i}_{t}=n^{i}_{t}P^{i}_{t}\)</span>. A portfolio invested in assets <span class="math inline">\(i=0,\ldots,N\)</span> with quantities <span class="math inline">\((n^{i}_{t})_{0\leq i \leq N}\)</span> has an overall value of:<br />
+<span class="math display">\[V_{t}=\sum_{i=0}^{N}n^{i}_{t}P^{i}_{t}.\]</span><br />
+If quantities are unchanged between two dates <span class="math inline">\(t_{1}\)</span> and <span class="math inline">\(t_{2}\)</span>, value evolves as a result of price changes:<br />
+</p>
+<p><span class="math display">\[V_{t_{2}}-V_{t_{1}}=\sum_{i=0}^{N}n^{i}_{t_{1}}(P^{i}_{t_{2}}-P^{i}_{
+t_{1}}),\]</span><br />
+and the return of the portfolio is (assuming values and prices are strictly positive):<br />
+</p>
+<p><span class="math display">\[\frac{V_{t_{2}}}{V_{t_{1}}}-1=\sum_{i=0}^{N}\frac{n^{i}_{t_{1}}P^{i}_{
+t_{1}}}{V_{t_{1}}}\frac{P^{i}_{t_{2}}}{P^{i}_{t_{1}}}-1
+=\sum_{i=0}^{N}\omega^{i}_{t_{1}}(\frac{P^{i}_{t_{2}}}{P^{i}_{t_{1}}}-1)
+.\]</span><br />
+where:<br />
+</p>
+<p><span class="math display">\[\omega^{i}_{t_{1}}=\frac{n^{i}_{t_{1}}P^{i}_{t_{1}}}{V_{t_{1}}}=\frac{
+V^{i}_{t_{1}}}{V_{t_{1}}},\]</span></p>
+<p>is the share of portfolio value which is invested in asset <span class="math inline">\(i\)</span> at date <span class="math inline">\(t_{1}\)</span>. The shares by definition sum to <span class="math inline">\(1\)</span>:<br />
+<span class="math display">\[ \sum_{i=0}^{N}\omega^{i}_{t_{1}}=1.\]</span><br />
+In between such dates, portfolio returns are thus linear in the returns of the underlying assets. They do not look linear in the log returns.</p>
+<h1 id="rebalancing">Rebalancing</h1>
+<p>A rebalancing date <span class="math inline">\(t\)</span> is a date when a decision is made to modify portfolio composition. Portfolio composition is changed from the inherited one <span class="math inline">\((\omega^{i}_{t})_{0 \leq i \leq N}\)</span> to a new one <span class="math inline">\((\omega^{i}_{t_{+}})_{0 \leq i \leq N}\)</span>. Once the decision to rebalance is taken, implementation takes an arbitrarily small amount of time, leading to the assumption that at <span class="math inline">\(t\)</span>, the old portfolio composition prevails while the new one prevails right after <span class="math inline">\(t\)</span>, at <span class="math inline">\(t+\)</span> (i.e. at any time <span class="math inline">\(t+\epsilon, \epsilon\&gt;0\)</span>, <span class="math inline">\(\epsilon\)</span> sufficiently small).</p>
+<p>If there are no frictions in the trading process, portfolio value is preserved by rebalancing:<br />
+<span class="math display">\[V_{t}=V_{t_{+}}.\]</span> I thus assume here that portfolio weights are piecewise constant, continuous on the left and with limits on the right (caglad, ‘continue à gauche avec limites à droite’). This does not play a role when price processes are continuous (when prices follow standard diffusion processes for instance), but it does when price processes may jump, in which case the crucial question is whether portfolio weights are allowed to jump in sync with the price processes. Concretely, if the price process jumps, as a Poisson process does, from <span class="math inline">\(P^{i}_{t-}\)</span> to <span class="math inline">\(P^{i}_{t}\)</span>, can the portfolio policy knowingly benefit from that jump? The usual theory rules this out: price processes are cadlag (‘continue à droite avec limites à gauche’) and portfolio weights are caglad; the jump is observed at <span class="math inline">\(t\)</span>, when the rebalancing decision is taken; portfolio weights lag price jumps<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The profit accruing from the price jump at a rebalancing date <span class="math inline">\(t_{k}\)</span> is a function of the portfolio decision at the last rebalancing date <span class="math inline">\(t_{k-1}\)</span>:<br />
+<span class="math display">\[n^{i}_{t_{k-1}+}(P^{i}_{t_{k}}-P^{i}_{t_{k-}}).\]</span> Concretely, as explained above, placing a trade in markets takes a little bit of time, whichever technology is used. Therefore, the information set on which a decision is made predates the information set at trading time. The restriction is thus quite natural.</p>
+<p>The overall situation is summarized in the diagram below: <img src="/assets/media/portfolioreturn.png" /></p>
+<h1 id="portfolio-dynamics">Portfolio dynamics</h1>
+<p>Given assets and their price processes as well as a set <span class="math inline">\((t_{k})_{0 \leq k \leq K}\)</span> of rebalancing dates with holding policies <span class="math inline">\((n^{i}_{t_{k}})_{0 \leq i \leq N}\)</span>, we can now trivially compute the dynamics of portfolio value:<br />
+</p>
+<p><span class="math display">\[V_{t_{K}}-V_{t_{0}}=\sum_{i=0}^{N}\sum_{k=0}^{K-1}n^{i}_{t_{k}+}(P^{i}
+_{t_{k+1}}-P^{i}_{t_{k}}).\]</span><br />
+This is valid in the absence of trading costs. The inside sum in this formula can be taken as the definition of an integral for simple portfolio quantities (piecewise constant caglad). This is precisely the starting point of the definition of stochastic integrals (see for example Protter, <em>Stochastic Integration and Differential Equations</em>). We can thus write:<br />
+</p>
+<p><span class="math display">\[V_{t_{K}}-V_{t_{0}}=\sum_{i=0}^{N}\int_{t_{0}}^{t_{K}}n^{i}_{t}dP^{i}\_
+{t},\]</span><br />
+or:<br />
+<span class="math display">\[dV_{t}=\sum_{i=0}^{N}n^{i}_{t}dP^{i}_{t},\]</span><br />
+</p>
+<p><span class="math display">\[\frac{dV_{t}}{V_{t}}=\sum_{i=0}^{N}\omega^{i}_{t}\frac{dP^{i}_{t}}{P^{
+i}_{t}}.\]</span></p>
+<p>Portfolio value thus follows a stochastic differential equation<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, and even a geometric one when prices are strictly positive. It is the purpose of integration theory to demonstrate that integration can be extended to more complex trading policies than the piecewise constant ones described above, and in particular to policies of continuous rebalancing. We will allow fairly general trading rules in these notes.</p>
+<p>An important practical observation is that in continuous time, geometric returns and log returns are linearly related:<br />
+</p>
+<p><span class="math display">\[d\log(P_{t})=\frac{dP_{t}}{P_{t}}-\frac{1}{2}\frac{d[P]_{t}}{P_{t}}.\]</span><br />
+The portfolio log return is thus a linear combination of the log returns of the assets. This is quite neat since it allows to build log-normal models, i.e models where both prices and portfolio value follow log-normal models…</p>
+<p>PS: Computing portfolio returns thus naturally leads us to using stochastic integrals. A more mathematical glimpse into the definition of stochastic integrals will be provided in another post. In particular, the fact that stochastic integrals preserve the martingale property is key to the subject of this blog.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2013-04-06-portfolio-returns.pdf">Link to pdf</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>In technical terms, portfolio weights are forced to be ‘predictable’.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Which boils down to a standard differential equation if price processes are of finite variation with continuous derivatives. Indeed, the stochastic integral and the Stietjes integral coïncide in this context.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+:ET

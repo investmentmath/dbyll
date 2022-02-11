@@ -1,0 +1,12 @@
+I"<p><em>This post explains how to use the IPython/Jupyter notebooks which are provided in this blog through Github. The notebooks can easily be uploaded on a personal Sagemathcloud account. This avoids having to install a local implementation of Jupyter.</em></p>
+<hr />
+<h2 id="ipyhtonjupyter-notebooks-github-and-sagemathcloud">IPyhton/Jupyter notebooks, Github and Sagemathcloud</h2>
+<p>Python has become a credible option for scientific programming. Resources on the use of python in the economic context can be found <a href="http://www.kevinsheppard.com/Python_for_Econometrics">here</a>.</p>
+<p>Notebooks are a convenient way of using Python in education/teaching contexts. Notebooks provide a webbased programming environment. It relies on IPython, which has very recently morphed into the Jupyter project (see <a href="http://jupyter.readthedocs.org/">here</a>). Notebooks allow to mix code, illustrations, latex commands, html, markdown… One can find interesting resources and notebook examples <a href="https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks">here</a>.</p>
+<p>The notebooks referenced in this blog are posted on Github which has been recently updated to allow notebook visualization. Notebooks can be downloaded locally from Gihub by the readers of this blog. What is then required to use the notebooks is a Jupyter environment.</p>
+<p>I recommend <a href="https://cloud.sagemath.com/">Sagemathcloud</a> as a webbased platform to run Jupyter notebooks. An account needs to be created. Once this is done, a project has to be added. A Jupyter notebook can then be created or uploaded. The notebook can then be run and amended.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2015-10-17-ipython.pdf">Link to pdf</a></li>
+</ul>
+:ET

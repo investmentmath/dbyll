@@ -1,0 +1,399 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Stochastic Calculus at the Speed of Light</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Stochastic Calculus at the Speed of Light </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   October 
+	   25th,
+	   
+	   2014
+	 </span>
+	  <div class="article_body">
+	  <p><em>In this post, I briskly review stochastic calculus. I concentrate on continuous martingales. Continuous martingales have trajectories with infinite first order variation and finite quadratic variation. This forces the development of a specific integration theory. I introduce continuous semimartingales, for which I spell out the Ito formula. I then consider the geometric Brownian motion and the Ornstein Uhlenbeck process.</em></p>
+<hr />
+<h2 id="martingales-and-the-brownian-motion">Martingales and the brownian motion</h2>
+<ul>
+<li><p>Probability processes come with a probability space <span class="math inline">\((\Omega,{\cal F},\mathbb{P})\)</span> where the sigma algebra decomposes into a filtration <span class="math inline">\({\cal F}_{t}\)</span> required to satisfy ‘usual conditions’ (right continuity and completeness).</p></li>
+<li><p>A martingale is an adapted stochastic process <span class="math inline">\((M_{t})_{t\in \mathbb{R}_{+}}\)</span> such that <span class="math inline">\(M_{s}=E_{s}[M_{t}]\)</span> (<span class="math inline">\(s\leq t\)</span>). We will only work with continuous martingales, i.e. martingales with continuous trajectories (a.e.).</p></li>
+<li><p>A Brownian motion is a continuous martingale <span class="math inline">\((B_{t})_{t\in \mathbb{R}_{+}}\)</span> with the following properties:</p>
+<ul>
+<li><span class="math inline">\(B_{0}=0,\)</span></li>
+<li><span class="math inline">\(B_{t}-B_{s}\)</span> (<span class="math inline">\(s&lt;t\)</span>) is a normal random variable with mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(t-s\)</span>,</li>
+<li><span class="math inline">\(B_{t}-B_{s}\)</span> (<span class="math inline">\(s&lt;t\)</span>) is independent of <span class="math inline">\({\cal F}_{s}\)</span>.</li>
+</ul></li>
+</ul>
+<h2 id="some-properties-of-the-brownian-motion">Some properties of the Brownian motion</h2>
+<ul>
+<li><p>The Brownian motion has independent normally distributed increments.</p></li>
+<li><p>The Brownian motion is a Markovian process.</p></li>
+<li><p>The Brownian motion is a Gaussian process: all finite dimensional distributions are jointly normal.</p></li>
+<li><p>The trajectories of the Brownian motion are very irregular: with probability one, the set of times where <span class="math inline">\(B(\omega,\cdot)\)</span> is differentiable has Lebesgue measure <span class="math inline">\(0\)</span>.</p></li>
+<li><p>This is quite unusual for a function. We will see that it forces the first order variation of the Brownian motion to be to almost surely infinite, which prevents standard integration theory to be applied.</p></li>
+</ul>
+<h2 id="quadratic-variation-1">Quadratic variation (1)</h2>
+<ul>
+<li><p>The variation of order <span class="math inline">\(p\)</span> of a process <span class="math inline">\(M\)</span> over an interval <span class="math inline">\([0,T]\)</span> is the limit of: <span class="math display">\[V^{(p)}(\pi_{[0,T]})(\omega)=\sum_{k=1}^{n}|M_{t_{k}}(\omega)-M_{t_{k-1}}(\omega)|^{p},\]</span> as partitions <span class="math inline">\(\pi_{[0,T]}=\{t_{0}=0,t_{1},t_{2},\ldots,t_{n}=T\}\)</span> get finer.</p></li>
+<li><p>There are subtleties around the limiting concept used here, which I will sweep under the rug. All mentionned limits for variations below mean ‘as partitions get finer and finer’.</p></li>
+<li><p>Finite (first order) variation processes have <span class="math inline">\(\lim_{\pi_{[0,T]}} V^{(1)}(\pi_{[0,T]})(\omega)&lt;\infty\)</span> a.e.. They are amenable to Lebesgue Stieljes integration trajectory by trajectory. Variations of higher order are equal to <span class="math inline">\(0\)</span>.</p></li>
+</ul>
+<h2 id="quadratic-variation-2">Quadratic variation (2)</h2>
+<ul>
+<li><p>For the Brownian motion, we have <span class="math inline">\(\lim_{\pi_{[0,T]}} V^{(1)}(\pi_{[0,T]})(\omega)=\infty\)</span> and <span class="math inline">\(\lim_{\pi_{[0,T]}} V^{(2)}(\pi_{[0,T]})(\omega)=T\)</span> a.e.. Variations of higher order are zero.</p></li>
+<li><p>This feature (finite quadratic variation, infinite first order variation) is true for continuous martingales as well. Their quadratic variation is a stochastic variable however. A continuous martingale has zero quadratic variation if and only of it is a.e. constant.</p></li>
+<li><p>The quadratic variation process of a martingale is a process noted <span class="math inline">\([M]_{0,t}\)</span> or <span class="math inline">\([M]_{t}\)</span> when the starting point is obvious. One can show that it is a finite variation process. Each trajectory of <span class="math inline">\([M]_{0,t}\)</span> is increasing in <span class="math inline">\(t\)</span>.</p></li>
+<li><p>Quadratic variation is cumulated variance.</p></li>
+</ul>
+<h2 id="quadratic-variation-3">Quadratic variation (3)</h2>
+<ul>
+<li><p><strong>Levy’s theorem</strong>: a continuous martingale <span class="math inline">\((M_{t})_{t\in \mathbb{R}_{+}}\)</span> with <span class="math inline">\(M_{0}=0\)</span> is a Brownian motion if and only if <span class="math inline">\([M]_{t}=t\)</span> a.e..</p></li>
+<li><p>Similarly, one defines the quadratic covariation <span class="math inline">\([M,N]_{t}\)</span> between two martingales: <span class="math display">\[[M,N]_{t}=\lim_{\pi_{[0,T]}} \sum_{k=1}^{n}(M_{t_{k}}(\omega)-M_{t_{k-1}}(\omega))(N_{t_{k}}(\omega)-N_{t_{k-1}}(\omega)).\]</span></p></li>
+</ul>
+<h2 id="stochastic-integrals-1">Stochastic Integrals (1)</h2>
+<ul>
+<li><p>Predictable processes are processes that can be obtained as limits of left continuous adapted processes.</p></li>
+<li><p>Along the finite variation paths of a finite variation process <span class="math inline">\((A_{t})_{t\in \mathbb{R}_{+}}\)</span> we can define the integral of a predictable process <span class="math inline">\((H_{t})_{t\in \mathbb{R}_{+}}\)</span>: <span class="math display">\[\int_{0}^{t}H_{u}(\omega)dA_{u}(\omega),\]</span> provided <span class="math inline">\(\int_{0}^{T}|H_{s}(\omega)|\,|dA|_{s}(\omega)&lt;\infty\)</span> a.e..</p></li>
+<li><p>For a martingale <span class="math inline">\((M_{t})_{t\in \mathbb{R}_{+}}\)</span>, exploiting the existence of a quadratic variation, we can then define the <strong>stochastic</strong> integral of a predictable process <span class="math inline">\((H_{t})_{t\in \mathbb{R}_{+}}\)</span> (see below the slide on stochastic integrals and trading gains): <span class="math display">\[\int_{0}^{t}H_{u}dM_{u},\]</span> provided <span class="math inline">\(E_{0}\left[\int_{0}^{t}H_{u}^{2}d[M]_{u}\right]&lt;\infty\)</span>.</p></li>
+</ul>
+<h2 id="stochastic-integrals-2">Stochastic Integrals (2)</h2>
+<ul>
+<li><p>The stochastic integral of a martingale is a martingale of quadratic variation on <span class="math inline">\([0,T]\)</span>: <span class="math display">\[\int_{0}^{t}H_{u}^{2}d[M]_{u},\]</span> when <span class="math inline">\(E_{0}\left[\int_{0}^{T}H_{u}^{2}d[M]_{u}\right]&lt;\infty\)</span>.</p></li>
+<li><p>Suppose the continuous process <span class="math inline">\(X\)</span> decomposes as <span class="math inline">\(X_{s}=X_{0}+A_{s}+M_{s}\)</span> where <span class="math inline">\(A\)</span> is a continuous finite variation process and <span class="math inline">\(M\)</span> is a continuous martingale, we can define the integral: <span class="math display">\[\int_{0}^{t}H_{s}dX_{s}=\int_{0}^{t}H_{s}dM_{s}+\int_{0}^{t}H_{s}dA_{s},\]</span> in the interval <span class="math inline">\([0,T]\)</span> provided: <span class="math display">\[E_{0}\left[\int_{0}^{T}H^{2}_{s}d[M]_{s}+\int_{0}^{T}|H_{s}|\,|dA|_{s}\right]&lt;\infty.\]</span></p></li>
+</ul>
+<h2 id="remarks-on-semimartingales">Remarks on semimartingales</h2>
+<ul>
+<li><p>The above additive decomposition of a continuous semimartingale into a continuous martingale and a continuous finite variation process is unique.</p></li>
+<li><p>The quadratic variation of a semimartingale is the quadratic variation of its martingale component: <span class="math display">\[[X]_{t}=[M]_{t}.\]</span></p></li>
+</ul>
+<h2 id="stochastic-integrals-and-trading-1">Stochastic integrals and trading (1)</h2>
+<ul>
+<li><p>Assume <span class="math inline">\((P_{t})_{t\in \mathbb{R}_{+}}\)</span> is a price process modeled as a semimartingale.</p></li>
+<li><p>Assume <span class="math inline">\(n\)</span> is piecewise constant and left continuous, with trading dates <span class="math inline">\((t_{i})_{i \in \mathbb{N}}\)</span> (<span class="math inline">\(t_{0}=0\)</span>). The value invested at time <span class="math inline">\(t_{j}\leq t&lt;t_{j+1}\)</span> on the instrument is: <span class="math display">\[n_{0}P_{0}+n_{0}(P_{t_{1}}-P_{0})+n_{t_{1}}(P_{t_{2}}-P_{t_{1}})+\cdots+n_{t_{j}}(P_{t}-P_{t_{j}})\]</span> <span class="math display">\[\stackrel{\text{def}}{=} n_{0}P_{0}+\int_{0}^{t}n_{u}dP_{u}.\]</span></p></li>
+</ul>
+<h2 id="stochastic-integrals-and-trading-2">Stochastic integrals and trading (2)</h2>
+<ul>
+<li><p>This is precisely the starting point to define the stochastic integral. The key point is that the weight <span class="math inline">\(n\)</span> predates the change in price. The theory of stochastic integration extends the above definition to general predictable processes <span class="math inline">\(n\)</span>.</p></li>
+<li><p>Predictable trading processes <span class="math inline">\(n\)</span> are obtained as limits of piecewise constant left continuous processes.They are idealized objects (real trading is piecewise constant!).</p></li>
+<li><p><span class="math inline">\(\int_{0}^{t}n_{t}dP_{t}\)</span> is the cumulated change in value generated by the trading process.</p></li>
+</ul>
+<h2 id="local-martingales-and-integration">Local martingales and integration</h2>
+<ul>
+<li><p>Local martingales are almost martingales but not quite! They are martingales when retricted to specific domains of times and outcomes. The proper definition relies on stopping times, i.e. random clock times that are adapted to the filtration. For a process to be a local martingale, it needs to come with a sequence of stopping times which somehow cover the time and event space, and such that the stopped process (for any of these stopping time) is a true martingale.</p></li>
+<li><p>Integrating a true martingale, one gets a martingale when the resulting quadratic variation is bounded: <span class="math inline">\(E_{0}\left[\int_{0}^{T}H^{2}_{s}d[M]_{s}\right]&lt;\infty\)</span>. When this condition is not met but we instead have <span class="math inline">\(P\left(\int_{0}^{T}H^{2}_{s}d[M]_{s}&lt;\infty\right)=1\)</span>, we get a local martingale instead. Lack of boundedness gets in the way of estabilishing <span class="math inline">\(N_{t}=E[N_{T}|{\cal F}_{t}]\)</span>. Technically, establishing this last condition requires to exchange integration and limits (cf. the dominated convergence theorem of Lebesgue integration).</p></li>
+<li><p>Illustration with the Saint Petersburg Paradox.</p></li>
+<li><p>Heuristically, a local martingale fails to be a martingale if its cumulated variance explodes with strictly positive probability.</p></li>
+</ul>
+<h2 id="itos-formula-univariate">Ito’s formula (univariate)</h2>
+<ul>
+<li><p>For a process of bounded variation <span class="math inline">\((A_{t})_{t\in \mathbb{R}_{+}}\)</span> and a continuously differentiable function, one recovers a function from its derivative: <span class="math display">\[f(A_{t})-f(A_{0})=\int_{0}^{t}f&#39;(A_{s})dA_{s}.\]</span></p></li>
+<li><p>This cannot work for continuous martingales because they have infinite first order variation. Instead, we have for a twice continuously differentiable function: <span class="math display">\[f(M_{t})-f(M_{0})=\int_{0}^{t}f&#39;(M_{s})dM_{s}+\frac{1}{2}\int_{0}^{t}f&#39;&#39;(M_{s})d[M]_{s}.\]</span></p></li>
+<li><p>For a semimartingale <span class="math inline">\(X_{s}=X_{0}+A_{s}+M_{s}\)</span>: <span class="math display">\[f(X_{t})-f(X_{0})=\int_{0}^{t}f&#39;(X_{s})dX_{s}+\frac{1}{2}\int_{0}^{t}f&#39;&#39;(X_{s})d[X]_{s}.\]</span></p></li>
+</ul>
+<h2 id="itos-formula-multivariate">Ito’s formula (multivariate)</h2>
+<ul>
+<li><p>We now have a collection of <span class="math inline">\(n\)</span> semimartingales <span class="math inline">\((X_{1,t},\ldots,X_{n,t})\)</span> and a multivariate twice continnuously differentiable function <span class="math inline">\(f\)</span> into <span class="math inline">\(\mathbb{R}\)</span>. We have: <span class="math display">\[
+f(X_{1,t},\ldots,X_{n,t})-f(X_{1,0},\ldots,X_{n,0})=\]</span> <span class="math display">\[\sum_{i}\int_{0}^{t}f&#39;_{i}(X_{1,s},\ldots,X_{n,s})dX_{i,s}+\]</span> <span class="math display">\[\frac{1}{2}\sum_{i,j}\int_{0}^{t}f^{\prime\prime}_{i,j}(X_{1,s},\ldots,X_{n,s})d[X_{i},X_{j}]_{s}.\]</span></p></li>
+<li><p>Exercise: write down the formula when <span class="math inline">\(X_{1,t}=t\)</span>. In this case, <span class="math inline">\(f\)</span> actually only needs to be continuously differentiable in the first variable.</p></li>
+</ul>
+<h2 id="product-rule">Product rule</h2>
+<ul>
+<li><p>We can apply the above formula to <span class="math inline">\(f(x,y)=xy\)</span> and two semimartingales <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>: <span class="math display">\[X_{t}Y_{t}-X_{0}Y_{0}=\int_{0}^{t}X_{u}dY_{u}+\int_{0}^{t}Y_{u}dX_{u}+\int_{0}^{t}d[X,Y]_{u}.\]</span></p></li>
+<li><p>If one of the two semimartingales is a finite variation process, we recover: <span class="math display">\[X_{t}Y_{t}-X_{0}Y_{0}=\int_{0}^{t}X_{u}dY_{u}+\int_{0}^{t}Y_{u}dX_{u}.\]</span></p></li>
+</ul>
+<h2 id="some-remarks">Some remarks</h2>
+<ul>
+<li><p>Integral equations are usually written in differential notations, but the latter should be seen as shorthands.</p></li>
+<li><p>Our finite variation processes will be absolutely continuous. This ensures that they are the integral of their derivatives: <span class="math display">\[A_{t}-A_{s}=\int_{s}^{t}a(u)du,\]</span> or in differential notation: <span class="math display">\[dA_{u}=a(u)du.\]</span></p></li>
+</ul>
+<h2 id="stochastic-differential-equations-1">Stochastic Differential Equations (1)</h2>
+<ul>
+<li>A homogenous stochastic differential equation driven by a Brownian motion: <span class="math display">\[dX_{t}=\mu(X_{t})dt+\sigma(X_{t})dB_{t},\]</span> together with an initial condition <span class="math inline">\(X_{0}\)</span> (an <span class="math inline">\({\cal F}_{0}\)</span> measurable random variable). Regularity conditions are imposed on the functions <span class="math inline">\(\mu(\cdot)\)</span> and <span class="math inline">\(\sigma(\cdot)\)</span>. The question is then the existence of a solution to this equation, i.e. the existence of a process <span class="math inline">\((X_{t})_{t \in \mathbb{R}_{+}}\)</span> started at <span class="math inline">\(X_{0}\)</span> and obeying the above equation.</li>
+</ul>
+<h2 id="stochastic-differential-equations-2">Stochastic Differential Equations (2)</h2>
+<ul>
+<li><p>A homogenous geometric stochastic differential equation driven by a Brownian motion: <span class="math display">\[dP_{t}=P_{t}\mu(P_{t})dt+P_{t}\sigma(P_{t})dB_{t}.\]</span></p></li>
+<li><p>Apply Ito (assuming <span class="math inline">\(P\)</span> is strictly positive) with <span class="math inline">\(f(\cdot)=\log(\cdot)\)</span> to deduce: <span class="math display">\[P_{t}=P_{0}\exp\left(\int_{0}^{t}\mu_{u}du-\frac{1}{2}\int_{0}^{t}\sigma_{u}^{2}du+\int_{0}^{t}\sigma_{u}dB_{u}\right).\]</span></p></li>
+<li><p>When <span class="math inline">\(\mu_{t}\)</span> and <span class="math inline">\(\sigma_{t}\)</span> are deterministic functions of time, the process is log normal.</p></li>
+<li><p>GBM: <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> constant.</p></li>
+</ul>
+<h2 id="gbm">GBM</h2>
+<ul>
+<li><p>For the GBM<span class="math inline">\((\mu,\sigma)\)</span> process initialised at <span class="math inline">\(P_{0}\)</span>, the mean of the distribution of <span class="math inline">\(P_{t}\)</span> as seen from time <span class="math inline">\(0\)</span> is : <span class="math display">\[\exp(\mu t),\]</span> and the median is: <span class="math display">\[\exp\left(\mu t-\frac{1}{2}\sigma^{2} t\right).\]</span></p></li>
+<li><p>The median and the mean diverge. The conditional distribution gets very skewed, with a few explosive trajectories moving the mean much above the median.</p></li>
+<li><p>We have: <span class="math display">\[\frac{1}{T}\left(\log(P_{T})-\log(P_{0})\right)=\mu-\frac{1}{2}\sigma^{2}+\frac{1}{T}(B_{T}-B_{0}),\]</span> and the law of large numbers ensures that the last term on the right converges to <span class="math inline">\(0\)</span> as <span class="math inline">\(T\)</span> goes to infinity.</p></li>
+<li><p>Thus the mean growth rate converges almost surely to <span class="math inline">\(\mu-\frac{1}{2}\sigma^{2}\)</span>.</p></li>
+</ul>
+<h2 id="ornstein-uhlenbeck-1">Ornstein Uhlenbeck (1)</h2>
+<ul>
+<li><p>Gaussian processes are processes such that all finite dimensional distributions are Gaussian.</p></li>
+<li><p>A stochastic integral <span class="math inline">\(\int_{0}^{t}h(u)dB_{u}\)</span> leads to a Gaussian process. Provided <span class="math inline">\(\int_{-\infty}^{t}h(u)^{2}du&lt;\infty\)</span>, one can similarly define the process <span class="math inline">\(\int_{-\infty}^{t}h(t,u)dB_{u}\)</span> for a deterministic function <span class="math inline">\(h(t,u)\)</span>, which is also Gaussian.</p></li>
+<li><p>Taking <span class="math inline">\(h(t,u)=\beta^{\frac{1}{2}}\exp(-\alpha (t-u))\)</span> delivers a covariance stationary Gaussian process which satisfies: <span class="math display">\[X_{t}=\exp(-\alpha(t-s))X_{s}+\int_{s}^{t}\beta^{\frac{1}{2}}\exp(-\alpha (t-u))dB_{u}.\]</span></p></li>
+</ul>
+<h2 id="ornstein-uhlenbeck-2">Ornstein Uhlenbeck (2)</h2>
+<ul>
+<li><p>We can condition the process on <span class="math inline">\(X_{0}=x\)</span> to get an Ornstein-Uhlenbeck process initialized at <span class="math inline">\(0\)</span>.</p></li>
+<li><p>It solves the SDE: <span class="math display">\[dX_{t}=-\alpha X_{t}dt+\beta^{\frac{1}{2}}dB_{t}\]</span></p></li>
+<li><p>This process has mean <span class="math inline">\(0\)</span> and mean reverting speed <span class="math inline">\(\alpha\)</span>. One can translate it by <span class="math inline">\(\mu\)</span> to shift its mean as needed.</p></li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2014-10-25-stocalc.pdf">Link to pdf</a></li>
+</ul>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Ensae-ref">
+					Ensae <span>(20)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Math-ref">
+					Math <span>(2)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//ensae/2014/10/18/dynprog.html" title="Dynamic Programming">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//ensae/2014/10/27/cont.html" title="Dynamic Models (Continuous Time)">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

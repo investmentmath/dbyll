@@ -1,0 +1,365 @@
+I"w�<p><em>In this post, I look at continuous time models. Price dynamics are described and wealth dynamics are derived. I then look at dynamic programming, describing the Hamilton Jacobi Bellman partial differential equation. I apply this to the case of constant investment opportunities and CRRA utility (including log utility). The results described in discrete time are shown to hold here as well. I then look at cases where investment opportunities fluctuate, reflecting the dynamics of a scalar Markovian process. In the first example, the driving variable is the (stochastic) cash rate. This model allows to discuss the role of bonds as hedging instruments within portfolios. In the second example, the cash rate is constant but the equity premium fluctuates and the equity index is more volatile in the short term than in the long term. This makes the optimal equity weight dependent on the investment horizon. </em></p>
+<hr />
+<h2 id="why-continuous-time">Why continuous time?</h2>
+<ul>
+<li><p>Decisions are taken at specific instants which are themselves decision variables. The underlying time scale is continuous. Realism therefore suggests exploring continuous time.</p></li>
+<li><p>Continuous time leads to some simplifications. Discrete time mathematics are harder than it looks. As an example, continuous time calculus often provides closed form expressions where discrete time does not.</p>
+<ul>
+<li>Example of a simplification: log normal markets</li>
+</ul></li>
+<li><p>However: to properly ground continuous time processes requires heavy machinary; the Ito integral is only about <span class="math inline">\(60\)</span> years old. See summary on stochastic calculus.</p></li>
+</ul>
+<h2 id="price-dynamics-and-total-return-processes-1">Price dynamics and total return processes (1)</h2>
+<ul>
+<li><p>Geometric SDEs and particularly the GBM are good candidates to model equity price processes. Equity processes however distribute dividends. The dividends need to be integrated to judge the attractiveness of the investment.</p></li>
+<li><p>The ex-dividend rate of return is: <span class="math display">\[\frac{dP_{t}}{P_{t}}.\]</span></p></li>
+<li><p>If a contract distributes dividends <span class="math inline">\(\delta_{t}dt\)</span> in a time interval of size <span class="math inline">\(dt\)</span>, the total rate of return of a contract is: <span class="math display">\[\frac{dP_{t}+\delta_{t}dt}{P_{t}}.\]</span></p></li>
+</ul>
+<h2 id="price-dynamics-and-total-return-processes-2">Price dynamics and total return processes (2)</h2>
+<ul>
+<li><p>If I own <span class="math inline">\(n_{t}\)</span> equity contracts at date <span class="math inline">\(t\)</span>, I get the total return computed above. Yet, at <span class="math inline">\(t+dt\)</span>, I have cash to invest. I purchase <span class="math inline">\(dn_{t}\)</span> shares: <span class="math display">\[dn_{t}P_{t}=n_{t}\delta_{t}dt,\]</span> <span class="math display">\[\frac{dn_{t}}{n_{t}}=\frac{\delta_{t}}{P_{t}}dt.\]</span></p></li>
+<li><p>The number of shares grows at a rate given by the dividend yield. It’s a finite variation process.</p></li>
+<li><p>A total rate of return index is a portfolio with an investment policy! Its value <span class="math inline">\(n_{t}P_{t}\)</span> grows at a rate: <span class="math display">\[\frac{d(n_{t}P_{t})}{n_{t}P_{t}}=\frac{n_{t}dP_{t}}{n_{t}P_{t}}+\frac{P_{t}dn_{t}}{n_{t}P_{t}}=\frac{dP_{t}+\delta_{t}dt}{P_{t}}.\]</span></p></li>
+</ul>
+<h2 id="the-cash-account">The cash account</h2>
+<ul>
+<li><p>If some money is put on a cash account and left alone, it accumulates at a rate that is predetermined: <span class="math display">\[\frac{dD_{t}}{D_{t}}=r^{f}_{t}dt,\]</span> or in integral from: <span class="math display">\[D_{t}-D_{s}=\int_{s}^{t}D_{u}r^{f}_{u}du.\]</span></p></li>
+<li><p>However, the above integral <span class="math inline">\(\int_{s}^{t}D_{u}r^{f}_{u}du\)</span> also measures the gain attached to having <span class="math inline">\(D_{u}\)</span> on the cash account between date <span class="math inline">\(s\)</span> and date <span class="math inline">\(t\)</span>, regardless of whether money is added or redeemed from the cash account in this time interval.</p></li>
+</ul>
+<h2 id="wealth-dynamics-1">Wealth dynamics (1)</h2>
+<ul>
+<li><p>We now consider a set of securities indexed by <span class="math inline">\(i\in \{1,2,\ldots,N\}\)</span>, with price processes <span class="math inline">\((P_{i,t})_{t\in \mathbb{R}_{+}}\)</span> that are semimartingales and follow geometric diffusions: <span class="math display">\[\frac{dP_{i,t}}{P_{i,t}}=\mu_{i,t}dt+\sigma_{i,t}dB_{t}.\]</span></p></li>
+<li><p>Dimensions:</p>
+<ul>
+<li><span class="math inline">\(B_{t}\)</span> is a <span class="math inline">\((N,1)\)</span> multivariate Brownian motion with independent components</li>
+<li>accordingly <span class="math inline">\(\sigma_{i,t}\)</span> is a <span class="math inline">\((1,N)\)</span> volatility matrix</li>
+</ul></li>
+<li><p>As usual, when a cash account is present, it receives index <span class="math inline">\(0\)</span>. The set of instruments is denoted <span class="math inline">\(\cal{I}\)</span> as usual.</p></li>
+<li><p>In this case, it is convenient to introduce excess returns: <span class="math display">\[\frac{dP_{i,t}}{P_{i,t}}=r^{f}_{t}dt+(\mu_{i,t}-r^{f}_{t})dt+\sigma_{i,t}dB_{t}.\]</span></p></li>
+</ul>
+<h2 id="wealth-dynamics-2">Wealth dynamics (2)</h2>
+<ul>
+<li><p>The gain generated by holding <span class="math inline">\(n_{i,u}\)</span> units of security <span class="math inline">\(i\)</span> is: <span class="math display">\[G_{i,t}-G_{i,s}=\int_{s}^{t}n_{i,u}dP_{i,u}.\]</span></p></li>
+<li><p>Assume positions <span class="math inline">\(n_{i,u}\)</span> on risky securities are held. The gain made thereby over a time interval <span class="math inline">\([s,t]\)</span> is: <span class="math display">\[\hat{G}_{t}-\hat{G}_{s}=\sum_{i=1}^{N}\int_{s}^{t}n_{i,u}dP_{i,u}.\]</span></p></li>
+<li><p>The total gain made over cash and risky securities is thus: <span class="math display">\[W_{t}-W_{s}=\int_{s}^{t}D_{u}r^{f}_{u}du+\sum_{i=1}^{N}\int_{s}^{t}n_{i,u}dP_{i,u}.\]</span></p></li>
+</ul>
+<h2 id="wealth-dynamics-3">Wealth dynamics (3)</h2>
+<ul>
+<li><p>Assume now that we are at a trading date. Barring transaction costs, trading does not change the value of the portfolio. We therefore should have at all times that the value of the portfolio only changes as a result of the gains made on the securities, i.e.: <span class="math display">\[dW_{u}=dD_{u}+\sum_{i=1}^{N}n_{i,u}dP_{i,u}.\]</span></p></li>
+<li><p>This equation is called the self financing condition. It is really the counterpart of <span class="math inline">\(W_{t+1}=W_{t}(\pi_{t}&#39;R_{t+1})\)</span> in discrete time.</p></li>
+<li><p>We can rewrite this as: <span class="math display">\[\frac{dW_{u}}{W_{u}}=\frac{D_{u}}{W_{u}}\frac{dD_{u}}{D_{u}}+\sum_{i=1}^{N}\frac{n_{i,u}P_{i,u}}{W_{u}}\frac{dP_{i,u}}{P_{i,u}}.\]</span></p></li>
+<li><p>We can finally introduce the portfolio shares <span class="math inline">\((\pi_{i,t})_{i\in {\cal I}}\)</span>: <span class="math display">\[\frac{dW_{u}}{W_{u}}=\pi_{0,u}r^{f}_{u}du+\sum_{i=1}^{N}\pi_{i,u}(\mu_{i,u}du+\sigma_{i,u}dB_{u}),\]</span> where we have used the fact that at any time: <span class="math display">\[W_{t}=D_{t}+\sum_{i=1}^{N}n_{i,u}P_{i,u},\]</span> i.e.: <span class="math display">\[\sum_{i\in{\cal I}} \pi_{i,u}=1.\]</span></p></li>
+</ul>
+<h2 id="wealth-dynamics-4">Wealth dynamics (4)</h2>
+<ul>
+<li><p>We now need more compact notations.</p></li>
+<li><p>We write the dynamics of securities prices in vector notations: <span class="math display">\[\frac{dP_{t}}{P_{t}}=\mu_{t}dt+\sigma_{t}dB_{t},\]</span> with (abuse!) the left hand side denoting the vector of instantaneous rates of returns.</p></li>
+<li><p>Dimensions:</p>
+<ul>
+<li><span class="math inline">\(\mu_{t}\)</span> is <span class="math inline">\((N,1)\)</span></li>
+<li><span class="math inline">\(\sigma_{t}\)</span> is <span class="math inline">\((N,N)\)</span></li>
+</ul></li>
+<li><p>In the very short term, risk is driven by the term <span class="math inline">\(\sigma_{t}dB_{t}\)</span>. Thus the short term covariance matrix of <span class="math inline">\(dP_{t}/P_{t}\)</span> (rates of return) is<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>: <span class="math display">\[\text{Var}_{t}[\frac{dP_{t}}{P_{t}}]=E_{t}[\sigma_{t}dB_{t}dB_{t}&#39;\sigma_{t}&#39;].\]</span></p></li>
+<li><p>The covariance matrix (size <span class="math inline">\((N,N)\)</span>) of securities is thus: <span class="math display">\[\Sigma_{t}=\sigma_{t}\sigma_{t}&#39;.\]</span> It should be thought of as annualized.</p></li>
+</ul>
+<h2 id="wealth-dynamics-5">Wealth dynamics (5)</h2>
+<ul>
+<li><p>The vector <span class="math inline">\(\pi_{t}\)</span> (size <span class="math inline">\((N,1)\)</span>) represents the set of weights on risky assets.</p></li>
+<li><p>The scalar <span class="math inline">\(\pi_{0,t}\)</span> represents the weight on the riskless asset.</p></li>
+<li><p>We can write the wealth dynamics as: <span class="math display">\[\frac{dW_{u}}{W_{u}}=(\pi_{0,u}r^{f}_{u}+\pi_{u}&#39;\mu_{u})du+\pi_{u}&#39;\sigma_{u}dB_{u},\]</span> or: <span class="math display">\[\frac{dW_{u}}{W_{u}}=r^{f}_{u}du+\pi_{u}&#39;(\mu_{u}-r^{f}_{u}\pmb{e})du+\pi_{u}&#39;\sigma_{u}dB_{u}.\]</span></p></li>
+<li><p>This geometric equation implies: <span class="math display">\[
+W_{t}=W_{0}\exp\Big(\int_{0}^{t}r^{f}_{u}du+\int_{0}^{t}\pi_{u}&#39;(\mu_{u}-r^{f}_{u}\pmb{e})du-  \\
+\frac{1}{2}\int_{0}^{t}\pi_{u}&#39;\Sigma_{u}\pi_{u}du+\int_{0}^{t}\pi_{u}&#39;\sigma_{u}dB_{u}\Big).
+\]</span></p></li>
+<li><p>When all coefficients (<span class="math inline">\(\mu_{u}\)</span>,<span class="math inline">\(\Sigma_{u}\)</span>,<span class="math inline">\(r^{f}_{u}\)</span>,<span class="math inline">\(\pi_{u}\)</span>) are deterministic, wealth follows a log normal process. Log-normal models are not available in discrete time (the sum of two log normal variables is not log-normal).</p></li>
+</ul>
+<h2 id="wealth-dynamics-6">Wealth dynamics (6)</h2>
+<ul>
+<li>In the presence of income <span class="math inline">\(Y_{t}dt\)</span> and consumption <span class="math inline">\(C_{t}dt\)</span> per unit of time, the dynamic of wealth is: <span class="math display">\[\frac{dW_{u}}{W_{u}}=r^{f}_{u}+\pi_{u}&#39;(\mu_{u}-r^{f}_{u}\pmb{e})du+\pi_{u}&#39;\sigma_{u}dB_{u}+y_{u}du-c_{u}du,\]</span> with <span class="math inline">\(c_{u}=C_{u}/W_{u}\)</span> and <span class="math inline">\(y_{u}=Y_{u}/W_{u}\)</span>.</li>
+</ul>
+<h2 id="absence-of-arbitrage">Absence of arbitrage</h2>
+<ul>
+<li><p>One version of Farkas’s Lemma says that on finite dimensional vector spaces, if the kernel of a set of linear forms <span class="math inline">\((f_{i})_{1\le i \le P}\)</span> is included in that of a linear form <span class="math inline">\(g\)</span>, then <span class="math inline">\(g\)</span> is a linear combination of the <span class="math inline">\(f_{i}\)</span>s: <span class="math display">\[g=\sum_{i=1}^{P}\lambda_{i}f_{i}.\]</span></p></li>
+<li><p>As an application, suppose that the absence of any exposure to the sources of risk (<span class="math inline">\(\sigma&#39; \pi=0_{N}\)</span>) implies that the excess return is zero (<span class="math inline">\((\mu-r^{f}e)&#39;\pi=0\)</span>), then: <span class="math display">\[\mu-r^{f}e=\sigma\lambda.\]</span></p></li>
+<li><p>Here, the columns of <span class="math inline">\(\sigma\)</span> give the family of linear of forms <span class="math inline">\((f_{i})_{1\le i \le N}\)</span> while the excess return is <span class="math inline">\(g\)</span>.</p></li>
+<li><p>The premise says that ‘no risk implies no excess return’, and the conclusion says that risky asset’s excess return are proportional to risk exposure. The vector <span class="math inline">\(\lambda\)</span> is the vector of risk prices.</p></li>
+</ul>
+<h2 id="remarks">Remarks</h2>
+<ul>
+<li><p>If the distribution of wealth is log-normal, one can easily compute expected utility of wealth for CRRA utility functions.</p></li>
+<li><p>Indeed: <span class="math display">\[E[\frac{W^{1-\gamma}}{1-\gamma}]=\frac{1}{1-\gamma}E\left[\exp\left((1-\gamma)\log(W)\right)\right]=\]</span> <span class="math display">\[\frac{1}{1-\gamma}\exp\left((1-\gamma)E[\log(W)]+\frac{1}{2}(1-\gamma)^{2}\text{Var}\left(\log(W)\right)\right).\]</span></p></li>
+<li><p>This allows to make explicit calculations in log-normal markets.</p></li>
+</ul>
+<h2 id="investment-opportunities">Investment opportunities</h2>
+<ul>
+<li><p>The data describing investment opportunities are <span class="math inline">\((r^{f}_{u},\mu_{u},\sigma_{u})\)</span>.</p></li>
+<li><p>Investment opportunities are constant if the data do not depend on time.</p></li>
+<li><p>Alternatively I will assume that all data depend on a scalar Markovian state process <span class="math inline">\((x_{t})_{t\in \mathbb{R}_{+}}\)</span> with dynamics described by a diffusion: <span class="math display">\[dx_{t}=\phi_{t}dt+\nu_{t}dB_{t},\]</span> where <span class="math inline">\(\nu_{t}\)</span> is of size <span class="math inline">\((1,N)\)</span>.</p></li>
+<li><p>I describe dynamic programming in this context.</p></li>
+</ul>
+<h2 id="dynamic-programming-1">Dynamic programming (1)</h2>
+<ul>
+<li><p>We will consider the following optimization problem (consumption but no income): <span class="math display">\[V(t,x_{t},W_{t})=\]</span> <span class="math display">\[\underset{(\pi_{[t,T]},C_{[t,T]})}{\text{max}} \; E_{t}\Big[\int_{t}^{T} e^{-\delta(u-t)}u(C_{u})du+ \;e^{-\delta(T-t)}U(W_{T})\Big]\]</span> <span class="math display">\[\text{s.t.}\]</span> <span class="math display">\[\; \frac{dW_{u}}{W_{u}}=r^{f}_{u}du+\pi_{u}&#39;(\mu(x_{u})-r^{f}(x_{u}))du+\pi_{u}&#39;\sigma(x_{u})dB_{u}-c_{u}du\]</span> <span class="math display">\[\; c_{u} \geq 0\]</span> <span class="math display">\[\; W_{u} &gt; 0.\]</span></p></li>
+<li><p><span class="math inline">\(V_{t}\)</span> is discounted back at time <span class="math inline">\(t\)</span>, not at time <span class="math inline">\(0\)</span>.</p></li>
+</ul>
+<h2 id="dynamic-programming-2">Dynamic programming (2)</h2>
+<ul>
+<li><p>I heuristically derive the Hamilton Jacobi Bellman equation, a partial differential equation.</p></li>
+<li><p>We have: <span class="math display">\[V(t,x_{t},W_{t})=\]</span> <span class="math display">\[\underset{(\pi_{t},C_{t})}{\text{max}}\Big\{u(C_{t})\Delta t+ 
+e^{-\delta \Delta t}E_{t}[V(t+\Delta t,x_{t+\Delta t},W_{t+\Delta t})]\Big\}.\]</span></p></li>
+</ul>
+<h2 id="dynamic-programming-3">Dynamic programming (3)</h2>
+<ul>
+<li>We transform this multiplying the whole equation by <span class="math inline">\(e^{\delta \Delta t}\)</span>, then subtracting <span class="math inline">\(V(t,x_{t},W_{t})\)</span>, and finally, dividing by <span class="math inline">\(\Delta t\)</span>:</li>
+</ul>
+<p><span class="math display">\[ \frac{e^{\delta \Delta t}-1}{\Delta t}V(t,x_{t},W_{t})=
+\underset{(\pi_{t},C_{t})}{\text{max}}\Big\{e^{\delta \Delta t}u(C_{t})+\]</span> <span class="math display">\[\frac{1}{\Delta t}E_{t}[V(t+\Delta t,x_{t+\Delta t},W_{t+\Delta t})-V(t,x_{t},W_{t})]\Big\}.
+\]</span></p>
+<h2 id="dynamic-programming-4">Dynamic programming (4)</h2>
+<ul>
+<li><p>We now take the limit as <span class="math inline">\(\Delta t\)</span> goes to zero.</p></li>
+<li><p><span class="math inline">\(\frac{e^{\delta \Delta t}-1}{\Delta t}\)</span> converges to the derivative of <span class="math inline">\(\exp(\delta x)\)</span> at <span class="math inline">\(x=0\)</span>, i.e. <span class="math inline">\(\delta\)</span>.</p></li>
+<li><p>Ito’s formula is then used to express the expectation term on the right hand side, leading to the following expression: <span class="math display">\[\lim_{\Delta t \rightarrow 0}E_{t}[\frac{1}{\Delta t}\left(V(t+\Delta t,x_{t+\Delta t},W_{t+\Delta t})-V(t,x_{t},W_{t})\right)]=\]</span> <span class="math display">\[\frac{\partial V}{\partial t}+\frac{\partial V}{\partial x}\phi+\frac{\partial V}{\partial W}W(r^{f}_{t}+ \pi_{t}&#39;(\mu_{t}-r^{f}_{t}\pmb{e})-c_{t})+\]</span> <span class="math display">\[\frac{1}{2}\frac{\partial^{2} V}{\partial W^{2}}W_{t}^{2}\pi_{t}&#39;\Sigma_{t}\pi_{t}+\frac{1}{2}\frac{\partial^{2} V}{\partial x^{2}}\nu_{t}\nu_{t}&#39;+\frac{\partial^{2} V}{\partial W \partial x}W_{t}\pi_{t}&#39;\sigma_{t}\nu_{t}&#39;.\]</span></p></li>
+</ul>
+<h2 id="dynamic-programming-5">Dynamic programming (5)</h2>
+<ul>
+<li><p>We get: <span class="math display">\[0=\underset{(\pi_{t},C_{t})}{\text{max}}\Big\{ u(C_{t})-\delta V(t,x_{t},W_{t})+\]</span> <span class="math display">\[\frac{\partial V}{\partial t}+\frac{\partial V}{\partial x}\phi+\frac{\partial V}{\partial W}W_{t}(r^{f}_{t}+ \pi_{t}&#39;(\mu_{t}-r^{f}_{t}\pmb{e})-c_{t})+\]</span> <span class="math display">\[\frac{1}{2}\frac{\partial^{2} V}{\partial W^{2}}W_{t}^{2}\pi_{t}&#39;\Sigma_{t}\pi_{t}+\frac{1}{2}\frac{\partial^{2} V}{\partial x^{2}}\nu_{t}\nu_{t}&#39;+\frac{\partial^{2} V}{\partial W \partial x}W_{t}\pi_{t}&#39;\sigma_{t}\nu_{t}&#39;\Big\}.\]</span></p></li>
+<li><p>This partial differential equation is called the Hamilton Jacobi Bellman equation.</p></li>
+</ul>
+<h2 id="dynamic-programming-5-1">Dynamic programming (5)</h2>
+<ul>
+<li><p>Consumption si given by (envelope condition): <span class="math display">\[u&#39;(C_{t})=\frac{\partial V}{\partial W}.\]</span></p></li>
+<li><p>To determine the portfolio positions, we look at the terms in HJB which involve <span class="math inline">\(\pi_{t}\)</span>. They determine a quadratic form with leading term: <span class="math display">\[\frac{1}{2}\frac{\partial^{2} V}{\partial W^{2}}W_{t}^{2}\pi_{t}&#39;\Sigma_{t}\pi_{t}.\]</span></p></li>
+<li><p>In the cases that we will explore, the value function is concave. It’s second derivative is negative and the quadratic form is negative definite (as <span class="math inline">\(\Sigma_{t}\)</span> is positive definite). The portfolio positions are tied to the partial derivatives of the value function through the first order condition which reads: <span class="math display">\[\frac{\partial V}{\partial W}W_{t}(\mu_{t}-r^{f}_{t}\pmb{e})+
+\frac{\partial^{2} V}{\partial W^{2}}W_{t}^{2}\Sigma_{t}\pi_{t}^{\star}+\frac{\partial^{2} V}{\partial W \partial x}W_{t}\sigma_{t}\nu_{t}&#39;=0.\]</span></p></li>
+<li><p>From which we get: <span class="math display">\[\pi^{\star}_{t}=-\frac{V_{W}}{W_{t}V_{WW}}\left(\Sigma^{-1}(\mu_{t}-r^{f}_{t}\pmb{e})+\frac{V_{Wx}}{V_{W}}\Sigma^{-1}\sigma_{t}\nu_{t}&#39;\right),\]</span> using simplified notations for partial derivatives.</p></li>
+</ul>
+<h2 id="remarks-1">Remarks</h2>
+<ul>
+<li><p>The optimal controls can be injected back into HJB to deliver a non linear partial differential equation.</p></li>
+<li><p>We have determined a partial differential equation (PDE) which the value function should obey, but we have not solved for the value function.</p></li>
+<li><p>Had we found a value function solution to HJB, one would need to prove that it is truly <strong>the</strong> value function of the optimal control. After all, HJB might have several solutions! One would also need to check that the corresponding control is the optimal control. These steps are called the <strong>verification</strong> step.</p></li>
+<li><p>To get a sense of what the verification step does, you can check the section on dynamic programming in discrete time.</p></li>
+</ul>
+<h2 id="interpretation-1">Interpretation (1)</h2>
+<ul>
+<li><p>The case without consumption delivers the same expression for the investment policy. Of course, since the PDE contains the utility of consumption, the value function itself depends on whether we have interim consumption or not.</p></li>
+<li><p>The quantity <span class="math inline">\(-V_{W}/(W_{t}V_{WW})\)</span> is the inverse of relative risk aversion. It is relative risk tolerance.</p></li>
+<li><p><span class="math inline">\(\Sigma^{-1}(\mu_{t}-r^{f}_{t}\pmb{e})\)</span> is, up to a normalizing constant, an instantaneously mean variance efficient portfolio (exercise: find the constant).</p></li>
+</ul>
+<h2 id="interpretation-2">Interpretation (2)</h2>
+<ul>
+<li><p>We have: <span class="math display">\[\frac{V_{Wx}}{V_{W}}=\frac{d\log(V_{W})}{dx}.\]</span> This is the logarithmic derivative of the marginal value of wealth vis-à-vis the state variable.</p></li>
+<li><p>If we look for the portfolio <span class="math inline">\(\pi^{h}_{t}\)</span> which return is closest to the state variable, we shoud minimize <span class="math inline">\(\text{Var}_{t}(\pi^{h\prime}_{t}dP_{t}/P_{t}-dx_{t})\)</span>. This portfolio solves: <span class="math display">\[\text{Cov}_{t}(\frac{dP_{t}}{P_{t}},\pi^{h\prime}\frac{dP_{t}}{P_{t}}-dx_{t})=0,\]</span> and thus: <span class="math display">\[\text{Cov}_{t}(\sigma_{t}dB_{t},\pi^{h\prime}_{t}\sigma_{t}dB_{t}-\nu_{t}dB_{t})=0,\]</span> <span class="math display">\[\sigma_{t}\sigma_{t}&#39;\pi^{h}_{t}-\sigma_{t}\nu_{t}&#39;=0.\]</span> Thus: <span class="math display">\[\pi^{h}_{t}=\Sigma_{t}^{-1}\sigma_{t}\nu_{t}&#39;.\]</span></p></li>
+<li><p>We thus recover the structure of the second portfolio in the solution. It is the hedging portfolio. Its weight is a function of the impact of the state variable on the marginal utility of wealth.</p></li>
+</ul>
+<h2 id="log-utility">Log utility</h2>
+<ul>
+<li><p>In the case of log utility, the value function additively separates into a component that depends on log wealth and a component that depends on the state variable.</p></li>
+<li><p>In the log utility case, there is thus no hedging portfolio. One says that the solution is myopic, with the investor disregarding the future changes in the investment opportunity set.</p></li>
+</ul>
+<h2 id="constant-opportunities">Constant opportunities</h2>
+<ul>
+<li><p>The data describing investment opportunities are <span class="math inline">\((r^{f},\mu,\sigma)\)</span>.</p></li>
+<li><p>Stock returns are log-normal.</p></li>
+<li><p>Regardless of the presence of intermediate consumption, the optimal portfolio solves: <span class="math display">\[\pi^{\star}_{t}=-\frac{V_{W}}{W_{t}V_{WW}}\Sigma^{-1}(\mu-r^{f}\pmb{e}).\]</span></p></li>
+<li><p>Up to the difference between continuously compounded returns and discrete time returns, the above equation is the same as in the static problem.</p></li>
+<li><p>Investors care about the instantaneous risk return trade-off. The latter is characterized by the maximum available Sharpe ratio (see the section on static portfolios): <span class="math display">\[\kappa=\sqrt{(\mu-r^{f}\pmb{e})&#39;\Sigma^{-1}(\mu-r^{f}\pmb{e})}.\]</span></p></li>
+</ul>
+<h2 id="constant-opportunities-no-intermediate-consumption">Constant opportunities: no intermediate consumption</h2>
+<ul>
+<li><p>I consider the case without intermediate consumption and <span class="math inline">\(\delta=0\)</span>.</p></li>
+<li><p>Injecting the optimal portfolio into HJB, one gets: <span class="math display">\[V_{t}+V_{W}W(r^{f}+\pi^{\star\prime}(\mu-r^{f}\pmb{e}))+ \frac{1}{2}V_{WW}W^{2}\pi^{\star\prime}\Sigma\pi^{\star}=0\]</span></p></li>
+<li><p>This just means that <span class="math inline">\(V(t,W_{t})\)</span> should be a local martingale for the optimal investment policy.</p></li>
+<li><p>The optimal portfolio solves: <span class="math display">\[\sigma^{&#39;}\pi^{\star}=-\frac{V_{W}}{WV_{WW}}\sigma^{-1}(\mu-r^{f}\pmb{e}).\]</span></p></li>
+<li><p>Using this we can establish: <span class="math display">\[V_{t}+V_{W}r^{f}W-\frac{1}{2}\frac{V_{W}^{2}}{V_{WW}}||\lambda||^{2}=0,\]</span> where <span class="math inline">\(\lambda\)</span> is the price of risk: <span class="math display">\[\lambda=\sigma^{-1}(\mu-r^{f}\pmb{e}).\]</span></p></li>
+<li><p>We have <span class="math inline">\(||\lambda||^{2}=\kappa^{2}\)</span>.</p></li>
+<li><p>One can now solve this PDE in special cases</p></li>
+</ul>
+<h2 id="constant-opportunities-crra-utility">Constant opportunities: CRRA utility</h2>
+<ul>
+<li><p>Assume utility of terminal wealth is <span class="math inline">\(\frac{W^{1-\gamma}}{1-\gamma}\)</span>.</p></li>
+<li><p>One can prove that the value function is homogenous of degree <span class="math inline">\(1-\gamma\)</span> (with our without intermediate consumption!). One can postulate: <span class="math display">\[V(t,W)=\frac{g(t)^{\gamma}W^{1-\gamma}}{1-\gamma}.\]</span></p></li>
+<li><p>Homogeneity alone determines relative tolerance: <span class="math display">\[-\frac{V_{W}}{W_{t}V_{WW}}=\frac{1}{\gamma},\]</span> and thus how much of the tangent portfolio is bought: <span class="math display">\[\pi^{\star}_{t}=\frac{1}{\gamma}\Sigma^{-1}(\mu-r^{f}\pmb{e}).\]</span></p></li>
+<li><p>The differential equation is for <span class="math inline">\(g\)</span> is: <span class="math display">\[(-r^{f}-\frac{1}{2}||\lambda||^{2})g(t)-\frac{\gamma}{1-\gamma}g&#39;(t)=0.\]</span></p></li>
+<li><p>In the end: <span class="math display">\[g(t)=\exp(-\alpha(T-t)),\]</span> with: <span class="math display">\[\alpha=\frac{\gamma-1}{\gamma}\left(r^{f}+\frac{1}{2\gamma}||\lambda||^{2}\right).\]</span></p></li>
+<li><p>It is not much more complicated to solve the case with intermediate consumption. The investment policy is the same. In particular, it is not affected by the investment horizon.</p></li>
+<li><p>Examples of portfolios which violate this rule: target date funds.</p></li>
+</ul>
+<h2 id="constant-opportunities-log-utility-1">Constant opportunities: log utility (1)</h2>
+<ul>
+<li><p>One postulates: <span class="math display">\[V(t,W)=\log(W)+h(t).\]</span></p></li>
+<li><p><span class="math inline">\(h\)</span> solves: <span class="math display">\[h&#39;(t)=-(r^{f}+\frac{1}{2}||\lambda||^{2})\]</span> which together with the terminal condition gives: <span class="math display">\[h(t)=(r^{f}+\frac{1}{2}||\lambda||^{2})(T-t).\]</span></p></li>
+<li><p>We can also recover this result directly by computing terminal wealth.</p></li>
+<li><p>The log-utility results above easily extend to the case with Markovian investment opportunities.</p></li>
+</ul>
+<h2 id="log-wealth-dynamics">Log wealth dynamics</h2>
+<ul>
+<li><p>Once we know what the investment policy looks like (i.e. in CRRA case, once we know the value function has the same relative tolerance as the terminal utility function), we can compute the dynamics of wealth: <span class="math display">\[d\log(W_{u})=r^{f}du+\pi^{\star\prime}(\mu-r^{f}\pmb{e})du-\frac{1}{2}\pi^{\star\prime}\Sigma \pi^{\star} du+\pi^{\star\prime}\sigma dB_{u}.\]</span></p></li>
+<li><p>Using <span class="math display">\[\pi^{\star\prime}\Sigma \pi^{\star}=\frac{1}{\gamma}\pi^{\star\prime}(\mu-r^{f}\pmb{e})\]</span> as well as <span class="math display">\[\pi^{\star\prime}(\mu-r_{f}\pmb{e})=\frac{1}{\gamma}(\mu-r^{f}\pmb{e})&#39;\Sigma^{-1}(\mu-r^{f}\pmb{e})=\frac{1}{\gamma}\kappa^{2}\]</span> we get: <span class="math display">\[d\log(W_{u})=r^{f}du+(1-\frac{1}{2\gamma})\frac{1}{\gamma}\kappa^{2}du+\frac{1}{\gamma}\lambda&#39;dB_{u}.\]</span></p></li>
+<li><p>The logic is as follows:</p>
+<ul>
+<li>exposure <span class="math inline">\(\frac{1}{\gamma}\lambda\)</span> to the risk factors</li>
+<li>ensuing boost to return: <span class="math inline">\(\frac{1}{\gamma}\lambda&#39;\lambda=\frac{1}{\gamma}||\lambda||^{2}=\frac{1}{\gamma}\kappa^{2}\)</span></li>
+<li>drag on log dynamics through volatility: <span class="math inline">\(-\frac{1}{2\gamma^{2}}||\lambda||^{2}=-\frac{1}{2\gamma^{2}}\kappa^{2}\)</span></li>
+</ul></li>
+<li><p>From this, one can easily compute the wealth distribution at any horizon.</p></li>
+</ul>
+<h2 id="interpretation-and-remarks">Interpretation and remarks</h2>
+<ul>
+<li><p>Why is the optimal portfolio independent of the investment horizon?</p></li>
+<li><p>The prospective log risky return grows with the investment horizon, but so does its variance.</p></li>
+<li><p>Remark: we have not applied the verification step.</p></li>
+</ul>
+<h2 id="stochastic-investment-opportunities">Stochastic investment opportunities</h2>
+<ul>
+<li><p>I now look at models where investment opportunities depend on a univariate state variable <span class="math inline">\(x\)</span>. The data should be thus noted: <span class="math inline">\((r^{f}(x_{t}),\mu(x_{t}),\sigma(x_{t}))\)</span>.</p></li>
+<li><p>I will look at the simplest models able to accomodate important economic features:</p>
+<ul>
+<li>stochastic cash rate</li>
+<li>stochastic price of risk</li>
+</ul></li>
+<li><p>These features are incorporated one at a time, excluding other factors.</p></li>
+</ul>
+<h2 id="stochastic-interest-rates">Stochastic interest rates</h2>
+<ul>
+<li><p>The cash rate is fixed by the central bank. Financial instruments are:</p>
+<ul>
+<li>cash account and zero coupon bonds</li>
+<li>equities</li>
+</ul></li>
+<li><p>The cash rate is given by an Ornstein Uhlenbeck process: <span class="math display">\[dr_{t}=\eta(\bar{r}-r_{t})dt-\sigma_{r}dB_{r,t}.\]</span></p></li>
+<li><p>The shocks described by <span class="math inline">\(B_{r,t}\)</span> are remunerated through the price of risk <span class="math inline">\(\lambda_{r}\)</span>.</p></li>
+<li><p>The price of a bond with maturity <span class="math inline">\(T\)</span> is: <span class="math display">\[P_{t}^{T}=\exp(-a(T-t)-b(T-t)r_{t}),\]</span> with: <span class="math display">\[a(\tau)=y_{\infty}(\tau-b(\tau))+\frac{\sigma_{r}^{2}}{4\eta}b(\tau)^{2},\]</span> <span class="math display">\[b(\tau)=\frac{1}{\eta}(1-e^{-\eta\tau}),\]</span> <span class="math display">\[y_{\infty}=\bar{r}+\frac{\lambda_{r}\sigma_{r}}{\eta}-\frac{\sigma_{r}^{2}}{2\eta^{2}}.\]</span></p></li>
+</ul>
+<h2 id="bond-dynamics">Bond dynamics</h2>
+<ul>
+<li><p>The volatility of <span class="math inline">\(P^{T}_{t}\)</span> is <span class="math inline">\(b(T-t)\sigma_{r}\)</span>.</p></li>
+<li><p><span class="math inline">\(b(T-t)\)</span> is the sensitivity of the bond to interest rate shocks.</p></li>
+<li><p>The yield of very long bonds is <span class="math inline">\(y_{\infty}\)</span>.</p></li>
+<li><p>Bond dynamics is: <span class="math display">\[\frac{dP_{t}^{T}}{P_{t}^{T}}=(r_{t}+b(T-t)\sigma_{r}\lambda_{r})dt+b(T-t)\sigma_{r}dB_{r,t}.\]</span></p></li>
+<li><p>We have <span class="math inline">\(P_{T}^{T}=1\)</span>.</p></li>
+<li><p>In this model, all bonds are perfectly correlated. Using one specific bond and cash, one can replicate any other bond.</p></li>
+</ul>
+<h2 id="stock-index-dynamics">Stock index dynamics</h2>
+<ul>
+<li><p>The stock index is imperfectly correlated with the bonds. This is described introducing another independent Brownian motion <span class="math inline">\(B_{n,t}\)</span> with its price of risk <span class="math inline">\(\lambda_{n}\)</span>.</p></li>
+<li><p>Index dynamics: <span class="math display">\[\frac{dS_{t}}{S_{t}}=(r_{t}+\rho \sigma_{s}\lambda_{r}+\sqrt{1-\rho^{2}}\sigma_{s}\lambda_{n})dt+\rho \sigma_{s}dB_{r,t}+\sqrt{1-\rho^{2}}\sigma_{s}dB_{n,t}.\]</span></p></li>
+<li><p>The parameter <span class="math inline">\(\rho\)</span> drives the interest rate sensitivity of the index.</p></li>
+<li><p>Index volatility is <span class="math inline">\(\sigma_{s}\)</span>.</p></li>
+<li><p>The prospective Sharpe ratio of the index is: <span class="math display">\[\frac{\rho \sigma_{s}\lambda_{r}+\sqrt{1-\rho^{2}}\sigma_{s}\lambda_{n}}{\sigma_{s}}.\]</span></p></li>
+</ul>
+<h2 id="instruments-dynamics">Instruments dynamics</h2>
+<ul>
+<li><p>I assume we trade cash, the stock index and a bond of fixed maturity <span class="math inline">\(T\)</span>.</p></li>
+<li><p>The joint bond and stock dynamics is thus: <span class="math display">\[\begin{pmatrix} dP_{t}^{T}/P_{t}^{T}\\ dS_{t}/S_{t}\end{pmatrix}=
+\begin{pmatrix} r_{t}dt\\r_{t}dt \end{pmatrix}+
+\begin{pmatrix} b(T-t)\sigma_{r} &amp; 0\\\rho \sigma_{s} &amp; \sqrt{1-\rho^{2}}\sigma_{s}\end{pmatrix}\left[\begin{pmatrix} \lambda_{r}dt\\\lambda_{n}dt\end{pmatrix}+\begin{pmatrix} dB_{r,t}\\dB_{n,t}\end{pmatrix}\right].\]</span></p></li>
+<li><p>We can let: <span class="math display">\[\pmb{\sigma}_{t}=\begin{pmatrix} b(T-t)\sigma_{r} &amp; 0\\\rho \sigma_{s} &amp; \sqrt{1-\rho^{2}}\sigma_{s}\end{pmatrix},\]</span> <span class="math display">\[\pmb{\lambda}=\begin{pmatrix} \lambda_{r}\\\lambda_{n}\end{pmatrix},\]</span> <span class="math display">\[\pmb{\nu}=\begin{pmatrix} -\sigma_{r} &amp; 0 \end{pmatrix}.\]</span></p></li>
+</ul>
+<h2 id="the-optimization-program">The optimization program</h2>
+<ul>
+<li><p>I consider only utility of terminal wealth (horizon H), taking CRRA functions.</p></li>
+<li><p>The solution to HJB has the form (see Munk): <span class="math display">\[V(t,r,W)=\frac{1}{1-\gamma}\left(W e^{A_{o}(H-t)+A_{1}(H-t)r}\right)^{1-\gamma},\]</span> with: <span class="math display">\[A_{1}(H-t)=b(H-t).\]</span></p></li>
+<li><p>One can get hold of the important ratios of partial derivatives:</p>
+<ul>
+<li><span class="math inline">\(V_{W}/(W V_{WW})=-1/\gamma\)</span></li>
+<li><span class="math inline">\(V_{Wx}/V_{W}=(1-\gamma)A_{1}(H-t)=(1-\gamma)b(H-t)\)</span></li>
+</ul></li>
+<li><p>From all this we get: <span class="math display">\[\pi^{\star}_{t}=\frac{1}{\gamma}\pmb{\sigma}_{t}^{\prime -1}\pmb{\lambda}-\frac{\gamma-1}{\gamma}\pmb{\sigma}_{t}^{\prime -1}\pmb{\nu}b(H-t).\]</span></p></li>
+<li><p>We have: <span class="math display">\[\pmb{\sigma}_{t}^{\prime -1}=\frac{1}{b(T-t)\sqrt{1-\rho^{2}}\sigma_{r}\sigma_{s}}\begin{pmatrix} \sqrt{1-\rho^{2}}\sigma_{s} &amp; -\rho \sigma_{s}\\ 0 &amp; b(T-t)\sigma_{r}\end{pmatrix}\]</span></p></li>
+<li><p>From this, we get that the optimal portfolio holds the following weight on stocks: <span class="math display">\[\frac{1}{\gamma}\frac{\lambda_{n}}{\sqrt{1-\rho^{2}}\sigma_{s}},\]</span> and the following weight on bonds: <span class="math display">\[\frac{1}{\gamma}\frac{1}{b(T-t)\sigma_{r}}\left(\lambda_{r}-\frac{\rho}{\sqrt{1-\rho^{2}}}\lambda_{n}\right)+\frac{\gamma-1}{\gamma}\frac{b(H-t)}{b(T-t)}.\]</span></p></li>
+</ul>
+<h2 id="comments">Comments</h2>
+<ul>
+<li><p>As usual, the portfolio splits into a speculative and a hedging portfolio.</p></li>
+<li><p>When the maturity of the bond is equal to the investment horizon, the hedging portfolio has a weight of one on the bond.</p></li>
+<li><p>Even when the interest rate risk premium is zero, the speculative portfolio can hold positions in bonds if bonds are negatively correlated with stocks. Indeed, in this case, they have hedging properties.</p></li>
+<li><p>The stock is present in the speculative portfolio if and only if the stock specific shock pays a risk premium.</p></li>
+</ul>
+<h2 id="excess-stock-volatility">Excess stock volatility</h2>
+<ul>
+<li><p>I now assume the short rate is constant.</p></li>
+<li><p>The equity price of risk however is changing. We check how this affects the investment policy.</p></li>
+<li><p>The dynamics of the stock index is: <span class="math display">\[\frac{dP_{t}}{P_{t}}=(r+\sigma \lambda_{t})dt+\sigma dB_{t}.\]</span></p></li>
+<li><p>The dynamics of the price of risk is given by an Ornstein Uhlenbeck: <span class="math display">\[d\lambda_{t}=\eta(\bar{\lambda}-\lambda_{t})dt-\sigma_{\lambda}dB_{t}.\]</span></p></li>
+<li><p>We have: <span class="math display">\[\log(P_{T})-\log(P_{t})=(r-\frac{1}{2}\sigma^{2})(T-t)+\sigma \int_{t}^{T}\lambda_{u}du+\int_{t}^{T}\sigma dB_{u}.\]</span> <span class="math display">\[\int_{t}^{T}\lambda_{u}du=\bar{\lambda}(T-t)+(\lambda_{t}-\bar{\lambda})b(T-t)-\int_{t}^{T}\sigma_{\lambda}b(T-u)dB_{u},\]</span> with: <span class="math display">\[b(\tau)=\frac{1}{\eta}(1-e^{-\eta\tau}).\]</span></p></li>
+<li><p>This allows to write: <span class="math display">\[\log(P_{T})-\log(P_{t})=(r+\sigma\bar{\lambda}-\frac{1}{2}\sigma^{2})(T-t)+\sigma b(T-t)(\lambda_{t}-\bar{\lambda})+\sigma\int_{t}^{T}(1-\sigma_{\lambda}b(T-u))dB_{u}.\]</span></p></li>
+</ul>
+<h2 id="comments-1">Comments</h2>
+<ul>
+<li><p>The short term impact of a shock <span class="math inline">\(dB_{t}\)</span> on the log price is <span class="math inline">\(\sigma\)</span>.</p></li>
+<li><p>As of time <span class="math inline">\(T\)</span>, the impact on the log price has become <span class="math inline">\(\sigma (1-\sigma_{\lambda}b(T-t)).\)</span></p></li>
+<li><p>In the long run, it is <span class="math inline">\(\sigma (1-\sigma_{\lambda}/\eta)\)</span>. How long is the long run depends on <span class="math inline">\(\eta\)</span>.</p></li>
+<li><p>There is excess volatility when <span class="math inline">\(\sigma_{\lambda}\)</span> is positive.</p></li>
+<li><p>The conditional variance of cumulated log returns over <span class="math inline">\([t,T]\)</span> is: <span class="math display">\[\sigma^{2}\int_{t}^{T}(1-\sigma_{\lambda}b(T-u))^{2}du,\]</span> whereas in the case of a constant price of risk it is simply: <span class="math display">\[\sigma^{2}(T-t).\]</span></p></li>
+<li><p>Per unit of time, we get respectively, after some lengthy calculations: <span class="math display">\[\sigma^{2}\left[1-\frac{2\sigma_{\lambda}}{\eta}+\frac{\sigma_{\lambda}^{2}}{\eta^{2}}+(\frac{2\sigma_{\lambda}}{\eta}-\frac{\sigma_{\lambda}^{2}}{\eta^{2}})\frac{b(T-t)}{T-t}-\frac{\sigma_{\lambda}^{2}}{2\eta}\frac{b(T-t)^{2}}{T-t}\right],\]</span> and of course: <span class="math display">\[\sigma^{2}.\]</span></p></li>
+<li><p>The quantity in brackets thus describes the term structure of risk, the variance ratio.</p></li>
+<li><p>Here is an illustration for <span class="math inline">\(\sigma_{\lambda}=0.04\)</span> and <span class="math inline">\(\eta=0.15.\)</span></p></li>
+</ul>
+<figure>
+<img src="/assets/media/varratio.png" alt="Figure 1: Variance ratio" /><figcaption aria-hidden="true">Figure 1: Variance ratio</figcaption>
+</figure>
+<figure>
+<img src="/assets/media/volratio.png" alt="Figure 2: Volatility ratio" /><figcaption aria-hidden="true">Figure 2: Volatility ratio</figcaption>
+</figure>
+<ul>
+<li>In the graphics below, I look at a negative shock normalized to <span class="math inline">\(1\)</span> on the price. This shock raises the price of risk by <span class="math inline">\(4\%\)</span> immediately. The price of risk then mean reverts. The higher price of risk leads to a recovery of <span class="math inline">\(|\sigma_{\lambda}|b(\tau)\)</span> of the price level in <span class="math inline">\(\tau\)</span> years. This is <span class="math inline">\(\sigma_{\lambda}/\eta\)</span> in the long run, i.e. about <span class="math inline">\(25\%\)</span>.</li>
+</ul>
+<figure>
+<img src="/assets/media/impact.png" alt="Figure 3: Impact of the change in \lambda on the price level" /><figcaption aria-hidden="true">Figure 3: Impact of the change in <span class="math inline">\(\lambda\)</span> on the price level</figcaption>
+</figure>
+<figure>
+<img src="/assets/media/impactann.png" alt="Figure 4: Impact of the change in \lambda on the discount rate to H" /><figcaption aria-hidden="true">Figure 4: Impact of the change in <span class="math inline">\(\lambda\)</span> on the discount rate to <span class="math inline">\(H\)</span></figcaption>
+</figure>
+<h2 id="investment-problem">Investment problem</h2>
+<ul>
+<li><p>I consider only utility of terminal wealth (horizon H), taking CRRA functions.</p></li>
+<li><p>The solution to HJB has the form (see Munk): <span class="math display">\[V(t,\lambda,W)=\frac{1}{1-\gamma}\left(W e^{A_{o}(H-t)+A_{1}(H-t)\lambda+\frac{1}{2}A_{2}(H-t)\lambda^{2}}\right)^{1-\gamma}.\]</span></p></li>
+<li><p>I now look at the investment policy in this model. Computing the partial derivative, we get: <span class="math display">\[\pi^{\star}_{t}=\frac{1}{\gamma}\frac{\lambda_{t}}{\sigma}+\frac{\gamma-1}{\gamma}\frac{\sigma_{\lambda}}{\sigma}(A_{1}(H-t)+A_{2}(H-t)\lambda).\]</span></p></li>
+<li><p>See Munk for the detailed expressions. In most cases (!) both <span class="math inline">\(A_{1}\)</span> and <span class="math inline">\(A_{2}\)</span> are positive implying that the hedging term is positive for risk averse investors (<span class="math inline">\(\gamma&gt;1\)</span>).</p></li>
+</ul>
+<h2 id="data">Data</h2>
+<ul>
+<li>The data:
+<ul>
+<li><span class="math inline">\(\sigma=20\%\)</span></li>
+<li><span class="math inline">\(\sigma_{\lambda}=0.04\)</span>, <span class="math inline">\(\eta=0.15\)</span> (half life=<span class="math inline">\(4.6\)</span>)</li>
+<li><span class="math inline">\(\bar{\lambda}=0.3\)</span></li>
+<li><span class="math inline">\(\gamma=3\)</span></li>
+</ul></li>
+<li>With this data, the investor holds <span class="math inline">\(50\%\)</span> in stocks <span class="math inline">\(50\%\)</span> in cash when the price of risk is constant at <span class="math inline">\(\bar{\lambda}\)</span></li>
+</ul>
+<h2 id="mean-reversion-and-hedging-properties">Mean reversion and hedging properties</h2>
+<ul>
+<li><p>Why do stocks have hedging properties?</p>
+<ul>
+<li>I am prospectively poorer if the price of risk is low. If I hold stocks and the price of risk falls, I make profits. Indeed, a low price of risk comes through a rise in prices. Stocks thus provide insurance benefits.</li>
+<li>If I engage in timing, buying when the price of risk is high and selling when the price of risk is low, I make a profit which is negative if the price of risk rises. This profits thus also has hedging properties vis-à-vis future investment opportunities. This is why the hedging term is increasing in <span class="math inline">\(\lambda\)</span>.</li>
+</ul></li>
+<li><p>The equity investment increases with the investment horizon, in contrast to what happens in constant investment opportunities setups (where ).</p></li>
+<li><p>This comes about because the hedging properties of stocks rise with investment horizon. When the investment horizon is short, there is no time to benefit from mean reversion.</p></li>
+</ul>
+<figure>
+<img src="/assets/media/invh.png" alt="Figure 5: Stock holdings as a function of H" /><figcaption aria-hidden="true">Figure 5: Stock holdings as a function of <span class="math inline">\(H\)</span></figcaption>
+</figure>
+<figure>
+<img src="/assets/media/invl.png" alt="Figure 6: Stock holdings as a function of \lambda (myopic=blue)" /><figcaption aria-hidden="true">Figure 6: Stock holdings as a function of <span class="math inline">\(\lambda\)</span> (myopic=blue)</figcaption>
+</figure>
+<ul>
+<li>I call the volatility reduction attached to the holding period <span class="math inline">\(h\)</span> the loss in volatility in <span class="math inline">\(\%\)</span> experienced when holding the stock <span class="math inline">\(h\)</span> periods. In the current calibration, the maximum reduction in vol</li>
+</ul>
+<figure>
+<img src="/assets/media/exc.png" alt="Figure 7: Stocks in excess of the myopic rule in \% (red) versus volatility reduction (blue)" /><figcaption aria-hidden="true">Figure 7: Stocks in excess of the myopic rule in <span class="math inline">\(\%\)</span> (red) versus volatility reduction (blue)</figcaption>
+</figure>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2014-10-27-cont.pdf">Link to pdf</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>For random vectors of any size, we have: <span class="math display">\[\text{Cov}(X,Y)=E[XY&#39;].\]</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+:ET

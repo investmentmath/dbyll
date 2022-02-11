@@ -1,0 +1,305 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Stochastic Integrals as Martingale Transforms</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Stochastic Integrals as Martingale Transforms </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   May 
+	   2nd,
+	     
+	   2013
+	 </span>
+	  <div class="article_body">
+	  <p><em>Building on the <a href="/finance/2013/04/06/portfolio-returns.html" title="PORTFOLIO RETURNS">portfolio return post</a>, this article describes the stochastic inregral <span class="math inline">\(\int_{0}^{\cdot}H_{u}dM_{u}\)</span> of an integrand <span class="math inline">\(H\)</span> against a martingale <span class="math inline">\(M\)</span> as a martingale transform. The integral re-weights the increments of <span class="math inline">\(M\)</span> using a system of ‘predetermined’ weights in such a way that the resulting process remains a martingale. The preservation of the martingale property is a key requirement of the standard stochastic integration theory. The sensitivity of the resulting martingale <span class="math inline">\(\int_{0}^{\cdot}H_{u}dM_{u}\)</span> with respect to the infinitesimal increments of <span class="math inline">\(M\)</span> is an instanciation of the concept of Malliavin derivative. The post ends by considering the martingale representation property which plays a key role in financial theory.</em></p>
+<hr />
+<h1 id="martingale-transforms">Martingale Transforms</h1>
+<p>The <a href="/finance/2013/04/06/portfolio-returns.html" title="PORTFOLIO RETURNS">portfolio return post</a> took the perspective that a portfolio is a weighting scheme applied to the returns of the available instruments. The weights are chosen as a function of the information set of the portfolio manager. This leads to a staggered information structure: weights depend on past information and cannot anticipate future surprises in returns.</p>
+<p>Martingale transforms can be understood from this perspective. Assume that we are given a filtered probability space <span class="math inline">\((\Omega, {\cal F},({\cal F}_{t})_{t \in \mathbb{T}},P)\)</span> together with a martingale <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span>. Let’s assume a discrete time setting <span class="math inline">\(\mathbb{T}=\mathbb{N}\)</span>. The martingale differences <span class="math inline">\(\Delta M_{t}=M_{t}-M_{t-1}\)</span> are our surprises. Let’s weigh them using a <span class="math inline">\({\cal F}_{t-1}\)</span> random variable <span class="math inline">\(H_{t-1}\)</span>. We get the reweighted martingale difference: <span class="math display">\[H_{t-1}\Delta
+M_{t}=H_{t-1}(M_{t}-M_{t-1}),\]</span> which is still a martingale difference in the sense that: <span class="math display">\[E_{t-1}[H_{t-1}\Delta
+M_{t}]=H_{t-1}E_{t-1}[\Delta M_{t}]=0.\]</span> Cumulating these differences leads to a new martingale <span class="math inline">\((\tilde{M}_{t})_{t \in \mathbb{T}}\)</span>: <span class="math display">\[\tilde{M}_{t}=\sum_{k=1}^{t}H_{k-1}\Delta
+M_{k}\]</span> which is centered <span class="math inline">\(E_{0}[\tilde{M}_{t}]=0\)</span>. This is the discrete time stochastic integral.</p>
+<p>In continuous time (<span class="math inline">\(\mathbb{T}=\mathbb{R}_{+}\)</span>), the staggered information structure is more subtle. The key to the construction of the stochastic integral is that we want it to preserve the martingale property. The construction starts with the definition of simple weights, i.e. piecewise constant weighting schemes, where discontinuities take place at stopping times (<span class="math inline">\(T_{i})_{i \in \mathbb{N}},\, T_{0}=0\)</span>: <span class="math display">\[H_{t}=\sum_{i=0}^{N-1}H^{i}1_{(T_{i},T_{i+1}]}(t),\]</span> where <span class="math inline">\(H^{i}\)</span> is <span class="math inline">\({\cal F}_{T_{i}}\)</span> measurable. The key point is that the weight chosen at date <span class="math inline">\(T_{i}\)</span> is in place right after <span class="math inline">\(T_{i}\)</span>, and up until <span class="math inline">\(T_{i+1}\)</span>. In particular, at <span class="math inline">\(T_{i}\)</span>, <span class="math inline">\(H^{i-1}\)</span> prevails. When applied to the martingale differences, the simple weighting scheme delivers for each <span class="math inline">\(\omega\)</span>: <span class="math display">\[\tilde{M}_{t}=\int_{0}^{t}H_{u}dM_{u}:=\sum_{i=0}^{J(t)-1}H^{i}(M_{T_{i+1}}-M_{T_{i}})+H^{J(t)}(M_{t}-M_{T_{J(t)}}),\]</span> where <span class="math inline">\(J(t)(\omega)\)</span> is set such that <span class="math inline">\(T_{J(t)}(\omega) \leq t &lt; T_{J(t)+1}(\omega)\)</span>. The staggered information structure implies that each increment is conditionally centered, and <span class="math inline">\((\tilde{M}_{t})\)</span> is a centered (<span class="math inline">\(E_{0}[\tilde{M}_{t}]=0\)</span>) martingale as in the discrete time case.</p>
+<p>The theory of stochastic integrals consists in extending this construction to more general weighting schemes while preserving the staggered information structure. We will be evasive about the technical conditions needed for stochastic integration to work. We will however keep the information structure in mind. Integrands<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> cannot anticipate on information. Adapted continuous processes (i.e. each <span class="math inline">\(H_{t}\)</span> is <span class="math inline">\({\cal F}_{t}\)</span> measurable and trajectories are continuous) are suitable integrands. When the underlying martingale is allowed to jump (while being continuous on the right with limits on the left - cadlag), the integrands can also be allowed to jump provided they are caglad (continuous on the left with limits on the right - see the post on portfolio returns). These requirements are needed to ensure that the stochastic integral of a valid integrand against a martingale remains a martingale.</p>
+<h1 id="sensitivity-of-a-martingale-to-the-underlying-shocks">Sensitivity of a martingale to the underlying shocks</h1>
+<p>A martingale <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span> is the additive accumulation of the associated shocks, whether these are true differences <span class="math inline">\((\Delta M_{t})\)</span> as in the discrete time case or infinitesimal idealizations <span class="math inline">\((dM_{t})\)</span>. I use the discrete time case in what follows. Any particular shock <span class="math inline">\(\Delta M_{u}\)</span> has a fully persistent impact on the subsequent level <span class="math inline">\((M_{t})_{t \geq u}\)</span> of the martingale. We could write this as:<span class="math display">\[\frac{\partial
+M_{t}}{\partial \Delta M_{u}}=1,\, t \geq u.\]</span> We can see the stochastic integral as a method to create a new martingale with a different sensitivity to the underlying shocks. The new sensitivity is <em>a priori</em> given by <span class="math inline">\(H_{u-1}\)</span>. This is right when the integrand is a deterministic function, in which case we thus have:<span class="math display">\[\frac{\partial
+\tilde{M}_{t}}{\partial \Delta M_{u}}=H_{u-1},\, t \geq u.\]</span> When integrands are stochastic however, <span class="math inline">\(H_{u-1}\)</span> cannot measure the overall impact of the shock on the future level of the new martingale. Indeed, the shock might alter the integrand <span class="math inline">\(H_{t}\)</span> at a future date. We would like to write:<span class="math display">\[\frac{\partial \tilde{M}_{t}}{\partial
+\Delta M_{u}}=H_{u-1}+\sum_{u+1}^{t}\frac{\partial
+H_{v-1}}{\partial \Delta M_{u}}\Delta M_{v},\, t \geq u.\]</span> The meaning of <span class="math inline">\(\frac{\partial H_{v-1}}{\partial \Delta M_{u}}\)</span> is however quite unclear unless <span class="math inline">\(H_{v-1}\)</span> can itself be described as a stochastic integral with deterministic integrand! The martingale <span class="math inline">\((\tilde{M}_{t})_{t \in \mathbb{T}}\)</span> would then be a double stochastic integral.</p>
+<p>What is sketched above is precisely the program of defining Malliavin derivatives, initially developed for Brownian filtrations and integrals. The program can be carried out because in the Brownian filtration, all square integrable random variables can be approximated as a multiple stochastic integral<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. As such, their derivatives with respect to the underlying Brownian shocks can be computed. We will not need the full force of this theory, but we will keep in mind the idea. We will often use deterministic integrands for which Malliavin derivatives are trivial. Stochastic Brownian integrals with deterministic integrands are Gaussian variables. They are extremely handy because they allow to express a wide range of phenomena while permitting analytical computation.</p>
+<h1 id="martingales-and-martingale-representation">Martingales and martingale representation</h1>
+<p>Readers with a mathematical inclination could raise the following problem. Stochastic integrals allow to produce new martingales from an initial one. Can we produce all martingales in this way?</p>
+<p>Let’s then start from a filtered probability space as above, with the filtration being the filtration generated by a given martingale <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span>. We take <span class="math inline">\(\mathbb{T}\)</span> to be an interval within <span class="math inline">\(\mathbb{N}\)</span> or <span class="math inline">\(\mathbb{R}\)</span>. We therefore start with a minimal setup: a single martingale described in the most parsimonious filtered probability space which can support it. We can now define new martingales using stochastic integration based on suitably adapted integrands. We thereby get a wealth of new (centered) martingales as stochastic integrals. On the other hand, any <span class="math inline">\({\cal F}_{T}\)</span> integrable variable <span class="math inline">\(X_{T}\)</span> with mean <span class="math inline">\(E_{0}[X_{T}]=0\)</span> defines a centered martingale (<span class="math inline">\(E_{t}[X_{T}]\)</span>). The latter set of centered martingales is <em>a priori</em> larger than the previous set of centered martingales defined through stochastic integrals against the initial martingale. Indeed a stochastic integral is a closed centered martingale:<span class="math display">\[\int_{0}^{t}H_{u}dM_{u}=E_{t}[\int_{0}^{T}H_{u}dM_{u}].\]</span> The question is then whether the inclusion is strict<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. It turns out again that in the Brownian filtration, the two sets of martingales coincide. Martingales can be represented as stochastic integrals: the martingale representation theorem holds. A similar result holds when the underlying martingale is the compensated Poisson process. There are however plenty of cases where the inclusion is strict. I give below two trivial examples that shed some light on what is going on.</p>
+<p>I assume an extreme discrete time case, with only two dates <span class="math inline">\(T=0,1\)</span>. The sigma algebra <span class="math inline">\({\cal F}_{0}\)</span> is trivial and <span class="math inline">\({\cal F}_{1}\)</span> is the sigma algebra generated by a variable <span class="math inline">\(\epsilon\)</span>. Stochastic integrals are just proportional functions of <span class="math inline">\(\epsilon\)</span> since <span class="math inline">\({\cal F}_{0}\)</span> random variables (integrands) are constant. Assume <span class="math inline">\(\epsilon\)</span> is a standardized Gaussian variable. Consider <span class="math inline">\(X_{1}=\epsilon^{2}-1\)</span>. This defines a centered martingale which is not linear in <span class="math inline">\(\epsilon\)</span>. The martingale representation theorem does not hold.</p>
+<p>If instead, <span class="math inline">\(\epsilon\)</span> equals a binomial variable taking values <span class="math inline">\(+1\)</span> with probability <span class="math inline">\(1/2\)</span> and <span class="math inline">\(-1\)</span> with probability <span class="math inline">\(1/2\)</span>, the martingale representation theorem holds. Indeed, any centered <span class="math inline">\({\cal F}_{1}\)</span> measurable variable is defined by two values <span class="math inline">\(X_{1}(1)\)</span> and <span class="math inline">\(X_{1}(-1)\)</span> such that:<span class="math display">\[\frac{1}{2}X_{1}(-1)+\frac{1}{2}X_{1}(1)=0.\]</span> Thus:<span class="math display">\[X_{1}(-1)=-X_{1}(1),\]</span> and:<span class="math display">\[X_{1}=X_{1}(1)\epsilon,\]</span> which is a stochastic integral since <span class="math inline">\(X_{1}(1)\)</span> is a constant.</p>
+<p>This gives a good sense of why the compensated Poisson model has a martingale representation theorem. In the Brownian case, it is clear that continuous time plays an important role. One can perhaps close this post by noting that in this case: <span class="math display">\[M_{1}^{2}-1=\int_{0}^{1}M_{t}dM_{t}.\]</span> Moments shifted so as to be centered and more generally centered non linear functions of <span class="math inline">\(M_{1}\)</span> can be obtained as stochastic integrals. Continuous time does achieve a few miracles!</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2013-05-02-stochastic-integrals-as-martingale-transforms.pdf">Link to pdf</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>The weighting function is called the integrand while the underlying martingale is called the integrator.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>See for instance D. Nualart, <em>The Malliavin Calculus and Related Topics</em>, Springer.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>This question has an important interpretation in finance, in a broader but related context. In a market model, if all terminal pay-offs can be derived as a porfolio value (i.e. a stochastic integral) where the portfolio trades underlying financial instruments, the market is said to be complete. Completeness therefore means, loosely speaking, that a representation theorem holds with respect to the tradable instruments.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Math-ref">
+					Math <span>(9)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Integration-ref">
+					Integration <span>(4)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//geek/2013/04/24/math-formulas-within-post.html" title="Math Formulas within Posts">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//math/2013/05/25/introducing-diffusions.html" title="Introducing Diffusions">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

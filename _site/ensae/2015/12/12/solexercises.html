@@ -1,0 +1,534 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Solutions to Exercises</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Solutions to Exercises </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   December 
+	   12th,
+	   
+	   2015
+	 </span>
+	  <div class="article_body">
+	  <p><em>This post collects the solutions to <a href="/ensae/2015/10/15/exercises.html">the exercises</a> of the ENSAE course.</em></p>
+<hr />
+<h2 id="mean-variance">Mean-Variance</h2>
+<h3 id="exercise-1.1">Exercise 1.1</h3>
+<ul>
+<li>If you find the following difficult, solve the problem in the context of a single risky asset.</li>
+</ul>
+<ol type="1">
+<li></li>
+</ol>
+<ul>
+<li><p><span class="math inline">\({\cal I}=\{1,2,\ldots,N\}\)</span> (no riskless asset).</p></li>
+<li><p><span class="math inline">\(\pmb{\pi}=(\pi_{i})_{i \in \cal{I}}&#39;\)</span> <span class="math display">\[\underset{\pmb{\pi}}{\text{max}} \; E[-\exp(-\alpha \tilde{w})]\]</span> <span class="math display">\[\text{s.t.}:\]</span> <span class="math display">\[\tilde{w}=w_{0}\sum_{i \in \cal{I}}\pi_{i}\tilde{R}_{i}\]</span> <span class="math display">\[\sum_{i \in \cal{I}}\pi_{i}=1,\]</span> with <span class="math inline">\(\alpha&gt;0\)</span>.</p></li>
+<li><p>We have: <span class="math inline">\(E[-\exp(-\alpha\tilde{w})] =\; -\exp(-\alpha E[\tilde{w}]+(\alpha^{2}/2)V[\tilde{w}]).\)</span> We can thus maximize <span class="math inline">\(E[\tilde{w}]-(\alpha/2)V[\tilde{w}]\)</span>.</p></li>
+<li><p>This function is decreasing in wealth when wealth is large. The investor therefore does not benefit of being wealthier beyond a certain point.</p></li>
+<li><p>The criterion can be written: <span class="math display">\[w_{0}\pmb{\pi}&#39;\pmb{\mu}-(\alpha/2)w_{0}^{2}\pmb{\pi}&#39;\Sigma\pmb{\pi},\]</span> where <span class="math inline">\(\pmb{\mu}\)</span> is the expected return vector and <span class="math inline">\(\Sigma\)</span> is the covariance matrix.</p></li>
+<li><p>Assuming as usual that <span class="math inline">\(\Sigma\)</span> is positive definite and the criterion is strictly concave.</p></li>
+<li><p>In the absence of a budget constraint, we can choose <span class="math inline">\(w_{0}=1\)</span> and leave the vector of weights unconstrained. The first order condition characterizes the solution. It is: <span class="math display">\[\pmb{\mu}=\alpha \Sigma \pmb{\pi},\]</span> <span class="math display">\[\pmb{\pi}=\frac{1}{\alpha}\Sigma^{-1}\pmb{\mu}.\]</span></p></li>
+<li><p>The total wealth needed to reach the optimum is: <span class="math display">\[\pmb{e}&#39;\pmb{\pi}=\frac{1}{\alpha}\pmb{e}&#39;\Sigma^{-1}\pmb{\mu}.\]</span> Any additional wealth is useless.</p></li>
+</ul>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>We now start from an initial wealth level <span class="math inline">\(w_{0}&gt;0\)</span> and impose that the vector of weights sum to <span class="math inline">\(1\)</span>. <span class="math display">\[\underset{\pmb{\pi}}{\text{max}} \; \pmb{\pi}&#39;\pmb{\mu}-(\alpha/2)w_{0}\pmb{\pi}&#39;\Sigma\pmb{\pi}\]</span> <span class="math display">\[\text{s.t.}:\]</span> <span class="math display">\[\pmb{e}&#39;\pmb{\pi}=1.\]</span></p></li>
+<li><p>The lagrangian can be written: <span class="math display">\[\pmb{\pi}&#39;\pmb{\mu}-(\alpha/2)w_{0}\pmb{\pi}&#39;\Sigma\pmb{\pi}-\lambda(\pmb{\pi}&#39;\pmb{e}-1),\]</span> and the first order condition: <span class="math display">\[\pmb{\mu}-\alpha w_{0}\Sigma\pmb{\pi}-\lambda\pmb{e}=0,\]</span></p></li>
+<li><p>The langrangian multiplier is given by (multiply the first order condition on the right by <span class="math inline">\(\pmb{\pi}&#39;\)</span>): <span class="math display">\[\lambda=\pmb{\pi}&#39;\pmb{\mu}-\alpha w_{0}\pmb{\pi}&#39;\Sigma\pmb{\pi}.\]</span></p></li>
+<li><p>The solution splits as follows: <span class="math display">\[w_{0}\pmb{\pi}=\frac{1}{\alpha}\Sigma^{-1}\pmb{\mu}-\frac{\lambda}{\alpha}\Sigma^{-1}\pmb{e}.\]</span> The first term corresponds to the optimal unconstrained solution of question <span class="math inline">\(1\)</span>. The second term ensures that what the whole wealth is invested.</p></li>
+</ul>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>We have: <span class="math display">\[w_{0}=\frac{1}{\alpha}\pmb{e}&#39;\Sigma^{-1}\pmb{\mu}-\frac{\lambda}{\alpha}\pmb{e}&#39;\Sigma^{-1}\pmb{e}.\]</span></p></li>
+<li><p>For <span class="math inline">\(\lambda&gt;0\)</span>, <span class="math inline">\(w_{0}\)</span> is below the optimal wealth level of question <span class="math inline">\(1\)</span>. For <span class="math inline">\(\lambda&lt;0\)</span>, <span class="math inline">\(w_{0}\)</span> is above the optimal wealth level of question <span class="math inline">\(1\)</span>. Since the budget constraint prevents from throwing money away, too much is invested when <span class="math inline">\(\lambda&lt;0\)</span>.</p></li>
+<li><p>We know that the utility outcome is measured by: <span class="math display">\[w_{0}\pmb{\pi}&#39;\pmb{\mu}-(\alpha/2)w_{0}^{2}\pmb{\pi}&#39;\Sigma\pmb{\pi}.\]</span> An infinitesimal increase in wealth has an inmpact on utility measured through (using the envelope theorem - one can neglect the infinitesimal change in the optimal portfolio as we change wealth infinitesimally - differentiate with respect to <span class="math inline">\(w_{0}\)</span>): <span class="math display">\[\pmb{\pi}&#39;\pmb{\mu}-\alpha w_{0}\pmb{\pi}&#39;\Sigma\pmb{\pi},\]</span> which is just <span class="math inline">\(\lambda\)</span>. Therefore when <span class="math inline">\(\lambda&lt;0\)</span> indeed, the marginal utility of wealth is negative. This is due to the fact that the utility function decreases beyond a certain level of wealth.</p></li>
+</ul>
+<ol start="4" type="1">
+<li></li>
+</ol>
+<ul>
+<li>In the presence of cash, we know that we can parameterize the optimization problem using the risky asset weights. The optimization is unconstrained and the cash position is deduced from the budget constraint. The risky asset weight solves the problem of question <span class="math inline">\(1\)</span> with <span class="math inline">\(\mu-r^{f}\)</span> in place of <span class="math inline">\(\mu\)</span>. The residual amount of wealth (positive if wealth is high, negative if wealth is low) is invested in the riskless asset. The level of investment in the risky assets is always optimal (i.e. as in question <span class="math inline">\(1\)</span> up to the substitution of <span class="math inline">\(\mu-r^{f}\)</span> for <span class="math inline">\(\mu\)</span>).</li>
+</ul>
+<h3 id="exercise-1.2">Exercise 1.2</h3>
+<ul>
+<li>See the notebook, which directly applies the formulas in the section on static optimization.</li>
+</ul>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<ul>
+<li>The tangent portfolio is: <span class="math display">\[\pmb{\pi_{*}}=\frac{1}{\pmb{e}&#39;\Sigma^{-1}(\pmb{\mu}-r^{f}\pmb{e})}\Sigma^{-1}(\pmb{\mu}-r^{f}\pmb{e}),\]</span> while the solution for the given utility function is: <span class="math display">\[\pmb{\pi_{\rho}}=\frac{1}{\rho}\Sigma^{-1}(\pmb{\mu}-r^{f}\pmb{e}).\]</span> Thus the value of <span class="math inline">\(\rho\)</span> that delivers the tangent portfolio is just: <span class="math display">\[\rho_{*}=\pmb{e}&#39;\Sigma^{-1}(\pmb{\mu}-r^{f}\pmb{e}).\]</span></li>
+</ul>
+<ol start="5" type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>The risky asset portfolios along the efficient frontier are all proportional to the tangent portfolio. The proportions across risky assets are thus constant along the efficient frontier. As we move towards more volatile portfolios, efficient portfolios borrow cash to finance positions in risky assets. If borrowing is ruled out, the risky asset positions need to change. The efficient frontier cannot be linear beyond the point where cash borrowing kicks in. Positions in the most volatile risky asset (equities in our case) needs to be financed through lower positions on the least volatile risky asset (in our case bonds). The proportion of bonds to equities falls as we increase volatility.</p></li>
+<li><p>The no borrowing constraint does not impact safe portfolios.</p></li>
+</ul>
+<ol start="6" type="1">
+<li></li>
+</ol>
+<ul>
+<li>The efficient proportion of bonds to equities is at least four to one. This holds if bonds are quite attractive relatively to equities. You can play with the program to find specific parameters that match this situation.</li>
+</ul>
+<h3 id="exercise-1.4">Exercise 1.4</h3>
+<ol type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>The first order condition is: <span class="math display">\[\pmb{\pi_{\rho}}=\frac{1}{\rho}\Sigma^{-1}(\pmb{\mu}-r^{f}\pmb{e}),\]</span> which can also be written: <span class="math display">\[\Sigma\pmb{\pi_{\rho}}=\frac{1}{\rho}(\pmb{\mu}-r^{f}\pmb{e}).\]</span> We therefore have: <span class="math display">\[\pmb{\pi_{\rho}}&#39;\Sigma\pmb{\pi_{\rho}}=\frac{1}{\rho}\pmb{\pi_{\rho}}&#39;(\pmb{\mu}-r^{f}\pmb{e}).\]</span> <span class="math display">\[\sigma_{\rho}=\frac{1}{\rho}\frac{\pmb{\pi_{\rho}}&#39;(\pmb{\mu}-r^{f}\pmb{e})}{\sigma_{\rho}}=\frac{1}{\rho}\lambda_{\rho}.\]</span> with <span class="math inline">\(\sigma_{\rho}\)</span> being the volatility of the optimal portfolio and <span class="math inline">\(\lambda_{\rho}\)</span> its sharpe ratio.</p></li>
+<li><p>We remind that <span class="math inline">\(\lambda_{\rho}\)</span> is independent of <span class="math inline">\(\rho\)</span>. It is given by the Sharpe ratio of the tangent portfolio.</p></li>
+</ul>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<ul>
+<li>We have: <span class="math display">\[\mu_{\rho}=\lambda\sigma_{\rho}=\rho\sigma_{\rho}^{2}.\]</span> In the <span class="math inline">\((\sigma,\mu)\)</span> space, the locus of optimal portfolios attached to a given <span class="math inline">\(\rho\)</span>, as we vary the Sharpe ratio <span class="math inline">\(\lambda\)</span>, is a parabola.</li>
+</ul>
+<h2 id="dynamics-discrete-time">Dynamics, discrete time</h2>
+<h3 id="exercise-2.1">Exercise 2.1</h3>
+<ol type="1">
+<li></li>
+</ol>
+<ul>
+<li>Directly from the course: <span class="math display">\[\underset{\pmb{\pi}_{[t,T-1]}}{\text{max}}
+\; E_{t}\left[\frac{w_{T}^{1-\rho}}{1-\rho}\right]\]</span> <span class="math display">\[\text{s.t.}\]</span> <span class="math display">\[\; w_{k+1}=w_{k}\pi_{k}&#39;R_{k+1},\,\pi_{k}&#39;e=1,\,k=t,\ldots,T-1.\]</span></li>
+</ul>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<p><span class="math display">\[\underset{\pi}{\text{max}}
+\; E_{T-1}\left[\frac{w_{T-1}^{1-\rho}(\pi&#39;R_{T})^{1-\rho}}{1-\rho}\right],\]</span> <span class="math display">\[\text{s.t.}\]</span> <span class="math display">\[\; \pi&#39;e=1.\]</span></p>
+<ul>
+<li><p>The constraint is linear and the criterion is concave (being a composition of a concave function with a linear one). We are thus in the usual Khün-Tucker context. Through the Lagrangian: <span class="math display">\[{\cal L}=w_{T-1}^{1-\rho}E_{T-1}\left[\frac{(\pi&#39;R_{T})^{1-\rho}}{1-\rho}\right]-\lambda \pi&#39;e,\]</span> we get the first order condition (differentiating with respect to <span class="math inline">\(\pi\)</span>): <span class="math display">\[w_{T-1}^{1-\rho}E[(\pi&#39;R_{T})^{-\rho}R_{T}]=\lambda e.\]</span></p></li>
+<li><p>Being in the standard concave case, the first order condition is both necessary and sufficient.</p></li>
+</ul>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>Consider two levels of initial wealth in date <span class="math inline">\(T-1\)</span>, <span class="math inline">\(w^{0}\)</span> and <span class="math inline">\(w^{1}\)</span>. Suppose the the policy <span class="math inline">\(\pi^{0}\)</span> is optimal for wealth level <span class="math inline">\(w_{0}\)</span> leading to utility level <span class="math inline">\(V(w^{0})\)</span>. Then applying the policy for wealth level <span class="math inline">\(w^{1}\)</span> leads to utility level <span class="math inline">\((w^{1}/w^{0})^{1-\rho}V(w_{0})\)</span>. We thus have <span class="math inline">\(V(w^{1})\ge (w^{1}/w^{0})^{1-\rho}V(w_{0})\)</span>. Inverting the role of <span class="math inline">\(w^{0}\)</span> and <span class="math inline">\(w^{1}\)</span> leads to <span class="math inline">\(V(w^{0})\ge (w^{0}/w^{1})^{1-\rho}V(w_{1})\)</span>. Combining the two inequalities proves the homogeneity of the value function, which can choose to write <span class="math inline">\(w^{1-\rho}V(1)\)</span>. We can thus write: <span class="math display">\[V_{T-1}(w_{T-1})=w_{T-1}^{1-\rho}V_{T-1}(1).\]</span></p></li>
+<li><p>The constant of proportionality is the value attached to: <span class="math display">\[\underset{\pi}{\text{max}}
+\; E_{T-1}\left[\frac{(\pi&#39;R_{T})^{1-\rho}}{1-\rho}\right],\]</span> <span class="math display">\[\text{s.t.}\]</span> <span class="math display">\[\; \pi&#39;e=1.\]</span></p></li>
+<li><p>In other words: <span class="math display">\[V_{T-1}(1)=E\left[\frac{(\pi_{*}&#39;R)^{1-\rho}}{1-\rho}\right],\]</span> which is negative and is a constant.</p></li>
+</ul>
+<ol start="4" type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>At step <span class="math inline">\(t\)</span>, the optimization program is, by recurrence: <span class="math display">\[\underset{\pi}{\text{max}}
+\; E_{t}\left[w_{t}^{1-\rho}(\pi&#39;R_{t+1})^{1-\rho}V_{t+1}(1)\right],\]</span> <span class="math display">\[\text{s.t.}\]</span> <span class="math display">\[\; \pi&#39;e=1.\]</span></p></li>
+<li><p>We then proceed as in the previous question. The program has the same characteristics (concave negative criterion, linear constraint). The value function is homogenous and we can write it as <span class="math inline">\(w^{1-\rho}V_{t}(1)\)</span>. Because <span class="math inline">\(V_{t+1}(1)\)</span> is a negative constant, the optimization problem actually leads to the same optimal portfolio <span class="math inline">\(\pi_{*}\)</span>. We then have the recurrence relation: <span class="math display">\[V_{t}(1)=V_{t+1}(1)E\left[(\pi_{*}&#39;R)^{1-\rho}\right].\]</span></p></li>
+<li><p>The terminal condition implies <span class="math inline">\(V_{T}(1)=1/(1-\rho)\)</span>.</p></li>
+</ul>
+<ol start="5" type="1">
+<li></li>
+</ol>
+<ul>
+<li>We established that the optimal portfolio is the same at each date. That is the main take-away. In this setup, the investor’s choice does not depend on the investment horizon. He rebalanced to the same set of optimal weights at each step.</li>
+</ul>
+<h3 id="exercise-2.3">Exercise 2.3</h3>
+<ol type="1">
+<li></li>
+</ol>
+<ul>
+<li>Because the support of <span class="math inline">\(\tilde{R}_{1}\)</span> has <span class="math inline">\(0\)</span> as its lower bound, wealth invested in the risky asset in period <span class="math inline">\(0\)</span> can can lead to nothing in period <span class="math inline">\(1\)</span>. The minimum amount of wealth needed to obtain <span class="math inline">\(\underline{w}_{1}\)</span> in period is: <span class="math display">\[\underline{w}_{0}=\frac{\underline{w}_{1}}{R^{f}}.\]</span></li>
+</ul>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>According to question <span class="math inline">\(1\)</span>, at least <span class="math inline">\(\underline{w}_{0}\)</span> should be invested in the riskless asset. Thus nothing more than <span class="math inline">\(w_{0}-\underline{w}_{0}\)</span> can be invested in the risky asset. This quantity (the surplus) can be split into the fraction invested in the risky asset and the remaining fraction invested in the riskless asset. Thus the transfer of wealth obeys: <span class="math display">\[w_{1}=\underline{w}_{0}R^{f}+(w_{0}-\underline{w}_{0})(1-\pi_{0})R^{f}+(w_{0}-\underline{w}_{0})\pi_{0}\tilde{R}_{1},\]</span><br />
+or given that <span class="math inline">\(\underline{w}_{0}R^{f}=\underline{w}_{1}\)</span>: <span class="math display">\[w_{1}-\underline{w}_{1}=(w_{0}-\underline{w}_{0})(R^{f}+\pi_{0}(\tilde{R}_{1}-R^{f})).\]</span></p></li>
+<li><p>To see that <span class="math inline">\(\pi_{0}\)</span> should be positive or zero, note that because the return <span class="math inline">\(\tilde{R}_{1}\)</span> can be arbitrarily large, going short the risky asset can wipe out any level of wealth.</p></li>
+</ul>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>We have:</p>
+<ul>
+<li><p>the budget constraint expressed as a function of the surplus is geometric. Multiplying the initial surplus <span class="math inline">\(w_{0}-\underline{w}_{0}\)</span> by <span class="math inline">\(\lambda\)</span> leaving the proportion <span class="math inline">\(\pi_{0}\)</span> unchanged leads to <span class="math inline">\(\lambda\)</span> times <span class="math inline">\(w_{1}-\underline{w}_{1}\)</span> as the final surplus: <span class="math display">\[\lambda (w_{1}-\underline{w}_{1})=\lambda (w_{0}-\underline{w}_{0})(R^{f}+\pi_{0}(\tilde{R}_{1}-R^{f})).\]</span></p></li>
+<li><p>the set of feasible investment policies does not depend on the initial surplus.</p></li>
+<li><p>for a given investment policy <span class="math inline">\(\pi_{0}\)</span>, if <span class="math inline">\(U(w_{0}-\underline{w}_{0},\pi_{0})\)</span> is the utility level reached starting from a surplus <span class="math inline">\(w_{0}-\underline{w}_{0}\)</span>, the utility level reached starting from <span class="math inline">\(\lambda(w_{0}-\underline{w}_{0})\)</span> is <span class="math inline">\(U(\lambda(w_{0}-\underline{w}_{0}),\pi_{0})=\lambda^{1-\rho}U(w_{0}-\underline{w}_{0},\pi_{0})\)</span>.</p></li>
+</ul></li>
+<li><p>These facts imply that the value function <span class="math inline">\(V(w_{0}-\underline{w}_{0})\)</span> is homogenous of degree <span class="math inline">\(1-\rho\)</span> in the surplus. Indeed, if <span class="math inline">\(V(\lambda (w_{0}-\underline{w}_{0}))&gt;\lambda^{1-\rho}V(w_{0}-\underline{w}_{0})\)</span>, then using the optimal choice for the initial condition <span class="math inline">\(\lambda (w_{0}-\underline{w}_{0})\)</span>, one can achieve the value: <span class="math display">\[\frac{1}{\lambda^{1-\rho}} V(\lambda (w_{0}-\underline{w}_{0}))&gt;V(w_{0}-\underline{w}_{0}),\]</span> for the utility level reached from the initial conditon <span class="math inline">\(w_{0}-\underline{w}_{0}\)</span>. This is a contradiction. Similarly: <span class="math display">\[V(\lambda (w_{0}-\underline{w}_{0}))&lt;\lambda^{1-\rho}V(w_{0}-\underline{w}_{0}),\]</span> would lead to a contradiction.</p></li>
+<li><p>The optimal program for the initial condition <span class="math inline">\(w_{0}-\underline{w}_{0}=1\)</span> is: <span class="math display">\[V(1)=\underset{\pi_{0}}{\text{max}} \; E[\frac{1}{1-\rho}(R^{f}+\pi_{0}(\tilde{R}_{1}-R^{f}))^{1-\rho}]\]</span> <span class="math display">\[\text{s.t.}:\]</span> <span class="math display">\[0 \leq \pi_{0} \leq 1,\]</span> and the solution does not depend on the initial condition.</p></li>
+</ul>
+<ol start="4" type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>We know from the previous questions that in the two period case, the value function in date <span class="math inline">\(0\)</span> reads: <span class="math display">\[V_{T-1}(1)(w_{0}-\underline{w}_{0})^{1-\rho}.\]</span> Note that <span class="math inline">\(V_{T-1}(1)\)</span> has the same sign as <span class="math inline">\(1-\rho\)</span>.</p></li>
+<li><p>We can extend the reasoning by recurrence using the dynamic programming principle, and we therefore obtain that the value function at any date <span class="math inline">\(t\)</span> reads: <span class="math display">\[V_{t}(1)(w_{0}-\underline{w}_{0})^{1-\rho}.\]</span> The optimal command is given by: <span class="math display">\[\underset{\pi_{t}}{\text{max}} \; E[V_{t+1}(1)(R^{f}+\pi_{0}(\tilde{R}_{1}-R^{f}))^{1-\rho}]\]</span> <span class="math display">\[\text{s.t.}:\]</span> <span class="math display">\[0 \leq \pi_{t} \leq 1.\]</span> This gives the same result for every date <span class="math inline">\(t\)</span> (we have i.i.d. risky asset returns and a constant cash rate).</p></li>
+</ul>
+<h2 id="dynamics-continuous-time">Dynamics, continuous time</h2>
+<h3 id="exercise-3.1">Exercise 3.1</h3>
+<ol type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>For <span class="math inline">\(t \in (t_{i},t_{i+1}]\)</span> and <span class="math inline">\(t&#39; \in (t_{k},t_{k+1}]\)</span> (I assume <span class="math inline">\(k&gt;i+1\)</span>, the case where <span class="math inline">\(k=i+1\)</span> follows similar lines): <span class="math display">\[M_{t&#39;}=\int_{0}^{t&#39;}h(u)dB_{u}=\sum_{j=1}^{i-1}F_{j}(B_{t_{j}}-B_{t_{j+1}})+F_{t_{i}}(B_{t}-B_{t_{i}})+\]</span> <span class="math display">\[F_{t_{i}}(B_{t_{i+1}}-B_{t})+\sum_{j=i+1}^{k-1}F_{j}(B_{t_{j}}-B_{t_{j+1}})+F_{t_{k}}(B_{t&#39;}-B_{t_{k}}).\]</span></p></li>
+<li><p>Using the properties of the Brownian motion, we have: <span class="math display">\[E_{t}[M_{t&#39;}]=E_{t}[\sum_{j=1}^{i-1}F_{j}(B_{t_{j}}-B_{t_{j+1}})+F_{t_{i}}(B_{t}-B_{t_{i}})]=M_{t}.\]</span> This says that the stochastic integral of a simple process is a martingale.</p></li>
+</ul>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>For the left hand side, one just needs to develop <span class="math inline">\(M_{t}^2\)</span> and use the fact that: <span class="math display">\[E_{0}[F_{t_{k}}(B_{t_{k+1}}-B_{t_{k}})F_{t_{j}}(B_{t_{j+1}}-B_{t_{j}})]=0,\]</span> when intervals <span class="math inline">\([t_{k},t_{k+1}]\)</span> and <span class="math inline">\([t_{j},t_{j+1}]\)</span> don’t overlap while: <span class="math display">\[E_{0}[F_{t_{k}}^{2}(B_{t_{k+1}}-B_{t_{k}})^{2}]=E_{0}[F_{t_{k}}^{2}(t_{k+1}-t_{k})].\]</span></p></li>
+<li><p>For the right-hand side: <span class="math display">\[h(t)=\sum_{i=1}^{n}F_{i}^{2}{\bf 1}_{(t_{i},t_{i+1}]},\]</span> so that: <span class="math display">\[\int_{0}^{t}h(u)^{2}du=\sum_{j=1}^{i-1}F_{j}^{2}(t_{j+1}-t_{j})+F_{t_{i}}^{2}(t-t_{i}).\]</span></p></li>
+<li><p>Identification is then immediate.</p></li>
+</ul>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>We have (<span class="math inline">\(t&#39; \geq t\)</span>): <span class="math display">\[\int_{0}^{t&#39;}h(u)dB_{u}=\int_{0}^{t}h(u)dB_{u}+\int_{t}^{t&#39;}h(u)dB_{u},\]</span> and: <span class="math display">\[E_{t}[|\int_{0}^{t&#39;}h(u)dB_{u}|^{2}]=|\int_{0}^{t}h(u)dB_{u}|^{2}+E_{t}[|\int_{t}^{t&#39;}h(u)dB_{u}|^{2}],\]</span> as the expectation of the cross-product vanishes.</p></li>
+<li><p>Similarly: <span class="math display">\[\int_{0}^{t&#39;}h(u)^{2}du=\int_{0}^{t}h(u)^{2}du+\int_{t}^{t&#39;}h(u)^{2}du,\]</span> and: <span class="math display">\[E_{t}[\int_{0}^{t&#39;}h(u)^{2}du]=\int_{0}^{t}h(u)^{2}du+E_{t}[\int_{t}^{t&#39;}h(u)^{2}du].\]</span></p></li>
+<li><p>Then we can proceed as in <span class="math inline">\(2\)</span> to get: <span class="math display">\[E_{t}[|\int_{t}^{t&#39;}h(u)dB_{u}|^{2}]-E_{t}[\int_{t}^{t&#39;}h(u)^{2}du]=0,\]</span> so that: <span class="math display">\[E_{t}[|\int_{0}^{t&#39;}h(u)dB_{u}|^{2}]-E_{t}[\int_{0}^{t&#39;}h(u)^{2}du]=|\int_{0}^{t}h(u)dB_{u}|^{2}-\int_{0}^{t}h(u)^{2}du,\]</span> which is what we needed to establish.</p></li>
+</ul>
+<ol start="4" type="1">
+<li></li>
+</ol>
+<ul>
+<li>Because <span class="math inline">\(E_{0}[M_{t}]=0\)</span>, the variance of <span class="math inline">\(M_{t}\)</span> (as seen from date <span class="math inline">\(0\)</span>) is <span class="math inline">\(E_{0}[M_{t}^{2}]\)</span> which is equal to <span class="math inline">\(E_{0}[[M]_{t}]\)</span>, i.e. the expectation of the quadratic variation. When quadratic variation is deterministic, it is equal to the variance (as seen from date <span class="math inline">\(0\)</span>) of <span class="math inline">\(M_{t}\)</span>.</li>
+</ul>
+<h3 id="exercise-3.2">Exercise 3.2</h3>
+<ol type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>We just need to apply Ito to <span class="math inline">\(\exp\left(-\int_{0}^{t}r_{u}du\right)P_{t}^{T}\)</span>. The exponential is a finite variation process and the Ito boils down to the standard differential formula in this case: <span class="math display">\[d\left(\exp\left(-\int_{0}^{t}r_{u}du\right)P_{t}^{T}\right)=d\left(\exp\left(-\int_{0}^{t}r_{u}du\right)\right)P_{t}^{T}+\exp\left(-\int_{0}^{t}r_{u}du\right)d(P_{t}^{T}),\]</span> <span class="math display">\[=-\exp\left(-\int_{0}^{t}r_{u}du\right)P_{t}^{T}r_{t}dt+\exp\left(-\int_{0}^{t}r_{u}du\right)P_{t}^{T}r_{t}dt+
+\exp\left(-\int_{0}^{t}r_{u}du\right)P_{t}^{T}\sigma_{t}^{T}dB_{t}.\]</span> <span class="math display">\[=\exp\left(-\int_{0}^{t}r_{u}du\right)P_{t}^{T}\sigma_{t}^{T}dB_{t}.\]</span></p></li>
+<li><p>Thus <span class="math inline">\(\exp\left(-\int_{0}^{t}r_{u}du\right)P_{t}^{T}\)</span> is a martingale.</p></li>
+</ul>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<ul>
+<li>We therefore have: <span class="math display">\[\exp\left(-\int_{0}^{t}r_{u}du\right)P_{t}^{T}=E_{t}\left[\exp\left(-\int_{0}^{T}r_{u}du\right)P_{T}^{T}\right]\]</span> <span class="math display">\[=E_{t}\left[\exp\left(-\int_{0}^{T}r_{u}du\right)\right].\]</span> Therefore: <span class="math display">\[P_{t}^{T}=E_{t}\left[\exp\left(-\int_{t}^{T}r_{u}du\right)\right].\]</span></li>
+</ul>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<ul>
+<li>Differentiate <span class="math inline">\(\exp(\rho t)r_{t}\)</span>: <span class="math display">\[d\left(\exp(\rho t)(r_{t}-\bar{r})\right)=\rho\exp(\rho t)(r_{t}-\bar{r})dt-\rho\exp(\rho t)(r_{t}-\bar{r})dt+\exp(\rho t)\sigma_{r}dB_{t}.\]</span> <span class="math display">\[=\exp(\rho t)\sigma_{r}dB_{t}.\]</span> Therefore: <span class="math display">\[\exp(\rho t)(r_{t}-\bar{r})-(r_{0}-\bar{r})=\int_{0}^{t}\exp(\rho u)\sigma_{r}dB_{u},\]</span> <span class="math display">\[r_{t}-\bar{r}=\exp(-\rho t)(r_{0}-\bar{r})+\int_{0}^{t}\exp(-\rho (t-u))\sigma_{r}dB_{u}.\]</span></li>
+</ul>
+<ol start="4" type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>One needs to integrate the above equation written between <span class="math inline">\(t\)</span> and <span class="math inline">\(u&gt;t\)</span> instead on <span class="math inline">\(0\)</span> and <span class="math inline">\(t\)</span>. Integrating the term <span class="math inline">\(\exp(-\rho t)(r_{0}-\bar{r})\)</span> leads to: <span class="math inline">\((r_{t}-\bar{r})b(T-t)\)</span> where: <span class="math display">\[b(T-t)=\int_{t}^{T}\exp(-\rho(u-t))du=-\frac{1}{\rho}[\exp(-\rho(u-t))]_{u=t}^{u=T}=\frac{1-\exp(-\rho(T-t))}{\rho}.\]</span></p></li>
+<li><p>One then applies Fubini to the following double integral: <span class="math display">\[\int_{t}^{T}\left(\int_{t}^{u}\exp(-\rho (u-v))\sigma_{r}dB_{v}\right)du=\int_{t}^{T}\left(\int_{v}^{T}\exp(-\rho (u-v))du\right)\sigma_{r}dB_{v},\]</span> and observes that: <span class="math display">\[\int_{v}^{T}\exp(-\rho (u-v))du=b(T-v).\]</span> This gives the result.</p></li>
+</ul>
+<ol start="5" type="1">
+<li></li>
+</ol>
+<ul>
+<li>Write: <span class="math display">\[b(h-u)=\frac{1}{\rho^{2}}-\frac{1}{\rho^{2}}\exp(-\rho (h-u))-\frac{1}{\rho}\exp(-\rho (h-u))\frac{1}{\rho}(1-\exp(-\rho (h-u))),\]</span> and observe that: <span class="math display">\[-\frac{1}{\rho}\exp(-\rho (h-u))\frac{1}{\rho}(1-\exp(-\rho (h-u)))=\frac{1}{\rho}b_{u}&#39;(h-u)b(h-u),\]</span> where <span class="math inline">\(b_{u}&#39;(h-u)\)</span> is the <span class="math inline">\(u\)</span> derivative of <span class="math inline">\(b(h-u)\)</span>. The formula then follows by straitghtforward integration.</li>
+</ul>
+<ol start="6" type="1">
+<li></li>
+</ol>
+<ul>
+<li>The variable <span class="math inline">\(\int_{t}^{T}r_{u}du\)</span> is Gaussian with mean <span class="math inline">\(\bar{r}(T-t)+(r_{t}-\bar{r})b(T-t)\)</span> and variance: <span class="math display">\[\int_{t}^{T}b(T-u)^{2}\sigma_{r}^{2}du.\]</span> Thus: <span class="math display">\[P_{t}^{T}=\exp\left(-\bar{r}(T-t)-(r_{t}-\bar{r})b(T-t)+\frac{\sigma_{r}^{2}}{2}\left(\int_{t}^{T}b(T-u)^{2}du\right)\right).\]</span></li>
+</ul>
+<ol start="7" type="1">
+<li></li>
+</ol>
+<ul>
+<li>Applying Ito to the above formula shows that the volatility of the price process is <span class="math inline">\(\sigma_{r}b(T-t)\)</span>.</li>
+</ul>
+<h3 id="exercise-3.3">Exercise 3.3</h3>
+<ol type="1">
+<li></li>
+</ol>
+<ul>
+<li>Inserting <span class="math inline">\(dB_{t}=dB^{Q}_{t}-\lambda dt\)</span> into: <span class="math display">\[\frac{dP_{t}^{T}}{P_{t}^{T}}=(r_{t}+\sigma_{t}^{T}\lambda)dt+\sigma_{t}^{T}dB_{t},\]</span> we get: <span class="math display">\[\frac{dP_{t}^{T}}{P_{t}^{T}}=r_{t}dt+\sigma_{t}^{T}dB^{Q}_{t}.\]</span></li>
+</ul>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<ul>
+<li>The SDE followed by the cash rate is: <span class="math display">\[dr_{t}=-\rho(r_{t}-\bar{r}+\frac{\lambda}{\rho})dt+\sigma_{r}dB^{Q}_{t},\]</span> i.e.: <span class="math display">\[dr_{t}=-\rho(r_{t}-\tilde{r})dt+\sigma_{r}dB^{Q}_{t},\]</span> with: <span class="math display">\[\tilde{r}=\bar{r}-\frac{\lambda\sigma_{r}}{\rho}.\]</span> Therefore, the mean cash rate has changed.</li>
+</ul>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>We now have: <span class="math display">\[P_{t}^{T}=E^{Q}_{t}\left[\exp\left(-\int_{t}^{T}r_{u}du\right)\right].\]</span></p></li>
+<li><p>The process <span class="math inline">\((B^{Q}_{t})\)</span> is a Brownian motion. We can thus compute the price as in the previous exercise. This gives: <span class="math display">\[P_{t}^{T}=\exp\left(-\tilde{r}(T-t)-(r_{t}-\tilde{r})b(T-t)+\frac{\sigma_{r}^{2}}{2}\left(\int_{t}^{T}b(T-u)^{2}du\right)\right).\]</span></p></li>
+</ul>
+<ol start="4" type="1">
+<li></li>
+</ol>
+<ul>
+<li>Only the mean short rate has changed. Price volatility is unchanged.</li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2015-12-12-solexercises.pdf">Link to pdf</a></li>
+</ul>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Ensae-ref">
+					Ensae <span>(20)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Solutions-ref">
+					Solutions <span>(2)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//ensae/2015/11/14/complete-dyn.html" title="Complete Markets, Discrete Time">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//ensae/2016/11/29/exam.html" title="Exam (2016)">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

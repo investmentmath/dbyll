@@ -1,0 +1,311 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Solution of the Exam (2015)</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Solution of the Exam (2015) </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   January 
+	   31st,
+	     
+	   2015
+	 </span>
+	  <div class="article_body">
+	  <p><em>This is the solution of the exam for the 2015 ensae course.</em></p>
+<hr />
+<h2 id="exercise-1">Exercise 1</h2>
+<h3 id="part-1">Part 1</h3>
+<ol type="1">
+<li><span class="math inline">\(\sum_{i=1}^{N} \pi_{i}=1.\)</span></li>
+<li><span class="math inline">\(W_{1}=W_{0}R_{p}\)</span> with <span class="math inline">\(R_{p}=\sum_{i=1}^{N}\pi_{i}R_{i}\)</span> or <span class="math inline">\(r_{p}=\sum_{i=1}^{N}\pi_{i}r_{i}\)</span>.</li>
+<li><span class="math inline">\(\mu_{p}=\sum_{i=1}^{N}\pi_{i}\mu_{i}=\pi&#39;\mu\)</span> and <span class="math inline">\(\sigma^{2}_{p}=\pi&#39;\Sigma\pi\)</span>.</li>
+<li><span class="math display">\[ \underset{\pi}{\text{min}} \; \pi&#39;\Sigma\pi\]</span> <span class="math display">\[\text{s.t.}: \;\; \pi&#39;e=1.\]</span> Lagrangian: <span class="math inline">\(\frac{1}{2}\pi&#39;\Sigma\pi-\gamma (\pi&#39;e-1)\)</span>. First order condition: <span class="math inline">\(\Sigma \pi^{1}=\gamma e\)</span>. Value of the Lagrange multiplier and solution: <span class="math display">\[\gamma =\frac{1}{e&#39;\Sigma e},\; \pi^{1}=\frac{\Sigma^{-1}e}{e&#39;\Sigma e}.\]</span> All risky asset portfolios which are efficient must have a rate of return in excess of: <span class="math display">\[\mu^{1}=\frac{\mu&#39;\Sigma^{-1}e}{e&#39;\Sigma e}=\frac{e&#39;\Sigma^{-1}\mu}{e&#39;\Sigma e}.\]</span></li>
+<li><span class="math display">\[ \underset{\pi}{\text{min}} \; \pi&#39;\Sigma\pi\]</span> <span class="math display">\[\text{s.t.}: \;\; \pi&#39;e=1,\; \pi&#39;\mu=\mu_{p}.\]</span> Lagrangian: <span class="math inline">\(\frac{1}{2}\pi&#39;\Sigma\pi-\gamma (\pi&#39;e-1)-\delta (\pi&#39;\mu-\mu_{p})\)</span>. First order condition: <span class="math inline">\(\Sigma \pi^{p}=\gamma e+\delta \mu\)</span> or <span class="math inline">\(\pi^{p}=\gamma \Sigma^{-1}e+\delta\Sigma^{-1}\mu\)</span>. The linear system which determines the multipliers comprises two equations which correspond to the constraints in which the value of <span class="math inline">\(\pi^{p}\)</span> has been injected: <span class="math display">\[\delta \mu&#39; \Sigma^{-1}\mu+\gamma \mu&#39; \Sigma^{-1}e=\mu_{p},\]</span> <span class="math display">\[\delta e&#39;\Sigma^{-1}\mu+\gamma e&#39;\Sigma^{-1}e=1.\]</span></li>
+<li>The determinant of the linear system is: <span class="math inline">\((\mu&#39;\Sigma^{-1}\mu)(e&#39;\Sigma^{-1}e)-(\mu&#39;\Sigma^{-1}e)^{2}\)</span>. Under the conditions quoted in the text, it is strictly positive.</li>
+<li>The linear system has a unique solution for each <span class="math inline">\(\mu_{p}\)</span>. If <span class="math inline">\(\gamma\)</span> is zero, we must have <span class="math inline">\(\delta=\frac{1}{e&#39;\Sigma^{-1}\mu}\)</span>. As a consequence: <span class="math display">\[\mu^{\mu}=\frac{\mu&#39;\Sigma^{-1}\mu}{e&#39;\Sigma^{-1}\mu}.\]</span> We have: <span class="math display">\[\pi^{\mu}=\frac{\Sigma^{-1}\mu}{e&#39;\Sigma^{-1}\mu}.\]</span></li>
+<li>The formula for <span class="math inline">\(\pi^{p}\)</span> can be written: <span class="math display">\[\gamma (e&#39;\Sigma^{-1}e) \frac{\Sigma^{-1}e}{e&#39;\Sigma^{-1}e}+\delta (\mu&#39;\Sigma^{-1}\mu)\frac{\Sigma^{-1}\mu}{\mu&#39;\Sigma^{-1}\mu}.\]</span> Thus: <span class="math display">\[\gamma (e&#39;\Sigma^{-1}e) \pi^{1}+\delta (\mu&#39;\Sigma^{-1}\mu)\pi^{\mu}.\]</span> We have: <span class="math display">\[\gamma (e&#39;\Sigma^{-1}e)+\delta (\mu&#39;\Sigma^{-1}\mu)=\lambda+(1-\lambda)=1,\]</span> from the linear system, using <span class="math inline">\(\lambda=\gamma (e&#39;\Sigma^{-1}e)\)</span>. When the required rate of return increases from <span class="math inline">\(\mu^{1}\)</span> to <span class="math inline">\(\mu^{\mu}\)</span>, <span class="math inline">\(\lambda\)</span> decreases from <span class="math inline">\(1\)</span> to <span class="math inline">\(0\)</span>. The Lagrange multiplier of the budget constraint decreases until it reaches <span class="math inline">\(0\)</span>. When the required rate of return exceeds <span class="math inline">\(\mu^{\mu}\)</span>, the solution consists in selling the minimum variance portfolio so as to leverage <span class="math inline">\(\pi^{\mu}\)</span>. The Lagrange mutliplier of the budget constraint measures the price of the constraint. The price is high for the minimum variance portfolio because lowering the sum of weights below one would obviously allow to lower the variance further. When a rate of return constraint is imposed (<span class="math inline">\(\mu_{p}&gt;\mu^{1}\)</span>), the latter constraint prevents from lowering the variance. The price of the budget constraint comes down.</li>
+<li>The linear system delivers the Lagrange multipliers as a function of <span class="math inline">\(A=\mu&#39;\Sigma^{-1}\mu,B=\mu&#39;\Sigma^{-1}e,C=e&#39;\Sigma^{-1}e\)</span>: <span class="math display">\[\sigma_{p}^{2}=\frac{A-2B\mu_{p}+C\mu_{p}^{2}}{AC-B^2}.\]</span> The efficient frontier is the trace in the half plane <span class="math inline">\(\sigma_{p}&gt;0\)</span> of the geometric locus of the quadratic equation: <span class="math display">\[C\mu_{p}^{2}-(AC-B^2)\sigma_{p}^{2}-2B\mu_{p}+A=0.\]</span> This defines a hyperbola (see conic sections).</li>
+<li>Two distinct efficient portfolios: <span class="math display">\[\pi_{p_{1}}=\lambda_{p_{1}}\pi^{1}+(1-\lambda_{p_{1}})\pi^{\mu},\]</span> <span class="math display">\[\pi_{p_{2}}=\lambda_{p_{2}}\pi^{1}+(1-\lambda_{p_{2}})\pi^{\mu}.\]</span> The matrix that maps <span class="math inline">\(\pi^{1}\)</span> and <span class="math inline">\(\pi^{\mu}\)</span> to the new efficient portfolios is invertible as soon as <span class="math inline">\(\lambda_{p_{1}} \neq \lambda_{p_{2}}\)</span>.</li>
+</ol>
+<h3 id="part-2">Part 2</h3>
+<ol start="10" type="1">
+<li><p>The Sharpe ratio of a portfolio is inherited from the risky asset subportfolio. Take two portfolios. They have risky asset subportfolios. If the two subportfolios are proportional to one another, the original portfolios have the same Sharpe ratio. Indeed, the Sharpe ratio of a portfolio <span class="math inline">\((\pi_{0},\pi)\)</span> satisfies: <span class="math display">\[\frac{\pi&#39;(\mu-r^{f})}{Vol(\pi&#39;\tilde{r})}=\frac{\theta\pi&#39;(\mu-r^{f})}{Vol(\theta\pi&#39;\tilde{r})},\]</span> for any real number <span class="math inline">\(\theta&gt;0\)</span>. By adjusting the cash level and changing in a proportionate way the risky asset portfolio (so as to preserve <span class="math inline">\(\pi_{0}+e&#39;\pi=1\)</span>), one can reach any level of volatility without changing the Sharpe ratio of the initial portfolio. One can thus ‘port’ a given Sharpe ratio over the whole volatility range. Thus, starting from two portfolios, <span class="math inline">\(P_{1}\)</span> and $P_{2} $with distinct Sharpe ratios, we can choose the one with the highest Sharpe ratio (say <span class="math inline">\(P_{1}\)</span>), adjust its cash holding and risky asset subportfolio (in a proportionate way) so as to build a new portfolio which matches the volatility of <span class="math inline">\(P_{2}\)</span>, and has the Sharpe ratio of <span class="math inline">\(P_{1}\)</span>. Thus <span class="math inline">\(P_{2}\)</span> cannot be mean variant efficient if it has a Sharpe ratio that is strictly lower that that of <span class="math inline">\(P_{1}\)</span>. From a geometric standpoint, the efficient frontier is a half-line in the standard deviation/expected return space. It goes through the point <span class="math inline">\((0,r^{f})\)</span> and through a point on the risky asset efficient frontier.</p></li>
+<li><p>Consider the half-lines which satisfy the criteria established in the previous questions. These half-lines can be ordered because for any pair of such distinct half-lines, one is necessarily above the other. The ranking metric is the Sharpe ratio. The upper enveloppe of the set of half-lines is the efficient frontier <span class="math inline">\({\cal F}\)</span>. It is necessarily tangent to the risky asset efficient frontier <span class="math inline">\({\cal E}\)</span>. To see this, one has to realize that the efficient frontier <span class="math inline">\({\cal E}\)</span> is vertical at <span class="math inline">\((\mu^{1},\sigma^{1})\)</span>, that it is concave: its slope in the <span class="math inline">\((\sigma,\mu)\)</span> space is decreasing in <span class="math inline">\(\sigma\)</span>; finally this slope converges to zero asymptotically. In this configuration, the half-line which maximizes the Sharpe ratio has to intersect the efficient frontier <span class="math inline">\(\cal{E}\)</span> at an ‘interior’ point, at a point with volatility <span class="math inline">\(\sigma\)</span> satisfying <span class="math inline">\(\sigma^{1}&lt;\sigma&lt;\infty\)</span>.</p></li>
+<li><p>The optimization program reads: <span class="math display">\[ \underset{\pi}{\text{min}} \; \pi&#39;\Sigma\pi\]</span> <span class="math display">\[\text{s.t.}: \;\; \pi_{0}+\pi&#39;e=1,\; \pi&#39;(\mu-r^{f})=\mu_{p}-r^{f}.\]</span> This is equivalent to: <span class="math inline">\({\cal P}(\mu_{p}-r^{f})\)</span>: <span class="math display">\[ \underset{\pi}{\text{min}} \; \pi&#39;\Sigma\pi\]</span> <span class="math display">\[\text{s.t.}: \;\; \pi&#39;(\mu-r^{f})=\mu_{p}-r^{f},\]</span> imposing <span class="math inline">\(\pi_{0}=1-\pi&#39;e\)</span>.</p></li>
+<li><p>If <span class="math inline">\(\pi\)</span> is a portfolio that satisfies the contraint <span class="math inline">\(\pi&#39;(\mu-r^{f})=\mu_{p,1}-r^{f}\)</span>, <span class="math inline">\(\hat{\pi}=\theta\pi\)</span> with <span class="math inline">\(\theta=(\mu_{p,2}-r^{f})/(\mu_{p,1}-r^{f})\)</span> satisfies <span class="math inline">\(\hat{\pi}&#39;(\mu-r^{f})=\mu_{p,2}-r^{f}\)</span>. <span class="math inline">\({\cal P}(\mu_{p,1}-r^{f})\)</span> can be written: <span class="math display">\[ \underset{\pi}{\text{min}} \; \theta^{2}\pi&#39;\Sigma\pi\]</span> <span class="math display">\[\text{s.t.}: \;\; \pi&#39;(\mu-r^{f})=\mu_{p,1}-r^{f},\]</span> since <span class="math inline">\(\theta\)</span> is a constant. Thanks to this transformation, this program becomes: <span class="math display">\[ \underset{\hat{\pi}}{\text{min}} \; \hat{\pi}&#39;\Sigma\hat{\pi}\]</span> <span class="math display">\[\text{s.t.}: \;\; \hat{\pi}&#39;(\mu-r^{f})=\mu_{p,2}-r^{f},\]</span> which is just <span class="math inline">\({\cal P}(\mu_{p,2}-r^{f})\)</span>. Thus if <span class="math inline">\(\pi^{*}\)</span> is the solution of <span class="math inline">\({\cal P}(\mu_{p,1}-r^{f})\)</span>, <span class="math inline">\(\theta\pi^{*}\)</span> is the solution of <span class="math inline">\({\cal P}(\mu_{p,2}-r^{f})\)</span>. This works backwards as well. If the two corresponding optimal portfolios are proportional via <span class="math inline">\(\theta\)</span>, their excess-returns and their volatility are both multiplied by the same factor. As a consequence, the Sharpe ratio is conserved. It is maximized at the optimum since the program minimizes variance and thus volatility for a given excess return. The programs <span class="math inline">\({\cal P}\)</span> identify the unique portfolio of maximum Sharpe ratio. This portfolio corresponds to point <span class="math inline">\(I\)</span>.</p></li>
+</ol>
+<h2 id="exercise-2">Exercise 2</h2>
+<ol type="1">
+<li><p>I assume <span class="math inline">\(\gamma&lt;&gt;1\)</span>, the log case being very similar. The dynamics of the wealth process is: <span class="math display">\[\frac{dW_{u}}{W_{u}}=r^{f}du+\pi_{u}&#39;(\mu-r^{f}e)du+\pi_{u}&#39;\sigma dB_{u}.\]</span> It is a geometric process. If <span class="math inline">\(W_{t}\)</span> is multiplied by <span class="math inline">\(\theta\)</span>, the value of <span class="math inline">\(W_{T}\)</span> is multiplied by <span class="math inline">\(\theta\)</span> as well <strong>for any trajectory of the Brownian motion and all portfolio choices</strong> <span class="math inline">\(\pi_{[t,T]}\)</span>. The criterion to be maximized for the starting point <span class="math inline">\(\hat{W_{t}}=\theta W_{t}\)</span> is thus <span class="math inline">\(E_{t}[u(\theta W_{T})]=\theta^{1-\gamma}E_{t}[u(W_{T})]\)</span> for <span class="math inline">\(\gamma\neq 1\)</span>. The investment process that is optimal for <span class="math inline">\(W_{t}\)</span> still is for the initial condition <span class="math inline">\(\hat{W_{t}}\)</span> and <span class="math inline">\(V(t,\hat{W_{t}})=\theta^{1-\gamma}V(t,W_{t})\)</span>.</p></li>
+<li><p>We have: <span class="math display">\[V(t+\Delta,W_{t+\Delta})-V(t,W_{t})=\]</span> <span class="math display">\[\int_{t}^{t+\Delta}[V_{1}(u,W_{u})du+V_{2}(u,W_{u})dB_{u}]+\frac{1}{2}\int_{t}^{t+\Delta}V_{2,2}(u,W_{u})d[B]_{t}.\]</span> Taking the expectation: <span class="math display">\[\int_{t}^{t+\Delta}[V_{1}(u,W_{u})du+V_{2}(u,W_{u})W_{u}(r^{f}du+\pi_{u}&#39;(\mu-r^{f}e)du)]+\]</span> <span class="math display">\[\frac{1}{2}\int_{t}^{t+\Delta}V_{2,2}(u,W_{u})W_{u}^{2}
+\pi_{u}&#39;\Sigma\pi_{u}du.\]</span></p></li>
+<li><p>We have: <span class="math display">\[ \underset{\pi_{t}}{\text{max}} \; \Big\{V_{1}(t,W_{t})+V_{2}(t,W_{t})W_{t}(r^{f}+\pi_{t}&#39;(\mu-r^{f}e))+\frac{1}{2}V_{2,2}(t,W_{t})W_{t}^{2}
+\pi_{t}&#39;\Sigma\pi_{t}\Big\}=0.\]</span></p></li>
+<li><p>The function to be maximized: <span class="math display">\[V_{2}(t,W_{t})W_{t}\pi_{t}&#39;(\mu-r^{f}e)+\frac{1}{2}V_{2,2}(t,W_{t})W_{t}^{2}
+\pi_{t}&#39;\Sigma\pi_{t}.\]</span> Since <span class="math inline">\(V\)</span> is concave in <span class="math inline">\(W_{t}\)</span>, the second derivative is negative and the maximimum of the quadratic form is characterized by the first order condition: <span class="math display">\[\pi^{*}_{t}=-\frac{V_{2}(t,W_{t})}{W_{t}V_{2,2}(t,W_{t})}\Sigma^{-1}(\mu-r^{f}e).\]</span> Given question <span class="math inline">\(1\)</span>, on have: <span class="math display">\[-\frac{V_{2}(t,W_{t})}{W_{t}V_{2,2}(t,W_{t})}=\frac{1}{\gamma}.\]</span> The solution depends neither on <span class="math inline">\(t\)</span> nor on <span class="math inline">\(T\)</span>.</p></li>
+<li><p>We have: <span class="math display">\[\Sigma \pi^{\star}=\frac{1}{\gamma}(\mu-r^{f}e),\]</span> which gives the first equation. We have as well: <span class="math display">\[\sigma\sigma&#39;\pi^{\star}=\frac{1}{\gamma}(\mu-r^{f}e),\]</span> <span class="math display">\[\sigma&#39;\pi^{\star}=\frac{1}{\gamma}\lambda,\]</span> <span class="math display">\[\pi^{\star\prime}\sigma=\frac{1}{\gamma}\lambda&#39;,\]</span> <span class="math display">\[\pi^{\star\prime}=\frac{1}{\gamma}\lambda&#39;\sigma^{-1},\]</span> and this gives the second equation by multiplying by <span class="math inline">\((\mu-r^{f}e)\)</span> on the right.</p></li>
+<li><p><span class="math display">\[d\log(W^{\gamma,\star}_{u})=r^{f}du+(1-\frac{1}{2\gamma})\frac{1}{\gamma}\kappa^{2}du+\frac{1}{\gamma}\lambda&#39;dB_{u},\]</span> <span class="math display">\[W^{\gamma,\star}_{T}=W_{0}\exp\left(r^{f}T+(1-\frac{1}{2\gamma})\frac{1}{\gamma}\kappa^{2}T+\frac{1}{\gamma}\lambda&#39;B_{T}\right).\]</span></p></li>
+<li><p><span class="math display">\[\frac{\log(W^{\gamma,*}_{T})-\log(W_{1})}{T}=\]</span> <span class="math display">\[r^{f}+(1-\frac{1}{2\gamma})\frac{1}{\gamma}\kappa^{2}+\frac{1}{\gamma}\frac{\lambda&#39;B_{T}}{T}.\]</span> The last term converges almost surely to <span class="math inline">\(0\)</span> when <span class="math inline">\(T\)</span> goes to <span class="math inline">\(+\infty\)</span> (law of large numbers). The asymptotic rate of log growth reads: <span class="math display">\[r^{f}+(1-\frac{1}{2\gamma})\frac{1}{\gamma}\kappa^{2}.\]</span> It increases as <span class="math inline">\(\gamma\)</span> rises up to <span class="math inline">\(1\)</span> and then decreases beyond that point.</p></li>
+<li><p>For a finite <span class="math inline">\(T\)</span>, the level of risk taken enters the picture whereas it does not enter into account in the asymptotic ranking of growth. Preference for risk matters for finite <span class="math inline">\(T\)</span>. The maximum growth portfolio is not optimal for <span class="math inline">\(\gamma&lt;&gt;1\)</span>. For <span class="math inline">\(\gamma&lt;1\)</span>, the investor likes risk so much that he finds the max growth portfolio too safe. The investor wants to gamble more. For <span class="math inline">\(\gamma&gt;1\)</span>, the investor finds the max growth portfolio too risky.</p></li>
+</ol>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2015-01-31-solexam.pdf">Link to pdf</a></li>
+</ul>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Ensae-ref">
+					Ensae <span>(20)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Exams-ref">
+					Exams <span>(7)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//ensae/2015/01/23/exam.html" title="Exam (2015)">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//finance/2015/03/11/time-diversification.html" title="Allocating risk across periods">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

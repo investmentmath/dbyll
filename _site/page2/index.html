@@ -1,0 +1,486 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>InvestmentMath</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<div class="page-header">
+  <h1>InvestmentMath </h1>
+</div>
+
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                October
+                15th,
+                
+                2015
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2015/10/15/exercises.html">Exercises</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This post collects exercises for the ENSAE course. See <a href="/ensae/2015/12/12/solexercises.html">this post</a> for the solutions.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                March
+                11th,
+                
+                2015
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/finance/2015/03/11/time-diversification.html">Allocating risk across periods</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>In the cross section, portfolio returns are a weighted sum of securities’ returns. This opens up the door to diversification gains when returns are imperfectly correlated. Optimal diversification is reached when the independent underlying factors are weighted proportionately to their prospective Sharpe ratios. It is perhaps less well known that the same principle holds across periods. When returns are independent from one period to another (the benchmark case), efficiency requires that the risk budget be allocated proportionately to the prospective Sharpe ratio of the period. This leads to constant volatility strategies, when the portfolio’s Sharpe ratio is constant over time. Constant volatility strategies can be contrasted with policies which hold the weight of the risky asset constant. The latter are efficient when the incentive to invest is proportional to volatility. Choosing between the two types of policies requires an empirical investigation of the link between volatility and the prospective Sharpe ratio.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                January
+                31st,
+                  
+                2015
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2015/01/31/solexam.html">Solution of the Exam (2015)</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This is the solution of the exam for the 2015 ensae course.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                January
+                23rd,
+                  
+                2015
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2015/01/23/exam.html">Exam (2015)</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This is the exam for the 2015 ensae course.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                November
+                16th,
+                
+                2014
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2014/11/16/complete.html">Complete Markets, Static Case</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>In this post, I introduce the notion of market completeness in the context of a two period model. I also review the notion of a stochastic discount factor (SDF). The absence of arbitrage coupled with market completeness imply the existence of a unique strictly positive SDF. In this context, the investor chooses wealth/consumption in each state of the world so as to equalize marginal rates of substitution across states and the ratio of the values the SDF takes in the corresponding states. In other words, the marginal value of wealth/consumption in each state is proportional to the SDF, the constant of proportionality being the same for all states . For a given level of initial wealth and a given utility function, the SDF determines the end wealth/consumption distribution.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                October
+                27th,
+                
+                2014
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2014/10/27/cont.html">Dynamic Models (Continuous Time)</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>In this post, I look at continuous time models. Price dynamics are described and wealth dynamics are derived. I then look at dynamic programming, describing the Hamilton Jacobi Bellman partial differential equation. I apply this to the case of constant investment opportunities and CRRA utility (including log utility). The results described in discrete time are shown to hold here as well. I then look at cases where investment opportunities fluctuate, reflecting the dynamics of a scalar Markovian process. In the first example, the driving variable is the (stochastic) cash rate. This model allows to discuss the role of bonds as hedging instruments within portfolios. In the second example, the cash rate is constant but the equity premium fluctuates and the equity index is more volatile in the short term than in the long term. This makes the optimal equity weight dependent on the investment horizon. </em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                October
+                25th,
+                
+                2014
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2014/10/25/stocalc.html">Stochastic Calculus at the Speed of Light</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>In this post, I briskly review stochastic calculus. I concentrate on continuous martingales. Continuous martingales have trajectories with infinite first order variation and finite quadratic variation. This forces the development of a specific integration theory. I introduce continuous semimartingales, for which I spell out the Ito formula. I then consider the geometric Brownian motion and the Ornstein Uhlenbeck process.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                October
+                18th,
+                
+                2014
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2014/10/18/dynprog.html">Dynamic Programming</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>In this short post, I sketch the derivation of the dynamic programming principle in discrete time.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                October
+                17th,
+                
+                2014
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2014/10/17/disc.html">Dynamics, Discrete Time</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>Having looked at static investment problems, I now turn to dynamics starting with the discrete time case. Where static modeling is restricted to buy and hold policies, the dynamic setup allows rebalancing. Dynamic programming is introduced in a Markovian context with intermediate consumption. Some concrete problems with a terminal CRRA utility function are then solved. In the case of i.i.d. returns, the optimal policy is seen to be independent of the investment horizon, an initially counterintuitive result. It entails rebalancing to constant weights.The growth optimal portfolio which corresponds to log-utility is then considered, both when returns are i.i.d. and when they depend on a Markovian state variable. The optimal investment policy is often called the Kelly rule.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                October
+                7th,
+                
+                2014
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2014/10/07/static.html">Static Portfolio Choice</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>In this section of the course, I review the static portfolio choice problem. The investor chooses a portfolio structure which is then left alone. The investment criterion is the expected utility of wealth at a terminal date. I briefly review specifications for the utility function together with risk aversion concepts. I look at the case of constant absolute risk aversion and normal returns, with or without labour income. I then introduce mean variance preferences, linking them to expected utility. Mean variance with and without a risk free asset is studied. The link between mean variance preferences and the expected returns/beta relationship is explained (the key ingredient of the CAPM). I then touch on the implementation problem.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+<hr/>
+
+<ul class="pager"> 
+
+  
+    <li class="previous">
+      
+        <a href="http://127.0.0.1:4000/">&larr; Newer</a>
+      
+    </li>
+  
+  
+  <li>
+          <span class="page_number">Page: 2 of 5</span>
+  </li>
+
+  
+    <li class="next">
+            <a href="http://127.0.0.1:4000/page3">Older &rarr;</a>
+    </li>
+  
+
+</ul>
+
+
+
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

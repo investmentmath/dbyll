@@ -1,0 +1,26 @@
+I"�<p><em>The category ‘ENSAE’ groups posts that correspond to a course tought at ENSAE on portfolio choice. This post gives contains references and warnings.</em></p>
+<hr />
+<h2 id="references">References</h2>
+<ul>
+<li>Kerry A. Back, <em>Asset pricing and portfolio choice theory</em>, Oxford University Press, 2010</li>
+<li>John H. Cochrane, <em>Asset Pricing</em>, Princeton University Press, 2005.</li>
+<li>Gabrielle Demange and Guy Laroque, <em>Finance and the Economic of Uncertainty</em>, Blackwell, 2006.</li>
+<li>Claus Munk, <em>Dynamic Asset Allocation</em>, Working paper, Copenhagen Business School, 2013.</li>
+<li>Huyen Pham, <em>Optimisation et Contrôle Appliqués à la Finance</em>, Springer, 2007.</li>
+<li>Richard F. Bass, <em>Stochastic Processes</em>, Cambridge University Press, 2011.</li>
+<li>Stephen Boyd and Lieven Vandenberghe, <em>Convex Optimization</em>, Cambridge University Press, 2004.</li>
+</ul>
+<h2 id="warning">Warning</h2>
+<ul>
+<li><p>For the sake of brevity and so as to concentrate on economic content, the notes don’t spell out all required technical conditions. They can be found in the references. Here are some key issues which would deserve more detail:</p>
+<ul>
+<li>the assumptions on the probability space underlying the models; one should in particular be familiar with Markovianity.</li>
+<li>the optimization requirements (convexity assumptions needed for first order conditions to be not only necessary but also sufficient, dynamic programming requirements)</li>
+</ul></li>
+<li><p>The continuous time setup in particular would require a lot of additional material to become self contained.</p></li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2014-10-06-warning.pdf">Link to pdf</a></li>
+</ul>
+:ET

@@ -1,0 +1,45 @@
+I"�<p><em>In this short post, I sketch the derivation of the dynamic programming principle in discrete time.</em></p>
+<hr />
+<h2 id="optimization-problem">Optimization problem</h2>
+<ul>
+<li>Intertemporal program: <span class="math display">\[
+V_{t}(x_{t},W_{t})=
+\underset{(\pmb{\pi}_{[t,T]},\pmb{C}_{[t,T]})}{\text{max}}
+\; E_{t}[\sum_{k=t}^{T} \delta^{k}u_{k}(C_{k})]\]</span> <span class="math display">\[\text{s.t.}\]</span> <span class="math display">\[\; W_{k+1}=Y_{k+1}+(W_{k}-C_{k})\pi_{k}&#39;R_{k+1},\]</span> <span class="math display">\[\; C_{k} \geq 0,\]</span> <span class="math display">\[\; W_{T} \geq 0.\]</span></li>
+</ul>
+<h2 id="additive-decomposition">Additive decomposition</h2>
+<ul>
+<li><p>We’ll define: <span class="math display">\[J(t,x_{t},W_{t},\pmb{\alpha}_{[t,T]})=E_{t}[\sum_{k=t}^{T} \delta^{k}u_{k}(C_{k})],\]</span> where I have packed all decision variables over <span class="math inline">\([t,T]\)</span> into the notation <span class="math inline">\(\pmb{\alpha}_{[t,T]}\)</span>: <span class="math inline">\(\pmb{\alpha}_{[t,T]}=(C_{[t,T]},\pmb{\pi}_{[t,T]})\)</span> and similarly <span class="math inline">\(\pmb{\alpha_{t}}=(C_{t},\pmb{\pi_{t}})\)</span>.</p></li>
+<li><p>We have: <span class="math display">\[J(t,x_{t},W_{t},\pmb{\alpha}_{[t,T]})= \, E_{t}[\sum_{k=t}^{T} \delta^{k}u_{k}(C_{k})],\]</span> <span class="math display">\[J(t,x_{t},W_{t},\pmb{\alpha}_{[t,T]})= \, \delta^{t}u_{t}(C_{t})+E_{t}[J(t+1,x_{t+1},W_{t+1},\pmb{\alpha}_{[t+1,T]})].\]</span></p></li>
+<li><p>The latter equation is the starting point of everything.</p></li>
+</ul>
+<h2 id="you-cannot-beat-backward-induction">You cannot beat backward induction</h2>
+<ul>
+<li><p>We have: <span class="math display">\[J(t,x_{t},W_{t},\pmb{\alpha}_{[t,T]}) \leq \, \delta^{t}u_{t}(C_{t})+E_{t}[V_{t+1}(x_{t+1},W_{t+1})],\]</span> <span class="math display">\[J(t,x_{t},W_{t},\pmb{\alpha}_{[t,T]}) \leq \, \underset{\pmb{\alpha}_{t}}{\text{max}}\{\delta^{t}u_{t}(C_{t})+E_{t}[V_{t+1}(x_{t+1},W_{t+1})]\},\]</span> <span class="math display">\[V_{t}(x_{t},W_{t}) \leq \, \underset{\pmb{\alpha}_{t}}{\text{max}}\{\delta^{t}u_{t}(C_{t})+E_{t}[V_{t+1}(x_{t+1},W_{t+1})]\}.\]</span></p></li>
+<li><p>This can be paraphrased as saying that carrying out the program <span class="math inline">\(\underset{\pmb{\alpha}_{t}}{\text{max}}\{\delta^{t}u_{t}(c_{t})+E_{t}[V_{t+1}(x_{t+1},W_{t+1},w_{t+1})]\}\)</span>, if feasible, is necessarily optimal.</p></li>
+</ul>
+<h2 id="you-can-do-it-1">You can do it (1)</h2>
+<ul>
+<li><p>It remains to be shown that the value of the above program can be arbitrarily approached through an adequate choice of commands. For any <span class="math inline">\(\varepsilon&gt;0\)</span> , for each <span class="math inline">\((x_{t+1},W_{t+1})\)</span> we can find a command <span class="math inline">\(\pmb{\alpha^{\varepsilon}}_{[t+1,T]}\)</span> such that: <span class="math display">\[J(t+1,x_{t+1},W_{t+1},\pmb{\alpha^{\varepsilon}}_{[t+1,T]})\geq V_{t+1}(x_{t+1},W_{t+1})-\varepsilon.\]</span> The dependence of the command on the state variable is ommitted.</p></li>
+<li><p>But then we can build a command<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span class="math inline">\(\pmb{\hat{\alpha}^{\varepsilon}}_{[t,T]}=(\pmb{\alpha}_{t},\pmb{\alpha^{\varepsilon}}_{[t+1,T]})\)</span> for which:</p></li>
+</ul>
+<p><span class="math display">\[J(t,x_{t},W_{t},\pmb{\hat{\alpha}^{\varepsilon}}_{[t,T]})=\]</span> <span class="math display">\[\delta^{t}u_{t}(C_{t})+E_{t}[J(t+1,x_{t+1},W_{t+1},\pmb{\alpha^{\varepsilon}}_{[t+1,T]})].\]</span> <span class="math display">\[J(t,x_{t},W_{t},\pmb{\hat{\alpha}^{\varepsilon}}_{[t,T]})\geq \, 
+\delta^{t}u_{t}(C_{t})+E_{t}[V_{t+1}(x_{t+1},W_{t+1})]-\varepsilon.\]</span></p>
+<h2 id="you-can-do-it-2">You can do it (2)</h2>
+<p>This being true for any <span class="math inline">\(\pmb{\alpha}_{t}=(C_{t},\pmb{\pi}_{t})\)</span>, we have:</p>
+<p><span class="math display">\[J(t,x_{t},W_{t},\pmb{\hat{\alpha}^{\varepsilon}}_{[t,T]})\geq \, \underset{\pmb{\alpha}_{t}}{\text{max}}\{\delta^{t}u_{t}(c_{t})+E_{t}[V_{t+1}(x_{t+1},W_{t+1})]\}-\varepsilon,\]</span> <span class="math display">\[V_{t}(x_{t},W_{t})\geq \, \underset{\pmb{\alpha}_{t}}{\text{max}}\{\delta^{t}u_{t}(c_{t})+E_{t}[V_{t+1}(x_{t+1},W_{t+1})]\}-\varepsilon.\]</span></p>
+<p>and since <span class="math inline">\(\varepsilon&gt;0\)</span> is arbitrary: <span class="math display">\[V_{t}(x_{t},W_{t})\geq \, \underset{\pmb{\alpha}_{t}}{\text{max}}\{\delta^{t}u_{t}(c_{t})+E_{t}[V_{t+1}(x_{t+1},W_{t+1})]\}.\]</span></p>
+<ul>
+<li>This complete the proof of the dynamic programming principle.</li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2014-10-18-dynprog.pdf">Link to pdf</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Important technical details are ommitted here. Indeed, one has to select an <span class="math inline">\(\varepsilon\)</span>-optimal command for each value of the state variable, uniformly with respect to the state variable. One cannot hope to do that without strong assumptions regarding the data of the optimization problem.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+:ET

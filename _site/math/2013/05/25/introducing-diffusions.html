@@ -1,0 +1,302 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Introducing Diffusions</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Introducing Diffusions </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   May 
+	   25th,
+	   
+	   2013
+	 </span>
+	  <div class="article_body">
+	  <p><em>The purpose of this note is to introduce diffusions which are made up of a drift and a martingale component. I start from the elementary discrete time setup where the drift of the process is most easily understood. I then explain how the specialized decomposition of a diffusion into a drift and a Brownian integral can arise as the limit of the decompositions obtained on the discretized process.</em></p>
+<hr />
+<h1 id="doobs-decomposition">Doob’s decomposition</h1>
+<p>We introduced the martingale concept in the <a href="/math/2013/04/24/martingales.html" title="MARTINGALES">post on martingales</a>. In particular, we explained (see the <a href="/math/2013/04/24/martingales.html" title="MARTINGALES">post on martingales</a> for notation) that in discrete time (<span class="math inline">\(\mathbb{T}=\mathbb{N}\)</span>), a martingale <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span> has martingale differences <span class="math inline">\(\Delta M_{t}=M_{t}-M_{t-1}\)</span> which are conditionally centered: <span class="math display">\[E_{t}[\Delta M_{t+1}]=0.\]</span> We now wish to relax this constraint and consider more general processes.</p>
+<p>Starting from an adapted process <span class="math inline">\((X_{t})_{t \in \mathbb{T}}\)</span>, we can consider its differences <span class="math inline">\(\Delta X_{t}=X_{t}-X_{t-1}\)</span> and define their one step ahead conditional expectation: <span class="math display">\[\Delta
+A_{t+1}=E_{t}[\Delta X_{t+1}].\]</span> The random variables <span class="math inline">\(\Delta A_{t+1}\)</span> are by construction <span class="math inline">\({\cal F}_{t}\)</span> measurable. In the language introduced to describe <a href="/math/2013/05/02/stochastic-integrals-as-martingale-transforms.html" title="STOCHASTIC INTEGRALS AS MARTINGALE TRANSFORMS">stochastic integrals</a>, this process is predictable. Removing <span class="math inline">\(\Delta A_{t+1}\)</span> from <span class="math inline">\(\Delta X_{t+1}\)</span> is a centering operation. Indeed, setting <span class="math inline">\(\Delta M_{t+1}=\Delta X_{t+1}-\Delta A_{t+1}\)</span>, we get: <span class="math display">\[E_{t}[\Delta
+M_{t+1}]=0.\]</span> The variables <span class="math inline">\(\Delta M_{t+1}\)</span> are martingale differences. Cumulating differences, we can recover the level <span class="math inline">\(X_{t}\)</span> through:<span class="math display">\[X_{t}=X_{0}+\sum_{k=1}^{t}\Delta
+A_{k}+\sum_{k=1}^{t}\Delta M_{k}.\]</span> Setting <span class="math inline">\(M_{0}=0\)</span> and <span class="math inline">\(A_{0}=0\)</span>, we can now define two ‘level’ processes <span class="math inline">\((A_{t})_{t \in \mathbb{T}}\)</span> and <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span> through: <span class="math display">\[A_{t}=A_{0}+\sum_{k=1}^{t}\Delta A_{k},\, t \geq 1,\]</span> <span class="math display">\[M_{t}=M_{0}+\sum_{k=1}^{t}\Delta M_{k},\, t \geq 1.\]</span> The first process <span class="math inline">\((A_{t})_{t \in \mathbb{T}}\)</span> is predictable in the sense that each <span class="math inline">\(A_{t}\)</span> is <span class="math inline">\({\cal F}_{t-1}\)</span> measurable (its value at date <span class="math inline">\(t\)</span> is known at date <span class="math inline">\(t-1\)</span>), and the second process <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span> is a martingale. Both processes are of course adapted to the filtration. We can finally write: <span class="math display">\[X_{t}=X_{0}+A_{t}+M_{t}.\]</span> This decomposition is called Doob’s decomposition.</p>
+<p>It should be stressed that <span class="math inline">\(\Delta A_{t}\)</span> are one step ahead predictions. Two step ahead predictions for instance involve predicting <span class="math inline">\(\Delta A_{t}\)</span> one step ahead: <span class="math display">\[E_{t}[\Delta A_{t+1}+\Delta
+A_{t+2}]=\Delta A_{t+1}+E_{t}[\Delta A_{t+2}].\]</span></p>
+<p>By constraining the sign of <span class="math inline">\((\Delta A_{t})_{t \in \mathbb{T},\, t \geq 1}\)</span>, we obtain sub and supermartingales. A supermartingale is a process which is expected to decrease or remain stable. It is obtained by forcing <span class="math inline">\((\Delta A_{t})_{t \in \mathbb{T},\, t \geq 1}\)</span> to be negative. A submartingale is a process which is expected to increase or remain stable, that is <span class="math inline">\((\Delta A_{t})_{t \in \mathbb{T},\, t \geq 1}\)</span> is forced to be positive (a martingale is thus both a super and a submartingale). Accordingly, the process <span class="math inline">\((A_{t})_{t \in \mathbb{T}}\)</span> is monotonic in both cases.</p>
+<h1 id="quasimartingales">Quasimartingales</h1>
+<p>We now look at the case of a continuous time process <span class="math inline">\((X_{t})_{t \in [0,T]}\)</span> where <span class="math inline">\(T&lt;\infty\)</span>. To carry out the above decomposition, we can introduce a discretization scheme and apply the previous calculations to the process obtained thereby. For each discretization grid <span class="math inline">\(\pi_{n}\)</span> of <span class="math inline">\([0,1]\)</span> indexed by <span class="math inline">\(n\)</span> (<span class="math inline">\(t_{0}=0,\ldots,t_{n}=T\)</span>), we can thus split the discretized version <span class="math inline">\((X_{t_{i}})_{t_{i} \in \pi_{n}}\)</span> of the original process into a discrete time martingale and the cumulated expected changes along the discretization intervals: <span class="math display">\[X^{n}_{t_{i}}=X_{0}+A^{n}_{t_{i}}+M^{n}_{t_{i}}.\]</span> As the grid is refined (<span class="math inline">\(n\)</span> tending to infinity), one can hope to recover: <span class="math display">\[X_{t}=X_{0}+A_{t}+M_{t},\]</span> where <span class="math inline">\((M_{t})_{t \in \mathbb{R}_{+}}\)</span> is a continuous time martingale and <span class="math inline">\((A_{t})_{t \in [0,T]}\)</span> is the limit of the discretized processes <span class="math inline">\((A_{t_{i}})_{t_{i} \in \pi_{n}}\)</span>, i.e. the cumulated infinitesimal expected changes of <span class="math inline">\((X_{t})_{t \in [0,T]}\)</span>.</p>
+<p>The first results generalizing the discrete time decomposition to the continuous time setup and ensuring that the above discretization scheme converges concerned submartingales and supermartingales, for which the process <span class="math inline">\((A_{t})_{t \in [0,T]}\)</span> is monotonic (these assumptions lead to the Doob-Meyer decomposition, the continuous time version of Doob’s decomposition). A natural generalization was sought among processes for which <span class="math inline">\((A_{t})_{t \in [0,T]}\)</span> would be of bounded variation, since this class of functions is the simplest extension of monotonic functions (any bounded variation function is the difference of two bounded monotonic functions). This led to the concept of quasimartingales, where the main ingredient consists in bounding the following sums :<span class="math display">\[E[V(\pi)]=E\left[\sum_{i=1}^{n}E_{t_{i-1}}[\left|X_{t_{i}}-X_{t_{i-1}}\right||{\cal
+F}_{t_{i-1}}]\right] \leq K &lt; \infty,\]</span> uniformly with respect to partitions <span class="math inline">\(\pi=(t_{0}=0,\ldots,t_{n}=T)\)</span> of <span class="math inline">\([0,T]\)</span> of any size <span class="math inline">\(n\)</span>. The decomposition of a quasimartingale involves a process <span class="math inline">\((A_{t})_{t \in [0,T]}\)</span> which has finite expected variation and <em>a fortiori</em> almost everyhere bounded variation.</p>
+<p>Stochastic integration can be easily extended from martingales to quasimartingales since bounded variation functions can be used as integrators within a well understood integration theory (cf. Lebesgue-Stieltjes integration). What this means for mathematical finance is that most continuous time calculus can be carried out assuming prices follow quasimartingales<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>In the case of processes with continuous paths, <em>necessary and sufficient conditions</em> have been identified (see Fisk, Quasi-Martingales, <em>Transactions of the American Mathematical Society</em>, 1965) for <span class="math inline">\((X_{t})_{t \in [0,T]}\)</span> to be a quasimartingale, in which case the discretization process described above delivers a martingale with continuous paths <span class="math inline">\((M_{t})_{t \in [0,T]}\)</span> and a bounded variation process <span class="math inline">\((A_{t})_{t \in [0,T]}\)</span> with continuous paths as well. This decomposition is unique.</p>
+<h1 id="ito-diffusions">Ito diffusions</h1>
+<p>We now wish to specialize the above setup so as to get tractable and flexible specifications for a process <span class="math inline">\((X_{t})_{t \in [0,T]}\)</span>. We will assume the filtration is generated by a one dimensional Brownian motion <span class="math inline">\((B_{t})_{t \in [0,T]}\)</span>. We assume the process <span class="math inline">\((A_{t})_{t \in [0,T]}\)</span> is of the form:<span class="math display">\[\int_{0}^{t}r(X_{u})du.\]</span> We thereby select a specific class of bounded variation processes, those that can be written as the integral of a function. In addition, we constrain that function to be a function of the state variable <span class="math inline">\(X_{u}\)</span>. Similarly the martingale process <span class="math inline">\((M_{t})_{t \in [0,T]}\)</span> is assumed to be a Brownian stochastic integral:<span class="math display">\[\int_{0}^{t}\sigma(X_{u})dB_{u},\]</span> where again <span class="math inline">\(\sigma(\cdot)\)</span> is a function of the state variable <span class="math inline">\(X_{u}\)</span> only. The functions <span class="math inline">\(r(\cdot)\)</span> and <span class="math inline">\(\sigma(\cdot)\)</span> are real measurable functions. We thus get:<span class="math display">\[X_{t}=X_{0}+\int_{0}^{t}r(X_{u})du+\int_{0}^{t}\sigma(X_{u})dB_{u}.\]</span> The function <span class="math inline">\(r(\cdot)\)</span> is called the drift of the diffusion and the function <span class="math inline">\(\sigma(\cdot)\)</span> is the volatility of the diffusion. The interpretation of these two terms is now obvious. The drift measures the infinitesimal expected change of the process, while volatility measures the infinitesimal surprises.</p>
+<p>The technical conditions usually applied to the drift and volatility coefficients are (almost everywhere): <span class="math display">\[\int_{0}^{T}\left|r(X_{u})\right|du&lt;\infty,\]</span> <span class="math display">\[\int_{0}^{T}\sigma(X_{u})^{2}du&lt;\infty.\]</span> The first condition ensures that <span class="math inline">\((A_{t})_{t \in [0,T]}\)</span> is almost everywhere of bounded variation<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, while the second is needed to define the Brownian integral.</p>
+<p>We finally note that it is customary to summarize the integral equations through the differential notation: <span class="math display">\[dX_{t}=r(X_{t})dt+\sigma(X_{t})dB_{t},\]</span> with an initial condition <span class="math inline">\(X_{0}\)</span>. This should however merely be seen as a shorthand for the integral equation.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2013-05-25-introducing-diffusions.pdf">Link to pdf</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Actually, a continuous time process for which stochastic integration can be defined is called a semimartingale and quasimartingales are a strict subset of semimartingales, but the gap is very small from a modeling perspective.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>To be precise, one would have to impose stronger condition in the quasimartingale context. In spirit, the variation has to be integrable: <span class="math display">\[E[\int_{0}^{T}\left|r(X_{u})\right|du]&lt;\infty.\]</span> The condition spelled out in the text corresponds to the requirement that the process <span class="math inline">\((X_{t})_{t \in [0,T]}\)</span> be a semimartingale, rather than a quasimartingale.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Math-ref">
+					Math <span>(9)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Processes-ref">
+					Processes <span>(5)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//math/2013/05/02/stochastic-integrals-as-martingale-transforms.html" title="Stochastic Integrals as Martingale Transforms">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//math/2013/05/29/quadratic-variation-and-stochastic-integration.html" title="Quadratic Variation and Stochastic Integration">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

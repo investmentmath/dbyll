@@ -1,0 +1,473 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Dynamics, Discrete Time</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Dynamics, Discrete Time </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   October 
+	   17th,
+	   
+	   2014
+	 </span>
+	  <div class="article_body">
+	  <p><em>Having looked at static investment problems, I now turn to dynamics starting with the discrete time case. Where static modeling is restricted to buy and hold policies, the dynamic setup allows rebalancing. Dynamic programming is introduced in a Markovian context with intermediate consumption. Some concrete problems with a terminal CRRA utility function are then solved. In the case of i.i.d. returns, the optimal policy is seen to be independent of the investment horizon, an initially counterintuitive result. It entails rebalancing to constant weights.The growth optimal portfolio which corresponds to log-utility is then considered, both when returns are i.i.d. and when they depend on a Markovian state variable. The optimal investment policy is often called the Kelly rule.</em></p>
+<hr />
+<h2 id="statics-versus-dynamics-1">Statics versus dynamics (1)</h2>
+<ul>
+<li><p>We saw that the interpretation of the static model could accomodate distant investment horizons.</p></li>
+<li><p>However, the portfolio is chosen at the beginning, <span class="math inline">\(t=0\)</span> and left alone thereafter until the end of time <span class="math inline">\(t=T\)</span>. We will see that there are gains attached to changing the portfolio structure before the end of time (rebalancing gains).</p></li>
+<li><p>We will first explore explore dynamic topics in the discrete time setup: <span class="math inline">\(t=0,1,\ldots,T\)</span>.</p></li>
+</ul>
+<h2 id="static-versus-dynamic-2">Static versus dynamic (2)</h2>
+<ul>
+<li><p>Wealth shares dynamics: <span class="math inline">\(\phi_{i,t+1}=\phi_{i,t}\tilde{R}_{i,t+1}=\phi_{i,t}(1+\tilde{r}_{i,t+1})\)</span>.</p></li>
+<li><p>Portfolio shares: <span class="math display">\[\pi_{i,t+1} =\frac{\phi_{i,t+1}}{\sum_{j\in \cal{I}}\phi_{j,t+1}}\]</span> <span class="math display">\[= \frac{\phi_{i,t}(1+\tilde{r}_{i,t+1})}{\sum_{j\in \cal{I}}\phi_{j,t}(1+\tilde{r}_{j,t+1})}\]</span> <span class="math display">\[= \frac{\pi_{i,t}(1+\tilde{r}_{i,t+1})}{\sum_{j\in \cal{I}}\pi_{j,t}(1+\tilde{r}_{j,t+1})}\]</span> <span class="math display">\[\approx \pi_{i,t}(1+\tilde{r}_{i,t+1}-\sum_{j\in \cal{I}}\pi_{j,t}\tilde{r}_{j,t+1}).\]</span></p></li>
+</ul>
+<h2 id="static-versus-dynamic-3">Static versus dynamic (3)</h2>
+<ul>
+<li><p>The share of the assets which outperform increase at the expense of the ones which underperform.</p></li>
+<li><p>Over long periods of time, the buy and hold portfolio can drift significantly away from the initial portfolio and acquire unintended characteristics.</p></li>
+<li><p>Allowing dynamic trading opens up possibilities, increasing utility outcomes.</p></li>
+</ul>
+<h2 id="the-timing-sequence-1---fig-1">The timing sequence (1) - fig 1</h2>
+<ul>
+<li>Rebalancing decisions are taken ‘right before’ each date in the discrete schedule. We assume they entail no transaction costs.</li>
+</ul>
+<figure>
+<img src="/assets/media/timing.png" alt="Figure 1: The timing of decisions" /><figcaption aria-hidden="true">Figure <span class="math inline">\(1\)</span>: The timing of decisions</figcaption>
+</figure>
+<h2 id="the-timing-sequence-2---fig-2">The timing sequence (2) - fig 2</h2>
+<figure>
+<img src="/assets/media/timingbudget.png" alt="Figure 2: The budget constraint" /><figcaption aria-hidden="true">Figure <span class="math inline">\(2\)</span>: The budget constraint</figcaption>
+</figure>
+<h2 id="the-sequential-budget-constraint-1">The sequential budget constraint (1)</h2>
+<ul>
+<li><p>Some changes in notation versus the static section: tildas are dropped; vectors are not denoted with bold characters any more</p></li>
+<li><p>With consumption and income: <span class="math display">\[W_{t+1}=Y_{t+1}+(W_{t}-C_{t})\pi_{t}&#39;R_{t+1}.\]</span> where:</p>
+<ul>
+<li><span class="math inline">\(W_{t}\)</span> is financial wealth out of which consumption is deducted to compute what’s available to financial investment</li>
+<li><span class="math inline">\(Y_{t}\)</span> is the income received in date <span class="math inline">\(t\)</span></li>
+</ul></li>
+<li><p>Portfolio shares sum to one (<span class="math inline">\(\pi_{t}&#39;e=1\)</span>).</p></li>
+</ul>
+<h2 id="the-sequential-budget-constraint-2">The sequential budget constraint (2)</h2>
+<ul>
+<li>Without income and consumption, we get the self-financing condition (no wealth is added to or removed from the portfolio at any time): <span class="math display">\[W_{t+1}=W_{t}\pi_{t}&#39;R_{t+1}.\]</span></li>
+</ul>
+<h2 id="backward-induction-1---fig-3">Backward induction (1) - fig 3</h2>
+<figure>
+<img src="/assets/media/treeevent.png" alt="Figure 3: Event structure" /><figcaption aria-hidden="true">Figure <span class="math inline">\(3\)</span>: Event structure</figcaption>
+</figure>
+<h2 id="backward-induction-2---fig-4">Backward induction (2) - fig 4</h2>
+<figure>
+<img src="/assets/media/tree.png" alt="Figure 4: Pay-off structure" /><figcaption aria-hidden="true">Figure <span class="math inline">\(4\)</span>: Pay-off structure</figcaption>
+</figure>
+<h2 id="backward-induction-3---fig-5">Backward induction (3) - fig 5</h2>
+<figure>
+<img src="/assets/media/tree_bellman_1.png" width="250" alt="Figure 5: Bellman equation" /><figcaption aria-hidden="true">Figure <span class="math inline">\(5\)</span>: Bellman equation</figcaption>
+</figure>
+<h2 id="backward-induction-4---fig-6">Backward induction (4) - fig 6</h2>
+<figure>
+<img src="/assets/media/tree_bellman_2.png" width="250" alt="Figure 6: Bellman equation" /><figcaption aria-hidden="true">Figure <span class="math inline">\(6\)</span>: Bellman equation</figcaption>
+</figure>
+<h2 id="the-state-variable-and-the-value-function">The state variable and the value function</h2>
+<ul>
+<li><p>At each node in the decision tree, the state variable embodies all information needed to take decisions.</p></li>
+<li><p>In our case this means the wealth level as well as all information useful to compute the conditional distributions of future returns and income.</p></li>
+<li><p>The value function, at each node, is the expected value of the flow of utility to be derived further down the tree, computed using the optimal controls.</p></li>
+</ul>
+<h2 id="technical-issues">Technical issues</h2>
+<ul>
+<li><p>One has to describe a proper probabilistic setup for the different stochastic processes.</p></li>
+<li><p>In addition, we need the right convexity assumptions for the optimization program to have a unique solution described by necessary and sufficient first order conditions.</p></li>
+</ul>
+<h2 id="dynamic-programming-1">Dynamic programming (1)</h2>
+<ul>
+<li><p>We need to describe the dynamics of income and returns. As a simplification, we assume there is a scalar Markovian process <span class="math inline">\((x_{t})_{t \in [O,T]}\)</span> such that at any date <span class="math inline">\(t\)</span>, the future distribution of income and returns is known once <span class="math inline">\(x_{t}\)</span> is known.</p></li>
+<li><p>Given that <span class="math inline">\((x_{t})_{t \in [O,T]}\)</span> is Markovian, all information regarding the future state variable <span class="math inline">\(x_{t+h}\)</span> (<span class="math inline">\(h&gt;0\)</span>) as of date <span class="math inline">\(t\)</span> is summarized in the current value <span class="math inline">\(x_{t}\)</span>.</p></li>
+<li><p>General finite horizon maximization problem: <span class="math display">\[V_{0}(x_{0},W_{0})=
+\underset{(\pmb{\pi}_{[0,T]},\pmb{C}_{[0,T]})}{\text{max}}
+\; E_{0}[\sum_{t=0}^{T} \delta^{t}u_{t}(C_{t})]\]</span> <span class="math display">\[\text{s.t.}\]</span> <span class="math display">\[\; W_{t+1}=Y_{t+1}+(W_{t}-C_{t})\pi_{t}&#39;R_{t+1},\]</span> <span class="math display">\[\pi_{t}&#39;e=1,\]</span> <span class="math display">\[\; C_{t} \geq 0,\]</span> <span class="math display">\[\; W_{T} \geq 0.\]</span></p></li>
+<li><p>Choice is over consumption and portfolio plans</p></li>
+</ul>
+<h2 id="dynamic-programming-2">Dynamic programming (2)</h2>
+<ul>
+<li><p>Solving the program entails specifying consumption and portfolio plans for all contingencies.</p></li>
+<li><p>From a mathematical standpoint, this means that solutions are <strong>functions</strong> of the relevant state variable.</p></li>
+<li><p>In contrast, in static problem, the optimal portfolio is a ‘constant’ (at least, given initial wealth)..</p></li>
+</ul>
+<h2 id="dynamic-programming-3">Dynamic programming (3)</h2>
+<ul>
+<li><p>We can define the value function <span class="math inline">\(V_{t}(x_{t},W_{t})\)</span> as the solution of: <span class="math display">\[V_{t}(x_{t},W_{t})=
+\underset{(\pmb{\pi}_{[t,T]},\pmb{C}_{[t,T]})}{\text{max}}
+\; E_{t}[\sum_{k=t}^{T} \delta^{k}u_{k}(C_{k})]\]</span> <span class="math display">\[\text{s.t.}\]</span> <span class="math display">\[\; W_{k+1}=Y_{k+1}+(W_{k}-C_{k})\pi_{k}&#39;R_{k+1},\]</span> <span class="math display">\[\pi_{k}&#39;e=1,\]</span> <span class="math display">\[\; C_{k} \geq 0,\]</span> <span class="math display">\[\; W_{T} \geq 0.\]</span></p></li>
+<li><p>Value is measured as of date <span class="math inline">\(0\)</span> here. One could instead measure value at date <span class="math inline">\(t\)</span> as of date <span class="math inline">\(t\)</span>. For future reference, we can denote the latter <span class="math inline">\(\tilde{V}_{t}(\cdot)\)</span>. I will refer to this loosely as undiscounted value.</p></li>
+</ul>
+<h2 id="dynamic-programming-4">Dynamic programming (4)</h2>
+<ul>
+<li><p>The Bellman equation for the value function (backward induction): <span class="math display">\[V_{t}(x_{t},W_{t})=
+\underset{(\pi_{t},C_{t})}{\text{max}}
+\; \delta^{t} u_{t}(C_{t})+E_{t}[V_{t+1}(x_{t+1},W_{t+1})]\]</span> <span class="math display">\[\text{s.t.}\]</span> <span class="math display">\[\; W_{t+1}=Y_{t+1}+(W_{t}-C_{t})\pi_{t}&#39;R_{t+1},\]</span> <span class="math display">\[\pi_{t}&#39;e=1,\]</span> <span class="math display">\[\; C_{t} \geq 0.\]</span></p></li>
+<li><p>This equation is solved backwards</p></li>
+<li><p>Remark: in our case, the terminal condition is known</p></li>
+<li><p>The optimal control of the sequential problem (i.e. the problem above) is the solution of the initial intertemporal problem.</p></li>
+<li><p>The Bellman equation is established in <a href="/ensae/2014/10/18/dynprog.html" title="DYNAMIC-PROGRAMMING">this post</a>.</p></li>
+<li><p>Written using <span class="math inline">\(\tilde{V}(\cdot)\)</span> (undiscounted value at date <span class="math inline">\(t\)</span>), the Bellman equation reads: <span class="math display">\[\tilde{V}_{t}(x_{t},W_{t})=
+\underset{(\pi_{t},C_{t})}{\text{max}}
+\; u_{t}(C_{t})+\delta E_{t}[\tilde{V}_{t+1}(x_{t+1},W_{t+1})]\]</span> <span class="math display">\[\text{s.t.}\]</span> <span class="math display">\[\; W_{t+1}=Y_{t+1}+(W_{t}-C_{t})\pi_{t}&#39;R_{t+1},\]</span> <span class="math display">\[\pi_{t}&#39;e=1,\]</span> <span class="math display">\[\; C_{t} \geq 0.\]</span></p></li>
+</ul>
+<h2 id="dynamic-programming-5">Dynamic programming (5)</h2>
+<ul>
+<li><p>From the above formulation, we see that the investor will take into account the impact of the state variable on future well being.</p></li>
+<li><p>We will see that, provided he is risk averse, he will try to protect himself against potential adverse developments (changes in <span class="math inline">\(x_{t}\)</span>) by purchasing assets which hedge against them.</p></li>
+<li><p>Example: the short term rate as a state variable</p></li>
+</ul>
+<h2 id="dynamic-programming-6">Dynamic programming (6)</h2>
+<ul>
+<li><p>For future reference (continuous time problems), we can write the equation followed by the value function as a difference equation: <span class="math display">\[0=
+\underset{(\pi_{t},C_{t})}{\text{max}}
+\; \{ \delta^{t} u_{t}(C_{t})+E_{t}[\Delta V_{t+1}(x_{t+1},W_{t+1})]\}\]</span> with: <span class="math display">\[\Delta V_{t+1}(x_{t+1},W_{t+1})=V_{t+1}(x_{t+1},W_{t+1})-V_{t}(x_{t},W_{t}).\]</span></p></li>
+<li><p>This formulation will resonate with the HJB differential equation in continuous time.</p></li>
+<li><p>Using undiscounted value, this would read: <span class="math display">\[0=
+\underset{(\pi_{t},C_{t})}{\text{max}}
+\; \{  u_{t}(C_{t})+E_{t}[\Delta_{\delta} \tilde{V}_{t+1}(x_{t+1},W_{t+1})]\}\]</span> with the quasi-difference operator: <span class="math display">\[\Delta_{\delta} \tilde{V}_{t+1}(x_{t+1},W_{t+1})=\delta \tilde{V}_{t+1}(x_{t+1},W_{t+1})-\tilde{V}_{t}(x_{t},W_{t}).\]</span></p></li>
+</ul>
+<h2 id="a-first-intertemporal-problem-1">A first intertemporal problem (1)</h2>
+<ul>
+<li><p>In this example, we make extreme assumptions:</p>
+<ul>
+<li>i.i.d. returns: the financial opportunity set does not change over time</li>
+<li>no intermediate consumption: this is just a simplification</li>
+<li>CRRA utility: wealth accumulation does not interfere with relative risk aversion</li>
+</ul></li>
+<li><p>The utility function is taken to be <span class="math inline">\(u(w)=w^{1-\rho}/(1-\rho)\)</span> for <span class="math inline">\(\rho&gt;1\)</span>. The case <span class="math inline">\(\rho&lt;1\)</span> works in a similar way. The log-utility case will be treated below.</p></li>
+<li><p>This problem is completely solved in exercise 2.1 (see <a href="/ensae/2015/10/15/exercises.html" title="Exercises">this post</a> ).</p></li>
+</ul>
+<h2 id="a-first-intertemporal-problem-2">A first intertemporal problem (2)</h2>
+<ul>
+<li><p>The problem: <span class="math display">\[\underset{\pmb{\pi}_{[0,T-1]}}{\text{max}}
+\; E_{0}\left[\frac{W_{T}^{1-\rho}}{1-\rho}\right]\]</span> <span class="math display">\[\text{s.t.}\]</span> <span class="math display">\[\; W_{t+1}=W_{t}\pi_{t}&#39;R_{t+1},\]</span> <span class="math display">\[\pi_{t}&#39;e=1.\]</span></p></li>
+<li><p>We will have to assume that there is a portfolio <span class="math inline">\(\pi^{0}\)</span> such that: <span class="math display">\[E\left[\frac{(\pi^{0}R)^{1-\rho}}{1-\rho}\right]&gt;-\infty,\]</span> in which case there is a solution to the one step problem that delivers finite utility.</p></li>
+<li><p>We note that: <span class="math display">\[E_{0}\left[\frac{W_{T}^{1-\rho}}{1-\rho}\right]=\frac{W_{0}^{1-\rho}}{1-\rho}E_{0}\left[\Pi_{t=1}^{T}(\pi^{\prime}_{t-1}R_{t})^{1-\rho}\right]\]</span> and that therefore, the value function is homogenous of degree <span class="math inline">\(1-\rho\)</span>.</p></li>
+</ul>
+<h2 id="a-first-intertemporal-problem-3">A first intertemporal problem (3)</h2>
+<ul>
+<li><p>Assume we have found the sequence of optimal portfolios <span class="math inline">\((\pi^{*}_{t})_{t=1,\cdots,T-1}\)</span>for a given of wealth. It is then optimal for all other levels of wealth. The value function at date <span class="math inline">\(0\)</span> is: <span class="math display">\[V_{0}(w) =\frac{w^{1-\rho}}{1-\rho}E_{0}\left[\Pi_{t=1}^{T}(\pi^{*\prime}_{t-1}R_{t})^{1-\rho}\right]\]</span> <span class="math display">\[= w^{1-\rho}V_{0}(1)\]</span></p></li>
+<li><p>This extends to all <span class="math inline">\(V_{t}(\cdot)\)</span>, which are seen to be proportional to <span class="math inline">\(w^{1-\rho}\)</span>and fully determined by the constant <span class="math inline">\(V_{t}(1)\)</span>. It is important to note that <span class="math inline">\(V_{t}(1)\)</span> is deterministic (and negative) in the present i.i.d. case.</p></li>
+</ul>
+<h2 id="a-first-intertemporal-problem-4">A first intertemporal problem (4)</h2>
+<ul>
+<li><p>The optimal portfolio in each period solves: <span class="math display">\[\underset{\pi_{t}}{\text{max}}
+\; E_{t}\left[V_{t+1}(1)(\pi_{t}&#39;R)^{1-\rho}\right],\]</span> under <span class="math inline">\(\pi_{t}&#39;e=1.\)</span></p></li>
+<li><p>The solution <span class="math inline">\(\pi^{*}\)</span> is the same for all dates since <span class="math inline">\(V_{t+1}(1)\)</span> drops out of the expectations.</p></li>
+<li><p>One can easily compute <span class="math inline">\(V_{t}(1)\)</span> by backward recursion.</p></li>
+</ul>
+<h2 id="a-first-intertemporal-problem-5">A first intertemporal problem (5)</h2>
+<ul>
+<li><p>We thus have the result that in a dynamic problem where returns are i.i.d., and there is no intermediate consumption, the optimal portfolio is kept constant (through rebalancing).</p></li>
+<li><p>The optimal portfolio is static (rebalancing).</p></li>
+<li><p>Two features are key:</p>
+<ul>
+<li>relative risk aversion does not depend on the level of wealth</li>
+<li>returns are not predictable</li>
+</ul></li>
+</ul>
+<h2 id="log-utility-the-value-function">Log utility: the value function</h2>
+<ul>
+<li><p>We now look at the log-utility case.</p></li>
+<li><p>We have for any sequence of portfolio choices <span class="math inline">\((\pi_{t})_{t=0,\ldots,T-1}\)</span>: <span class="math display">\[\log(W_{T}) =\log(W_{0})+\sum_{t=1}^{T} \log(\pi_{t-1}&#39;R_{t})\]</span> as well as: <span class="math display">\[\log(W_{T}) =\log(W_{t})+\sum_{k=t}^{T-1} \log(\pi_{k}&#39;R_{k+1}).\]</span></p></li>
+<li><p>Assuming a state variable <span class="math inline">\(x_{t}\)</span> characterizes the prospective returns as of date <span class="math inline">\(t\)</span>, we can write the value function as: <span class="math display">\[V_{t}(x_{t},W_{t})=\log(W_{t})+V_{t}(x_{t},1).\]</span></p></li>
+<li><p>Bellman’s equation reads: <span class="math display">\[V_{t}(x_{t},W_{t})=\log(W_{t})+V_{t}(x_{t},1)=\underset{\pi_{t}}{\text{max}}
+\; E_{t}\left[\log(W_{t+1})+V_{t+1}(x_{t+1},1)\right].\]</span> <span class="math display">\[=\underset{\pi_{t}}{\text{max}}
+\; E_{t}\left[\log(W_{t})+\log(\pi_{t}&#39;R_{t+1})+V_{t+1}(x_{t+1},1)\right].\]</span></p></li>
+</ul>
+<h2 id="log-utility-the-optimal-investment-policy-1">Log utility: the optimal investment policy (1)</h2>
+<ul>
+<li><p>The optimal portfolio in each period therefore solves: <span class="math display">\[\underset{\pi_{t}}{\text{max}}
+\; E_{t}[\log(\pi_{t}&#39;R_{t+1})],\]</span> under <span class="math inline">\(\pi_{t}&#39;e=1.\)</span></p></li>
+<li><p>Because the state variable drops out of the criterion to be maximized, its influence on the optimal policy <span class="math inline">\(\pi^{*}_{t}\)</span> operates through the conditional distribution of returns. The optimal policy is determined by solving one step ahead problems as if the investment horizon at date <span class="math inline">\(t\)</span> was not <span class="math inline">\(T\)</span> but <span class="math inline">\(t+1\)</span>.</p></li>
+</ul>
+<h2 id="log-utility-the-optimal-investment-policy-2">Log utility: the optimal investment policy (2)</h2>
+<ul>
+<li>The investment policy is called myopic. In general, the investor factors in the impact of changes in the state variable on his future utility level, and accordingly, hedges adverse shocks to the state variable. Example: hedging interest rate changes…</li>
+</ul>
+<h2 id="the-virtue-of-log-utility-1">The virtue of log utility (1)</h2>
+<ul>
+<li><p>We continue with the i.i.d. assumption</p></li>
+<li><p>Consider an initial wealth level <span class="math inline">\(w\)</span>. Let’s compute the log of terminal wealth: <span class="math display">\[\log(W_{T})=\log(w)+\log(W_{1})-\log(W_{0})+\cdots+\log(W_{T})-\log(W_{T-1}).\]</span></p></li>
+<li><p>Using the accumulation equation <span class="math inline">\(W_{t+1}=W_{t}\pi_{t}&#39;R_{t+1}\)</span> and choosing a constant portfolio <span class="math inline">\(\pi\)</span> we get: <span class="math display">\[\frac{1}{T}\left(\log(W_{T})-\log(w)\right)=\frac{1}{T}\left(\sum_{k=1}^{T}\log(\pi&#39;R_{t+1})\right).\]</span></p></li>
+</ul>
+<h2 id="the-virtue-of-log-utility-2">The virtue of log utility (2)</h2>
+<ul>
+<li><p>The law of large numbers implies that for large <span class="math inline">\(T\)</span>: <span class="math display">\[\frac{1}{T}\left(\log(W_{T})-\log(w)\right) \approx E[\log(\pi&#39;R)].\]</span></p></li>
+<li><p>As a result, a portfolio which maximizes <span class="math inline">\(E[\log(\pi&#39;R)]\)</span> beats any other portfolio over the long run.</p></li>
+<li><p>This does not mean that this portfolio is optimal for finite horizon terminal wealth problems!</p></li>
+</ul>
+<h2 id="the-virtue-of-log-utility-3">The virtue of log utility (3)</h2>
+<ul>
+<li><p>One can extend this result to a Markovian setup where information on future returns is summarized by a state variable <span class="math inline">\(x_{t}\)</span>.</p></li>
+<li><p>One is led to maximize at each date: <span class="math display">\[E_{t}\left[\log(\pi&#39;R_{t+1})|x_{t}\right],\]</span> which leads to a portfolio rule <span class="math inline">\(\pi^{*}(\cdot)\)</span> that depends on the state variable.</p></li>
+<li><p>As in the case with i.i.d. returns, the optimal growth result hinges on the law of large numbers, and the fact that the unconditional expectation can be split as follows: <span class="math display">\[E[\log(\pi(\omega)&#39;R(\omega))]=E[E[\log(\pi(\omega)&#39;R(\omega))|x]].\]</span></p></li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2014-10-17-disc.pdf">Link to pdf</a></li>
+</ul>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Ensae-ref">
+					Ensae <span>(20)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Dynamics-ref">
+					Dynamics <span>(3)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//ensae/2014/10/07/static.html" title="Static Portfolio Choice">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//ensae/2014/10/18/dynprog.html" title="Dynamic Programming">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

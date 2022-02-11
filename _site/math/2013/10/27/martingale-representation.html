@@ -1,0 +1,308 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Martingale Representation</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Martingale Representation </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   October 
+	   27th,
+	   
+	   2013
+	 </span>
+	  <div class="article_body">
+	  <p><em>The martingale representation problem in its simplest form is the following. Given a filtration generated by a martingale <span class="math inline">\(M\)</span> and given another martingale <span class="math inline">\(N\)</span> adapted to the filtration, can we express <span class="math inline">\(N\)</span> as a stochastic integral with <span class="math inline">\(M\)</span> as the integrator? The martingale <span class="math inline">\(N\)</span> is generally closed, i.e. it can be expressed as the conditional expectation of a terminal variable <span class="math inline">\(N_{T}\)</span>. In this case, the integrand <span class="math inline">\(H_{t}\)</span> of the stochastic integral representation is heuristically the sensitivity of <span class="math inline">\(N_{T}\)</span> to the shock <span class="math inline">\(dM_{t}\)</span>.The Brownian filtration is the most important example where a Martingale Representation Theorem holds.</em></p>
+<hr />
+<p>The theory of martingale representation is concerned with the following problem.</p>
+<p>Consider a filtered probability space <span class="math inline">\((\Omega,{\cal F},P)\)</span> with index space <span class="math inline">\(\mathbb{T}=[0,T]\)</span> where <span class="math inline">\(T\)</span> is finite. Such a space supports a set of martingales <span class="math inline">\({\cal M}\)</span> against which we can compute stochastic integrals for predictable integrands.</p>
+<p>We are given an <span class="math inline">\({\cal F}_{T}\)</span>-measurable random variable <span class="math inline">\(X_{T}\)</span>. It induces a martingale <span class="math inline">\((E_{t}[X_{T}])_{t \in \mathbb{T}}\)</span>. This process represents, within the model, the anticipation of <span class="math inline">\(X_{T}\)</span> at any point <span class="math inline">\(t\)</span>. The changes in <span class="math inline">\(E_{t}[X_{T}]\)</span> as a function of <span class="math inline">\(t\)</span> reflect the real time acquisition of information on <span class="math inline">\(X_{T}\)</span>. New information comes as surprises as modeled in martingale differences (see <a href="/math/2013/04/24/martingales.html" title="MARTINGALES">this post</a>). Heuristically, martingale representation asks the following question: can we represent the surprises in <span class="math inline">\((E_{t}[X_{T}])_{t \in \mathbb{T}}\)</span> for any <span class="math inline">\(X_{T}\)</span> as a linear function of the (contemporaneous) surprises embedded in our set <span class="math inline">\({\cal M}\)</span> of martingales. More precisely, can we represent the martingale <span class="math inline">\((E_{t}[X_{T}])_{t \in \mathbb{T}}\)</span> as a sum of stochastic integrals against some martingales in <span class="math inline">\({\cal M}\)</span>.</p>
+<p>A striking incarnation of this issue is found when the filtered probability space is generated by a Brownian motion<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p><strong>Theorem (Martingale Representation for the Brownian Filtration)</strong>:<em>Let <span class="math inline">\({\cal F}\)</span> be the smallest right continuous and complete filtration generated by a univariate Brownian motion <span class="math inline">\((B_{t})_{t \in \mathbb{T}}\)</span>. Let <span class="math inline">\(X_{T}\)</span> be an <span class="math inline">\({\cal F}_{T}\)</span>-measurable random variable with finite second moment <span class="math inline">\(E_{0}[X_{T}^{2}]&lt;\infty\)</span>. Then there is a predictable process <span class="math inline">\((H_{t})_{t \in \mathbb{T}}\)</span> with <span class="math inline">\(\int_{0}^{T}H_{s}^{2}ds&lt;\infty\)</span> such that:<span class="math display">\[X_{T}=E[X_{T}]+\int_{0}^{T}H_{s}dB_{s}.\]</span></em></p>
+<p><span class="math inline">\({\scriptstyle \blacksquare}\)</span></p>
+<p>In the same context as above, we have a simple yet important corollary:</p>
+<p><strong>Corollary:</strong> <em>For any square integrable<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>right continuous martingale <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span> with <span class="math inline">\(M_{0}=0\)</span>, there exists a predictable process <span class="math inline">\((H_{t})_{t \in \mathbb{T}}\)</span> with <span class="math inline">\(\int_{0}^{T}H_{s}^{2}ds&lt;\infty\)</span> such that:<span class="math display">\[M_{t}=\int_{0}^{t}H_{s}dB_{s}.\]</span></em></p>
+<p><span class="math inline">\({\scriptstyle \blacksquare}\)</span></p>
+<p>In other words, all square integrable right continuous martingales with initial value zero are Brownian stochastic integrals. Actually, in our context, all square integrable martingales have a version which is still a martingale and is right continuous with left limits. They can therefore be represented as Brownian integrals. Since Brownian integrals have continuous trajectories, all square integrable martingales in this setup have a continuous version. Finally, one can extend the above result to show that all local martingales can be represented as a Brownian stochastic integral.</p>
+<p>It is quite easy to generate setups where the filtration is the minimal filtration generated by a given martingale <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span>, and yet, the filtration supports other martingales which cannot be written as sotchastic integrals of <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span>. In <a href="/math/2013/04/24/martingales.html" title="MARTINGALES">this post</a>, an example is given where <span class="math inline">\(\mathbb{T}\)</span> is discrete and <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span> has standardized gaussian increments. If, on the other hand, <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span> has binomial increments, the martingale representation holds with the set <span class="math inline">\({\cal M}\)</span> consisting of <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span>. A solution to recover a martingale representation result when it does not hold for <span class="math inline">\({\cal M}=\{ (M_{t})_{t \in \mathbb{T}} \}\)</span> is to add other martingales in <span class="math inline">\({\cal M}\)</span>, based on higher order moments of <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span> for instance. Indeed, the problems generally come from the difficulty of generating non linear functions of <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span> through the stochastic integral which, in the end, is just a linear reweighting of the increments of <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span>.</p>
+<p>Given the above remarks, the Brownian martingale representation theorem looks like a nice accident. I now sketch the proof. An <span class="math inline">\({\cal F}_{T}\)</span>-measurable random variable is, roughly speaking, a function of the increments of the Brownian motion. A simple example would be a function <span class="math inline">\(f(B_{t_{1}}-B_{t_{0}},\cdots,B_{t_{n}}-B_{t_{n-1}})\)</span> where the time intervals <span class="math inline">\([t_{i},t_{i-1}]\)</span> do not overlap. Such functions can however be recovered through Fourier transform from products of complex exponentials<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>: <span class="math display">\[\exp(iu_{1}(B_{t_{1}}-B_{t_{0}}))\cdots
+\exp(iu_{n}(B_{t_{n}}-B_{t_{n-1}})).\]</span> It is conceivable that if a martingale representation were to hold for such a function, the representation could be extended by limiting arguments to all <span class="math inline">\({\cal F}_{T}\)</span>-measurable random variables. However, Ito calculus implies that: <span class="math display">\[\exp(iu_{k}(B_{t}-B_{t_{k-1}})+\frac{1}{2}u_{k}^{2}(t-t_{k-1}))=1+\]</span> <span class="math display">\[\int_{t_{k-1}}^{t_{k}}iu_{k}\exp(iu_{k}(B_{s}-B_{t_{k-1}})+\frac{1}{2}u_{k}^{2}(s-t_{k-1}))dB_{s},\]</span> i.e. <span class="math display">\[d\left(\exp(iu_{k}(B_{t}-B_{t_{k-1}})+\frac{1}{2}u_{k}^{2}(t-t_{k-1}))\right)=\exp(iu_{k}(B_{t}-B_{t_{k-1}})+\frac{1}{2}u_{k}^{2}(t-t_{k-1}))dB_{t}.\]</span> This complex exponential is a geometric martingale with initial value <span class="math inline">\(1\)</span> at <span class="math inline">\(t=t_{k-1}\)</span>.</p>
+<p>From this, we get (taking <span class="math inline">\(t=t_{k}\)</span> and rearranging terms): <span class="math display">\[Z_{k-1}=\exp(iu_{k}(B_{t_{k}}-B_{t_{k-1}}))=\exp(-\frac{1}{2}u_{k}^{2}(t_{k}-t_{k-1}))+\]</span> <span class="math display">\[\int_{t_{k-1}}^{t_{k}}iu_{k}\exp(iu_{k}(B_{s}-B_{t_{k-1}})+\frac{1}{2}u_{k}^{2}(s-t_{k}))dB_{s}\]</span> <span class="math display">\[=F_{k-1}+\int_{t_{k-1}}^{t_{k}}H_{k-1}(s)dB_{s},\]</span> where <span class="math inline">\(Z_{k-1}\)</span> is the random variable of interest, <span class="math inline">\(F_{k-1}\)</span> is a function of non random parameters only and <span class="math inline">\(H_{k-1}\)</span> is the integrand within the stochastic integral. We thus have the right representation for a single exponential of a Brownian increment.</p>
+<p>When multiplying two such terms attached to non overlapping intervals, say <span class="math inline">\([t_{k-1},t_{k}]\)</span> and <span class="math inline">\([t_{k},t_{k+1}]\)</span>, the product rule entails no covariation terms because the stochastic integrals refer to non overlapping time intervals: <span class="math display">\[[\int_{t_{k-1}}^{t_{k}}H_{k-1}(s)dB_{s},\int_{t_{k}}^{t_{k+1}}H_{k}(s)dB_{s}]=0.\]</span> We thus have the following representation for the product: <span class="math display">\[Z_{k-1}Z_{k}=F_{k-1}F_{k}+\int_{t_{k-1}}^{t_{k}}F_{k}H_{k-1}(s)dB_{s}+\int_{t_{k}}^{t_{k+1}}Z_{k-1}H_{k}(s)dB_{s},\]</span> which still has the right structure. It is now clear that any product involving a finite number of such exponentials involving non overlapping intervals has a martingale representation. The rest of the proof is a matter of spelling out the limiting arguments that allow to extend<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> the representation to any function <span class="math inline">\(f(B_{t_{1}}-B_{t_{0}},\cdots,B_{t_{n}}-B_{t_{n-1}})\)</span> and then to any <span class="math inline">\({\cal F}_{T}\)</span>-measurable random variable (through a density argument).</p>
+<p>In the Brownian context thus, Brownian integrals allow to generate all the local martingales supported by the filtration<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. Amongst them are all the martingales generated by moments <span class="math inline">\(B^{\alpha}_{t}\)</span>, for instance <span class="math inline">\(X_{t}=B^{2}_{t}-t=2\int_{0}^{t}B_{s}dB_{s}\)</span>.</p>
+<p>A striking illustration of this involves Hermite polynomial functions. If <span class="math inline">\(H_{n}(x,y)=\left(\frac{y}{2}\right)^{\frac{n}{2}}h_{n}(\frac{x}{\sqrt{2y}})\)</span> (<span class="math inline">\(n \geq 0\)</span>) where <span class="math inline">\(h_{n}(\cdot)\)</span> are Hermite polynomials<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>, then <span class="math inline">\(H_{n}(B_{t},t)\)</span> are martingales and we have the following integral representation: <span class="math display">\[H_{n}(B_{t},t)=\int_{0}^{t}nH_{n-1}(B_{u},u)dB_{u
+}=n!\int_{0}^{t}\int_{0}^{t_{n-1}}\cdots\int_{0}^{t_{1}}dB_{s}dB_{t_{1}}
+\cdots dB_{t_{n-1}}.\]</span> This result can be found for instance in Chung[1990], chapter 6.</p>
+<p>Reference: Chung K.L and R.J. Williams, 1990 : <em>An introduction to Stochastic Integration</em>, Birkhauser.</p>
+<p>Bass R.F., 2011, <em>Stochastic Processes</em>, Cambridge University Press</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2013-10-27-martingale-representation.pdf">Link to pdf</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>The following results can be found in Bass[2011], p. 80.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><span class="math inline">\(E_{0}[M_{T}^{2}]&lt;\infty\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>In our context, the Fourier transform amounts to mixing functions indexed by <span class="math inline">\((u_{1},\ldots,u_{n})\)</span> using a weighting scheme <span class="math inline">\({\hat f}(u_{1},\ldots,u_{n})\)</span>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>Through the Fourier transform, which amounts to integrating the integral representations attached to different parameters <span class="math inline">\((u_{1},\ldots,u_{n})\)</span>, using a weighting scheme <span class="math inline">\({\hat f}(u_{1},\ldots,u_{n})\)</span>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p>It is important that the filtration be the minimal filtration generated by the Brownian motion, i.e. the smallest right continuous and complete filtration generated by the Brownian motion.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6" role="doc-endnote"><p><span class="math inline">\(H_{0}(x,y)=1,H_{1}(x,y)=x,H_{2}(x,y)=x^{2}-y,\ldots\)</span><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Math-ref">
+					Math <span>(9)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Martingales-ref">
+					Martingales <span>(2)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//math/2013/10/07/ito-calculus.html" title="Ito Calculus">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//math/2013/12/01/from-gaussian-to-ornstein-uhlenbeck-processes.html" title="From Gaussian to Ornstein Uhlenbeck Processes">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

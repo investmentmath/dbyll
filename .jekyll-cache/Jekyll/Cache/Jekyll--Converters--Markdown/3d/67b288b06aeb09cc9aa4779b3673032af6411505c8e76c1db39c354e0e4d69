@@ -1,0 +1,447 @@
+I"�<p><em>In this section of the course, I review the static portfolio choice problem. The investor chooses a portfolio structure which is then left alone. The investment criterion is the expected utility of wealth at a terminal date. I briefly review specifications for the utility function together with risk aversion concepts. I look at the case of constant absolute risk aversion and normal returns, with or without labour income. I then introduce mean variance preferences, linking them to expected utility. Mean variance with and without a risk free asset is studied. The link between mean variance preferences and the expected returns/beta relationship is explained (the key ingredient of the CAPM). I then touch on the implementation problem.</em></p>
+<hr />
+<h2 id="timing">Timing</h2>
+<ul>
+<li><p>Two periods:</p>
+<ul>
+<li><p>portfolio decisions in t=0</p></li>
+<li><p>outcome observed in t=1</p></li>
+</ul></li>
+<li><p>Outcomes in date <span class="math inline">\(1\)</span> are uncertain as of date <span class="math inline">\(0\)</span>; they are described by random variables which we will identify in the notation using tildas</p>
+<ul>
+<li><span class="math inline">\(x\)</span>: particular outcome; <span class="math inline">\(\tilde{x}\)</span>: random variable</li>
+</ul></li>
+</ul>
+<h2 id="instruments">Instruments</h2>
+<ul>
+<li><p>Instrument <span class="math inline">\(i\)</span> with price <span class="math inline">\(p_{i}\)</span> in period <span class="math inline">\(0\)</span> gives right to pay-off <span class="math inline">\(\tilde{x}_{i}\)</span> in period <span class="math inline">\(1\)</span></p></li>
+<li><p>A cash instrument is an instrument with known date <span class="math inline">\(1\)</span> pay-off as of date <span class="math inline">\(0\)</span></p></li>
+<li><p>For risky assets, <span class="math inline">\(\tilde{x}\)</span> is uncertain as of date <span class="math inline">\(0\)</span></p></li>
+<li><p>I’ll assume there are <span class="math inline">\(N\)</span> risky assets (<span class="math inline">\(i=1,\cdots,N\)</span>) and potentially cash (the riskless asset), which will then have index <span class="math inline">\(0\)</span></p></li>
+<li><p>The set of assets will be denoted by <span class="math inline">\(\cal{I}\)</span>, with either <span class="math inline">\({\cal I}=(1,\cdots,N)\)</span> (no riskless asset) or <span class="math inline">\({\cal I}=(0,\cdots,N)\)</span> (with a riskless asset)</p></li>
+</ul>
+<h2 id="returns">Returns</h2>
+<ul>
+<li><p>The return of an instrument with price <span class="math inline">\(p\)</span> and pay-off <span class="math inline">\(\tilde{x}\)</span> is: <span class="math display">\[\tilde{R}=\frac{\tilde{x}}{p}\]</span></p></li>
+<li><p>The <strong>rate</strong> of return is <span class="math inline">\(\tilde{r}=\tilde{R}-1\)</span></p></li>
+<li><p>The rate of return of cash is usually denoted <span class="math inline">\(r^{f}\)</span>; it is known as of date <span class="math inline">\(0\)</span></p></li>
+</ul>
+<h2 id="investment-and-returns">Investment and returns</h2>
+<ul>
+<li><p>From investment to pay-off</p></li>
+<li><p>From <span class="math inline">\(t=0\)</span> to <span class="math inline">\(t=1\)</span>:</p>
+<ul>
+<li><span class="math inline">\(\phi \longrightarrow \tilde{R}\phi\)</span></li>
+<li><span class="math inline">\(\phi \longrightarrow (1+\tilde{r})\phi\)</span></li>
+</ul></li>
+</ul>
+<h2 id="portfolios">Portfolios</h2>
+<ul>
+<li><p>Wealth in period <span class="math inline">\(0\)</span> is <span class="math inline">\(w_{0}\)</span></p></li>
+<li><p>The portfolio is invested in period <span class="math inline">\(0\)</span>; quantities <span class="math inline">\((\theta_{i})_{i \in \cal{I}}\)</span> are purchased</p></li>
+<li><p>They need to satisfy: <span class="math display">\[\sum_{i \in \cal{I}}\theta_{i}p_{i}=w_{0}\]</span></p></li>
+<li><p>One can choose as control variables:</p>
+<ul>
+<li><p>quantities <span class="math inline">\((\theta_{i})_{i \in \cal{I}}\)</span></p></li>
+<li><p>dollar amounts invested on instruments <span class="math inline">\((\phi_{i})_{i \in \cal{I}}\)</span> with <span class="math inline">\(\phi_{i}=\theta_{i}p_{i}\)</span></p></li>
+<li><p>wealth shares <span class="math inline">\((\pi_{i})_{i \in \cal{I}}\)</span>, with <span class="math inline">\(\pi_{i}=\phi_{i}/w_{0}\)</span></p></li>
+</ul></li>
+</ul>
+<h2 id="budget-constraints">Budget constraints</h2>
+<ul>
+<li><p>Quantities: <span class="math display">\[\sum_{i \in \cal{I}}\theta_{i}p_{i}=w_{0}\]</span></p></li>
+<li><p>Dollar amounts: <span class="math display">\[\sum_{i \in \cal{I}}\phi_{i}=w_{0}\]</span></p></li>
+<li><p>Wealth shares: <span class="math display">\[\sum_{i \in \cal{I}}\pi_{i}=1\]</span></p></li>
+</ul>
+<h2 id="borrowing">Borrowing</h2>
+<ul>
+<li><p>Borrowing is best understood as a negative position in cash:</p>
+<ul>
+<li><p>from <span class="math inline">\(t=0\)</span> to <span class="math inline">\(t=1\)</span></p></li>
+<li><p><span class="math inline">\(\phi=-d \longrightarrow -d(1+r^{f})\)</span></p></li>
+</ul></li>
+</ul>
+<h2 id="accounting-for-future-wealth">Accounting for future wealth</h2>
+<ul>
+<li><p>for a given initial wealth <span class="math inline">\(w_{0}\)</span>, a portfolio allocation leads to a random final wealth <span class="math inline">\(\tilde{w}\)</span> with:</p>
+<ul>
+<li><p>quantities: <span class="math inline">\(\tilde{w}=\sum_{i \in \cal{I}}\theta_{i}\tilde{x}_{i}\)</span></p></li>
+<li><p>invested amounts: <span class="math inline">\(\tilde{w}=\sum_{i \in \cal{I}}\phi_{i}\tilde{R}_{i}\)</span></p></li>
+<li><p>wealth shares: <span class="math inline">\(\tilde{w}=w_{0}\sum_{i \in \cal{I}}\pi_{i}\tilde{R}_{i}\)</span></p></li>
+<li><p>It is sometimes useful to introduce at date <span class="math inline">\(1\)</span> an exogenous income (amount to be received) or liability (amount to be paid) <span class="math inline">\(\tilde{y}\)</span></p></li>
+<li><p><span class="math inline">\(\tilde{w}=\tilde{y}+\sum_{i \in \cal{I}}\theta_{i}\tilde{x}_{i}\)</span></p></li>
+<li><p><span class="math inline">\(\tilde{w}=\tilde{y}+\sum_{i \in \cal{I}}\phi_{i}\tilde{R}_{i}\)</span></p></li>
+<li><p><span class="math inline">\(\tilde{w}=\tilde{y}+w_{0}\sum_{i \in \cal{I}}\pi_{i}\tilde{R}_{i}\)</span></p></li>
+</ul></li>
+</ul>
+<h2 id="some-return-arithmetic">Some return arithmetic</h2>
+<ul>
+<li><p>Without liability, we have:</p>
+<ul>
+<li><p>portfolio return: <span class="math display">\[\tilde{R_{p}}=\frac{\tilde{w}}{w_{0}}=\sum_{i \in \cal{I}}\pi_{i}\tilde{R}_{i}\]</span></p></li>
+<li><p>portfolio rate of return: <span class="math display">\[\tilde{r_{p}}=\frac{\tilde{w}}{w_{0}}=\sum_{i \in \cal{I}}\pi_{i}\tilde{r}_{i}\]</span> (since <span class="math inline">\(\sum_{i \in \cal{I}}\pi_{i}=1\)</span>)</p></li>
+</ul></li>
+</ul>
+<h2 id="the-space-of-excess-returns">The space of excess returns</h2>
+<ul>
+<li><p>In the presence of a riskless asset, it is convenient to introduce excess returns versus the riskless rate: <span class="math display">\[\tilde{r_{p}} = \sum_{i \in \cal{I}}\pi_{i}\tilde{r}_{i}\]</span> <span class="math display">\[=r^{f}+\sum_{i=1}^{N}\pi_{i}(\tilde{r}_{i}-r^{f}).\]</span></p></li>
+<li><p>The choice variables are initially <span class="math inline">\((\pi_{i})_{i \in \cal{I}}\)</span>, under the constraint <span class="math inline">\(\sum_{i \in \cal{I}}\pi_{i}=1\)</span>.</p></li>
+<li><p>In the excess return space, the choice variables are <span class="math inline">\((\pi_{i})_{i=1}^{N}\)</span> to which no budget constraint applies since it is enforced by <span class="math inline">\(\pi_{0}=1-\sum_{i=1}^{N}\pi_{i}\)</span>.</p></li>
+</ul>
+<h2 id="the-portfolio-problem">The portfolio problem</h2>
+<ul>
+<li><p>Future wealth is a random variable, with a specific distribution</p></li>
+<li><p>The portfolio problem:</p>
+<ul>
+<li>choose quantities (amounts, wealth shares) so as to obtain the best wealth distribution possible</li>
+</ul></li>
+<li><p>How do we compare random outcomes?</p>
+<ul>
+<li><p>expected utility (Von Neumann Morgenstern - VNM) of outcome: <span class="math inline">\(E[u(\tilde{w})]\)</span></p></li>
+<li><p>the utility function embodies attitudes towards risk of the decision maker</p></li>
+</ul></li>
+</ul>
+<h2 id="some-remarks">Some remarks</h2>
+<ul>
+<li><p><strong>The optimization problem cannot have a solution if there are arbitrage opportunities</strong></p></li>
+<li><p>Reminder: an arbitrage is a way to generate a strictly positive pay-off without committing any funds</p></li>
+<li><p>The existence of a solution to a portfolio optimization problem thus guarantees the existence of a strictly positive stochastic discount factor (see below). We will see this principle in action</p></li>
+</ul>
+<h2 id="arbitrage-the-law-of-one-price-and-sdfs">Arbitrage, the law of one price and SDFs</h2>
+<ul>
+<li><p>A stochastic discount factor is a random variable <span class="math inline">\(\tilde{m}\)</span> such that for any pay-off <span class="math inline">\(\tilde{x}\)</span>, the market price can be recovered: <span class="math display">\[p=E[\tilde{m}\tilde{x}].\]</span></p></li>
+<li><p>The law of one price is equivalent to the existence of a stochastic discount factor. The absence of arbitrage is equivalent to the existence of an almost everywhere strictly positive discount factor. Broadly speaking, strict positivity ensures that a (possibly synthetic) asset with strictly positive payoff cannot have a strictly negative price (this would be an arbitrage).</p></li>
+<li><p>In the return space, the above relationship reads: <span class="math display">\[E[\tilde{m}\tilde{R}]=1.\]</span></p></li>
+<li><p>The expectation of the discount factor is linked to the risk free rate: <span class="math display">\[E[\tilde{m}](1+r^{f})=1.\]</span></p></li>
+<li><p>In the excess return space, this reads: <span class="math display">\[E[\tilde{m}(\tilde{r}-r^{f})]=0.\]</span></p></li>
+<li><p>We thus have, in the presence of a risk free asset<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>: <span class="math display">\[E[\tilde{r}]-r^{f}=-R^{f}\text{cov}(\tilde{m},\tilde{R}),\]</span> which describes the structure of risk premia across assets as a result of the covariances with the SDF.</p></li>
+</ul>
+<h2 id="reminder-on-utility-functions-1">Reminder on utility functions (1)</h2>
+<ul>
+<li><p>VNM utility functions are determined up to a linear transformation</p></li>
+<li><p>Absolute risk aversion: <span class="math inline">\(\alpha(w)=-u&#39;&#39;(w)/u&#39;(w)\)</span></p></li>
+<li><p>Relative risk aversion: <span class="math inline">\(\rho(w)=w\alpha(w)\)</span></p></li>
+<li><p>Risk tolerance: <span class="math inline">\(\tau(w)=1/\alpha(w)\)</span></p></li>
+<li><p>Additive certainty equivalent: for a centered distribution <span class="math inline">\(\tilde{\varepsilon}_{a}\)</span> and an initial level of wealth <span class="math inline">\(w\)</span>, find <span class="math inline">\(\pi_{a}(w,\tilde{\varepsilon}_{a})\)</span> such that: <span class="math display">\[u(w-\pi_{a})=E[u(w+\tilde{\varepsilon}_{a})].\]</span></p></li>
+<li><p>Multiplicative certainty equivalent: for a centered distribution <span class="math inline">\(\tilde{\varepsilon}_{m}\)</span> and an initial level of wealth <span class="math inline">\(w\)</span>, find <span class="math inline">\(\pi_{m}(w,\tilde{\varepsilon}_{m})\)</span> such that: <span class="math display">\[u(w(1-\pi_{m}))=E[u(w(1+\tilde{\varepsilon}_{m}))].\]</span></p></li>
+</ul>
+<h2 id="reminder-on-utility-functions-2">Reminder on utility functions (2)</h2>
+<ul>
+<li><p>For small (centered) additive risks of variance <span class="math inline">\(\sigma^{2}\)</span>: <span class="math inline">\(\pi_{a} \approx \frac{1}{2}\sigma_{a}^{2}\alpha(w)\)</span></p></li>
+<li><p>For small (centered) multiplicative risks of variance <span class="math inline">\(\sigma^{2}\)</span>: <span class="math inline">\(\pi_{m} \approx \frac{1}{2}\sigma_{m}^{2}\rho(w)\)</span></p></li>
+</ul>
+<h2 id="some-important-utility-functions">Some important utility functions</h2>
+<ul>
+<li><p>CARA: <span class="math inline">\(u(w)=-\exp(-\alpha w)\)</span></p>
+<ul>
+<li>range: <span class="math inline">\(\mathbb{R}\)</span></li>
+<li>absolute risk aversion: <span class="math inline">\(\alpha(w)=\alpha\)</span></li>
+</ul></li>
+<li><p>CRRA: <span class="math display">\[u_{\rho}(w)= \frac{c^{1-\rho}}{1-\rho},\, \rho \geq 0,\, \rho\neq 1,\]</span> <span class="math display">\[u_{\rho}(w)=\log(w),\, \rho=1,\]</span></p>
+<ul>
+<li>range <span class="math inline">\(\mathbb{R}_{+}^{*}\)</span></li>
+<li>relative risk aversion: <span class="math inline">\(\rho(w)=\rho\)</span></li>
+</ul></li>
+</ul>
+<h2 id="crra-utility-functions---fig-1">CRRA utility functions - fig 1</h2>
+<figure>
+<img src="/assets/media/util.png" alt="Figure 1: CRRA utility functions" /><figcaption aria-hidden="true">Figure 1: CRRA utility functions</figcaption>
+</figure>
+<h2 id="utility-functions-and-return-distributions">Utility functions and return distributions</h2>
+<ul>
+<li><p>Utility functions often have a restricted domain (frequently: positive consumption)</p></li>
+<li><p>Assumptions on return distributions have to be consistent</p></li>
+<li><p>For example, CRRA models require <span class="math inline">\(\tilde{R}\geq 0\)</span> i.e. <span class="math inline">\(\tilde{r} \geq -1\)</span>. This assumption is sometimes called ‘limited liability’: the owner of an asset cannot end up having to transfer cash to the issuer.</p></li>
+<li><p>This is a problem mainly for discrete time models (or continuous times models where prices can jump)</p></li>
+</ul>
+<h2 id="absolute-or-relative">Absolute or relative?</h2>
+<ul>
+<li><p>The key consideration is the dependence of risk attitudes vis-à-vis the level of wealth</p>
+<ul>
+<li>intuition suggests people accept greater dollar risk as their wealth rises</li>
+</ul></li>
+</ul>
+<h2 id="an-important-benchmark-cara-normally-distributed-returns">An important benchmark: CARA &amp; normally distributed returns</h2>
+<ul>
+<li><p>Note that with normal returns, returns can be arbitrarily negative (no limited liability). Accordingly, the range of the utility function is <span class="math inline">\(\mathbb{R}\)</span>.</p></li>
+<li><p>I assume that there is no labor income</p></li>
+<li><p><span class="math inline">\(\pmb{\pi}=(\pi_{i})_{i \in \cal{I}}&#39;\)</span> <span class="math display">\[\underset{\pmb{\pi}}{\text{max}} \; E[-\exp(-\alpha \tilde{w})]\]</span> <span class="math display">\[\text{s.t.}:\]</span> <span class="math display">\[\tilde{w}=w_{0}\sum_{i \in \cal{I}}\pi_{i}\tilde{R}_{i}\]</span> <span class="math display">\[\sum_{i \in \cal{I}}\pi_{i}=1.\]</span></p></li>
+</ul>
+<h2 id="cara-normal-case-1">CARA normal case (1)</h2>
+<ul>
+<li><p>The random variable <span class="math inline">\(\tilde{w}\)</span> is normally distributed. In this case, we know that: <span class="math display">\[E[-\exp(-\alpha\tilde{w})]  =\; -\exp(-\alpha E[\tilde{w}]+(\alpha^{2}/2)V[\tilde{w}])]\]</span> <span class="math display">\[=u(E[\tilde{w}]-(\alpha/2)V[\tilde{w}]).\]</span></p></li>
+<li><p>Given that the function <span class="math inline">\(u(\cdot)\)</span> is increasing, the program consists in maximizing the certainty equivalent <span class="math inline">\(E[\tilde{w}]-(\alpha/2)V[\tilde{w}]\)</span>, which reads, mean wealth minus the variance of wealth weighted by one half absolute risk aversion.</p></li>
+</ul>
+<h2 id="cara-normal-case-2">CARA normal case (2)</h2>
+<ul>
+<li><p>Preferences over the distribution of final wealth are thus entirely determined by the mean and the variance of the wealth distribution. This is an example of mean variance preferences.</p></li>
+<li><p>We have: <span class="math display">\[\tilde{w}=w_{0}\sum_{i \in \cal{I}}\pi_{i}\tilde{R}_{i}=w_{0}+w_{0}\sum_{i \in \cal{I}}\pi_{i}\tilde{r}_{i}\]</span></p></li>
+<li><p>The maximized criterion is thus (dividing by <span class="math inline">\(w_{0}&gt;0\)</span>): <span class="math display">\[E[\sum_{i \in \cal{I}}\pi_{i}\tilde{r}_{i}]-(\alpha w_{0}/2)V[\sum_{i \in \cal{I}}\pi_{i}\tilde{r}_{i}].\]</span></p></li>
+</ul>
+<h2 id="cara-normal-case-3">CARA normal case (3)</h2>
+<ul>
+<li><p>This is a standard mean-variance criterion, up to the fact that the risk aversion parameter depends on the level of wealth.</p>
+<ul>
+<li>if this was not the case, optimal portfolio composition would be independent of the wealth level; this would imply that the investor take more dollar risk at higher wealth levels; in the CARA case, the appetite for dollar risk is independent of the level of wealth; thus the correction.</li>
+</ul></li>
+</ul>
+<h2 id="when-do-we-get-mean-variance-preferences">When do we get mean variance preferences?</h2>
+<ul>
+<li><p>How general is mean variance ?</p>
+<ul>
+<li><p>preferences induced by utility functions will not, in general, correspond to mean-variance; additional assumptions are needed.</p></li>
+<li><p>when the distribution of portfolio returns is characterized by mean and variance, all utility functions naturally lead to mean variance preferences (see elliptic distributions).</p></li>
+<li><p>in the presence of stochastic labour income, mean variance needs to be amended</p></li>
+</ul></li>
+</ul>
+<h2 id="cara-normal-case-4">CARA normal case (4)</h2>
+<ul>
+<li><p>In the presence of normally distributed stochastic labor income, the optimal programme is: <span class="math display">\[\underset{\pmb{\pi}}{\text{max}} \; E[-\exp(-\alpha \tilde{w})]\]</span> <span class="math display">\[\text{s.t.}\]</span> <span class="math display">\[\tilde{w}=\tilde{y}+\sum_{i \in \cal{I}}\theta_{i}\tilde{x}_{i}\]</span> <span class="math display">\[\sum_{i \in \cal{I}}\theta_{i}p_{i}=w_{0}.\]</span></p></li>
+<li><p>It is this time more convenient to take as control variables the quantities: <span class="math inline">\((\theta_{i})_{i \in {\cal I}}\)</span>.</p></li>
+</ul>
+<h2 id="cara-normal-case-5">CARA normal case (5)</h2>
+<ul>
+<li><p>As before, we need to maximize the certainty equivalent: <span class="math inline">\(E[\tilde{w}]-(\alpha/2)V[\tilde{w}]\)</span>. This is equivalent to maximizing: <span class="math display">\[E\left[\sum_{i \in {\cal I}}\theta_{i}\tilde{x}_{i}\right]-(\alpha/2)V\left[\tilde{y}+\sum_{i \in {\cal I}}\theta_{i}\tilde{x}_{i}\right].\]</span></p></li>
+<li><p>We can decompose the variance term as: <span class="math display">\[V\left[\tilde{y}\right]+V\left[\sum_{i \in \cal{I}}\theta_{i}\tilde{x}_{i}\right]
++2\text{Cov}\left(\sum_{i \in \cal{I}}\theta_{i}\tilde{x}_{i},\tilde{y}\right).\]</span></p></li>
+</ul>
+<h2 id="cara-normal-case-6">CARA normal case (6)</h2>
+<ul>
+<li><p>I give the result assuming there is a riskless asset.</p></li>
+<li><p>We assume the price of cash is <span class="math inline">\(p_{0}=1\)</span>, and the payoff <span class="math inline">\(\tilde{x}_{0}=1+r^{f}\)</span>.</p></li>
+<li><p>Using the budget constraint <span class="math inline">\(\theta_{0}=w_{0}-\sum_{i=1}^{N}\theta_{i}p_{i}\)</span>, we can rewrite the criterion as: <span class="math display">\[E\left[w_{0}(1+r^{f})+\sum_{i=1}^{N}\theta_{i}(\tilde{x}_{i}-p_{i}(1+r^{f}))\right]-(\alpha/2)V\left[\tilde{y}+\sum_{i=1}^{N}\theta_{i}\tilde{x}_{i}\right].\]</span></p></li>
+<li><p>Notation:</p>
+<ul>
+<li><span class="math inline">\(\theta\)</span> is the <span class="math inline">\(N\times 1\)</span> vector of quantities invested on each risky asset</li>
+<li><span class="math inline">\(V[\tilde{x}]\)</span> is the <span class="math inline">\(N\times N\)</span> matrix where each <span class="math inline">\((i,j)\)</span> is the covariance of the pay-offs of asset <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>. It is assumed to have full rank, so that no financial asset is riskless or redundant.</li>
+<li><span class="math inline">\(\text{Cov}(\tilde{x},\tilde{y})\)</span> is the <span class="math inline">\(N\times 1\)</span> vector where each entry measures the covariance of a financial instrument with labour income</li>
+<li><span class="math inline">\(E[\tilde{\tilde{x}}]\)</span> is the <span class="math inline">\(N\times 1\)</span> vector of the expected excess pay-offs <span class="math inline">\((\tilde{x}_{i}-p_{i}(1+r^{f}))\)</span> of the risky instruments instruments.</li>
+</ul></li>
+</ul>
+<h2 id="cara-normal-case-7">CARA normal case (7)</h2>
+<ul>
+<li><p>The first order condition leads to, in matrix notation: <span class="math display">\[\theta=V[\tilde{x}]^{-1}\left(-\text{Cov}(\tilde{x},\tilde{y})+\frac{1}{\alpha}E[\tilde{\tilde{x}}]\right).\]</span></p></li>
+<li><p>Remember that <span class="math inline">\(1/\alpha\)</span> is risk tolerance.</p></li>
+<li><p>The structure of the solution is as follows: the optimal porfolio consists of a hedging portfolio (which tries to replicate income variability using financial assets) and a speculative portfolio which has the same structure as in the case without labour income. The latter portfolio receives a weight equal to risk tolerance.</p></li>
+</ul>
+<h2 id="optimization-and-sdf">Optimization and SDF</h2>
+<ul>
+<li><p>I assume there is a solution <span class="math inline">\(\pmb{\pi}_{*}\)</span> to the following problem: <span class="math display">\[\underset{\pmb{\pi}}{\text{max}} \; E[u(\pmb{\pi}&#39;\pmb{\tilde{R}})]\]</span> <span class="math display">\[\text{s.t.}\]</span> <span class="math display">\[\pmb{\pi}&#39;\pmb{e}=1,\]</span> where <span class="math inline">\(\pmb{e}\)</span> is a vector where all components are equal to <span class="math inline">\(1\)</span>, and <span class="math inline">\(\pmb{\pi}\)</span> is the vector of asset proportions.</p></li>
+<li><p>The Lagrangian reads: <span class="math display">\[{\cal L}=E[u(\pmb{\pi}&#39;\pmb{\tilde{R}})]-\gamma \pmb{\pi}&#39;\pmb{e},\]</span> and the first order condition reads: <span class="math display">\[E[u&#39;(\pmb{\pi}&#39;\pmb{\tilde{R}})\pmb{\tilde{R}}]=\gamma \pmb{e}.\]</span></p></li>
+<li><p>Let: <span class="math display">\[\tilde{m}=\frac{u&#39;(\pmb{\pi}_{*}&#39;\pmb{\tilde{R}})}{\gamma}.\]</span> We then have: <span class="math display">\[E[\tilde{m}\pmb{\tilde{R}}]=\pmb{e},\]</span> i.e. for any asset <span class="math inline">\(i\)</span>: <span class="math display">\[E[\tilde{m}\tilde{R}_{i}]=1.\]</span> In other words, we have built an SDF from the solution of the optimization problem.</p></li>
+</ul>
+<h2 id="mean-variance-efficiency">Mean variance efficiency</h2>
+<ul>
+<li><p>A portfolio <span class="math inline">\(p\)</span> with mean and variance <span class="math inline">\((\mu_{p},\sigma_{p})\)</span> is dominated by a portfolio <span class="math inline">\(q\)</span> with mean and variance <span class="math inline">\((\mu_{q},\sigma_{q})\)</span> if <span class="math inline">\(\mu_{q} \ge \mu_{p}\)</span> and <span class="math inline">\(\sigma_{q} \le \sigma_{p}\)</span> with at least one inequality being strict.</p></li>
+<li><p>A portfolio is efficient in the mean variance sense if it is not dominated by any other portfolio.</p></li>
+<li><p>Domination is a preorder. An efficient portfolio is a maximal element for the preorder. In particular, it is not a total order (all portfolio pairs cannot necessarily be ordered).</p></li>
+</ul>
+<h2 id="mean-variance-without-a-riskfree-asset-1">Mean variance without a riskfree asset (1)</h2>
+<ul>
+<li>The program: it consists in minimizing portfolio variance for a given level of expected returns <span class="math display">\[\underset{\pmb{\pi}}{\text{min}} \; V\left[\sum_{i=1}^{N}\pi_{i}\tilde{r}_{i}\right]=\pmb{\pi}&#39; \Sigma \pmb{\pi}\]</span> <span class="math display">\[\text{s.t.}\]</span> <span class="math display">\[\sum_{i=1}^{N}\pi_{i}=\pmb{\pi}&#39;\pmb{e}=1\]</span> <span class="math display">\[E\left[\sum_{i=1}^{N}\pi_{i}\tilde{r}_{i}\right]=\pmb{\pi}&#39;\pmb{\mu}=\mu_{p}.\]</span></li>
+</ul>
+<h2 id="mean-variance-without-a-riskfree-asset-2">Mean variance without a riskfree asset (2)</h2>
+<ul>
+<li><p>Bold notations denote vectors</p>
+<ul>
+<li><span class="math inline">\(\Sigma\)</span> is the covariance matrix of returns, which we assume invertible</li>
+<li><span class="math inline">\(\pmb{e}\)</span> is a vector of ones</li>
+<li><span class="math inline">\(\pmb{\tilde{r}}\)</span> is the vector of returns</li>
+<li><span class="math inline">\(\pmb{\mu}\)</span> is the vector of expected returns</li>
+</ul></li>
+<li><p>We assume <span class="math inline">\(\pmb{\mu}\neq \pmb{e}\)</span> to avoid degeneracy</p></li>
+</ul>
+<h2 id="mean-variance-without-a-riskfree-asset-3">Mean variance without a riskfree asset (3)</h2>
+<ul>
+<li><p>Lagrangian for the optimization problem (a factor <span class="math inline">\(1/2\)</span> is convenient): <span class="math display">\[\frac{1}{2}\pmb{\pi}&#39; \Sigma \pmb{\pi}-\delta (\pmb{\pi}&#39;\pmb{\mu}-\mu_{p})-\gamma (\pmb{\pi}&#39;\pmb{e}-1)\]</span> where I have introduced the Lagrange multipliers <span class="math inline">\(\delta\)</span> and <span class="math inline">\(\gamma\)</span>.</p></li>
+<li><p>The necessary and sufficient first order condition (positive definite quadratic problem) is: <span class="math display">\[\Sigma \pmb{\pi}=\delta \pmb{\mu}+\gamma \pmb{e},\]</span> or, assuming the covariance matrix is invertible: <span class="math display">\[\pmb{\pi}=\delta\Sigma^{-1}\pmb{\mu}+\gamma \Sigma^{-1}\pmb{e}.\]</span></p></li>
+</ul>
+<h2 id="mean-variance-without-a-riskfree-asset-4">Mean variance without a riskfree asset (4)</h2>
+<ul>
+<li><p>Injecting this into the constraints leads to a system for the Lagrange multipliers: <span class="math display">\[\delta \pmb{\mu}&#39; \Sigma^{-1}\pmb{\mu}+\gamma \pmb{\mu}&#39; \Sigma^{-1}\pmb{e}=\mu_{p},\]</span> <span class="math display">\[\delta \pmb{e}&#39;\Sigma^{-1}\pmb{\mu}+\gamma \pmb{e}&#39;\Sigma^{-1}\pmb{e}=1.\]</span></p></li>
+<li><p>Reminder: <span class="math display">\[\begin{pmatrix} a&amp;b\\ c&amp;d \end{pmatrix}^{-1}=\frac{1}{ad-bc}\begin{pmatrix} d&amp;-b\\ -c&amp;a \end{pmatrix}\]</span></p></li>
+<li><p>It is useful to introduce two specific portfolios: <span class="math display">\[\pmb{\pi}_{1}=\frac{1}{\pmb{e}&#39;\Sigma^{-1}\pmb{e}}\Sigma^{-1}\pmb{e},\]</span> <span class="math display">\[\pmb{\pi}_{\mu}=\frac{1}{\pmb{e}&#39;\Sigma^{-1}\pmb{\mu}}\Sigma^{-1}\pmb{\mu}.\]</span></p></li>
+</ul>
+<h2 id="mean-variance-without-a-riskfree-asset-5">Mean variance without a riskfree asset (5)</h2>
+<ul>
+<li><p>We can write : <span class="math display">\[\pmb{\pi} = (\delta\pmb{e}&#39;\Sigma^{-1}\pmb{\mu})\pmb{\pi}_{\mu}+(\gamma\pmb{e}&#39;\Sigma^{-1}\pmb{e})\pmb{\pi}_{1}=\]</span> <span class="math display">\[\lambda \pmb{\pi}_{\mu}+(1-\lambda) \pmb{\pi}_{1}.\]</span></p></li>
+<li><p>Thus, any optimal portfolio is a combination of the two portfolios we singled out:</p>
+<ul>
+<li><span class="math inline">\(\pmb{\pi}_{1}\)</span> is the minimum variance portfolio</li>
+<li><span class="math inline">\(\pmb{\pi}_{\mu}\)</span> is another portfolio as soon as <span class="math inline">\(\pmb{\mu} \neq \pmb{e}\)</span></li>
+</ul></li>
+</ul>
+<h2 id="mean-variance-without-a-riskfree-asset-6">Mean variance without a riskfree asset (6)</h2>
+<ul>
+<li><p><span class="math inline">\(A=\pmb{\mu}&#39;\Sigma^{-1}\pmb{\mu}\)</span>, <span class="math inline">\(B=\pmb{\mu}&#39;\Sigma^{-1}\pmb{e}\)</span>, <span class="math inline">\(C=\pmb{e}&#39;\Sigma^{-1}\pmb{e}\)</span>. <span class="math display">\[\lambda=\frac{BC\mu_{p}-B^{2}}{AC-B^{2}},\]</span> <span class="math display">\[\sigma_{p}^{2}=\frac{A-2B\mu_{p}+C\mu_{p}^{2}}{AC-B^2{}}.\]</span></p></li>
+<li><p>Check this.</p></li>
+<li><p>The efficient frontier (in the standard deviation mean space) is the subset of non dominated portfolios in the set: <span class="math display">\[\{(\sigma_{p},\mu_{p}),\; \mu_{p}\geq \mu_{1}\}\]</span> where <span class="math inline">\(\mu_{1}=\pmb{\pi}_{1}&#39;\pmb{\mu}\)</span>.</p></li>
+</ul>
+<h2 id="mean-variance-without-a-riskfree-asset-7---fig-2">Mean variance without a riskfree asset (7) - fig 2</h2>
+<figure>
+<img src="/assets/media/pl.png" alt="Figure 2: Efficient Frontier (without a risk free asset)" /><figcaption aria-hidden="true">Figure 2: Efficient Frontier (without a risk free asset)</figcaption>
+</figure>
+<h2 id="mean-variance-without-a-riskfree-asset-8">Mean variance without a riskfree asset (8)</h2>
+<ul>
+<li><p>I list the technical conditions below:</p>
+<ul>
+<li><p>we assume that <span class="math inline">\(\pmb{\mu}\)</span> and <span class="math inline">\(\pmb{e}\)</span> are not colinear</p></li>
+<li><p>we assume <span class="math inline">\(\pmb{e}&#39;\Sigma^{-1}\pmb{\mu&gt;0}\)</span></p></li>
+<li><p>we have <span class="math inline">\(\pmb{e}&#39;\Sigma^{-1}\pmb{e}&gt;0\)</span> as <span class="math inline">\(\Sigma^{-1}\)</span> defines a positive definite quadratic form</p></li>
+<li><p>we have <span class="math inline">\(\left(\pmb{\mu}&#39;\Sigma^{-1}\pmb{e}\right)^2&lt;\left(\pmb{e}&#39;\Sigma^{-1}\pmb{e}\right)\left(\pmb{\mu}&#39;\Sigma^{-1}\pmb{\mu}\right)\)</span> from the Cauchy-Schwartz inequality and <span class="math inline">\(\pmb{e}&#39;\Sigma^{-1}\pmb{e}&gt;0\)</span>.</p></li>
+</ul></li>
+</ul>
+<h2 id="mean-variance-with-a-riskfree-asset-1">Mean variance with a riskfree asset (1)</h2>
+<ul>
+<li><p>It is convenient in this case to use the notation <span class="math inline">\(\pmb{\pi}\)</span> to denote the vector of positions on the risky assets (see the slide on the space of excess returns). The cash position is thus: <span class="math display">\[\pi_{0}=1-\pmb{e}&#39;\pmb{\pi}.\]</span></p></li>
+<li><p>The vector <span class="math inline">\(\pmb{\pi}\)</span> is unconstrained. The optimization problem can be written: <span class="math display">\[\underset{\pmb{\pi}}{\text{min}} \; \pmb{\pi}&#39; \Sigma \pmb{\pi}\]</span> <span class="math display">\[\text{s.t.}\]</span> <span class="math display">\[\pmb{\pi}&#39;(\pmb{\mu}-r^{f}\pmb{e})=\mu_{p}-r^{f}.\]</span></p></li>
+<li><p>For reasons that will be clear below, I assume <span class="math inline">\(\pmb{e}&#39;\Sigma^{-1}(\pmb{\mu}-r^{f}\pmb{e})&gt;0\)</span>.</p></li>
+</ul>
+<h2 id="mean-variance-with-a-riskfree-asset-2">Mean variance with a riskfree asset (2)</h2>
+<ul>
+<li><p>First order condition for the Lagrangian: <span class="math inline">\(\pmb{\pi}=\delta \Sigma^{-1}(\pmb{\mu}-r^{f}\pmb{e})\)</span></p></li>
+<li><p>From <span class="math inline">\((\pmb{\mu}-r^{f}\pmb{e})&#39;\pmb{\pi}=\mu_{p}-r^{f}\)</span>, we get the value of <span class="math inline">\(\delta\)</span> and then the value of <span class="math inline">\(\pmb{\pi}\)</span>: <span class="math display">\[\pmb{\pi}=\frac{\mu_{p}-r^{f}}{(\pmb{\mu}-r^{f}\pmb{e})&#39;\Sigma^{-1}(\pmb{\mu}-r^{f}\pmb{e})}\Sigma^{-1}(\pmb{\mu}-r^{f}\pmb{e}).\]</span></p></li>
+<li><p>The standard deviation of the portfolio is: <span class="math display">\[\frac{|\mu_{p}-r^{f}|}{\sqrt{(\pmb{\mu}-r^{f}\pmb{e})&#39;\Sigma^{-1}(\pmb{\mu}-r^{f}\pmb{e})}}.\]</span></p></li>
+</ul>
+<h2 id="mean-variance-with-a-riskfree-asset-3">Mean variance with a riskfree asset (3)</h2>
+<ul>
+<li><p>The tangency portfolio is: <span class="math display">\[\pmb{\pi_{*}}=\frac{1}{\pmb{e}&#39;\Sigma^{-1}(\pmb{\mu}-r^{f}\pmb{e})}\Sigma^{-1}(\pmb{\mu}-r^{f}\pmb{e}).\]</span></p></li>
+<li><p>It is a portfolio fully invested in risky assets which is on the overall efficient frontier. It is thus also on the risky asset efficient frontier.</p></li>
+</ul>
+<h2 id="mean-variance-with-a-riskfree-asset-4---fig-3">Mean variance with a riskfree asset (4) - fig 3</h2>
+<figure>
+<img src="/assets/media/pl1.png" alt="Figure 3: Efficient Frontier (with risk free asset)" /><figcaption aria-hidden="true">Figure 3: Efficient Frontier (with risk free asset)</figcaption>
+</figure>
+<h2 id="mean-variance-with-a-riskfree-asset-4---fig4">Mean variance with a riskfree asset (4) - fig4</h2>
+<figure>
+<img src="/assets/media/pl2.png" alt="Figure 4: Efficient Frontier (with risk free asset): iso-utility curves" /><figcaption aria-hidden="true">Figure 4: Efficient Frontier (with risk free asset): iso-utility curves</figcaption>
+</figure>
+<h2 id="data-for-the-graphs-1">Data for the graphs (1)</h2>
+<ul>
+<li>Two risky assets:
+<ul>
+<li><span class="math inline">\(\mu_{1}=0.05,\, \sigma_{1}=0.12\)</span></li>
+<li><span class="math inline">\(\mu_{2}=0.07,\, \sigma_{2}=0.16\)</span></li>
+<li><span class="math inline">\(\rho=0.7\)</span></li>
+<li><span class="math inline">\((\mu_{1}-r)/\sigma_{1}=0.33\)</span></li>
+<li><span class="math inline">\((\mu_{2}-r)/\sigma_{2}=0.375\)</span></li>
+<li><span class="math inline">\(\pmb{\pi_{1}}=(0.93,0.07)\)</span></li>
+<li><span class="math inline">\(\text{vol}(\pmb{\pi_{1}})=0.12\)</span></li>
+<li><span class="math inline">\(\pmb{\pi_{*}}=(0.4,0.6)\)</span></li>
+<li><span class="math inline">\(\text{vol}(\pmb{\pi_{*}})=0.13\)</span></li>
+<li><span class="math inline">\(\text{sharpe}(\pmb{\pi_{*}})=0.39\)</span></li>
+</ul></li>
+</ul>
+<h2 id="data-for-the-graphs-2">Data for the graphs (2)</h2>
+<ul>
+<li>The graphs shown assume positive Sharpe ratios for the underlying assets. This is the ‘normal’ situation. It ensures that the efficient frontier (with a riskfree asset!) is upward sloping.</li>
+</ul>
+<h2 id="a-different-description-of-the-efficient-frontier-1">A different description of the efficient frontier (1)</h2>
+<ul>
+<li><p>Maximize the expected return penalized for portfolio variance (<span class="math inline">\(\rho&gt;0\)</span>): <span class="math display">\[\underset{\pmb{\pi}}{\text{max}} \; r^{f}+\pmb{\pi}&#39;(\pmb{\mu}-r^{f}\pmb{e})-\frac{\rho}{2}\pmb{\pi}&#39; \Sigma \pmb{\pi}.\]</span></p></li>
+<li><p>Exercise: recover the lagrange multiplier of the traditional approach</p></li>
+<li><p>The criteria are given by quadratic utility functions, indexed by <span class="math inline">\(\rho\)</span></p></li>
+</ul>
+<h2 id="a-different-description-of-the-efficient-frontier-2">A different description of the efficient frontier (2)</h2>
+<ul>
+<li><p>The first order condition reads: <span class="math display">\[(\pmb{\mu}-r^{f}\pmb{e})=\rho\Sigma \pmb{\pi},\]</span> and this implies that the optimal portfolio is proportional to the tangency portfolio.</p></li>
+<li><p>How much of the tangency portfolio <span class="math inline">\(\pmb{\pi_{*}}\)</span> does an investor with the above preferences and beliefs buy?</p></li>
+<li><p>From the first order condition of the utility maximization problem<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, we get that the weight <span class="math inline">\(\hat{\pi}=1-\pi_{0}\)</span> invested in the tangency portfolio is: <span class="math display">\[\hat{\pi}=\frac{1}{\rho}\frac{\mu_{*}-r^{f}}{\text{var}(\tilde{r}_{*})}.\]</span></p></li>
+<li><p>We will remember that: <span class="math display">\[\rho \hat{\pi}=\frac{\mu_{*}-r^{f}}{\text{var}(\tilde{r}_{*})},\]</span> which is therefore independent of the risk aversion level of the investor. This will play a role in the derivation of the CAPM.</p></li>
+</ul>
+<h2 id="interpretation-of-the-first-order-condition-1">Interpretation of the first order condition (1)</h2>
+<ul>
+<li><p>Consider that the optimal portfolio of a mean-variance investor (<span class="math inline">\(p\)</span> with weights <span class="math inline">\(\pmb{\pi}\)</span>) is tilted by adding a long-short portfolio <span class="math inline">\(\pmb{\pi}_{\delta}\)</span>. How does that affect quadratic utility?</p></li>
+<li><p>The utility level changes by (first order approximation): <span class="math display">\[\mu_{\delta}-\rho\text{cov}(\tilde{r}_{\delta},\tilde{r}_{p})\]</span> <span class="math display">\[=\mu_{\delta}-\rho\frac{\text{cov}(\tilde{r}_{\delta},\tilde{r}_{p})}{\text{var}(\tilde{r}_{p})}\text{var}(\tilde{r}_{p}),\]</span> <span class="math display">\[=\mu_{\delta}-\rho \beta (\tilde{r}_{\delta},\tilde{r}_{p}) \text{var}(\tilde{r}_{p}),\]</span> <span class="math display">\[=\mu_{\delta}-\rho \hat{\pi}\beta (\tilde{r}_{\delta},\tilde{r}_{*}) \text{var}(\tilde{r}_{*}).\]</span></p></li>
+</ul>
+<h2 id="interpretation-of-the-first-order-condition-2">Interpretation of the first order condition (2)</h2>
+<ul>
+<li><p>Because the quantity <span class="math inline">\(\rho \hat{\pi}\)</span> is independent of <span class="math inline">\(\rho\)</span>, the trade off between return and beta is a well defined consequence of the mean and variance assumptions.</p></li>
+<li><p>Injecting the value of <span class="math inline">\(\rho \hat{\pi}\)</span> into the first order condition delivers the quantity: <span class="math display">\[\mu_{\delta}-(\mu_{*}-r^{f})\beta (\tilde{r}_{\delta},\tilde{r}_{*}).\]</span></p></li>
+<li><p>Given the optimality of the tangency portfolio, the above quantity should be zero for all long short deviations to the tangency portfolio: <span class="math display">\[\mu_{\delta}=(\mu_{*}-r^{f})\beta (\tilde{r}_{\delta},\tilde{r}_{*}).\]</span></p></li>
+<li><p>For long short portfolios which borrow to buy a stock, the condition reads: <span class="math display">\[(\mu_{i}-r^{f})=(\mu_{*}-r^{f})\beta (\tilde{r}_{i},\tilde{r}_{*}).\]</span></p></li>
+</ul>
+<h2 id="interpretation-of-the-first-order-condition-3">Interpretation of the first order condition (3)</h2>
+<ul>
+<li><p>The above relationship embodies the return beta trade off embedded in the mean variance assumptions.</p></li>
+<li><p>At this stage, no equilibrium assumption has been made. We are looking at the implications of a portfolio being mean-variance optimal.</p></li>
+<li><p>Note that the tangency portfolio can be replaced by any other efficient portfolio in the relationship.</p></li>
+</ul>
+<h2 id="the-excess-return-beta-relationship-1---fig-5">The excess return-beta relationship (1) - fig 5</h2>
+<figure>
+<img src="/assets/media/plot.png" alt="Figure 5: Return/beta relationship" /><figcaption aria-hidden="true">Figure 5: Return/beta relationship</figcaption>
+</figure>
+<h2 id="the-excess-return-beta-relationship-2---fig-6">The excess return-beta relationship (2) - fig 6</h2>
+<figure>
+<img src="/assets/media/plot1.png" alt="Figure 6: Imperfectly priced portfolios" /><figcaption aria-hidden="true">Figure 6: Imperfectly priced portfolios</figcaption>
+</figure>
+<h2 id="the-two-fund-theorem-and-the-capm">The two fund theorem and the CAPM</h2>
+<ul>
+<li><p>We now move to equilibrium considerations. We assume all investors share the same beliefs on expected returns and risk, and all choose mean variance efficient portfolios.</p></li>
+<li><p>As a result, they all hold a mixture of the risk free asset and a unique portfolio of risky asset, the tangency portfolio.</p></li>
+<li><p>This is an instance of the two fund theorem, which also holds in more general contexts</p></li>
+<li><p>The risky asset portfolio should be equal to the market portfolio of risky asset, with return <span class="math inline">\(r_{m}\)</span>. This gives: <span class="math display">\[(\mu_{i}-r^{f})=(\mu_{m}-r^{f})\beta (\tilde{r}_{i},\tilde{r}_{m}).\]</span></p></li>
+</ul>
+<h2 id="illustration-of-the-capm---fig-7">Illustration of the CAPM - fig 7</h2>
+<figure>
+<img src="/assets/media/capm.png" alt="Figure 7: CAPM" /><figcaption aria-hidden="true">Figure 7: CAPM</figcaption>
+</figure>
+<h2 id="the-low-beta-anomaly---fig-8">The low beta anomaly - fig 8</h2>
+<figure>
+<img src="/assets/media/capm1.png" alt="Figure 8: The low beta anomaly" /><figcaption aria-hidden="true">Figure 8: The low beta anomaly</figcaption>
+</figure>
+<h2 id="equity-pricing-anomalies">Equity pricing anomalies</h2>
+<ul>
+<li><p>Take an investment universe (stocks) and an equity index</p></li>
+<li><p>Follow the steps:</p>
+<ul>
+<li>build equity portfolios by sorting stocks according to a financial characteristic</li>
+<li>compute the beta of the portfolios and graph realized returns against betas</li>
+<li>is the pricing error significant?</li>
+</ul></li>
+<li><p>Examples of characteristics: size, book value, momentum, beta, vol</p></li>
+<li><p>This procedure asks whether the index is mean variance efficient in sample</p></li>
+<li><p>The pricing errors should be statistically significant</p></li>
+</ul>
+<h2 id="mean-variance-in-practice-the-challenges">Mean variance in practice: the challenges</h2>
+<ul>
+<li><p>First, there is a question of interpretation: what is the investment horizon?</p>
+<ul>
+<li>in particular, this conditions the nature of the risky asset (bonds or cash).</li>
+</ul></li>
+<li><p>One also needs to be clear on whether real returns or nominal returns are considered</p></li>
+<li><p>Once this has been clarified, input data needs to be estimated:</p>
+<ul>
+<li>getting hold of expected returns</li>
+<li>getting hold of the covariance matrix</li>
+</ul></li>
+<li><p>The optimal portfolio is very sensitive to inputs</p>
+<ul>
+<li>garbage in, garbage out</li>
+</ul></li>
+</ul>
+<h2 id="examples-of-implementations">Examples of implementations</h2>
+<ul>
+<li><p>Give the same return to all risky assets</p>
+<ul>
+<li>this delivers the minimum variance portfolio, which is not optimal unless the expected returns are truly equal across assets</li>
+</ul></li>
+<li><p>Link the return assumptions to the risk estimates</p>
+<ul>
+<li>this leads to various solutions…</li>
+</ul></li>
+<li><p>For returns: estimate the payoffs of the asset and derive the implies return from the current asset price</p></li>
+<li><p>Example: ERC ?</p></li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2014-10-07-static.pdf">Link to pdf</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Write the discount factor condition as: <span class="math display">\[E[\tilde{m}\tilde{R}]=E[(\tilde{m}-E[\tilde{m}]+E[\tilde{m}])\tilde{R}]=1,\]</span> and use the fact: <span class="math display">\[E[(\tilde{m}-E[\tilde{m}])\tilde{R}]=\text{Cov}(\tilde{m},\tilde{R}).\]</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>The first order condition reads: <span class="math display">\[(\pmb{\mu}-r^{f}\pmb{e})=\rho\Sigma \pmb{\pi}.\]</span> Multiply both sides on the left by <span class="math inline">\(\pmb{\pi}&#39;\)</span>. Then use <span class="math inline">\(\pmb{\pi}=\hat{\pi}\pmb{\pi}_{\star}\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+:ET

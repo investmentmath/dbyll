@@ -1,0 +1,484 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>InvestmentMath</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<div class="page-header">
+  <h1>InvestmentMath </h1>
+</div>
+
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                January
+                15th,
+                
+                2019
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2019/01/15/solexam.html">Solution of the Exam (2018)</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This is the solution of the exam for the 2018 ensae course.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                December
+                3rd,
+                  
+                2018
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2018/12/03/exam.html">Exam (2018)</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This is the exam for the 2018 ensae course.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                December
+                1st,
+                  
+                2018
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2018/12/01/exam.html">Exam (2017)</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This is the exam for the 2017 ensae course.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                January
+                13th,
+                
+                2017
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2017/01/13/completecont.html">The Martingale Method in Continuous Time</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This post describes the martingale method in continuous time. It should be read after <a href="/ensae/2015/11/14/complete-dyn.html">this one</a>. It illustrates the method on a simple example within the Black and Scholes framework where an investor maximizes the utility of terminal wealth. In this context, the martingale method allows to spell out how optimal terminal wealth depends on the unique stochastic discount factor, or alternatively, how it is obtained as a transformation of the stock return. The transformation hinges on the shape of the utility function. The case of a CRRA utility function is fully spelled out. The results obtained through dynamic programming <a href="/ensae/2014/10/27/cont.html">here</a> are recovered although the martingale method does not easily uncover the trading policy that generates the optimal terminal wealth.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                December
+                16th,
+                
+                2016
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2016/12/16/optimization.html">Constrained Optimization</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This post collects constrained optimzation results for reference.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                December
+                15th,
+                
+                2016
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2016/12/15/solexam.html">Solution of the Exam (2016)</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This is the solution of the exam for the 2016 ensae course.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                November
+                29th,
+                
+                2016
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2016/11/29/exam.html">Exam (2016)</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This is the exam for the 2016 ensae course.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                December
+                12th,
+                
+                2015
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2015/12/12/solexercises.html">Solutions to Exercises</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This post collects the solutions to <a href="/ensae/2015/10/15/exercises.html">the exercises</a> of the ENSAE course.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                November
+                14th,
+                
+                2015
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2015/11/14/complete-dyn.html">Complete Markets, Discrete Time</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>In this post, I present the so-called martingale method in a complete market setup where the time scale is discrete and the probability space is discrete as well. In the absence of arbitrage, there is a strictly positive stochastic discount factor (SDF) and a risk neutral measure can be defined. The market is said to be complete if any consumption stream which is adapted to the underlying filtration can be traded using the available financial instruments. If this is the case, the SDF and the risk neutral measure are both unique. A portfolio optimization problem without labour income is defined. Despite the dynamic context, the maximization problem is essentially static. The gradient of the utility function has to be proportional to the SDF, and the optimal plan is found by varying the coefficient of proportionality to satisfy the intertemporal budget constraint. The optimal consumption plan is thus in principal easily derived. The corresponding portfolio policy has to be identified in a second step however.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                October
+                17th,
+                
+                2015
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2015/10/17/ipython.html">Using Jupyter notebooks</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This post explains how to use the IPython/Jupyter notebooks which are provided in this blog through Github. The notebooks can easily be uploaded on a personal Sagemathcloud account. This avoids having to install a local implementation of Jupyter.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+<hr/>
+
+<ul class="pager"> 
+
+  
+    <li class="previous disabled">
+      <a>&larr; Newer</a>
+    </li>
+  
+  
+  <li>
+          <span class="page_number">Page: 1 of 5</span>
+  </li>
+
+  
+    <li class="next">
+            <a href="http://127.0.0.1:4000/page2">Older &rarr;</a>
+    </li>
+  
+
+</ul>
+
+
+
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

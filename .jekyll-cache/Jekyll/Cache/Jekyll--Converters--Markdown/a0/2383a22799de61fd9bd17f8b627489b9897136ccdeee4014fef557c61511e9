@@ -1,0 +1,60 @@
+I"w<p><em>(Warning: this post was written when Wordpress was used to generate the blog. Quicklatex is no longer used. MathJax remains the tool used for math rendering). This post gives a few recipes to integrate mathematical formulas in html pages. This site uses MathJax, a javascript implementation of Latex.</em></p>
+<hr />
+<h1 id="introduction">Introduction</h1>
+<p>InvestmentMath uses two Wordpress plugins to display formulas: <a href="http://www.mathjax.org/" title="MathJax"><strong>MathJax</strong></a>and <a href="http://www.quicklatex.com/" title="QuickLatex"><strong>QuickLaTex</strong></a>.</p>
+<p>We’ll first introduce MathJax.</p>
+<h1 id="mathjax-adding-latex-formulas-within-posts">MathJax : Adding LaTex formulas within posts</h1>
+<p>MathJax is an open-source (everyone can edit or read the source code) rendering engine for math formulas written in <span class="math inline">\(LaTeX\)</span>. It uses Javascript, so the rendering is done on the client-side. It preserves the server resources; however, slow clients will have significant loading times. According to its website, it uses plain ol’ CSS and web fonts, which means that its rendering is extremely clean and that it’s scalable. In addition, people with vision disabilities can zoom up to 400% using the MathJax menu which is obtained by right-clicking on any formula.</p>
+<p>MathJax is amazingly powerful, and what’s more, the developers claim compatibility with all modern browsers. You can use it as a plugin with Drupal, Joomla!, MediaWiki, Wordpress and much more … It’s also used within the Ipython notebooks, a subject we will address in another post.</p>
+<p>Now, here is an example showcasing the power of MathJax. Behold !</p>
+<p><span class="math display">\[\log(P_{N})-\log(P_{0})=\sum_{k=0}^{K^{\delta}-1}
+\log(P_{t^{\delta}_{k+1}})-\log(P_{t^{\delta}_{k}})=
+\sum_{k=0}^{K^{\delta}-1}
+\log(P_{t^{\delta}_{k+1}}/P_{t^{\delta}_{k}})\]</span></p>
+<p>You can right-click on this formula to discover the flexibility of MathJax and, in particular, to access the following code:</p>
+<pre class="theme:github font:inconsolata lang:default decode:true"><code>$$\log(P_{N})-\log(P_{0})=\sum_{k=0}^{K^{\delta}-1} \log(P_{t^{\delta}_{k+1}})-\log(P_{t^{\delta}_{k}})= \sum_{k=0}^{K^{\delta}-1} \log(P_{t^{\delta}_{k+1}}/P_{t^{\delta}_{k}})$$</code></pre>
+<p> </p>
+<h1 id="quicklatex-inserting-latex-graphics-made-with-tikz">QuickLaTex: inserting LaTex graphics made with TikZ</h1>
+<p>As you might have seen, some posts here use graphics generated in <span class="math inline">\(\LaTeX\)</span> with TikZ. But, sadly, MathJax doesn’t support TikZ. We use QuickLaTex for that purpose. QuickLatex generates an image, which is then inserted in the web page. It also takes plain <span class="math inline">\(\LaTeX\)</span> code like MathJax, but we only use it for its abilty to render TikZ graphics. It is nowhere near as powerful as MathJax. Let’s try an example, the very neat diagram from the Portfolio Returns post :</p>
+<p><img src="/assets/media/portfolioreturn.png" /></p>
+<p>Here is the code :</p>
+<pre class="theme:github font:inconsolata lang:default decode:true"><code>[latex]
+\begin{tikzpicture}[
+    scale=5,
+    axis/.style={very thick, -&gt;, &gt;=stealth&#39;},
+    important line/.style={thick},
+    dashed line/.style={dashed, thin},
+    pile/.style={thick, -&gt;, &gt;=stealth&#39;, shorten &lt;=2pt, shorten
+    &gt;=2pt},
+    every node/.style={color=black}
+    ]
+% Include tikz into local preamble
+[+preamble]
+     \usepackage{tikz}
+     \usetikzlibrary{arrows}
+[/preamble]
+    \node at (-0.6,1.1) [] {\tiny .};
+    \node at (2.2,-0.8) [] {\tiny .};
+    \node at (.5,.9) [below] {\em &#39;Cadlag&#39; prices and &#39;caglad weights&#39; };
+    \draw[axis] (-0.2,-.6)  -- (1.5,-.6) node(xline)[right]
+        {$Time$}
+    \draw[dashed line] (-0.4,0)  -- (2,0);
+    \draw[important line] (0,0.2) -- (.5,.2) coordinate (A);
+    \draw[important line] (.5,.5) coordinate (B) -- (1.0,.5) node[right, text width=1em] {$\omega_{.}$};
+    \draw[dashed line] (.5,.1)  -- (.5,.5);
+    \draw[dashed line] (.5,-.6)  coordinate (C) -- (.5,-.1);
+     \fill[red] (A) circle (.4pt) node[right] {$\omega_{t}(=\omega_{t-})$};
+     \node at (B)  [above] {$\omega_{t+}$};
+     \node at (C) [below] {$t$};
+     \draw[important line] (0,-.4) -- (.5,.-.4) coordinate (D) ;
+     \draw[important line] (.5,-.2) coordinate (E) -- (1.0,-.2) node[right, text width=1em] {$P_{.}$};
+     \fill[red] (E) circle (.4pt) node[left] {$(P_{t+}=)P_{t}$};
+     \node at (D)  [right] {$P_{t-}$};
+\end{tikzpicture}
+[/latex]</code></pre>
+<p>Tikz code might look complicated but actually is not. It takes about an hour for a <span class="math inline">\(\LaTeX\)</span> user to understand the logic. In addition, Tikz code can be directly generated through Geogebra and its friendly GUI!</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2013-04-24-math-formulas-within-post.pdf">Link to pdf</a></li>
+</ul>
+:ET

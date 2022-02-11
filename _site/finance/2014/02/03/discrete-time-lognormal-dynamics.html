@@ -1,0 +1,283 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Discrete Time Lognormal Dynamics</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Discrete Time Lognormal Dynamics </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   February 
+	   3rd,
+	     
+	   2014
+	 </span>
+	  <div class="article_body">
+	  <p><em>This post introduces discrete time price dynamics in a log-normal setup. This framework allows an easy translation of some of the continuous time results discussed on this site.</em></p>
+<hr />
+<p>Reminder on log normality The random variable <span class="math inline">\(X\)</span> has a log-normal distribution if <span class="math inline">\(x=\log(X)\)</span> has a normal distribution. If the distribution of <span class="math inline">\(x\)</span> is <span class="math inline">\(\cal{N}(\mu,\sigma)\)</span>, then we will note the distribution of <span class="math inline">\(X\)</span> <span class="math inline">\(\cal{L}(\mu,\sigma)\)</span>. Its mean is: <span class="math display">\[\exp(\mu+\frac{1}{2}\sigma^{2}).\]</span> This is consistent with the convexity of the exponential function and the Jensen effect<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Whereas <span class="math inline">\(x\)</span> has a distribution which is centered around its mean <span class="math inline">\(\mu\)</span>, the distribution of <span class="math inline">\(X\)</span> is positively skewed. Its median is <span class="math inline">\(\exp(\mu)\)</span> which is lower than its mean <span class="math inline">\(\exp(\mu+\frac{1}{2}\sigma^{2})\)</span> by the factor <span class="math inline">\(\exp(-\frac{1}{2}\sigma^{2})\)</span>. Log normal price dynamics Suppose now that we have a value process <span class="math inline">\((P_{t})_{t \in \mathbb{N}}\)</span> such that as seen from date <span class="math inline">\(t\)</span>, <span class="math inline">\(P_{t+1}/P_{t}\)</span> is log-normal <span class="math inline">\(\cal{L}(\mu_{t+1},\sigma_{t+1})\)</span>. More explicitly, we assume that the variables <span class="math inline">\(\mu_{t+1}\)</span> and <span class="math inline">\(\sigma_{t+1}\)</span> are <span class="math inline">\(\cal{F}_{t}\)</span> measurable. Then: <span class="math display">\[E_{t}[\frac{P_{t+1}}{P_{t}}]=\exp(\mu_{t+1}+\frac{1}{2}\sigma_{t+1}^{2}).\]</span> I will note <span class="math inline">\(r_{t+1}=\mu_{t+1}+\frac{1}{2}\sigma_{t+1}^{2}\)</span> the log of the sequential expected return as of date <span class="math inline">\(t\)</span>. With this notation, we can now write: <span class="math display">\[\frac{P_{t+1}}{P_{t}}=\exp(r_{t+1}+\sigma_{t+1}\varepsilon_{t+1}-\frac{1}{2}\sigma_{t+1}^{2}),\]</span> where by construction, <span class="math inline">\(\varepsilon_{t+1}\)</span> is <span class="math inline">\(\cal{N}(0,1)\)</span>. We can also write: <span class="math display">\[\frac{P_{t+1}}{P_{t}}=\exp(r_{t+1})\exp(\sigma_{t+1}\varepsilon_{t+1}-\frac{1}{2}\sigma_{t+1}^{2}),\]</span> where: <span class="math display">\[E_{t}[\exp(\sigma_{t+1}\varepsilon_{t+1}-\frac{1}{2}\sigma_{t+1}^{2})]=1,\]</span> so that <span class="math inline">\(\exp(\sigma_{t+1}\varepsilon_{t+1}-\frac{1}{2}\sigma_{t+1}^{2})\)</span> can be interpreted as a multiplicative surprise. It is indeed the martingale ratio of a multiplicative martingale (see the notion of martingale difference in <a href="/math/2013/04/24/martingales.html" title="MARTINGALES">this post</a>.). This multiplicative surprise has mean <span class="math inline">\(1\)</span> but median <span class="math inline">\(\exp(-\frac{1}{2}\sigma_{t+1}^{2})&lt;1\)</span>. We have thus decomposed the return into its expected component and a surprise. This is really a discrete time version of the usual geometric Brownian diffusion: <span class="math display">\[\frac{dP_{t}}{P_{t}}=r_{t}dt+\sigma_{t}dB_{t}.\]</span> Intuition is sometimes easier to develop working on the discrete time model. As a final remark, we need to emphasize that although the shocks in the above discrete time model are conditionally log-normal, it does not imply that prices have log-normal marginal distributions. This is the case if <span class="math inline">\((\mu_{t})_{t \in \mathbb{N}}\)</span> and <span class="math inline">\((\sigma_{t})_{t \in \mathbb{N}}\)</span> are deterministic processes, but it fails to be the case in general.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2014-02-03-discrete-time-lognormal-dynamics.pdf">Link to pdf</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>If <span class="math inline">\(f(\cdot)\)</span> is a conxex function (<span class="math inline">\(\mathbb{R} \rightarrow \mathbb{R}\)</span>) and <span class="math inline">\(z\)</span> is a random variable, <span class="math inline">\(E[f(z)]\geq f(E[z])\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Finance-ref">
+					Finance <span>(9)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Processes-ref">
+					Processes <span>(5)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//finance/2014/01/19/volatility-accounting-1.html" title="Volatility Accounting (1)">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//finance/2014/03/04/volatility-drag.html" title="The Volatility-Drag">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

@@ -1,0 +1,299 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Solution of the Exam (2018)</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Solution of the Exam (2018) </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   January 
+	   15th,
+	   
+	   2019
+	 </span>
+	  <div class="article_body">
+	  <p><em>This is the solution of the exam for the 2018 ensae course.</em></p>
+<hr />
+<h2 id="exercise-1">Exercise 1</h2>
+<ol type="1">
+<li><p>The program is: <span class="math display">\[\underset{\pi}{\text{min}} \; \pi&#39; \Sigma \pi.\]</span> <span class="math display">\[\pi&#39;e=1,\]</span> <span class="math display">\[\pi&#39;\mu=\bar{\mu}.\]</span> The Lagrangian is: <span class="math display">\[\frac{1}{2}\pi&#39; \Sigma \pi-\delta \pi&#39;e-\gamma \pi&#39;\mu.\]</span></p></li>
+<li><p>First order condition: <span class="math display">\[\Sigma \pi=\delta e+\gamma \mu.\]</span> The condition <span class="math inline">\(\gamma=0\)</span> corresponds to the minimum variance portfolio, since this corresponds to the soluion of: <span class="math display">\[\underset{\pi}{\text{min}} \; \pi&#39; \Sigma \pi.\]</span> <span class="math display">\[\pi&#39;e=1,\]</span> i.e. wihtout the return constraint.</p></li>
+<li><p>If <span class="math inline">\((\Sigma \bar{\pi})_{i}\)</span> is the <span class="math inline">\(i\)</span>^th line of the vector, we have obviously: <span class="math display">\[(\Sigma \bar{\pi})_{i}=\gamma \mu_{i}+\gamma.\]</span> Now <span class="math inline">\((\Sigma \bar{\pi})_{i}\)</span> is the covariance of portfolio <span class="math inline">\(\bar{\pi}\)</span> with asset <span class="math inline">\(i\)</span>.</p></li>
+<li><p>Multiplying the first order condition by <span class="math inline">\(\pi&#39;\)</span>, we get: <span class="math display">\[\text{var}(\bar{r})=\gamma \bar{\mu}+\delta.\]</span> Beta is defined as: <span class="math display">\[\frac{\text{Cov}(r_{i},r_{p})}{\text{Var}(r_{p})}.\]</span> We can therefore multiply and divide the left hand side of the equation established in the previous question by <span class="math inline">\(\text{var}(\bar{r})\)</span>: <span class="math display">\[\text{var}(\bar{r})\beta_{i}=\mu_{i}+\frac{\delta}{\gamma},\]</span> which then, leads to: <span class="math display">\[\beta_{i}(\bar{\mu}+\frac{\delta}{\gamma})=\mu_{i}+\frac{\delta}{\gamma}.\]</span></p></li>
+<li><p>If we gather all the above equations using a vectorial notation, we get: <span class="math display">\[\beta(\bar{\mu}+\frac{\delta}{\gamma})=\mu+\frac{\delta}{\gamma}.\]</span> We then multiply this by <span class="math inline">\(\tilde{\pi}&#39;\)</span> and then use the fact that <span class="math inline">\(\tilde{\pi}&#39;\beta=0\)</span> to get: <span class="math display">\[0=\tilde{\mu}+\frac{\delta}{\gamma},\]</span> <span class="math display">\[\tilde{\mu}=-\frac{\delta}{\gamma}.\]</span> This provides the required result.</p></li>
+<li><p>We have used the assumption <span class="math inline">\(\gamma\neq 0\)</span>. As a consequence, this construct cannot be applied for the minimum variance portfolio.</p></li>
+<li><p>Using the definition of <span class="math inline">\(\beta_{i}\)</span>, we can write: <span class="math display">\[\text{Cov}(r_{i},\bar{r})(\bar{\mu}-\rho)=\text{Var}(\bar{r})(\mu_{i}-\rho),\]</span> which in turn gives: <span class="math display">\[\text{Cov}(r_{i},\bar{r})=\frac{\text{Var}(\bar{r})}{\bar{\mu}-\rho}(\mu_{i}-\rho),\]</span> provided <span class="math inline">\(\bar{\mu}-\rho\neq 0\)</span>. This has the form: <span class="math display">\[\Sigma \bar{\pi}=\gamma \mu + \delta e.\]</span></p></li>
+<li><p>The above equation is the first order condition of certain maximization problem as set out in question <span class="math inline">\(1\)</span>. To identify this program, all that is needed is finding the expected return. It is however just <span class="math inline">\(\bar{\pi}&#39;\mu\)</span>. Now, since the first order condition characterizes the solution, <span class="math inline">\(\bar{\pi}\)</span> is, as desired, on the efficient frontier.</p></li>
+</ol>
+<h2 id="exercice-2">Exercice 2</h2>
+<ol type="1">
+<li><p><span class="math display">\[\frac{dW_{t}}{W_{t}}=x_{t}\frac{dP_{t}}{P_{t}}+(1-x_{t})\frac{dD_{t}}{D_{t}},\]</span> <span class="math display">\[\frac{dW_{t}}{W_{t}}=x_{t}(\mu dt+\sigma dB_{t})+(1-x_{t})rdt,\]</span> <span class="math display">\[\frac{dW_{t}}{W_{t}}=rdt+x_{t}(\mu-r)dt+\pi_{t}\sigma dB_{t},\]</span> <span class="math display">\[E_{t}\left[dW_{t}\right]=W_{t}(rdt+x_{t}(\mu-r)dt),\]</span> <span class="math display">\[d[W]_{t}=W_{t}^{2}x_{t}^{2}\sigma^{2}dt.\]</span></p></li>
+<li><p><span class="math display">\[\frac{dW_{t}}{W_{t}}=rdt+x_{t}(\mu-r)dt+x_{t}\sigma dB_{t}-c_{t}dt,\]</span> where <span class="math inline">\(c_{t}=C_{t}/W_{t}\)</span>.</p></li>
+<li><p>The term that depend on <span class="math inline">\(C_{t}\)</span> in the expression to be maximized is: <span class="math display">\[u(C_{t})-J_{W}C_{t},\]</span> and its maximization with respect to <span class="math inline">\(C_{t}\)</span> lead to: <span class="math display">\[C_{t}=u^{&#39;-1}(J_{W}).\]</span></p></li>
+<li><p>The term that depends on <span class="math inline">\(x_{t}\)</span> is: <span class="math display">\[J_{W}W_{t}x_{t}(\mu-r)+\frac{1}{2}J_{WW}W_{t}^{2}x_{t}^{2}\sigma^{2}.\]</span> Assuming this is a concave function in <span class="math inline">\(x_{t}\)</span>, we can assume optimal investment is given by: <span class="math display">\[x^{*}_{t}=-\frac{J_{W}}{W_{t}J_{WW}}\frac{\mu-r}{\sigma^{2}}.\]</span></p></li>
+<li><p>The first fraction on the left hand side is risk tolerance. Investment is proportional to the tagent portfolio.</p></li>
+<li><p>This is standard calculus.</p></li>
+<li><p>These equations are obtained by subsituting the optimal controls (consumption and investment, as function of the partial derivatives of the value function) into the expressions. The algrebra is a bit tedious but without difficulties.</p></li>
+<li><p>Inject the result of 7. into HJB. The algebra is simple.</p></li>
+<li><p>Injecting the above results into HJB, prove that <span class="math inline">\(h(\cdot)\)</span> solves the following differential equation: <span class="math display">\[\beta=\frac{1}{\alpha}\left[-\rho+(1-\alpha)r+\frac{1-\alpha}{2\alpha}\lambda^{2}\right],\]</span> the equation is: <span class="math display">\[h&#39;+\beta h+1=0.\]</span> The solution is of the form: <span class="math display">\[h(t)=a \exp(-\beta t)+b.\]</span> The differential equation and the terminal constraint determine <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. We get: <span class="math display">\[h(t)=\frac{1}{\beta}\left(\exp(\beta (T-t))-1\right).\]</span></p></li>
+</ol>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2019-01-15-solexam.pdf">Link to pdf</a></li>
+</ul>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Ensae-ref">
+					Ensae <span>(20)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Exams-ref">
+					Exams <span>(7)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//ensae/2018/12/03/exam.html" title="Exam (2018)">&larr; Previous</a></li>
+		  
+		  
+			<li class="next disabled"><a>Next &rarr;</a>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

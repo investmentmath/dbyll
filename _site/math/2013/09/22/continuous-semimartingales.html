@@ -1,0 +1,294 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Continuous Semimartingales</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Continuous Semimartingales </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   September 
+	   22nd,
+	     
+	   2013
+	 </span>
+	  <div class="article_body">
+	  <p><em>The previous posts introduced stochastic integration of an integrand <span class="math inline">\(H\)</span> against an integrator <span class="math inline">\(M\)</span> which was chosen to be a continuous martingale. Continuous semimartingales are now defined as continuous processes that can be decomposed into a continuous martingale and a continuous finite variation process. Because ‘standard’ integration theory allows to integrate against finite variation processes, one can easily extend stochastic integration from continuous martingale integrators to continuous semimartingale integrators.</em></p>
+<hr />
+<p>As seen in <a href="/math/2013/05/29/quadratic-variation-and-stochastic-integration.html" title="QUADRATIC VARIATION AND STOCHASTIC INTEGRATION">this post</a>, stochastic integration allows to integrate a predictable process <span class="math inline">\((H_{s})_{s \in [0,T]}\)</span> against a continuous local martingale <span class="math inline">\((M_{s})_{s \in [0,T]}\)</span>.This theory requires <span class="math inline">\((H_{s})_{s \in [0,T]}\)</span> to satisfy : <span class="math display">\[\int_{0}^{T}H^{2}_{s}d[M]_{s}&lt;\infty,\]</span> almost surely.</p>
+<p>Less exotic is the Lebesgue-Stieltjes theory of integration which says that if the continuous process <span class="math inline">\((A_{s})_{s \in [0,T]}\)</span> has almost surely finite first order variation <span class="math inline">\(V_{A}(t,\omega)\)</span> (see <a href="/math/2013/05/29/quadratic-variation-and-stochastic-integration.html" title="QUADRATIC VARIATION AND STOCHASTIC INTEGRATION">this post</a>), it induces a positive measure <span class="math inline">\(\mu_{\omega}\)</span> as well as a signed measure <span class="math inline">\(\nu_{\omega}\)</span> on [0,T] (with its Borel sigma field)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The trajectories of <span class="math inline">\((H_{s})_{s \in [0,T]}\)</span> being measurable with respect to the Borel sigma field on <span class="math inline">\([0,T]\)</span>, they are <span class="math inline">\(\mu_{\omega}\)</span> integrable if and only if (introducing a customary notation) :<span class="math display">\[\int_{0}^{T}|H_{s}(\omega)|d\mu_{\omega}=\int_{0}^{T}|H_{s}(\omega)|\,|dA
+|_{s}(\omega)&lt;\infty.\]</span> When this condition is met, one writes : <span class="math display">\[\int_{0}^{t}H_{s}(\omega)d\nu_{\omega}=\int_{0}^{t}H_{s}(\omega)dA_{s}(\omega).\]</span> In addition, the integral as a function of time is continuous and of bounded variation.</p>
+<p>We can thus integrate adequate predictable integrands against processes <span class="math inline">\((X_{s})_{s \in [0,T]}\)</span> which decompose as a sum of a continuous finite variation process and a continuous local martingale. Such processes are called continuous semimartingales. Suppose : <span class="math display">\[X_{s}=X_{0}+M_{s}+A_{s},\]</span> where <span class="math inline">\(X_{0}\)</span> is an <span class="math inline">\({\cal F}_{0}\)</span>-measurable variable, <span class="math inline">\((M_{s})_{s \in [0,T]}\)</span> is a continuous local martingale with <span class="math inline">\(M_{0}=0\)</span> and <span class="math inline">\((A_{s})_{s \in [0,T]}\)</span> is continuous and has almost surely finite variation on <span class="math inline">\([0,T]\)</span>, then we can define : <span class="math display">\[\int_{0}^{t}H_{s}dX_{s}=\int_{0}^{t}H_{s}dM_{s}+\int_{0}^{t}H_{s}dA_{s},\]</span> for predictable processes provided : <span class="math display">\[\int_{0}^{T}H^{2}_{s}d[M]_{s}+\int_{0}^{T}|H_{s}|\,|dA
+|_{s}&lt;\infty. \tag{*}\]</span> The integral <span class="math inline">\(\int_{0}^{t}H_{s}dX_{s}\)</span>, as a function of <span class="math inline">\(t\)</span> is a continuous process. The first integral in the decomposition <span class="math inline">\(\int_{0}^{t}H_{s}dM_{s}\)</span> is a continuous local martingale. The second is a continuous finite variation process.</p>
+<p>From a modelling perspective, we do not really need more than this. We can for instance allow prices to follow continuous semimartingales, and define portfolio value through a stochastic integral as explained in <a href="/finance/2013/04/06/portfolio-returns.html" title="PORTFOLIO RETURNS">this post</a>. We now know that the condition we need to impose on portfolio weights for all this to work is condition (*).</p>
+<p>From a mathematical point of view, one can still raise other interesting questions. Given a local continuous semimartingale <span class="math inline">\((X_{s})_{s \in [0,T]}\)</span>, can we find several distinct additive decompositions of <span class="math inline">\(X\)</span> into a continuous local martingale and a continuous finite variation process? If that was the case, we might end up with different results for <span class="math inline">\((\int_{0}^{t}H_{s}dX_{s})_{t \in [0,T]}\)</span> for different decompositions. Such a a decomposition is unique however so that we need not worry about indeterminacy.</p>
+<p>Another question we can raise is whether we could extend integration to a larger class of integrators. One can in effect allow for jumps both in the martingale and in the bounded variation components and define stochastic integration against general (not necessarily continuous) semimartingales<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. But one could still raise the question of whether we could not extend the space of integrators even further. This question has been investigated as follows : minimal properties stochastic integration should have are specified; one then looks for a characterization of the integrator processes <span class="math inline">\((X_{s})_{s \in [0,T]}\)</span> such that the stochastic integral of suitable predictable processes <span class="math inline">\((H_{s})_{s \in [0,T]}\)</span> (integrands) has the specified properties. The Bichteler Dellacherie theorem (cf. Protter[2005] p. 146) spells out the required properties of the integration operation<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and the integrand space<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Under these conditions, it shows that integrators have to be semimartingales in the sense of being decomposable. Semimartingales are thus the most general processes for which stochastic integration makes sense (within the assumptions of the Bichteler Dellacherie theorem). They can equivalently be defined through the above decomposition or through the property of being a proper integrator in the sense of the Bichteler Dellacherie theorem. The latter approach is the one used in Protter[2005].</p>
+<p>Reference : P.E. Protter[2005], <em>Stochastic Integration and Differential Equations</em>, Springer, 2005.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2013-09-22-continuous-semimartingales.pdf">Link to pdf</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>The measure <span class="math inline">\(\mu_{\omega}\)</span> ‘counts’ all the changes of <span class="math inline">\(|A|(\cdot,\omega)\)</span> whereas <span class="math inline">\(\nu_{\omega}\)</span> ‘counts’ the changes of <span class="math inline">\(A(\cdot,\omega)\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>A semimartingale has to be a cadlag adapted process however.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>The integral should coincide with the usual definition for simple integrands, should be linear in the integrand and should satisfy some sort of dominated convergence theorem.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>Integrands are assumed bounded predictable.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Math-ref">
+					Math <span>(9)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Processes-ref">
+					Processes <span>(5)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//math/2013/09/08/stochastic-integrals-and-localization.html" title="Stochastic Integration and Localization">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//math/2013/10/07/ito-calculus.html" title="Ito Calculus">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

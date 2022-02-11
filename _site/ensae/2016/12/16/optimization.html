@@ -1,0 +1,321 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Constrained Optimization</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Constrained Optimization </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   December 
+	   16th,
+	   
+	   2016
+	 </span>
+	  <div class="article_body">
+	  <p><em>This post collects constrained optimzation results for reference.</em></p>
+<hr />
+<h2 id="kuhn-tucker">Kuhn-Tucker</h2>
+<p>The presentation below is an adaptation of <em>Functional Analysis, Calculus of Variations and Optimal Control</em>, by Francis Clarke, Springer Verlag 2013 (Chapter <span class="math inline">\(9\)</span>).</p>
+<p>We start with the following data:</p>
+<ul>
+<li><span class="math inline">\(S\)</span> is a convex set of <span class="math inline">\(\mathbb{R}^{N}\)</span></li>
+<li><span class="math inline">\(f : S \to \mathbb{R}\)</span></li>
+<li><span class="math inline">\(f\)</span> is concave</li>
+<li><span class="math inline">\(g_{i} : S \to \mathbb{R},\, i=1,2,\ldots,m\)</span></li>
+<li>each <span class="math inline">\(g_{i}\)</span> is convex</li>
+<li><span class="math inline">\(h_{i} : S \to \mathbb{R},\, i=1,2,\ldots,n\)</span></li>
+<li>each <span class="math inline">\(h_{i}\)</span> is affine</li>
+</ul>
+<p>Program <span class="math inline">\(P\)</span>: <span class="math display">\[\underset{x}{\text{max}} \; f(x)\]</span> <span class="math display">\[\text{s.t.}:\]</span> <span class="math display">\[x \in S,\]</span> <span class="math display">\[h(x)=0,\]</span> <span class="math display">\[g(x)\leq 0.\]</span></p>
+<p><strong>Theorem (Kuhn-Tucker)</strong>: <em>Let <span class="math inline">\(x_{*}\)</span> be a solution of <span class="math inline">\(P\)</span>. Then there exists <span class="math inline">\((\eta_{*},\gamma_{*},\lambda_{*}) \in \mathbb{R}\times\mathbb{R}^{m}\times\mathbb{R}^{n}\)</span> satisfying (non triviality)</em>:</p>
+<p><span class="math display">\[(\eta_{*},\gamma_{*},\lambda_{*})\neq 0,\]</span> <em>as well as (positivity and complementary slackness)</em>: <span class="math display">\[\eta_{*}=0\; \textrm{or}\; 1,\, \gamma_{*}\geq 0, \,\langle\gamma_{*},g(x_{*})\rangle=0,\]</span> <em>and (maximization condition)</em>, <span class="math inline">\(\forall x \in S\)</span>: <span class="math display">\[\eta_{*} f(x)-\langle\gamma_{*},g(x)\rangle-\langle\lambda_{*},h(x)\rangle\leq \eta_{*} f(x_{*})-\langle\gamma_{*},g(x_{*})\rangle-\langle\lambda_{*},h(x_{*})\rangle=\eta_{*} f(x_{*}).\]</span></p>
+<p><span class="math inline">\({\scriptstyle \blacksquare}\)</span></p>
+<p>The proof of this proposition entails the analysis of the convex cone: <span class="math display">\[C=\{(f(x)-\delta,g(x)+\Delta,h(x)): \delta \geq 0,\Delta \geq 0, x\in S\},\]</span> around <span class="math inline">\(z_{*}=(f(x_{*}),0,0)\)</span>, which must lie on its boundary. One then uses the fact that there must exist a vector at <span class="math inline">\(z_{*}\)</span> that points towards the exterior of <span class="math inline">\(C\)</span> and such that the scalar product of this vector with any vector <span class="math inline">\(z-z_{*}\)</span> (where <span class="math inline">\(z\)</span> is in <span class="math inline">\(C\)</span>) is negative.</p>
+<h3 id="first-order-condition">First order condition</h3>
+<p>In the above theorem, the usual stationarity condition (first order condition) is replaced by a maximization condition. It is clear that if <span class="math inline">\(x_{*}\)</span> is in the interior of <span class="math inline">\(S\)</span> and that <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are differentiable at <span class="math inline">\(x_{*}\)</span>, the maximization condition implies: <span class="math display">\[\eta_{*} \nabla f(x)-\langle\gamma_{*},\nabla g(x)\rangle-\langle\lambda_{*},\nabla h(x)\rangle=0.\]</span></p>
+<h3 id="sufficiency">Sufficiency</h3>
+<p>When <span class="math inline">\(\eta_{*}=1\)</span> (the normal case), the maximization condition reads: <span class="math display">\[f(x)-\langle\gamma_{*},g(x)\rangle-\langle\lambda_{*},h(x)\rangle\leq f(x_{*}), \forall x \in S.\]</span> Since <span class="math inline">\(\gamma_{*}\geq 0\)</span>, we have <span class="math inline">\(\langle\gamma_{*},g(x)\rangle\leq 0\)</span> whenever <span class="math inline">\(x\)</span> satisfies the inequality constraint <span class="math inline">\(g(x)\leq 0\)</span>. In addition, under the set of constraints, <span class="math inline">\(h(x)=0\)</span>. We can thus conclude that: <span class="math display">\[f(x) \leq f(x_{*}), \forall x \in S,\, g(x)\leq 0,\, h(x)=0,\]</span> and we can conclude that <span class="math inline">\(x_{*}\)</span> is optimum, i.e. the conditions in the theorem are also sufficient.</p>
+<h3 id="slater-condition">Slater condition</h3>
+<p><strong>Theorem (Slater conditions)</strong>: <em>Assume that there exists a strictly admissible point <span class="math inline">\(x_{0}\)</span> for <span class="math inline">\(P\)</span>, i.e.</em>: <span class="math display">\[x_{0}\in \text{int}S,\, g(x_{0})&lt;0,\, h(x_{0})=0,\]</span> <em>and the affine functions of the equality constraints are independent. Then the multiplier of the Kuhn-Tucker Theorem satisfies <span class="math inline">\(\eta_{*}=1\)</span>.</em></p>
+<p><span class="math inline">\({\scriptstyle \blacksquare}\)</span></p>
+<h3 id="saddle-point-property">Saddle point property</h3>
+<p>Assume <span class="math inline">\(x_{*}\)</span> and <span class="math inline">\((1,\gamma_{*},\lambda_{*})\)</span> are the multiplier of problem <span class="math inline">\(P\)</span>. The maximization condition in the Kuhn-Tucker theorem reads: <span class="math display">\[f(x)-\langle\gamma_{*},g(x)\rangle-\langle\lambda_{*},h(x)\rangle\leq f(x_{*})-\langle\gamma_{*},g(x_{*})\rangle-\langle\lambda_{*},h(x_{*})\rangle=f(x_{*}), \forall x \in S.\]</span> Now, since <span class="math inline">\(\gamma_{*}\geq 0\)</span> and <span class="math inline">\(g(x_{*})\leq 0\)</span>, we have <span class="math inline">\(\langle\gamma,g(x_{*})\rangle\geq 0\)</span> for all <span class="math inline">\(\gamma\geq 0\)</span> with equality for <span class="math inline">\(\gamma_{*}\)</span> (complementary slackness). We also have <span class="math inline">\(\langle\lambda,h(x_{*})\rangle=0\)</span>. As a result we have: <span class="math display">\[f(x)-\langle\gamma_{*},g(x)\rangle-\langle\lambda_{*},h(x)\rangle\leq f(x_{*})\leq f(x_{*})-\langle\gamma,g(x_{*})\rangle-\langle\lambda,h(x_{*})\rangle,\]</span> <span class="math display">\[\forall x \in S,\, \gamma \geq 0,\, \lambda.\]</span> This is the famous saddle point property for the Lagrangian of the constrained optimization problem.</p>
+<h3 id="multipliers-as-derivatives-of-the-value-function">Multipliers as derivatives of the value function</h3>
+<p>One can consider the following maximization problem, noted <span class="math inline">\(P(\alpha,\beta)\)</span>: <span class="math display">\[\underset{x}{\text{max}} \; f(x)\]</span> <span class="math display">\[\text{s.t.}:\]</span> <span class="math display">\[x \in S,\]</span> <span class="math display">\[h(x)=\beta,\]</span> <span class="math display">\[g(x)\leq \alpha.\]</span></p>
+<p><strong>Theorem</strong>: <em>Assuming there is a solution <span class="math inline">\(x_{*}\)</span> to problem <span class="math inline">\(P\)</span> where the Slater condition is satisfied. Define <span class="math inline">\(V(\alpha,\beta)\)</span> as the value function of <span class="math inline">\(P(\alpha,\beta)\)</span>. Then, <span class="math inline">\(V(\cdot,\cdot)\)</span> is concave with values in <span class="math inline">\([-\infty,+\infty)\)</span>. The vector <span class="math inline">\((1,\gamma,\lambda)\)</span> is a multiplier associated to <span class="math inline">\(x_{*}\)</span> if and only if <span class="math inline">\((\gamma,\lambda)\)</span> is such that</em>: <span class="math display">\[V(\alpha,\beta)\leq V(0,0)+\langle\gamma,\alpha\rangle+\langle\lambda,\beta\rangle.\]</span></p>
+<p><span class="math inline">\({\scriptstyle \blacksquare}\)</span></p>
+<p>The vector <span class="math inline">\((\gamma,\lambda)\)</span> is called the superdifferential of the concave value function at <span class="math inline">\((0,0)\)</span>. If <span class="math inline">\(V(\cdot,\cdot)\)</span> is differentiable, <span class="math inline">\(\gamma\)</span> is the partial derivative with respect to <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\lambda\)</span> is the partial derivative with respect to <span class="math inline">\(\beta\)</span>.</p>
+<h3 id="remark">Remark</h3>
+<p>The most confusing aspect in the multiplier rule is perhaps the choice of the sign of the multiplier in the case of inequality constraints. In other words, how should we choose to formulate the Lagrangian? The logic is as follows. When the inequality constraint is of the form <span class="math inline">\(g(x)\leq 0\)</span> and the problem is a maximization one, the multiplier rule should be that at the optimum, increasing <span class="math inline">\(f\)</span> should require increasing <span class="math inline">\(g\)</span>. Gradients therefore have to be colinear (up to the adjustment for the equality constraints) with a positive constant of proportionality. In the expression below: <span class="math display">\[\nabla f(x)=\langle\gamma_{*},\nabla g(x)\rangle+\langle\lambda_{*},\nabla h(x)\rangle,\]</span> <span class="math inline">\(\gamma\)</span> should be positive. This pins down the form of the Lagrangian. Should the constraint be <span class="math inline">\(g(x)\geq 0\)</span>, the sign of <span class="math inline">\(\gamma\)</span> would have to be reversed.</p>
+<h3 id="envelope-theorem">Envelope Theorem</h3>
+<p>The penultimate section gives the derivatives of the value function with respect to the parameters of the constraint. One can understand this rule adapting an argument usually coined the envelope theorem. The envelope theorem concerns the maximization problem:</p>
+<p><span class="math display">\[\underset{x}{\text{max}} \; f(x,t)\]</span> <span class="math display">\[\text{s.t.}:\]</span> <span class="math display">\[x \in S,\]</span> where <span class="math inline">\(t\)</span> is for instance a real parameter, <span class="math inline">\(S\)</span> is a convex subset of <span class="math inline">\(\mathbb{R}\)</span> (say) and <span class="math inline">\(f\)</span> is assumed continuously differentiable in both variables. Whenever this problem has an interior solution (i.e. in the interior of <span class="math inline">\(S\)</span>) <span class="math inline">\(x^{*}(t)\)</span> for <span class="math inline">\(t\)</span> in an interval <span class="math inline">\(I=]t_{0},t_{1}[\)</span>, then, the value function attached to this problem satisfies (assuming this value function is differentiable)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>: <span class="math display">\[V&#39;(t)=\frac{\partial f}{\partial t}(x^{*}(t),t),\]</span> in this interval. In other words, the derivative of the value function can be computed as if the command was fixed at <span class="math inline">\(x^{*}(t)\)</span> in the marginal experiment. Indeed, we have: <span class="math display">\[\frac{\partial f}{\partial x}(x^{*}(t),t)=0,\]</span> so that this term drops out in the variation of <span class="math inline">\(f\)</span>: <span class="math display">\[dV=\frac{\partial f}{\partial x}(x^{*}(t),t)dx+\frac{\partial f}{\partial t}(x^{*}(t),t)dt.\]</span></p>
+<p>The envelope theorem derives its name from the geometric situation. For each <span class="math inline">\(t\)</span>, the function <span class="math inline">\(f(\cdot,t)\)</span> corresponds to a curve <span class="math inline">\({\cal C}_{t}\)</span>. The curve corresponding to <span class="math inline">\(V(\cdot)\)</span> is the upper envelope of the <span class="math inline">\({\cal C}_{t}\)</span>’s. Now the tangent to the upper envelope at point <span class="math inline">\(t\)</span> is equal to the tangent to the supporting curve <span class="math inline">\({\cal C}_{t}\)</span> at this same point.</p>
+<p>Applied to the constrained optimization context, this means that we can evaluate the change in the value function when constraints change by choosing a second best candidate to the choice of <span class="math inline">\(x\)</span>. This second best should make full use of the relaxation of the constraints however. The reasoning is sketched below.</p>
+<p>Let <span class="math inline">\(x^{*}(\alpha,\beta)\)</span> be the optimal solution as a function of parameters. Consider a small change from <span class="math inline">\((0,0)\)</span> to <span class="math inline">\((\alpha,\beta)\)</span>. We can decompose the change in the value function as follows. We move the choice of <span class="math inline">\(x\)</span> from <span class="math inline">\(x^{*}(0,0)\)</span> to <span class="math inline">\(\hat{x}(\alpha,\beta)\)</span> where <span class="math inline">\(\hat{x}(\alpha,\beta)\)</span> is built to keep saturated constraints satisfied for the new parameters <span class="math inline">\((\alpha,\beta)\)</span> (I write the change in <span class="math inline">\(g\)</span> as if all inequality constraints were saturated; one should in fact keep track of the indices of saturated constraints but the argument goes through unchanged, using the slackness condition in the last step below): <span class="math display">\[\langle\nabla_{x^{*}(0,0)}g,\hat{x}(\alpha,\beta)-x^{*}(0,0)\rangle=\alpha,\]</span> <span class="math display">\[\langle\nabla_{x^{*}(0,0)}h,\hat{x}(\alpha,\beta)-x^{*}(0,0)\rangle=\beta.\]</span> We then move from <span class="math inline">\(\hat{x}(\alpha,\beta)\)</span> to <span class="math inline">\(x^{*}(\alpha,\beta)\)</span>. Both points <span class="math inline">\(\hat{x}(\alpha,\beta)\)</span> and <span class="math inline">\(x^{*}(\alpha,\beta)\)</span> satisfy the constraints <span class="math inline">\(g(x)\leq\alpha\)</span> and <span class="math inline">\(h(x)=\beta\)</span>, and given that <span class="math inline">\(x^{*}(\alpha,\beta)\)</span> is optimal under the constraint, the change in the value of <span class="math inline">\(f\)</span> along this move is negligible. The change in the value function can thus be computed as: <span class="math display">\[\langle\nabla_{x^{*}(0,0)}f,\hat{x}(\alpha,\beta)-x^{*}(0,0)\rangle.\]</span> Using the multiplier rule to replace <span class="math inline">\(\nabla_{x^{*}(0,0)}f\)</span> by <span class="math inline">\(\langle\gamma_{*},\nabla g(x)\rangle+\langle\lambda_{*},\nabla h(x)\rangle\)</span>, this leads to (after some easy calculations): <span class="math display">\[\langle\nabla_{x^{*}(0,0)}f,\hat{x}(\alpha,\beta)-x^{*}(0,0)\rangle=\langle\gamma,\alpha\rangle+\langle\lambda,\beta\rangle.\]</span></p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2016-12-16-optimization.pdf">Link to pdf</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>For a rigorous discussion of envelope theorems, you might want to check Milgrom-Segal, 2002, ‘Envelope Theorems for Arbitrary Choice Sets’, <em>Econometrica</em> 70 (2):583-601.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Ensae-ref">
+					Ensae <span>(20)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Math-ref">
+					Math <span>(2)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//ensae/2016/12/15/solexam.html" title="Solution of the Exam (2016)">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//ensae/2017/01/13/completecont.html" title="The Martingale Method in Continuous Time">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

@@ -1,0 +1,307 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>The Volatility-Drag</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>The Volatility-Drag </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   March 
+	   4th,
+	   
+	   2014
+	 </span>
+	  <div class="article_body">
+	  <p><em>I review the impact on the future price level of random noise in the return process. This effect operates through the non-linearity of compounding. I look at how an increased level of volatility changes the price trajectories. Normally distributed (say) return variability lowers the median of the price distribution and skews it towards the upside. Over time, the skew increases as compounding operates. The majority of price trajectories are depressed by volatility. The mean price level is however unaffected as the lower trajectories are made up by a few ‘explosive’ ones. This will be important to bear in mind when discussing portfolio choice and the effect of portfolio rebalancing.</em></p>
+<hr />
+<p>Volatility and compounding Consider a set of yearly returns (say) <span class="math inline">\((r_{t})_{t=1,\ldots,T}\)</span>. The compounded return over the period <span class="math inline">\([0,T]\)</span> is: <span class="math display">\[(1+r_{1})\cdots(1+r_{T}).\]</span> If we want to assess the impact of the variability of returns, we might wish to compare this to <span class="math inline">\((1+\bar{r})^{T},\)</span> where: <span class="math display">\[\bar{r}=\frac{1}{T}\sum_{t=1}^{T} r_{t}.\]</span> Introducing the deviations to the mean <span class="math inline">\(\varepsilon_{t}=r_{t}-\bar{r}\)</span> (<span class="math inline">\(t=1,\ldots,T\)</span>), we now need to compare: <span class="math display">\[(1+\bar{r}+\varepsilon_{1})\cdots(1+\bar{r}+\varepsilon_{T})\]</span> and <span class="math inline">\((1+\bar{r})^{T}\)</span>. This is equivalent to comparing <span class="math inline">\(1/T\)</span> times the logs of these quantities, but then the inequality: <span class="math display">\[\frac{1}{T}\sum_{t=1}^{T}
+\log(1+\bar{r}+\varepsilon_{t})\leq
+\log(\frac{1}{T}\sum_{t=1}^{T}r_{t})=\log(1+\bar{r}),\]</span> is a simple consequence of the concavity of the log<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Given that the log is strictly concave, we know that the inequality is strict unless the return series is constant. A simple second order approximation of the log function yields: <span class="math display">\[\frac{1}{T}\sum_{t=1}^{T}
+\log(1+\bar{r}+\varepsilon_{t}) \approx
+\log(1+\bar{r})-\frac{1}{2}\frac{1}{(1+\bar{r})^{2}}Var(\varepsilon),\]</span> where <span class="math inline">\(Var(\varepsilon)\)</span> is the empirical variance of return shocks: <span class="math display">\[Var(\varepsilon)=\frac{1}{T}\sum_{t=1}^{T}\varepsilon_{t}^{2}.\]</span> The former relationship can be read as linking the geometric mean return and the arithmetic mean: <span class="math display">\[\left(\prod_{t=1}^{T}(1+r_{t})\right)^{1/T} \approx
+\exp\left(\log(1+\bar{r})-\frac{1}{2}\frac{1}{(1+\bar{r})^{2}}Var(\varepsilon)\right).\]</span> We thus see that variability in the returns <span class="math inline">\((r_{t})_{t=1,\ldots,T}\)</span> lowers the compounded return. Of course, this result hinges on the anchoring of the <em>standard mean return</em>. In other words, the volatlity-drag is obtained when holding the average standard return constant and increasing the dispersion of realized standard returns around it. Variability in log-returns for a given mean log-return would have no effect on compounding<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. The volatility-drag should not be over-interpreted. I now look at the consequences of volatility in more structured models of price dynamics, starting with the discrete time log normal model presented in <a href="/finance/2014/02/03/discrete-time-lognormal-dynamics.html" title="LOG-NORMAL-DYNAMICS">this post</a>.This will allow to identify the impact of volatility on the <strong>distribution</strong> of compounded returns and thereby better understand the volatility-drag. To simplify the description, I assume the expected returns <span class="math inline">\((r_{t})_{t=1,\cdots,T}\)</span> and volatilities <span class="math inline">\((\sigma_{t})_{t=1,\cdots,T}\)</span> are deterministic. In this setup, the compounded return over <span class="math inline">\(T\)</span> periods is: <span class="math display">\[\prod_{t=1}^{T}\exp(r_{t}+\sigma_{t}\varepsilon_{t}-\frac{1}{2}\sigma_{t}^{2})=\exp(\sum_{t=1}^{T}
+r_{t}+\sum_{t=1}^{T}\sigma_{t}\varepsilon_{t}-\sum_{t=1}^{T}\frac{1}{2}\sigma_{t}^{2}).\]</span> The median realization of <span class="math inline">\(\sum_{t=1}^{T}\sigma_{t}\varepsilon_{t}\)</span> is zero and under this scenario, the compounded return is just: <span class="math display">\[\exp(\sum_{t=1}^{T}
+r_{t}-\sum_{t=1}^{T}\frac{1}{2}\sigma_{t}^{2}).\]</span> The mean of the compounded return however is: <span class="math display">\[E_{0}\left[\exp(\sum_{t=1}^{T}
+r_{t}+\sum_{t=1}^{T}\sigma_{t}\varepsilon_{t}-\sum_{t=1}^{T}\frac{1}{2}\sigma_{t}^{2})\right]=\exp(\sum_{t=1}^{T}
+r_{t}).\]</span> It is therefore apparent that volatility lowers the median compounded return but not the mean compounded return. Compared to the median, the mean is pushed upwards by the right tail of the distribution of shocks. This reflects the convexity of the exponential function! Volatility drives a constant wedge between the mean and the median. This has strong consequences over the long run. Assume <span class="math inline">\(t\)</span> measures time in years, the annualized compounded return can be written: <span class="math display">\[\exp\left(\frac{1}{T}\left(\sum_{t=1}^{T}
+r_{t}-\sum_{t=1}^{T}\frac{1}{2}\sigma_{t}^{2}\right)+\frac{1}{T}\left(\sum_{t=1}^{T}\sigma_{t}\varepsilon_{t}\right)\right).
+\]</span> It is easy to design conditions such that as <span class="math inline">\(T\)</span> goes to infinity: <span class="math display">\[\frac{1}{T}\left(\sum_{t=1}^{T}
+r_{t}-\sum_{t=1}^{T}\frac{1}{2}\sigma_{t}^{2}\right)
+\rightarrow c,\]</span> where <span class="math inline">\(c\)</span> is a constant, and (law of large numbers) almost surely: <span class="math display">\[\frac{1}{T}\left(\sum_{t=1}^{T}\sigma_{t}\varepsilon_{t}\right)\rightarrow
+0.\]</span> This means that in the long run, annualized returns get very close to the median return and the right tail of the annualized return distribution (i.e. the upside) becomes negligible. Volatility indeed drags down the annualized return with probability one in the long run. This suggests that a long term investor might choose a portfolio so as to maximize <span class="math inline">\(c\)</span>. Although the annualized return converges to <span class="math inline">\(c\)</span>, the set of non annualized compounded returns still contain trajectories which are much above <span class="math inline">\(cT\)</span> as the volatility of the ‘compounded’ return shock: <span class="math display">\[\sum_{t=1}^{T}\sigma_{t}\varepsilon_{t},\]</span> grows like: <span class="math display">\[\left(\sum_{t=1}^{T}\sigma_{t}^{2}\right)^{1/2} \propto
+\sqrt{T}.\]</span> From a finite horizon investment perspective finally, whether volatility is good or bad depends on how you weigh the different scenarios into your investment objective. It thus depends on the chosen utility function. When the utility function is logarithmic, the investor indeed maximizes <span class="math inline">\(c\)</span>. This whole topic will require a specific development. Continuous time Unsurprisingly, the same reasoning can be carried out in continuous time using the standard geometric diffusions to model the price process: <span class="math display">\[\frac{dP_{t}}{P_{t}}=r_{t}dt+\sigma_{t}dW_{t}.\]</span> The only difference to the discrete case above is that sums are replaced by integrals. Conditions have to be designed such that for instance (law of large numbers)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>: <span class="math display">\[\frac{1}{T}\left(\int_{0}^{T}\sigma_{t}dW_{t}\right)\rightarrow
+0,\]</span> almost surely as <span class="math inline">\(T\)</span> goes to infinity. When this is satisfied, the long run annualized return is characterized by: <span class="math display">\[\exp\left(\frac{1}{T}\left(\int_{0}^{T}
+r_{t}dt-\int_{0}^{T}\frac{1}{2}\sigma_{t}^{2}dt\right)\right).\]</span> When comparing asset returns in the long run, one can then concentrate on the log of the above quantity, i.e.: <span class="math display">\[\frac{1}{T}\left(\int_{0}^{T}
+(r_{t}-\frac{1}{2}\sigma_{t}^{2})dt\right).\]</span> Some authors (for example Fernholz[2002]) call <span class="math inline">\((r_{t}-\frac{1}{2}\sigma_{t}^{2})\)</span> the growth rate of the security although this might be a bit misleading.   <strong>Notes and references:</strong> There is a literature that argues that investors should optimize the growth rate <span class="math inline">\((r_{p,t}-\frac{1}{2}\sigma_{p,t}^{2})\)</span> of a portfolio <span class="math inline">\(p\)</span>. This is usually called the Kelly approach to investing. In the economic tradition, one starts with a utility function, and maximizes the utility of (say) terminal wealth. One can recover the Kelly investment rule by using a logarithmic utility function. More generally, optimal portfolios generated through a utility function contain a fraction of the Kelly optimal portfolio. For a recent review of the interaction between volatility and growth, see for instance Dempster[2007].  </p>
+<hr />
+<p>Dempster, M.A.H, Evstigneev, I.V., and Shenk-Hoppé, K.R. [2007], ‘Volatility-Induced Financial Growth’, <em>Quantitative Finance</em>, Vol 7 No. 2, April 2007, 151-260.</p>
+<p>Fernholz, E.R. [2002], <em>Stochastic Portfolio Theory</em>, Springer.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2014-03-04-volatility-drag.pdf">Link to pdf</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>For a concave function <span class="math inline">\(f(\cdot)\)</span> (<span class="math inline">\(\mathbb{R} \rightarrow \mathbb{R}\)</span>), if <span class="math inline">\(\sum_{i=1}^{n}\lambda_{i}x_{i}\)</span> is a convex combination of <span class="math inline">\((x_{i})_{i=1,\cdots,n}\)</span>, we have: <span class="math display">\[\sum_{i=1}^{n}\lambda_{i}f(x_{i}) \leq
+f(\sum_{i=1}^{n}\lambda_{i}x_{i}).\]</span> This property can be used to characterize concavity.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>One could therefore say that the volatility-drag is purely an artefact of the choice of units. Returns ar not measured in decibels, so to speak (decibels is a logarithmic scale for sound).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>In Fernholz[2002], section 1.3, Fernholz shows that the law of large numbers holds if <span class="math inline">\(\lim_{t \rightarrow \infty} t^{-2}\left(\int_{0}^{t}\sigma_{u}^{2}du\right)\log(\log(t))=0.\)</span> The proof of this fact hinges on the time changing technique and the law of interated logarithm for the Brownian motion.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Finance-ref">
+					Finance <span>(9)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Volatility-ref">
+					Volatility <span>(2)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//finance/2014/02/03/discrete-time-lognormal-dynamics.html" title="Discrete Time Lognormal Dynamics">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//ensae/2014/10/06/warning.html" title="Foreword to the ENSAE Course in Portf. Choice">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

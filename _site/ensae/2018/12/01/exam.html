@@ -1,0 +1,313 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Exam (2017)</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Exam (2017) </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   December 
+	   1st,
+	     
+	   2018
+	 </span>
+	  <div class="article_body">
+	  <p><em>This is the exam for the 2017 ensae course.</em></p>
+<hr />
+<h2 id="notations">Notations</h2>
+<p>I consider an investment universe composed of cash (index <span class="math inline">\(i=0\)</span>) with return <span class="math inline">\(r\)</span> and <span class="math inline">\(N\)</span> risky assets (indices <span class="math inline">\(i=1,\ldots,N\)</span>) with expected returns <span class="math inline">\(\mu=(\mu_{1},\ldots,\mu_{N})&#39;\)</span> and covariance matrix <span class="math inline">\(\Sigma\)</span> (dimension <span class="math inline">\((N,N)\)</span>). Each investor builds a portfolio <span class="math inline">\(\pi=(\pi_{0},\tilde{\pi})\)</span> where <span class="math inline">\(\pi_{0}\)</span> is the proportion of wealth invested in cash and <span class="math inline">\(\tilde{\pi}\)</span> is a vector of size <span class="math inline">\((N,1)\)</span> recording the proportions invested on the risky assets. The portfolio vector satisfies the following contraint: <span class="math display">\[\pi_{0}+\tilde{\pi}&#39;e=1,\]</span> where <span class="math inline">\(e\)</span> is the vector of size <span class="math inline">\(N\)</span> with all components equal to <span class="math inline">\(1\)</span>.</p>
+<h2 id="part-1">Part <span class="math inline">\(1\)</span></h2>
+<h2 id="exercise-1">Exercise 1</h2>
+<p>Investor preferences are assumed quadratic (expected utility): <span class="math display">\[\pi_{0}r+\tilde{\pi}&#39;\mu-\frac{\rho}{2}\tilde{\pi}&#39;\Sigma\tilde{\pi},\]</span> indexed by <span class="math inline">\(\rho&gt;0\)</span>.</p>
+<ol type="1">
+<li><p>Let’s assume investors access risky assets exclusively through a portfolio <span class="math inline">\(\tilde{\pi}_{e}\)</span> (satisfying <span class="math inline">\(\tilde{\pi}_{e}&#39;e=1\)</span>), with expected return <span class="math inline">\(\mu_{e}\)</span> and variance <span class="math inline">\(\sigma_{e}^{2}\)</span>. Let <span class="math inline">\(\hat{\pi}_{\rho}\)</span> be the proportion of portfolio <span class="math inline">\(\tilde{\pi}_{e}\)</span> bought by an investor with parameter <span class="math inline">\(\rho\)</span> (her risky asset portfolio is therefore <span class="math inline">\(\tilde{\pi}_{\rho}=\hat{\pi}_{\rho}\tilde{\pi}_{e}\)</span>). Compute <span class="math inline">\(\tilde{\pi}_{\rho}\)</span>.</p></li>
+<li><p>Given the situation described in question 1, all investors hold different proportions of the index <span class="math inline">\(\tilde{\pi}_{e}\)</span>. We are now interested in marginal changes in risky asset positions investors could make to improve their expected utility level. Compute the gradient of expected utility of investor <span class="math inline">\(\rho\)</span>, measured at <span class="math inline">\(\tilde{\pi}_{\rho}\)</span>.</p></li>
+<li><p>Show that the gradient is independent of <span class="math inline">\(\rho\)</span>, and that component <span class="math inline">\(i\)</span> is equal to: <span class="math display">\[(\mu_{i}-r)-\beta_{i,e}\eta,\]</span> where <span class="math inline">\(\beta_{i,e}\)</span> is the beta of asset <span class="math inline">\(i\)</span> with respect to the index (the beta of <span class="math inline">\(y\)</span> with respect to <span class="math inline">\(x\)</span> is <span class="math inline">\(\text{Cov}(y,x)/\text{Var}(x)\)</span>) and <span class="math inline">\(\eta\)</span> is a constant that will be expressed as a return.</p></li>
+<li><p>To improve expected utility, one can move positions in the direction given by the gradient. Explain why all investors agree on the assets to buy and sell in this process.</p></li>
+</ol>
+<h2 id="part-2">Part <span class="math inline">\(2\)</span></h2>
+<p>In this part, the returns of the assets between date <span class="math inline">\(t-1\)</span> and date <span class="math inline">\(t\)</span> will be noted <span class="math inline">\(R_{i,t}\)</span> while the rates of return are written <span class="math inline">\(r_{i,t}\)</span>. The vector (of size <span class="math inline">\((N+1,1)\)</span>) of returns is <span class="math inline">\(R_{t}\)</span>. Note that this vector contains the cash return. I assume initially that the sequence of returns is i.i.d.. As usual, the vector of size <span class="math inline">\((N+1,1)\)</span> with all components equal to <span class="math inline">\(1\)</span> is noted <span class="math inline">\(e\)</span>.</p>
+<p>Let <span class="math inline">\(w_{t}\)</span> be the level of wealth. At any date <span class="math inline">\(t&lt;T\)</span>, the investor maximizes the expected value of the log of wealth at horizon <span class="math inline">\(T\)</span>.</p>
+<h2 id="exercice-2">Exercice 2</h2>
+<ol type="1">
+<li><p>Describe the optimization program and define the value function.</p></li>
+<li><p>Give the dynamic programming equation between date <span class="math inline">\(t\)</span> and <span class="math inline">\(t+1\)</span>.</p></li>
+<li><p>Using backward induction, show that the value function has the following structure: <span class="math display">\[V_{t}(w_{t})=\log(w_{t})+A_{t},\]</span> where <span class="math inline">\(A_{t}\)</span> is a constant. Conclude that the investor solves the same optimization problem (which one ?) at each date <span class="math inline">\(t\)</span>.</p></li>
+<li><p>Give the first order condition of the problem identified in question <span class="math inline">\(3\)</span>. Is this condition sufficient ?</p></li>
+</ol>
+<p>We now assume that there is a solution to the optimization problem identified in question <span class="math inline">\(3\)</span>.</p>
+<ol start="5" type="1">
+<li>Assume that an investor with infinite investment horizon solves the sequential optimization problem defined above. This leads to a same optimal portfolio <span class="math inline">\(\pi_{*}\)</span> being chosen in each period. Prove that this policy beats any other static portfolio choice <span class="math inline">\(\pi\neq\pi_{*}\)</span>.</li>
+</ol>
+<p>I now drop the assumption that returns are i.i.d.. The conditional distribution <span class="math inline">\({\cal L}_{t}(R_{t+1})\)</span> of period <span class="math inline">\(t+1\)</span> returns as seen from period <span class="math inline">\(t\)</span> is supposed to be characterized by a markovian state variable <span class="math inline">\(x_{t}\)</span>. More generally, we assume that for any random variable <span class="math inline">\(y_{t+1}\)</span>: <span class="math display">\[E_{t}[y_{t+1}]=E[y_{t+1}|x_{t}].\]</span> It is reminded that <span class="math inline">\(E[y_{t+1}|x_{t}]\)</span> can be written <span class="math inline">\(g(x_{t})\)</span> where the function <span class="math inline">\(g(\cdot)\)</span> is specific to the random variable <span class="math inline">\(y_{t+1}\)</span>.</p>
+<p>The optimization problem is otherwise unchanged.</p>
+<ol start="6" type="1">
+<li><p>Define the state variable of the new problem, and give the new dynamic programming equation.</p></li>
+<li><p>Show that the value function now has the following structure: <span class="math display">\[V_{t}(x_{t},w_{t})=\log(w_{t})+A_{t}(x_{t}).\]</span></p></li>
+<li><p>Which optimization problem is solved at each date as a result ? The solution will be noted <span class="math inline">\(\pi_{t}^{*}(x_{t})\)</span>.</p></li>
+</ol>
+<p>I remind that a martingale difference is a process <span class="math inline">\((z_{t})_{t\in \mathbb{N}}\)</span> satisfying <span class="math inline">\(E_{t}[z_{t+1}]=0\)</span>. We will admit that under some condition on second moments, almost surely: <span class="math display">\[\lim_{T \rightarrow +\infty}\frac{1}{T}\sum_{t=1}^{T}z_{t}=0.\]</span></p>
+<ol start="9" type="1">
+<li><p>We now want to extend the result of question <span class="math inline">\(5\)</span> to the new context. An investor chooses at each date the portfolio <span class="math inline">\(\pi_{t}(x_{t})\)</span>. Show that asymptotically, the wealth process generated by <span class="math inline">\(\pi_{t}^{*}(x_{t})\)</span> dominates that generated by <span class="math inline">\(\pi_{t}(x_{t})\)</span>.</p></li>
+<li><p>Extend the above results to the continuous time context, starting with the i.i.d. case.</p></li>
+</ol>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2018-12-01-exam.pdf">Link to pdf</a></li>
+</ul>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Ensae-ref">
+					Ensae <span>(20)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Exams-ref">
+					Exams <span>(7)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//ensae/2017/01/13/completecont.html" title="The Martingale Method in Continuous Time">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//ensae/2018/12/03/exam.html" title="Exam (2018)">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

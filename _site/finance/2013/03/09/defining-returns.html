@@ -1,0 +1,308 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Defining Returns</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Defining Returns </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   March 
+	   9th,
+	   
+	   2013
+	 </span>
+	  <div class="article_body">
+	  <p><em>This post reviews the definition of returns. It looks at discrete time returns and log returns as well as at the operation of compounding. In the log return context, return compounding becomes additive, which proves very convenient. Log returns however depend in a non additive way in the components of returns (dividends and price appreciation)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Continuous compounding arises as the discretization grid get finer. Continuous time often lends itself to closed analytical formulas.</em></p>
+<hr />
+<h1 id="single-period-returns">Single period returns</h1>
+<p>Discrete time does not demand much mathematical sophistication, at least at first sight. Dates at which data are observed are forced to belong to a grid <span class="math inline">\(t=0, \delta, 2\delta, 3\delta, \ldots\)</span> where <span class="math inline">\(1/\delta\)</span> can be conveniently set a to natural number. If, as is customary, <span class="math inline">\(1\)</span> corresponds to a year, we get a quarterly grid when <span class="math inline">\(1/\delta\)</span> is set to <span class="math inline">\(4\)</span>. The price <span class="math inline">\((P_{t})\)</span> of an asset will be defined on those dates only, as will income payments <span class="math inline">\((D_{t})\)</span>. In this context, the rate of return of the asset over the time interval <span class="math inline">\([t,t+\delta],\)</span> is defined as: <span class="math display">\[R_{t+\delta}=\frac{P_{t+\delta}-P_{t}+D_{t+\delta}}{P_{t}}=\frac{\Delta
+P_{t+\delta}+D_{t+\delta}}{P_{t}}=\frac{P_{t+\delta}+D_{t+\delta}}{P_{t}}-1,\]</span> or through:<br />
+<span class="math display">\[1+R_{t+\delta}=\frac{P_{t+\delta}+D_{t+\delta}}{P_{t}}.\]</span></p>
+<p>The interpretation of the time interval is key. If <span class="math inline">\(\delta =1/4\)</span> is interpreted as a quarter, the above return is a quarterly return. It is practical to define an arithmetically annualized return <span class="math inline">\(\tilde{R}_{t+\delta}\)</span> (multiplying <span class="math inline">\(R_{t+\delta}\)</span> by <span class="math inline">\(1/\delta\)</span>; this is not as neat as we would like however since arithmetic compounding is not valid in this context - see below the compounding section) and similarly an arithmetically annualized income payment <span class="math inline">\(\tilde{D}_{t+\delta}\)</span> leading to the following equation: <span class="math display">\[\frac{\Delta
+P_{t+\delta}+\tilde{D}_{t+\delta}\delta}{P_{t}}=\tilde{R}_{t+\delta}\delta\]</span><br />
+This clearly looks like a geometric differential equation:<br />
+<span class="math display">\[\frac{dP_{t}+\tilde{D}_{t}dt}{P_{t}}=\tilde{R}_{t}dt.\]</span></p>
+<h1 id="compounding">Compounding</h1>
+<p>Returns computed across several time intervals require some care. Assume an investor buys the financial instrument at date <span class="math inline">\(t\)</span> and manages to receive over each elementary time interval the return <span class="math inline">\(R_{t+k\delta}\)</span> for <span class="math inline">\(k=1,\ldots, N\)</span> (this involves reinvesting income into the contract; the quantity invested in the contract thus changes at each date). One can then compute the cumulated return as the product: <span class="math display">\[1+R_{t\rightarrow t+N\delta}=(1+R_{t+\delta})\cdots
+(1+R_{t+N\delta}).\]</span><br />
+For <span class="math inline">\(N=1/\delta\)</span>, we get an annual return.</p>
+<p>Annualization is a geometric operation. One can use the logarithmic function to describe compounding as an arithmetic operation instead. Setting: <span class="math display">\[r_{t}=\log(1+R_{t}),\]</span><br />
+we then have: <span class="math display">\[1+R_{t\rightarrow
+t+N\delta}=\exp\left(r_{t\rightarrow
+t+N\delta}\right)=\exp\left(r_{t+\delta}+\cdots+r_{t+N\delta}\right).\]</span><br />
+All compounding operations applied to log-returns are arithmetic, including annualization.</p>
+<p>Within the log return set-up, the difference equation reads:<br />
+<span class="math display">\[\log(1+\frac{\Delta
+P_{t+\delta}+D_{t+\delta}}{P_{t}})=\tilde{r}_{t+\delta}\delta\]</span> where <span class="math inline">\(\tilde{r}_{t+\delta}\)</span> is, adequately this time, the arithmetically annualized log return (<span class="math inline">\(r_{t+\delta}=\tilde{r}_{t+\delta}\delta\)</span>). The drawback of this scheme is that:<span class="math display">\[\log(\frac{\Delta
+P_{t+\delta}+D_{t+\delta}}{P_{t}}),\]</span> is not additive in the two components of the return, the price return and the dividend yield.</p>
+<h1 id="continuous-time">Continuous time</h1>
+<p>We have thus seen that in discrete time, we face a few hurdles. Compounding is geometric and this suggests to concentrate on log-returns. But for log returns, the return decomposition into price return and dividend yield is non-linear. Continuous time is analytically simpler. It can be recovered by letting the discretization get finer and finer. The return equation then becomes<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>: <span class="math display">\[\frac{dP_{t}+\tilde{D}_{t}dt}{P_{t}}=\tilde{r}_{t}dt,\]</span> where as before, the tilde notation is used to denote annualized variables. In particular, <span class="math inline">\(\tilde{r}_{t}\)</span> is an annualized log return as in the absence of dividends for instance, the integral equation reads: <span class="math display">\[P_{t}=P_{0}\exp\left(\int_{0}^{t}\tilde{r}_{u}du\right).\]</span> In continuous time indeed, instantaneous returns and log-returns coincide<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> since <span class="math display">\[\frac{dP_{t}}{P_{t}}=d(\log(P_{t})).\]</span></p>
+<h1 id="summary">Summary</h1>
+<p>We have looked at the definition of returns and log-returns both in discrete time and in continuous time. Both discrete time and continuous time entail their own challenges. Discrete time is usually more elementary from a mathematical standpoint (integrals are reduced to sums, differential equations to difference equations…), although quite often, closed form formulas are hard to come by. Continuous time involves more elaborate mathematical operations but provides more compact expressions. In what follows, I will try to make the best of both set-ups when introducing portfolio returns and uncertainty.</p>
+<ul>
+<li><a href="/assets/pdfs/2013-03-09-defining-returns.pdf">Link to pdf</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>A later post will show a loglinear approximation of the discrete time log returns in the presence of dividends and capital gains. ## Links<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Assuming standard calculus applies, as opposed to Ito calculus. Another <a href="/finance/2013/03/14/integrating-returns.html" title="Integrating Returns">post</a> will explain what’s at stake behind these two modeling choices.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>In standard calculus, as opposed to Ito calculus - see footnote <span class="math inline">\(2\)</span>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Finance-ref">
+					Finance <span>(9)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Returns-ref">
+					Returns <span>(2)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//finance/2013/02/25/what-is-a-financial-asset.html" title="What is a Financial Asset?">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//finance/2013/03/14/integrating-returns.html" title="Integrating Returns">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

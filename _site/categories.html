@@ -1,0 +1,538 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Categories</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<div class="page-header">
+  <h1>Categories </h1>
+</div>
+
+<div class="col-sm-3 col-xs-6">
+    <ul class="nav nav-tabs-vertical">
+      
+      
+        
+            <li>
+                <a href="http://127.0.0.1:4000/categories.html#Tests-ref" data-toggle="tab">
+                    Tests <span class="badge pull-right">2</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="http://127.0.0.1:4000/categories.html#Finance-ref" data-toggle="tab">
+                    Finance <span class="badge pull-right">9</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="http://127.0.0.1:4000/categories.html#Math-ref" data-toggle="tab">
+                    Math <span class="badge pull-right">9</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="http://127.0.0.1:4000/categories.html#Geek-ref" data-toggle="tab">
+                    Geek <span class="badge pull-right">1</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="http://127.0.0.1:4000/categories.html#Ensae-ref" data-toggle="tab">
+                    Ensae <span class="badge pull-right">20</span>
+                </a>
+            </li>
+        
+      
+      
+    </ul>
+</div>
+<!-- Tab panes -->
+<div class="tab-content col-sm-9 col-xs-6">
+  
+    <div class="tab-pane" id="Tests-ref">
+      <h2 style="margin-top: 0px">Posts in Tests</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//tests/2013/01/02/dygraphs.html">dygraphs</a> <span class="text-muted">- January 02, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//tests/2013/01/01/jsxgraphs.html">Jsxgraphs</a> <span class="text-muted">- January 01, 2013</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Finance-ref">
+      <h2 style="margin-top: 0px">Posts in Finance</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//finance/2015/03/11/time-diversification.html">Allocating risk across periods</a> <span class="text-muted">- March 11, 2015</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//finance/2014/03/04/volatility-drag.html">The Volatility-Drag</a> <span class="text-muted">- March 04, 2014</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//finance/2014/02/03/discrete-time-lognormal-dynamics.html">Discrete Time Lognormal Dynamics</a> <span class="text-muted">- February 03, 2014</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//finance/2014/01/19/volatility-accounting-1.html">Volatility Accounting (1)</a> <span class="text-muted">- January 19, 2014</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//finance/2013/12/16/zero-coupon-contracts.html">Zero Coupon Contracts</a> <span class="text-muted">- December 16, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//finance/2013/04/06/portfolio-returns.html">Portfolio Returns</a> <span class="text-muted">- April 06, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//finance/2013/03/14/integrating-returns.html">Integrating Returns</a> <span class="text-muted">- March 14, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//finance/2013/03/09/defining-returns.html">Defining Returns</a> <span class="text-muted">- March 09, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//finance/2013/02/25/what-is-a-financial-asset.html">What is a Financial Asset?</a> <span class="text-muted">- February 25, 2013</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Math-ref">
+      <h2 style="margin-top: 0px">Posts in Math</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//math/2013/12/01/from-gaussian-to-ornstein-uhlenbeck-processes.html">From Gaussian to Ornstein Uhlenbeck Processes</a> <span class="text-muted">- December 01, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//math/2013/10/27/martingale-representation.html">Martingale Representation</a> <span class="text-muted">- October 27, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//math/2013/10/07/ito-calculus.html">Ito Calculus</a> <span class="text-muted">- October 07, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//math/2013/09/22/continuous-semimartingales.html">Continuous Semimartingales</a> <span class="text-muted">- September 22, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//math/2013/09/08/stochastic-integrals-and-localization.html">Stochastic Integration and Localization</a> <span class="text-muted">- September 08, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//math/2013/05/29/quadratic-variation-and-stochastic-integration.html">Quadratic Variation and Stochastic Integration</a> <span class="text-muted">- May 29, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//math/2013/05/25/introducing-diffusions.html">Introducing Diffusions</a> <span class="text-muted">- May 25, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//math/2013/05/02/stochastic-integrals-as-martingale-transforms.html">Stochastic Integrals as Martingale Transforms</a> <span class="text-muted">- May 02, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//math/2013/04/24/martingales.html">Martingales</a> <span class="text-muted">- April 24, 2013</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Geek-ref">
+      <h2 style="margin-top: 0px">Posts in Geek</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//geek/2013/04/24/math-formulas-within-post.html">Math Formulas within Posts</a> <span class="text-muted">- April 24, 2013</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Ensae-ref">
+      <h2 style="margin-top: 0px">Posts in Ensae</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2019/01/15/solexam.html">Solution of the Exam (2018)</a> <span class="text-muted">- January 15, 2019</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2018/12/03/exam.html">Exam (2018)</a> <span class="text-muted">- December 03, 2018</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2018/12/01/exam.html">Exam (2017)</a> <span class="text-muted">- December 01, 2018</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2017/01/13/completecont.html">The Martingale Method in Continuous Time</a> <span class="text-muted">- January 13, 2017</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2016/12/16/optimization.html">Constrained Optimization</a> <span class="text-muted">- December 16, 2016</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2016/12/15/solexam.html">Solution of the Exam (2016)</a> <span class="text-muted">- December 15, 2016</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2016/11/29/exam.html">Exam (2016)</a> <span class="text-muted">- November 29, 2016</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2015/12/12/solexercises.html">Solutions to Exercises</a> <span class="text-muted">- December 12, 2015</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2015/11/14/complete-dyn.html">Complete Markets, Discrete Time</a> <span class="text-muted">- November 14, 2015</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2015/10/17/ipython.html">Using Jupyter notebooks</a> <span class="text-muted">- October 17, 2015</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2015/10/15/exercises.html">Exercises</a> <span class="text-muted">- October 15, 2015</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2015/01/31/solexam.html">Solution of the Exam (2015)</a> <span class="text-muted">- January 31, 2015</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2015/01/23/exam.html">Exam (2015)</a> <span class="text-muted">- January 23, 2015</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2014/11/16/complete.html">Complete Markets, Static Case</a> <span class="text-muted">- November 16, 2014</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2014/10/27/cont.html">Dynamic Models (Continuous Time)</a> <span class="text-muted">- October 27, 2014</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2014/10/25/stocalc.html">Stochastic Calculus at the Speed of Light</a> <span class="text-muted">- October 25, 2014</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2014/10/18/dynprog.html">Dynamic Programming</a> <span class="text-muted">- October 18, 2014</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2014/10/17/disc.html">Dynamics, Discrete Time</a> <span class="text-muted">- October 17, 2014</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2014/10/07/static.html">Static Portfolio Choice</a> <span class="text-muted">- October 07, 2014</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="http://127.0.0.1:4000//ensae/2014/10/06/warning.html">Foreword to the ENSAE Course in Portf. Choice</a> <span class="text-muted">- October 06, 2014</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+</div>
+
+<div class="clearfix"></div>
+
+
+
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

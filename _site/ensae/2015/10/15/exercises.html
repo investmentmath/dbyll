@@ -1,0 +1,394 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Exercises</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Exercises </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   October 
+	   15th,
+	   
+	   2015
+	 </span>
+	  <div class="article_body">
+	  <p><em>This post collects exercises for the ENSAE course. See <a href="/ensae/2015/12/12/solexercises.html">this post</a> for the solutions.</em></p>
+<hr />
+<h2 id="mean-variance">Mean-Variance</h2>
+<h3 id="exercise-1.1">Exercise 1.1</h3>
+<p>Take the CARA normal set up (see <a href="/ensae/2014/10/07/static.html">this post</a>) without labour income. Assume that there is no riskless asset.</p>
+<ol type="1">
+<li><p>Solve the unconstrained optimization problem (no budget constraint). What is odd about the quadratic utility function?</p></li>
+<li><p>Solve the constrained optimization problem (i.e. including the budget constraint).</p></li>
+<li><p>Compare the two solutions, concentrating on the achieved utility level. Why is the investor in 2. frustrated for high levels of wealth.</p></li>
+<li><p>Suppose now that we have a riskless asset. How does that affect the paradox identified in question 3 ?</p></li>
+</ol>
+<h3 id="exercise-1.2">Exercise 1.2</h3>
+<p>See <a href="https://github.com/investmentmath/ENSAE/blob/master/efffront_exercise.ipynb">here</a> for the corresponding Jupyter/IPython notebook. See also <a href="/ensae/2015/10/17/ipython.html">this post</a> for some indications on how to use this resource.</p>
+<p>We consider an investment universe comprising three assets, cash, a bond and equities. The cash rate is <span class="math inline">\(r^{f}=2\%\)</span>. The volatility of bonds is <span class="math inline">\(\sigma_{b}=7\%\)</span>, that of equities is <span class="math inline">\(\sigma_{e}=25\%\)</span>. The Sharpe ratio of bonds is assumed to be very low at <span class="math inline">\(0.05\)</span> and that of equities is chosen to be <span class="math inline">\(0.25\)</span>. Finally, the correlation of bonds and equities is assumed negative, at <span class="math inline">\(-0.2\)</span>. Thus bonds generate low returns, but they have hedging properties against equities (bonds tend to make gains when equities make losses).</p>
+<ol type="1">
+<li><p>Solve for the efficient frontier of the risky assets. Compute the minimum variance portfolio and its volatility.</p></li>
+<li><p>Determine the efficient frontier for the whole universe of assets. Compute the tangent portfolio, its volatility and its Sharpe ratio.</p></li>
+<li><p>We consider the following utility functions: <span class="math display">\[r^{f}+\pi&#39;(\mu-r^{f}e)-\frac{\rho}{2}\pi&#39;\Sigma \pi.\]</span> To what value <span class="math inline">\(\rho_{\star}\)</span> does the tangent portfolio correspond ?</p></li>
+<li><p>We consider two other values for <span class="math inline">\(\rho\)</span>, namely <span class="math inline">\(\rho_{l}=(3/5)*\rho_{\star}\)</span> and <span class="math inline">\(\rho_{h}=1.5\rho_{\star}\)</span>. Compute the corresponding portfolios and their volatilities.</p></li>
+<li><p>Show that the bond to equities proportion is constant along the efficient frontier. Suppose we added a no borrowing constraint. How would that constraint affect the high risk portfolio ?</p></li>
+<li><p>Most financial advisors propose ranges of multi-asset portfolios which contain no cash. In particular a ‘safe’ portfolio containing <span class="math inline">\(20\%\)</span> equities would typically have <span class="math inline">\(80\%\)</span> in bonds. What conditions concerning bonds’ expected returns would be required for such portfolios to be on the efficient frontier ?</p></li>
+</ol>
+<h3 id="exercise-1.3">Exercise 1.3</h3>
+<p>In the previous exercise, we mention the possibility of adding a ‘no borrowing constraint’ to the initial mean-variance setup. This says that all portfolio weights should be positive. Solving such problems requires the use of quadratic programming techniques. The following <a href="https://github.com/investmentmath/ENSAE/blob/master/usingcvxopt.ipynb">notebook</a> uses this <a href="http://cvxopt.org/">package</a> to deal with this.</p>
+<h3 id="exercise-1.4">Exercise 1.4</h3>
+<p>The context is that studied in the section on mean variance efficiency with a riskless asset (see <a href="/ensae/2014/10/07/static.html">this post</a>). We consider an investor with the following utility function: <span class="math display">\[r^{f}+\pi&#39;(\mu-r^{f}e)-\frac{\rho}{2}\pi&#39;\Sigma \pi.\]</span></p>
+<ol type="1">
+<li><p>Give the first order condition statisfied by the vector of risky asset positions. Derive a relationship relating the volatility of the optimal portfolio and its Sharpe ratio.</p></li>
+<li><p>How does the risk budget consumed by the investor change with the Sharpe ratio of the tangent portfolio ? Describe the shape of the locus (in the mean standard-deviation space) of optimal portfolios (for our investor) as a function of the Sharpe ratio of the tangent portfolio.</p></li>
+</ol>
+<h2 id="dynamics-discrete-time">Dynamics, discrete time</h2>
+<h3 id="exercise-2.1">Exercise 2.1</h3>
+<p>We consider the discrete time optmization problem with no interim consumption, CRRA terminal utility (date <span class="math inline">\(T\)</span>) of wealth with <span class="math inline">\(\rho &gt; 1\)</span>, no consumption and no income and finally i.i.d. returns (this is the first example of the course). The command is the set of portfolio proportions <span class="math inline">\(\pi_{t}\)</span> at each date <span class="math inline">\(t\)</span>. We assume that there is a portfolio such that: <span class="math display">\[E\left[\frac{(\pi&#39;R)^{1-\rho}}{1-\rho}\right]&gt;-\infty,\]</span> and in particular almost surely: <span class="math display">\[(\pi&#39;R)^{1-\rho}&gt;0.\]</span></p>
+<ol type="1">
+<li><p>Write the optimization program as of date <span class="math inline">\(t\)</span> for a given initial wealth <span class="math inline">\(w_{t}\)</span>.</p></li>
+<li><p>Consider the optimization program as of date <span class="math inline">\(T-1\)</span>, as a function of <span class="math inline">\(w_{T-1}\)</span>. Comment on the convexity/concavity of the objective function and that of the constraint. Describe the first order condition. Is it sufficient? We assume below that there is a solution.</p></li>
+<li><p>Show that <span class="math inline">\(V_{T-1}(w)\)</span> is proportional to <span class="math inline">\(w^{1-\rho}\)</span>. Determine the constant of proportionality as a function of the optimal portfolio.</p></li>
+<li><p>Solve for the value function and the optimal portfolio at any date <span class="math inline">\(t\)</span> by recurrence.</p></li>
+<li><p>Does the optimal portfolio depend on the investment horizon? Why?</p></li>
+</ol>
+<h3 id="exercise-2.2">Exercise 2.2</h3>
+<p>Take the same context as in 2.1, changing the utility function to log-utility. Solve the model following the same steps as above.</p>
+<h3 id="exercise-2.3">Exercise 2.3</h3>
+<p>We consider initially a two period framework. Investment takes place in date <span class="math inline">\(t=0\)</span> and utility of wealth is measured in <span class="math inline">\(t=1\)</span>. There are two assets, a riskless asset with return <span class="math inline">\(R^{f}\)</span> and a risky asset with return <span class="math inline">\(\tilde{R_{1}}\)</span>, <span class="math inline">\(E[\tilde{R}_{1}]=\mu_{1}\)</span>, <span class="math inline">\(\tilde{R}_{1} \geq 0\)</span> almost surely. We assume that the support of the distribution of <span class="math inline">\(\tilde{R}_{1}\)</span> is <span class="math inline">\(]0,+\infty[\)</span>. The investor maximizes the following utility function (<span class="math inline">\(\rho&gt;1\)</span>): <span class="math display">\[E\left[\frac{\tilde{(w_{1}}-\underline{w}_{1})^{1-\rho}}{1-\rho}\right],\]</span> starting from an initial wealth <span class="math inline">\(w_{0}\)</span> to be invested in the two assets. The variable <span class="math inline">\(\underline{w}_{1}\)</span> is a floor the investor ascribes to wealth. We restrict the admissible portfolios to those which ensure that <span class="math inline">\(\tilde{w_{1}} \geq \underline{w}_{1}\)</span> almost surely.</p>
+<ol type="1">
+<li><p>Define the minimum wealth level <span class="math inline">\(\underline{w}_{0}\)</span> required to ensure that the set of admissible portfolios is not empty. We now assume <span class="math inline">\(w_{0} \geq \underline{w}_{0}\)</span> and we call <span class="math inline">\(w_{t}-\underline{w}_{t}\)</span> the surplus of date <span class="math inline">\(t\)</span> (<span class="math inline">\(t=0,1\)</span> at this stage).</p></li>
+<li><p>Assume that at date <span class="math inline">\(0\)</span>, a fraction <span class="math inline">\(\pi_{0}\)</span> of the surplus is invested in the risky asset. Explain why <span class="math inline">\(\pi_{0}\)</span> should be lower than <span class="math inline">\(1\)</span> and greater than zero. Show that: <span class="math display">\[w_{1}-\underline{w}_{1}=(w_{0}-\underline{w}_{0})(R^{f}+\pi_{0}(\tilde{R}_{1}-R^{f})).\]</span></p></li>
+<li><p>The value function, i.e. the utility level reached at the optimum is noted <span class="math inline">\(V_{0}(\cdot)\)</span> and should be seen as a function of the surplus. Show that this function is homogenous of degree <span class="math inline">\(1-\rho\)</span> and give the program that determines the optimal weight <span class="math inline">\(\pi^{\star}_{0}\)</span>.</p></li>
+<li><p>Assume now that we have a whole sequence of dates <span class="math inline">\(t=0, 1,\ldots,T\)</span> with utility measured at date <span class="math inline">\(t\)</span>: <span class="math display">\[E\left[\frac{\tilde{(w_{T}}-\underline{w}_{T})^{1-\rho}}{1-\rho}\right].\]</span> Returns are as above, with a constant cash return and i.i.d. risky asset returns. Explain why the optimal investment <span class="math inline">\(\pi^{\star}_{t}\)</span> (<span class="math inline">\(t=0,\ldots,T-1\)</span>) is stationary in time.</p></li>
+</ol>
+<h3 id="exercise-2.4">Exercise 2.4</h3>
+<p>We consider the discrete time program with i.i.d. returns and CRRA terminal utility of wealth (<span class="math inline">\(\rho&gt;1\)</span>):<br />
+<span class="math display">\[E_{t}\left[\frac{\tilde{w}_{T}^{1-\rho}}{1-\rho}\right],\]</span> as expected from date <span class="math inline">\(t\)</span>. Final wealth is required to be strictly positive. We have a riskless asset with return <span class="math inline">\(R^{f}\)</span> (constant across time), and a single risky asset with log-normal return <span class="math inline">\(\tilde{R}_{t+1}=\exp(\mu(\tilde{x}_{t})+\sigma \tilde{x}_{t+1})\)</span> where <span class="math inline">\((\tilde{x}_{t})\)</span> is a sequence of i.i.d. <span class="math inline">\({\cal N}(0,1)\)</span> variables.</p>
+<p>As of date <span class="math inline">\(t\)</span>, the realization <span class="math inline">\(x_{t}\)</span> of <span class="math inline">\(\tilde{x}_{t}\)</span> is known. The return <span class="math inline">\(\tilde{R}_{t+1}\)</span> thus has a lognormal distribution <span class="math inline">\({\cal LN}(\mu(x_{t}),\sigma)\)</span>. We can write <span class="math inline">\(\mu(x_{t})=\mu_{t}\)</span>. We will assume the <span class="math inline">\(\mu(x)\)</span> is a monotonous function of <span class="math inline">\(x\)</span>. When <span class="math inline">\(\mu\)</span> is constant, the price of the risky asset follows a geometric random walk.</p>
+<p>Wealth in date <span class="math inline">\(t\)</span> is denoted <span class="math inline">\(\tilde{w}_{t}\)</span> (random variable) or <span class="math inline">\(w_{t}\)</span>.</p>
+<p>Remark: don’t hesitate to exchange derivation and integration in this problem.</p>
+<ol type="1">
+<li><p>State the optimization program to be solved at date <span class="math inline">\(T-1\)</span>, assuming that the command variable is the weight invested in the risky asset, <span class="math inline">\(\pi_{T-1}\)</span>.</p></li>
+<li><p>Show that the derivative of the criterion to be maximized reads: <span class="math display">\[w_{T-1}^{1-\rho}E_{T-1}[(\tilde{R}_{T}-R^{f})(R^{f}+\pi(\tilde{R}_{T}-R^{f}))^{-\rho}].\]</span> In a similar way, show that the second derivative is negative and that therefore the function to be maximized is concave.</p></li>
+<li><p>Why can we assume <span class="math inline">\(0 \leq \pi_{T-1} \leq 1\)</span> ? Show that the optimal quantity of risky assets is strictly positive when <span class="math inline">\(\exp(\mu_{T-1}+\sigma^{2}/2) &gt; R^{f}\)</span>.</p></li>
+<li><p>(Optional) Noting that the first order condition implies: <span class="math display">\[E_{T-1}[(\tilde{R}_{T}-R^{f})(wR^{f}+w\pi^{\star}(\tilde{R}_{T}-R^{f}))^{-\rho}]=0,\]</span> for all <span class="math inline">\(w&gt;0\)</span>, establish: <span class="math display">\[\frac{\pi^{\star}}{R^{f}}=-\frac{E_{T-1}[(\tilde{R}_{T}-R^{f})(R^{f}+\pi^{\star}(\tilde{R}_{T}-R^{f}))^{-\rho-1}]}
+{E_{T-1}[(\tilde{R}_{T}-R^{f})^{2}(R^{f}+\pi^{\star}(\tilde{R}_{T}-R^{f}))^{-\rho-1}]}.\]</span></p></li>
+<li><p>(Optional) We consider an increase <span class="math inline">\(d\theta &gt; 0\)</span> in the mean of the lognormal return <span class="math inline">\(\tilde{R}_{T}\)</span>. The new return is <span class="math inline">\(\tilde{R}_{T}+d\theta\)</span>. The induced change in the optimal position in the risky asset is <span class="math inline">\(d\pi^{\star}\)</span>. Show that the relationship between <span class="math inline">\(d\theta\)</span> and <span class="math inline">\(d\pi^{\star}\)</span> is: <span class="math display">\[\frac{d\pi^{\star}}{d\theta}=\frac{1}{\rho}\frac{E_{T-1}[(R^{f}+\pi(\tilde{R}_{T}-R^{f}))^{-\rho}]}
+{E_{T-1}[(\tilde{R}_{T}-R^{f})^{2}(R^{f}+\pi(\tilde{R}_{T}-R^{f}))^{-\rho-1}]}+\frac{(\pi^{\star})^{2}}{1+R^{f}}.\]</span> Deduce that the demand in risky asset is increasing in <span class="math inline">\(d\theta\)</span>. Why can’t we conclude from this that an increase in <span class="math inline">\(\mu_{T-1}\)</span> increases the demand from the risky asset?</p></li>
+<li><p>Show that the value function <span class="math inline">\(V_{T-1}(w_{T-1},x_{T-1})\)</span> can be written: <span class="math display">\[V_{T-1}(w_{T-1},x_{T-1})=\psi_{T-1}(x_{T-1})\frac{w_{T-1}^{1-\rho}}{1-\rho},\]</span> and give the expression for <span class="math inline">\(\psi_{T-1}(\cdot)\)</span> as a function of <span class="math inline">\(\pi_{T-1}^{\star}(x_{T-1})\)</span>. Note that <span class="math inline">\(\psi_{T-1}\)</span> is positive.</p></li>
+<li><p>The derivative of the value function with <span class="math inline">\(V_{T-1}(w_{T-1},x_{T-1})\)</span> with respect to the parameter <span class="math inline">\(\mu_{T-1}(x_{T-1})\)</span> can be computed as if the optimal portfolio <span class="math inline">\(\pi_{T-1}^{\star}(\mu_{T-1})\)</span> was fixed (envelope theorem). Assuming one can exchange derivation and integration, show that <span class="math inline">\(\psi_{T-1}(x_{T-1})\)</span> is an increasing function of <span class="math inline">\(\mu_{T-1}(x_{T-1})\)</span>.</p></li>
+</ol>
+<p>Remark: if <span class="math inline">\(\mu(x)\)</span> is decreasing in <span class="math inline">\(x\)</span>, it means that a negative return shock enhances the prospective return. In that case, <span class="math inline">\(\psi(x)\)</span> is an increasing function of <span class="math inline">\(x\)</span>.</p>
+<ol start="8" type="1">
+<li><p>Define the optimization program as of date <span class="math inline">\(T-2\)</span> using the dynamic programming principle. Check that the function to be optimized is concave so that the optimization program is well defined.</p></li>
+<li><p>(In progress) Derive the first order condition of this problem. Assuming that the sign of: <span class="math display">\[(1-\rho)\text{Cov}[\psi(\tilde{x}_{T-1}),(\tilde{R}_{T-1}-R^{f})(R^{f}+\pi(\tilde{R}_{T-1}-R^{f}))^{-\rho}],\]</span> is well defined uniformly in <span class="math inline">\(\pi\)</span> and reflecting the monotonicity in <span class="math inline">\(\psi(\cdot)\)</span>, discuss the impact of <span class="math inline">\(\psi(\cdot)\)</span> on the optimal investment level <span class="math inline">\(\pi^{\star}\)</span>.</p></li>
+</ol>
+<h3 id="exercise-2.5">Exercise 2.5</h3>
+<p>Assume an investor maximizes the expected utility of terminal wealth:</p>
+<p><span class="math display">\[\underset{\pi_{t},\pi_{t+1},\ldots,\pi_{T-1}}{\text{max}} \; E_{t}[u(W_{T})]\]</span> <span class="math display">\[\text{s.t.}:\]</span> <span class="math display">\[W_{T}=W_{t}(\pi_{t}&#39;R_{t+1})\ldots(\pi_{T-1}&#39;R_{T}),\]</span> with the usual notations. We assume the returns are i.i.d.. As a reminder, portfolio plans <span class="math inline">\((\pi_{t},\pi_{t+1},\ldots,\pi_{T-1})\)</span> are contingent on all relevant information needed to make decisions. I assume the utility function satisfies all the conditions needed for optima to be attained in all cases.</p>
+<ol type="1">
+<li>Define the state variable of the problem. Explain in words what the value function is.</li>
+<li>Give the value function for date <span class="math inline">\(T\)</span>.</li>
+<li>Consider the investment problem as seen from date <span class="math inline">\(T-1\)</span>. Define the optimization problem and the corresponding value function (<span class="math inline">\(V_{T-1}(\cdot)\)</span>). Give the dynamic programming equation.</li>
+<li>Consider the investment problem as seen from date <span class="math inline">\(T-2\)</span>. Define the value function and give the dynamic programming equation.</li>
+<li>Given an initial level of wealth <span class="math inline">\(W_{T-2}\)</span>, let <span class="math inline">\((\pi^{*}_{T-2},\pi^{*}_{T-1}(\cdot))\)</span> be the portfolio that solves the dynamic programming equation. The notation <span class="math inline">\(\pi^{*}_{T-2}(\cdot)\)</span> (notation for a function) emphasizes that the investment plan is contingent on the state variable of date <span class="math inline">\(T-1\)</span>. Assume the investor chooses a suboptimal (from the dynamic programming point of view) portfolio <span class="math inline">\(\pi_{T-2}\)</span>, and then implements a contingent portfolio <span class="math inline">\(\pi_{T-1}(\cdot)\)</span>. Show that expected utility for that set of plans is inferior to that generated by <span class="math inline">\((\pi^{*}_{T-2},\pi^{*}_{T-1}(\cdot))\)</span>.</li>
+</ol>
+<h2 id="dynamics-continuous-time">Dynamics continuous time</h2>
+<h3 id="exercise-3.1">Exercise 3.1</h3>
+<p>We consider a Brownian motion <span class="math inline">\((B_{t})_{[0,T]}\)</span> with its natural filtration <span class="math inline">\({\cal F}\)</span>. We are given a set of times dates <span class="math inline">\(0 \leq t_{1} &lt; t_{2} &lt; \cdots &lt; t_{n+1} \leq T\)</span>. We consider a process <span class="math inline">\(h(t)=\sum_{i=1}^{n}F_{i}{\bf 1}_{(t_{i},t_{i+1}]}\)</span>, (<span class="math inline">\(h(t)=0\)</span> on <span class="math inline">\([0,t_{1}]\)</span>) where <span class="math inline">\(F_{i}\)</span> is <span class="math inline">\({\cal F}_{t_{i}}\)</span>-measurable.</p>
+<p>The stochastic integral is, for <span class="math inline">\(t \in (t_{i},t_{i+1}]\)</span>: <span class="math display">\[M_{t}=\int_{0}^{t}h(u)dB_{u}=\sum_{j=1}^{i-1}F_{j}(B_{t_{j+1}}-B_{t_{j}})+F_{t_{i}}(B_{t}-B_{t_{i}}).\]</span></p>
+<ol type="1">
+<li><p>Show that for <span class="math inline">\(0 \leq t &lt; t&#39;\leq T\)</span>: <span class="math display">\[E_{t}[\int_{0}^{t&#39;}h(u)dB_{u}]=\int_{0}^{t}h(u)dB_{u}.\]</span> Name this property.</p></li>
+<li><p>Show that for <span class="math inline">\(0 \leq t \leq T\)</span>: <span class="math display">\[E_{0}\left[|\int_{0}^{t}h(u)dB_{u}|^{2}\right]=E_{0}\left[\int_{0}^{t}h(u)^{2}du\right].\]</span></p></li>
+<li><p>The quadratic variation <span class="math inline">\([M]_{t}\)</span> of <span class="math inline">\(M_{t}\)</span> is defined as: <span class="math display">\[[M]_{t}=\int_{0}^{t}h(u)^{2}du.\]</span> Show that <span class="math inline">\(M_{t}^{2}-[M]_{t}\)</span> is a martingale.</p></li>
+<li><p>What is the relationship between the variance of <span class="math inline">\(M_{t}\)</span> and its quadratic variation.</p></li>
+</ol>
+<h3 id="exercise-3.2">Exercise 3.2</h3>
+<p>Consider a security which pays <span class="math inline">\(1\)</span> at date <span class="math inline">\(T\)</span>. Its price at date <span class="math inline">\(t\)</span> is <span class="math inline">\(P_{t}^{T}\)</span>. Assume the price follows the SDE: <span class="math display">\[\frac{dP_{t}^{T}}{P_{t}^{T}}=r_{t}dt+\sigma_{t}^{T}dB_{t},\]</span> where <span class="math inline">\((B_{t})\)</span> is a scalar Brownian motion.</p>
+<ol type="1">
+<li>Show that: <span class="math display">\[\exp\left(-\int_{0}^{t}r_{u}du\right)P_{t}^{T}\]</span> is a martingale.</li>
+<li>Deduce the representation: <span class="math display">\[P_{t}^{T}=E_{t}\left[\exp\left(-\int_{t}^{T}r_{u}du\right)\right].\]</span></li>
+</ol>
+<p>Assume <span class="math inline">\((r_{t})\)</span> follows an Ornstein Uhlenbeck process: <span class="math display">\[dr_{t}=-\rho(r_{t}-\bar{r})dt+\sigma_{r}dB_{t}.\]</span></p>
+<ol start="3" type="1">
+<li><p>Prove that: <span class="math display">\[r_{t}-\bar{r}=(r_{0}-\bar{r})\exp(-\rho t)+\int_{0}^{t}\exp(-\rho (t-u))\sigma_{r} dB_{u}.\]</span></p></li>
+<li><p>Prove that: <span class="math display">\[\int_{t}^{T}r_{u}du=\bar{r}(T-t)+(r_{t}-\bar{r})b(T-t)+\int_{t}^{T}b(T-u)\sigma_{r}dB_{u},\]</span> with: <span class="math display">\[b(h)=\frac{1-\exp(-\rho h)}{\rho}.\]</span></p></li>
+<li><p>Prove that: <span class="math display">\[\int_{t}^{h}b(h-u)^{2}du=\frac{1}{\rho^{2}}\left[(h-t)-b(h-t)\right]-\frac{1}{2\rho}b(h-t)^{2}.\]</span></p></li>
+<li><p>Compute the price <span class="math inline">\(P_{t}^{T}\)</span>.</p></li>
+<li><p>Give its volatility.</p></li>
+</ol>
+<h3 id="exercise-3.3">Exercise 3.3</h3>
+<p>The setup is that of the previous exercise. We now modify the diffusion followed by the price as follows: <span class="math display">\[\frac{dP_{t}^{T}}{P_{t}^{T}}=(r_{t}+\sigma_{t}^{T}\lambda)dt+\sigma_{t}^{T}dB_{t},\]</span> where <span class="math inline">\(\lambda\)</span> is a constant. We admit that we can find a new probability measure <span class="math inline">\(Q\)</span> (called the risk neutral measure) such that under this probability measure, <span class="math inline">\(dB_{t}=dB^{Q}_{t}-\lambda dt\)</span> and <span class="math inline">\((B^{Q}_{t})\)</span> is a Brownian motion.</p>
+<ol type="1">
+<li><p>Give the SDE followed by the price under the new probability measure as a function of <span class="math inline">\((B^{Q}_{t})\)</span>.</p></li>
+<li><p>Determine the SDE followed by the cash rate as a function of <span class="math inline">\((B^{Q}_{t})\)</span>. What has changed ?</p></li>
+<li><p>Explain how the steps carried out in the previous exercise can be carried out here reasoning under the risk neutral measure.</p></li>
+<li><p>Give the price function and price volatility. What has changed versus the previous exercise.</p></li>
+</ol>
+<h3 id="exercise-3.4">Exercise 3.4</h3>
+<p>Consider the familiar “budget” equation relating the value of a portfolio <span class="math inline">\(V_{\pi}\)</span> and the price of its constituents <span class="math inline">\(P_{i}\)</span>: <span class="math display">\[\frac{dV_{\pi,t}}{V_{\pi,t}}=\sum_{i=1}^{N}\pi_{i,t}\frac{dP_{i,t}}{P_{i,t}}.\]</span> We assume prices and portfolio values are strictly positive. Take another asset price <span class="math inline">\(N_{t}\)</span> also assumed to be strictly positive. Take <span class="math inline">\(N_{t}\)</span> as the new numeraire and express values in terms of it: <span class="math display">\[\tilde{V}_{\pi,t}=\frac{V_{\pi,t}}{N_{t}},\]</span> <span class="math display">\[\tilde{P}_{i,t}=\frac{P_{i,t}}{N_{t}},\]</span> It is natural to expect the first “budget” equation to hold under the new numeraire.</p>
+<ol type="1">
+<li><p>Assume standard differential calculus applies to all quantities. Show that the above conjecture holds.</p></li>
+<li><p>Same under Ito calculus.</p></li>
+</ol>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2015-10-15-exercises.pdf">Link to pdf</a></li>
+</ul>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Ensae-ref">
+					Ensae <span>(20)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Exercises-ref">
+					Exercises <span>(1)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//finance/2015/03/11/time-diversification.html" title="Allocating risk across periods">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//ensae/2015/10/17/ipython.html" title="Using Jupyter notebooks">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

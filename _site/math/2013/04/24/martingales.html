@@ -1,0 +1,344 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>Martingales</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Martingales </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   April 
+	   24th,
+	   
+	   2013
+	 </span>
+	  <div class="article_body">
+	  <p><em>This post introduces the notion of a martingale. The concept is key to finance, but it is also central in stochastic analysis. A martingale is a process which, at any given date, is expected to remain at its current level in the future. In other words, its future increments (called martingale differences) are expected to be equal to zero. Picking a variable <span class="math inline">\(X_{T}\)</span>, the process <span class="math inline">\((E_{t}[X_{T}])_{t \in [0,T]}\)</span> is a martingale which is ‘closed’ by <span class="math inline">\(X_{T}\)</span>. The concept is illustrated using the discretized version of a martingale, namely a random walk with centered increments.Continuous time martingales with (loosely speaking) independent identically distributed increments are called Levy martingales. The post introduces two Levy martingales, the Brownian motion and the compensated Poisson proces.</em></p>
+<hr />
+<h1 id="the-definition">The definition </h1>
+<p>The concept of a martingale is probably the most important concept in mathematical finance. A martingale is a stochastic process which is expected at any point in time to remain at the same level in the future.</p>
+<p>To formally introduce the definition, we need to set up the landscape. We need a probability space <span class="math inline">\((\Omega,{\cal F},P)\)</span> where <span class="math inline">\(\Omega\)</span> is the sample space,  <span class="math inline">\({\cal F}\)</span> is a sigma-algebra and <span class="math inline">\(P\)</span> is a probability measure on <span class="math inline">\((\Omega,{\cal F})\)</span>. The sigma algebra is decomposed into a filtration<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. <span class="math inline">\(({\cal F}_{t})_{t \in \mathbb{T}}\)</span>, i.e. an increasing family of sigma algebras. The index set <span class="math inline">\(\mathbb{T}\)</span> can for instance be the set of natural numbers <span class="math inline">\(\mathbb{N}\)</span> or the positive real line <span class="math inline">\([0,\infty[\)</span>. The filtration models the flow of information. Conditional expectations with respect to an element of the filtration, <span class="math inline">\(E[\cdot|{\cal F}_{t}]\)</span> will be noted <span class="math inline">\(E_{t}[\cdot]\)</span>.</p>
+<p>In this context, a martingale is a stochastic process <span class="math inline">\((M_{t})_{t \in \mathbb{T}}\)</span> adapted to the filtration (i.e. for each <span class="math inline">\(t\)</span>, <span class="math inline">\(M_{t}\)</span> is <span class="math inline">\({\cal F}_{t}\)</span> measurable) such that:</p>
+<p><span class="math display">\[M_{t_{0}}=E_{t_{0}}[M_{t_{1}}],\, \forall t_{1} \geq
+t_{0}.\]</span></p>
+<p>A martingale can be obtained by first choosing a (<span class="math inline">\({\cal F}\)</span>) random variable <span class="math inline">\(\xi\)</span> and setting:</p>
+<p><span class="math display">\[M_{t}=E_{t}[\xi].\]</span></p>
+<p>The random variable <span class="math inline">\(\xi\)</span> is said to close the martingale.</p>
+<h1 id="martingale-differences">Martingale differences</h1>
+<p>When <span class="math inline">\(\mathbb{T}=\mathbb{N}\)</span>, we can look at the martingale difference <span class="math inline">\(\Delta M_{t}=M_{t}-M_{t-1}\)</span>. We have:</p>
+<p><span class="math display">\[E_{t}[\Delta M_{t+k}]=0,\, k \geq 1,\]</span></p>
+<p>i.e. the martingale difference is conditionally (and hence unconditionally) centered. We also have (using the tower law of conditional expectations):</p>
+<p><span class="math display">\[E_{t}[\Delta M_{t+h}\Delta M_{t+k}]=0,\, \forall h,k \geq
+1,\,h\neq k.\]</span></p>
+<p>Martingale differences have zero conditional (and thus unconditional) covariance. The martingale difference process <span class="math inline">\((\Delta M_{t})_{t \geq 1, t \in \mathbb{T}}\)</span> is a sequence of uncorrelated random variables. The variables need not be independent.</p>
+<h1 id="simulating-discrete-time-martingales">Simulating discrete time martingales</h1>
+<p> In practice, a simple way to simulate a discrete time martingale consists in drawing <span class="math inline">\(I\)</span> sets of independent increments <span class="math inline">\((\Delta m^{i}_{t})_{t \geq 1, t \in \mathbb{T}, 1 \leq i \leq I}\)</span> from a given distribution using a pseudo random numbers generator. One  can then compute the martingale by cumulating the random draws:</p>
+<p><span class="math display">\[m_{0}=0,\]</span> <span class="math display">\[m^{i}_{t}=\sum_{k=1}^{t}\Delta
+m^{i}_{k}.\]</span></p>
+<p>The index <span class="math inline">\(i\)</span> plays the role of <span class="math inline">\(\omega\)</span> (the ‘event’), it indexes the drawn trajectory. The following graph shows a particular outcome (a particular sample), where increments are drawn from the standardized Gaussian law. The graph illustrates the key property of martingales for three chosen dates. As of each date, the expected value of the martingale is represented by a horizontal dashed line. In this example, the index set is an interval <span class="math inline">\([0,T]\)</span> and the martingale is closed by <span class="math inline">\(M_{T}\)</span>.</p>
+<p><a href="/assets/media/Randomwalk.png"><img src="/assets/media/Randomwalk.png" /></a></p>
+<h1 id="two-interpretations"> Two interpretations</h1>
+<p>Several interpretations illustrate the importance of martingales for finance.</p>
+<ul>
+<li><p>A martingale can be seen as the cumulated pay-off of a player engaged in a sequence of games where each game has a zero expected pay-off (fair game).</p></li>
+<li><p>Financial instruments promise pay-offs such coupon payments or dividends. <strong>Any such payment can be thought of as the closing random variable of a martingale which is simply the expected value of the payment. The expected value of the payment fluctuates as investors acquire information on it.</strong></p></li>
+</ul>
+<p> We will put a lot of emphasis on this latter perspective when discussing stochastic integrals.<br />
+ Expected pay-offs are necessarily a key ingredient in the pricing of financial instruments.</p>
+<h1 id="from-random-walks-to-levy-martingales">From random walks to Levy martingales</h1>
+<p> We have seen how a discrete time martingale could be simulated, drawing independently from a single distribution. The result is called a random walk<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Discrete time modeling is very efficient as it allows to avoid thorny technical questions. However, discretization relies on sampling assumptions which can sound quite arbitrary. One can therefore wish to think of a discrete time process as resulting from sampling an underlying  continuous time process. This opens up a number of interesting modeling issues. Here is an illustration.</p>
+<p>If, starting from the previous random walk, one refines the initial grid adding midpoints in between each set of successive dates, the original increments can be additively decomposed into two pieces:</p>
+<p><span class="math display">\[\Delta
+M_{t}=M_{t}-M_{t-1}=(M_{t}-M_{t-1/2})+(M_{t-1/2}-M_{t-1}).\]</span></p>
+<p>One can divide intervals in three, four or <span class="math inline">\(n\)</span> subsets of equal length. Imposing that the subdivivisions always entail independent, identically distributed (i.i.d.) and centered increments preserves the structure applied to the initial random walk martingale. When the operation can be carried out for any natural number <span class="math inline">\(n\)</span>, we say that the initial distribution is infinitely divisible.</p>
+<p>Levy processes are designed on this idea<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. The marginal law of any term <span class="math inline">\(M_{t}\)</span>  is infinitely divisible. The main examples of infinitely divisible distributions are Gaussian, Poisson and compound Poisson distributions. Using these, we get the Brownian process, the Poisson process or the compound Poisson process. In our case, the increments have to be centered to obtain a martingale. This is achieved by removing an adequate drift from the original process if needed, a procedure called ‘compensation<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>’ (thus the term ‘Compensated Poisson process’).<br />
+ <br />
+The Brownian process has continuous sample paths whereas processes of the Poisson type are cadlag (continuous on the right, with limits on the left) but have jumps. Paraphrasing this in the context of our interpretation of martingales as expectation of future dated outcome <span class="math inline">\(\xi_{T}\)</span>, we can say that in the case of a Brownian martingale, information acquisition is rather evenly spread over time while in the compensated Poisson case, information comes in a lumpy way, the timing of the news being random.<br />
+ <br />
+To illustrate the diversity of martingale trajectories, I simulate below a compensated Poisson process. This is done in the following way. We independently draw <span class="math inline">\(I\)</span> sets of <span class="math inline">\(N\)</span> random (‘inter-arrival’) times using the exponential distribution of parameter (intensity) <span class="math inline">\(\lambda\)</span>. This gives us a set of dates <span class="math inline">\((t^{i}_{k})_{1\leq k \leq N, 1 \leq i \leq I}\)</span>. We then define: <span class="math display">\[m^{i}_{t}=\max \{
+j | \sum_{k=1}^{j}t^{i}_{k} \leq t \}-\lambda t,\, t \leq
+\sum_{k=1}^{N}t^{i}_{k}.\]</span> This is an example of a (compensated) point process<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. Here is a graph of a particular trajectory (drawn using <span class="math inline">\(\lambda=1\)</span>).</p>
+<p><a href="/assets/media/CompensatedPoisson.png"><img src="/assets/media/CompensatedPoisson.png" /></a></p>
+<p>Keep in mind that although it might not be obvious from the trajectories, the compensated poisson process has independent increments. As seen from the graph, the compensated Poisson process falls at a rate <span class="math inline">\(\lambda\)</span> except at jump dates. Changing the jump size from <span class="math inline">\(1\)</span> to <span class="math inline">\(-1\)</span> (which is equivalent to applying a symmetry around <span class="math inline">\(0\)</span> on the <span class="math inline">\(y\)</span> axis) would create a process that rises at a steady rate <span class="math inline">\(\lambda\)</span> except at jump dates where it falls. The increments of such a process have negative skewness (a lot of small upward moves and a few big downward moves), which is an empirical feature of market prices. This is in contrast to the Brownian motion, which increments have a symmetric distribution.</p>
+<p>In the above example, jumps have a fixed size. One could instead make jump size random, drawn independently from other variables as well as independently from one jump to another. The range of  available Levy processes and their corresponding martingales is thus very large. The potential of Levy processes to model empirical features of financial data has triggered a lot of research over the past decade.</p>
+<p>Finally, as an illustration of the power and elegance of the martingale perspective in stochastic analysis, I close this introduction with two important characterization results :</p>
+<ul>
+<li><p>A process <span class="math inline">\((B_{t})_{t \in \mathbb{R}_{+}}\)</span> with <span class="math inline">\(B_{0}=0\)</span> and continuous trajectories is a Brownian motion if and only if <span class="math inline">\(B_{t}^{2}-t\)</span> is a martingale (Levy’s characterization of the Brownian motion).</p></li>
+<li><p>A point process <span class="math inline">\((P_{t})_{t \in \mathbb{R}_{+}}\)</span> is a Poisson process of intensity <span class="math inline">\(\lambda\)</span> if and only if <span class="math inline">\(P_{t}-\lambda t\)</span> is a martingale (Watanabe’s characterization of the Poisson process).</p></li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="/assets/pdfs/2013-04-24-martingales.pdf">Link to pdf</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>In continuous time, this filtration has to satisfy the so-called ‘usual conditions’, namely the filtration is assumed to be continuous on the right and complete - cf. for instance Protter, <em>Stochastic Integration and Differential Equations</em>, Springer.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>A random walk need not have centered increments.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>See for example D. Applebaum, <em>Levy Processes and Stochastic Calculus</em>, Cambridge Studies in Advanced Mathematics.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>Any Levy process <span class="math inline">\((X_{t})\)</span> such that <span class="math inline">\(E[|X_{t}|]&lt;\infty\)</span> can be ‘compensated’ and thus turned into a martingale.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p>A Poisson process is defined as above, but omitting the compensating term <span class="math inline">\(\lambda t\)</span>. Relaxing the exponential assumption on the distribution of the ‘inter-arrival’ times, we get a more general point process.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="http://127.0.0.1:4000/categories.html#Math-ref">
+					Math <span>(9)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Processes-ref">
+					Processes <span>(5)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="http://127.0.0.1:4000/tags.html#Martingales-ref">
+					Martingales <span>(2)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://127.0.0.1:4000//finance/2013/04/06/portfolio-returns.html" title="Portfolio Returns">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://127.0.0.1:4000//geek/2013/04/24/math-formulas-within-post.html" title="Math Formulas within Posts">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+<ul>
+    
+</ul>
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+

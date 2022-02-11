@@ -1,0 +1,493 @@
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.1/jsxgraphcore.js"></script>
+
+<script type="text/javascript" 
+src="http://127.0.0.1:4000/assets/js/dygraph-combined.js"</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<title>InvestmentMath</title>
+
+<meta name="author" content="InvestmentMath">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://127.0.0.1:4000/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://127.0.0.1:4000/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://127.0.0.1:4000/feed.xml">
+
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:investmentmath@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://127.0.0.1:4000/">
+				<img src="https://www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				InvestmentMath
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://127.0.0.1:4000/">Home</a></li>
+			  <li><a href="http://127.0.0.1:4000/categories.html">Categories</a></li>
+  			  <li><a href="http://127.0.0.1:4000/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://127.0.0.1:4000/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://127.0.0.1:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+		
+		<img src="/assets/media/logo_bis.png" class="img-circle" />
+		
+	<h3 class="title">
+		<font size=2em>
+        <a href="http://127.0.0.1:4000/">InvestmentMath</a>
+        </font>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+
+    <a href="http://127.0.0.1:4000/about/index.html">About InvestmentMath</a>
+
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:investmentmath@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://127.0.0.1:4000/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<div class="page-header">
+  <h1>InvestmentMath </h1>
+</div>
+
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                October
+                6th,
+                
+                2014
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/ensae/2014/10/06/warning.html">Foreword to the ENSAE Course in Portf. Choice</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>The category ‘ENSAE’ groups posts that correspond to a course tought at ENSAE on portfolio choice. This post gives contains references and warnings.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                March
+                4th,
+                
+                2014
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/finance/2014/03/04/volatility-drag.html">The Volatility-Drag</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>I review the impact on the future price level of random noise in the return process. This effect operates through the non-linearity of compounding. I look at how an increased level of volatility changes the price trajectories. Normally distributed (say) return variability lowers the median of the price distribution and skews it towards the upside. Over time, the skew increases as compounding operates. The majority of price trajectories are depressed by volatility. The mean price level is however unaffected as the lower trajectories are made up by a few ‘explosive’ ones. This will be important to bear in mind when discussing portfolio choice and the effect of portfolio rebalancing.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                February
+                3rd,
+                  
+                2014
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/finance/2014/02/03/discrete-time-lognormal-dynamics.html">Discrete Time Lognormal Dynamics</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This post introduces discrete time price dynamics in a log-normal setup. This framework allows an easy translation of some of the continuous time results discussed on this site.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                January
+                19th,
+                
+                2014
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/finance/2014/01/19/volatility-accounting-1.html">Volatility Accounting (1)</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>In this post, I shed some light on the volatility of the price process of a zero coupon equity contract. The aim is to understand how the volatility of prospective expected returns impacts the volatility of the price process. I derive under a specific condition<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> a simple accounting relationship linking price volatility on one hand and cash flow as well as discount factor volatility on the other hand. There is some empirical presumption that markets exhibit excess volatility, i.e. that market prices are more volatile than warranted by cash flow volatility. Under the afore mentionned condition, this requires that discount rate shocks be negatively correlated with cash flow shocks<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</em></p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Deterministic volatilies (<strong>see Assumption H</strong>). A later post will<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Although natural, this condition is not strictly equivalent to<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                December
+                16th,
+                
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/finance/2013/12/16/zero-coupon-contracts.html">Zero Coupon Contracts</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This post introduces zero coupon contracts, contracts which promise a single payment at a fixed date <span class="math inline">\(T\)</span>. Truthful to <a href="/finance/2013/02/25/what-is-a-financial-asset.html" title="What is a financial asset">this introductory post</a>, the price process is derived backwards. The terminal pay-off is modeled as a random variable usually not known before maturity. The price process is then defined as adapted to the filtration, with a drift which is the instantaneous expected return and converging to the terminal pay-off at maturity. This is an example of a very simple backward stochastic differential equation. The data of the zero coupon contract is the terminal pay-off and the drift (expected return) process. A key component of the solution is the volatility of the price process, which can be related to the data of the problem.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                December
+                1st,
+                  
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/math/2013/12/01/from-gaussian-to-ornstein-uhlenbeck-processes.html">From Gaussian to Ornstein Uhlenbeck Processes</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This post introduces Gaussian processes, i.e. processes with Gaussian finite dimensional multivariate distributions. Amongst Gaussian processes, the Ornstein Uhlenbeck process is the only Markovian covariance stationary example. It plays a key role in applications thanks to its tractability.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                October
+                27th,
+                
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/math/2013/10/27/martingale-representation.html">Martingale Representation</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>The martingale representation problem in its simplest form is the following. Given a filtration generated by a martingale <span class="math inline">\(M\)</span> and given another martingale <span class="math inline">\(N\)</span> adapted to the filtration, can we express <span class="math inline">\(N\)</span> as a stochastic integral with <span class="math inline">\(M\)</span> as the integrator? The martingale <span class="math inline">\(N\)</span> is generally closed, i.e. it can be expressed as the conditional expectation of a terminal variable <span class="math inline">\(N_{T}\)</span>. In this case, the integrand <span class="math inline">\(H_{t}\)</span> of the stochastic integral representation is heuristically the sensitivity of <span class="math inline">\(N_{T}\)</span> to the shock <span class="math inline">\(dM_{t}\)</span>.The Brownian filtration is the most important example where a Martingale Representation Theorem holds.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                October
+                7th,
+                
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/math/2013/10/07/ito-calculus.html">Ito Calculus</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>This post introduces the Ito rule of stochastic calculus. This rule provides the semimartingale decomposition of a nonlinear (this being the non trivial case) function of given semimartingales. Its simplest incarnation is the product rule of stochastic calculus which gives the semimartingale decomposition of the product of two given semimartingales.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                September
+                22nd,
+                  
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/math/2013/09/22/continuous-semimartingales.html">Continuous Semimartingales</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>The previous posts introduced stochastic integration of an integrand <span class="math inline">\(H\)</span> against an integrator <span class="math inline">\(M\)</span> which was chosen to be a continuous martingale. Continuous semimartingales are now defined as continuous processes that can be decomposed into a continuous martingale and a continuous finite variation process. Because ‘standard’ integration theory allows to integrate against finite variation processes, one can easily extend stochastic integration from continuous martingale integrators to continuous semimartingale integrators.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+
+        <article class="home">
+
+            <span class="post-date">
+                
+                September
+                8th,
+                
+                2013
+            </span>
+
+            <h2>
+                <a href="http://127.0.0.1:4000/math/2013/09/08/stochastic-integrals-and-localization.html">Stochastic Integration and Localization</a>
+            </h2>
+
+            <div>
+                
+                    
+                        <p><em>As explained in <a href="/math/2013/05/29/quadratic-variation-and-stochastic-integration.html" title="quadratic variation and stochastic integration">this post</a>, stochastic integration has initially been developed under the condition <span class="math inline">\(E\left[\int_{0}^{T}H^{2}_{s}d[M]_{s}\right]&lt;\infty\)</span>. This condition has then been replaced by the more general condition <span class="math inline">\(P\left(\int_{0}^{T}H^{2}_{s}d[M]_{s}&lt;\infty \right)=1\)</span>. This turns out to be the most general integrability condition under which stochastic integration can be defined. This post introduces the idea behind this generalization. The process whereby stochastic integration is thus generalized is called localization. In words, the above condition means that the set of trajectories for which integrated variance remains bounded should have probability one.</em></p>
+
+                    
+                
+            </div>
+
+        </article>
+
+<hr/>
+
+<ul class="pager"> 
+
+  
+    <li class="previous">
+      
+        <a href="http://127.0.0.1:4000/page2">&larr; Newer</a>
+      
+    </li>
+  
+  
+  <li>
+          <span class="page_number">Page: 3 of 5</span>
+  </li>
+
+  
+    <li class="next">
+            <a href="http://127.0.0.1:4000/page4">Older &rarr;</a>
+    </li>
+  
+
+</ul>
+
+
+
+
+
+			<!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2022 InvestmentMath with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+
+		</div>
+
+    
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/assets/js/app.js"></script>
+   </body>
+
+</html>
+
+
+
